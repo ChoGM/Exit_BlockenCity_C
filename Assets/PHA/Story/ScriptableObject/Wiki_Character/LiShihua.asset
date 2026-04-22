@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b358ab4fd88811498213e60b44d66dd, type: 3}
+  m_Name: LiShihua
+  m_EditorClassIdentifier: 
+  characterId: Char_Danwol_01
+  characterName: "\uB9AC \uC2DC\uD654 (\u674E\u8A69\u83EF)"
+  characterName_eng: "Lei\u2075 Si\xB9 Waa\u2074"
+  dialogue: 
+  portrait: {fileID: 0}
+  fullBodyImage: {fileID: 0}
+  silhouette: {fileID: 0}
+  age: 24
+  job: "\uACF5\uC791\uCCAD \uCC28\uAD00 \uBCF4\uC88C"
+  height: 161
+  weight: 51
+  notes: "\uAD6C\uB8E1\uCC44\uC131\uC758 \uC9C8\uC11C\uB97C \uAC00\uB974\uB294 \uC11C\uB9BF\uBC1C
+    \uAC19\uC740 \uBCF4\uC88C\uAD00. \uC6B0\uC544\uD55C \uBBF8\uC18C \uB4A4\uC5D0
+    \uAC10\uC815\uC744 \uAC10\uCD98 \uCC44, \uB2E8 \uD55C \uCE58\uC758 \uC624\uCC28\uB3C4
+    \uD5C8\uC6A9\uD558\uC9C0 \uC54A\uB294 \uC644\uBCBD\uD55C \uD310\uB2E8\uC73C\uB85C
+    \uADE0\uD615\uC744 \uBC14\uB85C\uC7A1\uB294\uB2E4. \uACFC\uAC70\uC758 \uC778\uC5F0\uC740
+    \uC624\uC9C1 \uADF8\uB140\uB9CC\uC774 \uC544\uB294 \uBE44\uBC00\uB85C \uB0A8\uC544
+    \uC788\uB2E4."
+  stories:
+  - title: 
+    content: 
+  relations:
+  - targetCharacter: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
+    comment: 

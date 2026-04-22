@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bc362f2515b70547bb6372102a77e7c, type: 3}
+  m_Name: YaSeo
+  m_EditorClassIdentifier: 
+  factionId: Faction_03
+  factionName: "\uC57C\uC11C"
+  factionName_eng: YaSeo
+  factionIcon: {fileID: 0}
+  foundingDate: 1953.03.07
+  description: "\uB9C8\uC57D \uC720\uD1B5\uC5D0 \uB9DE\uC11C\uB358 \uCCAD\uB144\uC774
+    \uC0B4\uD574\uB41C \uC0AC\uAC74\uC744 \uACC4\uAE30\uB85C \uC2DC\uBBFC\uB4E4\uC774
+    \uBAA8\uC5EC \uACB0\uC131\uB418\uC5C8\uB2E4. \uD604\uC7AC\uB294 \uAD6C\uB8E1\uCC44\uC131\uC758
+    \uC790\uCE58\uC640 \uC0DD\uC874, \uADF8\uB9AC\uACE0 \uD64D\uB828\uADC0\uB85C\uBD80\uD130
+    \uC2DC\uBBFC\uC744 \uC9C0\uD0A4\uB294 \uAC83\uC744 \uBAA9\uD45C\uB85C \uC2F8\uC6B4\uB2E4."
+  subDescription: "\uAD6C\uB8E1\uCC44\uC131\uC5D0\uC11C \uD0DC\uC5B4\uB09C \uC2DC\uBBFC
+    \uBB34\uC7A5 \uC870\uC9C1. \uBCF4\uD638\uB97C \uB0B4\uC138\uC6B0\uC9C0\uB9CC,
+    \uC0DD\uC874\uC744 \uC704\uD574\uC120 \uC218\uB2E8\uC744 \uAC00\uB9AC\uC9C0 \uC54A\uB294\uB2E4.
+    \uC815\uC758\uC640 \uD3ED\uB825 \uC0AC\uC774\uC5D0\uC11C \uC2A4\uC2A4\uB85C\uC758
+    \uAE30\uC900\uC73C\uB85C \uC2F8\uC6B4\uB2E4."
+  characters:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

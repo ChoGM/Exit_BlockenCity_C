@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bc362f2515b70547bb6372102a77e7c, type: 3}
+  m_Name: HongNyeonGwi
+  m_EditorClassIdentifier: 
+  factionId: Faction_02
+  factionName: "\uD64D\uB828\uADC0"
+  factionName_eng: GongNyeonGwi
+  factionIcon: {fileID: 0}
+  foundingDate: 1907.11.11
+  description: "\uC2DC\uBBFC \uD601\uBA85\uAE30, \uC655\uC815\uC744 \uBB34\uB108\uB728\uB9AC\uAE30
+    \uC704\uD574 \uACB0\uC131\uB41C \uBB34\uC7A5 \uC870\uC9C1\uC73C\uB85C \uC2DC\uC791\uD588\uB2E4.
+    \uD601\uBA85 \uC774\uD6C4 \uC74C\uC9C0\uB85C \uC0AC\uB77C\uC9C4 \uC774\uB4E4\uC740
+    \uBC94\uC8C4\uC640 \uC0DD\uC874\uC744 \uC120\uD0DD\uD588\uACE0, \uD604\uC7AC\uB294
+    \uC774\uC775\uACFC \uC138\uB825 \uD655\uC7A5\uC744 \uC704\uD574 \uC6C0\uC9C1\uC778\uB2E4."
+  subDescription: "\uD601\uBA85\uC758 \uADF8\uB9BC\uC790\uC5D0\uC11C \uD0DC\uC5B4\uB09C
+    \uBC94\uC8C4 \uC870\uC9C1. \uBD89\uC740 \uD53C\uB85C \uB9FA\uC740 \uD615\uC81C\uB97C
+    \uC790\uCC98\uD558\uC9C0\uB9CC, \uC9C0\uAE08\uC740 \uB9C8\uC57D\uACFC \uBC00\uC218\uB85C
+    \uC0B4\uC544\uAC00\uB294 \uD3EC\uC2DD\uC790\uB4E4. \uBC95 \uBC14\uAE65\uC5D0\uC11C
+    \uC790\uC2E0\uB4E4\uB9CC\uC758 \uC9C8\uC11C\uB97C \uB9CC\uB4E0\uB2E4."
+  characters:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

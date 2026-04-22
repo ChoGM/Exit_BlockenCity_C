@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bc362f2515b70547bb6372102a77e7c, type: 3}
+  m_Name: DanWol
+  m_EditorClassIdentifier: 
+  factionId: Faction_01
+  factionName: "\uB2E8\uC6D4\uAD6D"
+  factionName_eng: DanWol
+  factionIcon: {fileID: 0}
+  foundingDate: 1920.08.01
+  description: "\uC655\uC815\uC758 \uBD80\uD328\uC640 \uBC00\uBB34\uC5ED\uC73C\uB85C
+    \uC313\uC778 \uAD8C\uB825\uC740 \uD601\uBA85 \uC774\uD6C4\uC5D0\uB3C4 \uC0AC\uB77C\uC9C0\uC9C0
+    \uC54A\uC558\uB2E4. \uB0B4\uC804\uC744 \uAC70\uCCD0 \uADC0\uC871 \uC911\uC2EC
+    \uCCB4\uC81C\uB85C \uC7AC\uD3B8\uB41C \uC774\uB4E4\uC740, \uD604\uC7AC \uCCB4\uC81C
+    \uC720\uC9C0\uC640 \uC704\uD611 \uC81C\uAC70\uB97C \uCD5C\uC6B0\uC120\uC73C\uB85C
+    \uC0BC\uB294\uB2E4."
+  subDescription: "\uACF5\uD654\uAD6D\uC758 \uC5BC\uAD74\uC744 \uC4F4 \uC9C0\uBC30\uCE35.
+    \uB0AE\uC5D0\uB294 \uBC95\uACFC \uC9C8\uC11C\uB97C \uB9D0\uD558\uC9C0\uB9CC,
+    \uBC24\uC5D0\uB294 \uAD8C\uB825\uC744 \uAC70\uB798\uD55C\uB2E4. \uADC0\uC871\uACFC
+    \uAD00\uB8CC\uAC00 \uBAA8\uB4E0 \uAC83\uC744 \uC954 \uCC44, \uAD6D\uAC00\uB97C
+    \uC790\uC2E0\uB4E4\uC758 \uCCB4\uC81C\uB85C \uAE38\uB4E4\uC774\uACE0 \uC788\uB2E4."
+  characters:
+  - {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+  - {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
+  - {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+  - {fileID: 0}
