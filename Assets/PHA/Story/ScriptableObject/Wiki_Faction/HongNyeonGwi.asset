@@ -28,7 +28,7 @@ MonoBehaviour:
     \uC0B4\uC544\uAC00\uB294 \uD3EC\uC2DD\uC790\uB4E4. \uBC95 \uBC14\uAE65\uC5D0\uC11C
     \uC790\uC2E0\uB4E4\uB9CC\uC758 \uC9C8\uC11C\uB97C \uB9CC\uB4E0\uB2E4."
   characters:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: a53477d52d68ef346abcfd5c79718b80, type: 2}
+  - {fileID: 11400000, guid: 942c5de3533c34840a251fbc8f0bbef2, type: 2}
+  - {fileID: 11400000, guid: 9cef5ae7c14a27441b9b1521f518d284, type: 2}
   - {fileID: 0}

@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b358ab4fd88811498213e60b44d66dd, type: 3}
+  m_Name: MaZhixiong
+  m_EditorClassIdentifier: 
+  characterId: Char_HongNyeonGwi_03
+  characterName: "\uB9C8 \uC9C0\uC6C5 (\u99AC\u5FD7\u96C4)"
+  characterName_eng: "Maa\u2075 Zi\xB3 Hung\u2074"
+  dialogue: 
+  portrait: {fileID: 0}
+  fullBodyImage: {fileID: 0}
+  silhouette: {fileID: 0}
+  age: 21
+  job: "\uD64D\uB828\uADC0 \uBB34\uB825\uBD80 \uB828\uB3C4"
+  height: 177
+  weight: 96
+  notes: "\uC778\uC815\uBC1B\uAE30 \uC704\uD574 \uB0A0\uB6F0\uB294 \uD64D\uB828\uADC0\uC758
+    \uC80A\uC740 \uB828\uB3C4. \uCDA9\uB3D9\uACFC \uC5F4\uB4F1\uAC10\uC5D0 \uD718\uB458\uB9AC\uBA70
+    \uAC15\uC790\uC5D0\uAC90 \uB9F9\uBAA9\uC801\uC73C\uB85C \uB9E4\uB2EC\uB9AC\uACE0,
+    \uC57D\uC790\uC5D0\uAC90 \uC794\uD639\uD558\uAC8C \uAD70\uB2E4. \uBD88\uC548\uC815\uD55C
+    \uC695\uB9DD\uACFC \uBD84\uB178\uB85C \uC2A4\uC2A4\uB85C\uB97C \uBAB0\uC544\uBD99\uC774\uB294
+    \uC704\uD0DC\uB85C\uC6B4 \uC874\uC7AC."
+  stories: []
+  relations: []
