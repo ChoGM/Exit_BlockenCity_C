@@ -13,11 +13,10 @@ MonoBehaviour:
   m_Name: SpecialQuestData1
   m_EditorClassIdentifier: 
   background: {fileID: -1526326893, guid: a0a4a4d624feb004ca24742a802f1415, type: 3}
-  sliderColor: {r: 0.8301887, g: 0.1527234, b: 0.1527234, a: 0}
+  sliderColor: {r: 0.8301887, g: 0.1527234, b: 0.1527234, a: 1}
   branchID: 1556
   questName: "\uC2A4\uD398\uC15C\uD018\uC2A4\uD2B8\uD14C\uC2A4\uD2B8 1\uBC88"
-  description: "\uC2A4\uD398\uC15C\uD018\uC2A4\uD2B8\uD14C\uC2A4\uD2B8 1\uBC88\uC785\uB2C8\uB2F9\n\uD2B9\uC815
-    \uBE14\uB7ED \uD30C\uAD34 \uD018\uC2A4\uD2B8\n\uC2DC\uAC04 = \uC2DC\uAC04\uCD08"
+  description: "\uAC10\uC625 2\uAC1C \uD30C\uAD34"
   questType: 0
   blockType: 0
   targetCount: 2
@@ -27,5 +26,5 @@ MonoBehaviour:
   timeType: 1
   timeRole: 1
   timeValue: 5
-  reward: 10
+  reward: 1000
   IsCompleted: 0

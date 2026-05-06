@@ -1270,7 +1270,6 @@ MonoBehaviour:
   time: {fileID: 5750395976966028426}
   backgroundImage: {fileID: 7387269475474237735}
   sliderFillImage: {fileID: 0}
-  sliderColors: []
   blockBreakPanel: {fileID: 3654095751837560981}
   blockBreakProgress: {fileID: 0}
   blockNoBreakPanel: {fileID: 1005101149519592643}
