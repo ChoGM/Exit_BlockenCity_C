@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SpecialQuestData3
   m_EditorClassIdentifier: 
   background: {fileID: 2102240409, guid: a0a4a4d624feb004ca24742a802f1415, type: 3}
-  sliderColor: {r: 0.4056604, g: 0.2506675, b: 0.38886577, a: 0}
+  sliderColor: {r: 0.4056604, g: 0.2506675, b: 0.38886577, a: 1}
   branchID: 1889
   questName: "\uC2A4\uD398\uC15C\uD018\uC2A4\uD2B8\uD14C\uC2A4\uD2B8 3\uBC88"
   description: "\uC2A4\uD398\uC15C\uD018\uC2A4\uD2B8\uD14C\uC2A4\uD2B8 3\uBC88\uC785\uB2C8\uB2F9\n\uB192\uC774
