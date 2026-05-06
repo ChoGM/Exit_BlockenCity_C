@@ -24,8 +24,8 @@ MonoBehaviour:
   targetHeight: 6
   restrictedInput: 
   darknessLevel: 0
-  timeType: 1
-  timeRole: 0
-  timeValue: 5
+  timeType: 2
+  timeRole: 1
+  timeValue: 10
   reward: 0
   IsCompleted: 1
