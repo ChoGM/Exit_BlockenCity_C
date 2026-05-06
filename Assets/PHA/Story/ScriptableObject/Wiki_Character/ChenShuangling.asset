@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b358ab4fd88811498213e60b44d66dd, type: 3}
+  m_Name: ChenShuangling
+  m_EditorClassIdentifier: 
+  characterId: Char_YeSeo_03
+  characterName: "\uC9C4 \uC0C1\uB989 (\u9673\u971C\u51CC)"
+  characterName_eng: "Can\u2074 Soeng\xB9 Ling\u2074"
+  dialogue: 
+  portrait: {fileID: 0}
+  fullBodyImage: {fileID: 0}
+  silhouette: {fileID: 0}
+  age: 31
+  job: "\uC57C\uC11C \uC774\uBE68 \uC18C\uC18D \uD589\uB3D9\uB300\uC7A5"
+  height: 162
+  weight: 57
+  notes: "\uBAA9\uD45C\uB97C \uD5A5\uD574 \uB9DD\uC124\uC784 \uC5C6\uC774 \uB3CC\uC9C4\uD558\uB294
+    \uC57C\uC11C\uC758 \uD589\uB3D9\uB300\uC7A5. \uAC00\uC7A5 \uAC70\uCE5C \uC120\uD0DD\uB3C4
+    \uC11C\uC2B4\uC9C0 \uC54A\uC9C0\uB9CC, \uD300\uC6D0\uC758 \uC0DD\uBA85\uB9CC\uD07C\uC740
+    \uB05D\uAE4C\uC9C0 \uC9C0\uCF1C\uB0B8\uB2E4. \uBCF5\uC218\uC5D0 \uC0AC\uB85C\uC7A1\uD78C
+    \uC9D1\uC694\uD55C \uC758\uC9C0\uB85C \uC2A4\uC2A4\uB85C\uB97C \uC18C\uBAA8\uD558\uBA70
+    \uC804\uC7A5\uC744 \uBC00\uC5B4\uBD99\uC774\uB294 \uC778\uBB3C."
+  stories: []
+  relations: []

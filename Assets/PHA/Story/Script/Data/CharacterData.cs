@@ -20,7 +20,7 @@ public class CharacterData : ScriptableObject
     public Sprite silhouette; // 잠금 상태용 그림자 이미지
 
     [Header("프로필")]
-    public int age;
+    public string age;
     public string job;
 
     public float height; // cm
