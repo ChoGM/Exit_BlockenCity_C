@@ -28,7 +28,7 @@ MonoBehaviour:
     \uC815\uC758\uC640 \uD3ED\uB825 \uC0AC\uC774\uC5D0\uC11C \uC2A4\uC2A4\uB85C\uC758
     \uAE30\uC900\uC73C\uB85C \uC2F8\uC6B4\uB2E4."
   characters:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 3cf6b4cf59186f24eb5fbcb2aea380b1, type: 2}
+  - {fileID: 11400000, guid: b3ad0f2b1050edb449acb7acda6d0087, type: 2}
+  - {fileID: 11400000, guid: 7d4844d09adc4d84db1f3bed27343bae, type: 2}
   - {fileID: 0}

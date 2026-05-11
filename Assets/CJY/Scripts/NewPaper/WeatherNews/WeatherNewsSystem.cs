@@ -19,14 +19,14 @@ public class WeatherNewsSystem : MonoBehaviour
     // 월이 바뀌고 날씨가 결정된 직후에 이 함수를 호출
     public void ShowTodayNews()
     {
-        // 1. 수정된 부분: Entry를 먼저 받고, 거기서 type(ObstacleType)을 추출합니다.
+        // Entry를 먼저 받고, 거기서 type(ObstacleType)을 추출
         var currentEntry = GameObstacleSystem.Instance.GetSelectedObstacle();
         ObstacleType currentObstacle = currentEntry.type;
 
-        // 2. 데이터베이스에서 해당 날씨의 기사 검색
+        // 데이터베이스에서 해당 날씨의 기사 검색
         WeatherNewsData todayNews = database.GetNewsData(currentObstacle);
 
-        // 3. UI에 데이터 전달
+        // UI에 데이터 전달
         if (todayNews != null)
         {
             newsUI.DisplayNews(todayNews.title, todayNews.content, todayNews.icon);

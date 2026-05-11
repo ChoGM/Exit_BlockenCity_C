@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b358ab4fd88811498213e60b44d66dd, type: 3}
+  m_Name: ZhangBa
+  m_EditorClassIdentifier: 
+  characterId: Char_HongNyeonGwi_01
+  characterName: "\uC7A5 \uD328 (\u5F35\u9738)"
+  characterName_eng: "Zoeng\xB9 Baa\xB3"
+  dialogue: 
+  portrait: {fileID: 0}
+  fullBodyImage: {fileID: 0}
+  silhouette: {fileID: 0}
+  age: 56
+  job: "\uD64D\uB828\uADC0 \uBB34\uB825\uBD80 \uB828\uC7A5"
+  height: 181
+  weight: 80
+  notes: "\uC6C3\uC74C \uB4A4\uC5D0 \uCE7C\uB0A0\uC744 \uC228\uAE34 \uD64D\uB828\uADC0
+    \uBB34\uB825\uBD80 \uB828\uC7A5. \uC720\uCF8C\uD55C \uCE74\uB9AC\uC2A4\uB9C8\uB85C
+    \uBD80\uD558\uB97C \uC0AC\uB85C\uC7A1\uC9C0\uB9CC, \uC18D\uC73C\uB85C\uB294 \uCE58\uBC00\uD55C
+    \uACC4\uB7B5\uACFC \uB0C9\uD639\uD55C \uACB0\uB2E8\uC73C\uB85C \uAD8C\uB825\uC744
+    \uC6C0\uCF1C\uC954\uB2E4. \uD544\uC694\uD558\uB2E4\uBA74 \uB204\uAD6C\uB4E0 \uAC00\uCC28
+    \uC5C6\uC774 \uBC84\uB9AC\uB294 \uB05D\uC5C6\uB294 \uC695\uB9DD\uC758 \uC57C\uC2EC\uAC00."
+  stories: []
+  relations: []

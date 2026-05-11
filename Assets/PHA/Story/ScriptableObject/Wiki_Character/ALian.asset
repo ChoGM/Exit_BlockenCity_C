@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b358ab4fd88811498213e60b44d66dd, type: 3}
+  m_Name: ALian
+  m_EditorClassIdentifier: 
+  characterId: Char_HongNyeonGwi_02
+  characterName: "\uC544\uB828 (\u96C5\u84EE)"
+  characterName_eng: "Ngaa\u2075 Lin\u2074"
+  dialogue: 
+  portrait: {fileID: 0}
+  fullBodyImage: {fileID: 0}
+  silhouette: {fileID: 0}
+  age: ??
+  job: "\uD64D\uB828\uADC0 \uC815\uBCF4\uBD80 \uB828\uC7A5"
+  height: 168
+  weight: 55
+  notes: "\uBBF8\uC18C\uB85C \uB9C8\uC74C\uC744 \uD754\uB4DC\uB294 \uD64D\uB828\uADC0
+    \uC815\uBCF4\uBD80 \uB828\uC7A5. \uACE0\uD639\uD55C \uAE30\uD488\uACFC \uC2E0\uBE44\uB85C\uC6B4
+    \uD0DC\uB3C4\uB85C \uD0C0\uC778\uC758 \uC2EC\uB9AC\uB97C \uC5EE\uC5B4 \uD750\uB984\uC744
+    \uBC14\uAFB8\uACE0, \uBCF4\uC774\uC9C0 \uC54A\uB294 \uACF3\uC5D0\uC11C \uD310\uC744
+    \uC124\uACC4\uD55C\uB2E4. \uB204\uAD6C\uC5D0\uAC8C\uB3C4 \uB9C8\uC74C\uC744 \uB0B4\uC8FC\uC9C0
+    \uC54A\uC9C0\uB9CC, \uB2E8 \uD558\uB098\uC758 \uC874\uC7AC\uC5D0\uAC8C \uAE4A\uC740
+    \uCDA9\uC131\uC744 \uBC14\uCE5C\uB2E4."
+  stories:
+  - title: 
+    content: 
+  relations: []

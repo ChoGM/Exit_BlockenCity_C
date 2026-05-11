@@ -142,10 +142,7 @@ public class SpecialQuestManager : MonoBehaviour
 
             instance.breakCount++;
 
-            instance.ui?.UpdateBlockBreak(
-                instance.breakCount,
-                instance.data.targetCount
-            );
+            instance.ui?.UpdateProgress(instance.breakCount);
 
             if (instance.breakCount >= instance.data.targetCount)
             {
@@ -170,11 +167,17 @@ public class SpecialQuestManager : MonoBehaviour
 
             if (instance.isFinished) continue;
 
-            instance.ui?.UpdateHeightProgress(
-                currentHeight,
-                instance.data.targetHeight
-            );
+            // 👉 높이 관련 퀘스트만 UI 업데이트
+            switch (instance.data.questType)
+            {
+                case SpecialQuestType.HeightKeep:
+                case SpecialQuestType.HeightLimit:
+                case SpecialQuestType.HeightAchievement:
+                    instance.ui?.UpdateProgress(currentHeight);
+                    break;
+            }
 
+            // 👉 판정 로직
             switch (instance.data.questType)
             {
                 case SpecialQuestType.HeightKeep:
@@ -207,11 +210,9 @@ public class SpecialQuestManager : MonoBehaviour
                 pos.y + 1 == instance.data.targetHeight &&
                 type == instance.data.blockType;
 
-            instance.ui?.UpdateHeightSpecialBlock(
-                TetrisManager.Instance.tower.GetCurrentHeight(),
-                instance.data.targetHeight,
-                instance.data.blockType,
-                installed
+            instance.ui?.UpdateProgress(
+            TetrisManager.Instance.tower.GetCurrentHeight(),
+            installed
             );
 
             if (installed)

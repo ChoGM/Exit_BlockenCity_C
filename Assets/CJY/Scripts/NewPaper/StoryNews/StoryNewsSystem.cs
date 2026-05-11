@@ -25,7 +25,7 @@ public class StoryNewsSystem : MonoBehaviour
         // 기사가 존재한다면 기존 UI에 띄웁니다.
         if (todayStory != null)
         {
-           newsUI.DisplayNews(todayStory.title, todayStory.content, todayStory.icon);
+            newsUI.DisplayNews(todayStory.title, todayStory.content, todayStory.icon, month);
         }
         else
         {

@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b358ab4fd88811498213e60b44d66dd, type: 3}
+  m_Name: ZhouQinghe
+  m_EditorClassIdentifier: 
+  characterId: Char_YeSeo_02
+  characterName: "\uC8FC \uCCAD\uD654 (\u5468\u6E05\u548C)"
+  characterName_eng: "Zau\xB9 Cing\xB9 Wo\u2074"
+  dialogue: 
+  portrait: {fileID: 0}
+  fullBodyImage: {fileID: 0}
+  silhouette: {fileID: 0}
+  age: 25
+  job: "\uC57C\uC11C \uC218\uC5FC \uC18C\uC18D \uD611\uC0C1\uAC00"
+  height: 175
+  weight: 65
+  notes: "\uBD80\uB4DC\uB7EC\uC6B4 \uB9D0\uB85C \uD750\uB984\uC744 \uBC14\uAFB8\uB294
+    \uC57C\uC11C\uC758 \uD611\uC0C1\uAC00. \uC628\uD654\uD55C \uD0DC\uB3C4\uC640
+    \uC720\uC5F0\uD55C \uD310\uB2E8\uC73C\uB85C \uAC08\uB4F1\uC744 \uC870\uC728\uD558\uBA70,
+    \uC27D\uAC8C \uD754\uB4E4\uB9AC\uC9C0 \uC54A\uB294 \uC2E0\uB150\uC73C\uB85C \uAD6C\uB8E1\uCC44\uC131\uC744
+    \uC9C0\uD0A8\uB2E4. \uB2E4\uC815\uD568 \uB4A4\uC5D0 \uD640\uB85C \uACE0\uBBFC\uC744
+    \uD488\uACE0\uC11C\uB3C4 \uB05D\uAE4C\uC9C0 \uC0AC\uB78C\uC744 \uD5A5\uD558\uB294
+    \uC778\uBB3C."
+  stories: []
+  relations: []
