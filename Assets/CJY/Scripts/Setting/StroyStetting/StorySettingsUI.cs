@@ -13,25 +13,35 @@ public class StorySettingsUI : MonoBehaviour
     public GameObject autoAdvanceSelected;
     public GameObject manualAdvanceSelected;
 
+    private void OnEnable()
+    {
+        Debug.Log("StorySettingsUI OnEnable");
+        ApplyCurrentSettings();
+    }
+
     public void ApplyCurrentSettings()
     {
+        Debug.Log("ApplyCurrentSettings");
+
         var manager = StorySettingsManager.Instance;
         if (manager == null) return;
 
-        if (textSmallSelected)
-            textSmallSelected.SetActive(manager.textSize == StoryTextSize.Small);
+        Debug.Log($"Manager TextSize : {manager.textSize}");
 
-        if (textMediumSelected)
-            textMediumSelected.SetActive(manager.textSize == StoryTextSize.Medium);
+        Debug.Log($"Before Small : {textSmallSelected.activeSelf}");
+        Debug.Log($"Before Medium : {textMediumSelected.activeSelf}");
+        Debug.Log($"Before Large : {textLargeSelected.activeSelf}");
 
-        if (textLargeSelected)
-            textLargeSelected.SetActive(manager.textSize == StoryTextSize.Large);
+        textSmallSelected.SetActive(manager.textSize == StoryTextSize.Small);
+        textMediumSelected.SetActive(manager.textSize == StoryTextSize.Medium);
+        textLargeSelected.SetActive(manager.textSize == StoryTextSize.Large);
 
-        if (autoAdvanceSelected)
-            autoAdvanceSelected.SetActive(manager.advanceMode == StoryAdvanceMode.Auto);
+        Debug.Log($"After Small : {textSmallSelected.activeSelf}");
+        Debug.Log($"After Medium : {textMediumSelected.activeSelf}");
+        Debug.Log($"After Large : {textLargeSelected.activeSelf}");
 
-        if (manualAdvanceSelected)
-            manualAdvanceSelected.SetActive(manager.advanceMode == StoryAdvanceMode.Manual);
+        autoAdvanceSelected.SetActive(manager.advanceMode == StoryAdvanceMode.Auto);
+        manualAdvanceSelected.SetActive(manager.advanceMode == StoryAdvanceMode.Manual);
     }
 
     public void SetTextSmall()

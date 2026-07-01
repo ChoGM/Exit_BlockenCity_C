@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
 public class SettingsUI : MonoBehaviour
 {
@@ -44,9 +45,23 @@ public class SettingsUI : MonoBehaviour
         OnClose();
     }
 
+    //private void OnOpen()
+    //{
+    //    // 설정 열릴 때 필요한 처리
+    //    if (storySettingsUI != null)
+    //        storySettingsUI.ApplyCurrentSettings();
+
+    //}
+
     private void OnOpen()
     {
-        // 설정 열릴 때 필요한 처리
+        StartCoroutine(ApplySettingsNextFrame());
+    }
+
+    private IEnumerator ApplySettingsNextFrame()
+    {
+        yield return null;   // 한 프레임 대기
+
         if (storySettingsUI != null)
             storySettingsUI.ApplyCurrentSettings();
     }
