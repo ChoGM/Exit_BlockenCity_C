@@ -341,8 +341,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useTestMonth: 1
-  testMonth: 2
-  currentMonth: 7
+  testMonth: 4
+  currentMonth: 1
   uiText: {fileID: 1314089140}
 --- !u!114 &169282704
 MonoBehaviour:
@@ -581,15 +581,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1364000195586727251, guid: 1ec83719e2c10254f85b4be0e3d526f8, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1364000195586727251, guid: 1ec83719e2c10254f85b4be0e3d526f8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1364000195586727251, guid: 1ec83719e2c10254f85b4be0e3d526f8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1364000195586727251, guid: 1ec83719e2c10254f85b4be0e3d526f8, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -611,13 +611,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1474912614168697639, guid: 1ec83719e2c10254f85b4be0e3d526f8, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474912614168697639, guid: 1ec83719e2c10254f85b4be0e3d526f8, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474912614168697639, guid: 1ec83719e2c10254f85b4be0e3d526f8, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4544203817593970822, guid: 1ec83719e2c10254f85b4be0e3d526f8, type: 3}
       propertyPath: m_Name
       value: Pre_Newspaper
       objectReference: {fileID: 0}
     - target: {fileID: 4544203817593970822, guid: 1ec83719e2c10254f85b4be0e3d526f8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5090634871382713523, guid: 1ec83719e2c10254f85b4be0e3d526f8, type: 3}
       propertyPath: m_Camera
