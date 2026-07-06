@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bae5ec551b93eac409771a8c78309207, type: 3}
-  m_Name: SocialLinkData_Default
+  m_Name: Blog
   m_EditorClassIdentifier: 
   instagramUrl: https://www.instagram.com/exit02std/
   blogUrl: https://blog.naver.com/exit02std
-  twitterUrl: https://blog.naver.com/exit02std
+  twitterUrl: https://x.com/NangongBlock_
