@@ -12,7 +12,7 @@ public class StageData
     public float yaseoDelta = 0;
     public float macheonDelta = 0;
     public float hongryeonDelta = 0;
-    public float merchantUnionDelta = 0;
+    public float JeonSangYeonDelta = 0;
 
     public void Reset()
     {
@@ -22,6 +22,6 @@ public class StageData
         yaseoDelta = 0;
         macheonDelta = 0;
         hongryeonDelta = 0;
-        merchantUnionDelta = 0;
+        JeonSangYeonDelta = 0;
     }
 }

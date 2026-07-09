@@ -53,7 +53,7 @@ public class StageManager : MonoBehaviour
 
     public void AddMerchant(float amount)
     {
-        stageData.merchantUnionDelta += amount;
+        stageData.JeonSangYeonDelta += amount;
     }
 
     public void ClearStage()
@@ -66,7 +66,7 @@ public class StageManager : MonoBehaviour
         save.relationship.yaseo += stageData.yaseoDelta;
         save.relationship.macheon += stageData.macheonDelta;
         save.relationship.hongryeon += stageData.hongryeonDelta;
-        save.relationship.merchantUnion += stageData.merchantUnionDelta;
+        save.relationship.JeonSangYeon += stageData.JeonSangYeonDelta;
 
         Datamanager.Instance.SaveGameData();
 
