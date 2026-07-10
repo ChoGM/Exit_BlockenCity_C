@@ -90,6 +90,9 @@ public class QuestManager : MonoBehaviour
 
         newQuest.currentCount = 0;
         newQuest.IsCompleted = false;
+
+        // 목표 개수를 5~20 랜덤
+        newQuest.targetCount = Random.Range(5, 21);
     }
 
     public void CompleteQuest(int questID)
@@ -97,7 +100,7 @@ public class QuestManager : MonoBehaviour
         var quest = activeQuests.FirstOrDefault(q => q.questID == questID);
         if (quest != null)
         {
-            Debug.Log($"퀘스트 완료: {quest.questName}, 보상: {quest.reward}");
+            Debug.Log($"퀘스트 완료: {quest.questName}, 보상: {quest.Reward}");
 
             // 진행중에서 제거
             activeQuests.Remove(quest);
@@ -109,9 +112,9 @@ public class QuestManager : MonoBehaviour
                 questUIMap.Remove(questID);
             }
 
-            DataManager.Instance.data.Gold += quest.reward;
+            //DataManager.Instance.data.Gold += quest.Reward;
             //Debug.Log($"추가 골드 : {quest.reward}");
-            Debug.Log($"현제 골드 : {DataManager.Instance.data.Gold}");
+            //Debug.Log($"현제 골드 : {DataManager.Instance.data.Gold}");
             // 새 퀘스트 생성 (방금 클리어한 퀘스트 제외)
             StartCoroutine(AddNewQuestNextFrame(questID));
         }

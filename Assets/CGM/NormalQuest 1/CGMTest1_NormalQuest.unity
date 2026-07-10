@@ -1932,6 +1932,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc39848a76e5fa148b06e3a7132979ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1984708123 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6352790165167765619, guid: 363bef48fc922fe4594fce8077806869, type: 3}
+  m_PrefabInstance: {fileID: 881832461094223211}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2034978320
 GameObject:
   m_ObjectHideFlags: 0
@@ -2073,6 +2084,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 531124193}
     m_Modifications:
+    - target: {fileID: 134767958621039105, guid: 363bef48fc922fe4594fce8077806869, type: 3}
+      propertyPath: rewardText
+      value: 
+      objectReference: {fileID: 1984708123}
     - target: {fileID: 2043480306017650375, guid: 363bef48fc922fe4594fce8077806869, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

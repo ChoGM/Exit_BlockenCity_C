@@ -12,8 +12,8 @@ public class NicknameUI : MonoBehaviour
 
     private Coroutine warningCoroutine;
 
-    private const int MIN_LENGTH = 2;
-    private const int MAX_LENGTH = 12;
+    private const int MIN_LENGTH = 1;
+    private const int MAX_LENGTH = 8;
 
     public void OnClickConfirm()
     {

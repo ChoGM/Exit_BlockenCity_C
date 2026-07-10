@@ -6,7 +6,7 @@ public class SampleData : MonoBehaviour
 {
     void Start()
     {
-        DataManager.Instance.LoadGameData();
+        Datamanager.Instance.LoadGameData();
 
         Debug.Log("게임 데이터 파일 경로: " + Application.persistentDataPath);
 
@@ -19,7 +19,7 @@ public class SampleData : MonoBehaviour
     //게임을 종료하면 자동저장
     private void OnApplicationQuit()
     {
-        DataManager.Instance.SaveGameData();
+        Datamanager.Instance.SaveGameData();
     }
 
 }

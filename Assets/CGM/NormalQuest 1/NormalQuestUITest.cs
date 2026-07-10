@@ -44,7 +44,7 @@ public class NormalQuestUITest : MonoBehaviour
 
     public void InitializeGold()
     {
-        DataManager.Instance.data.Gold = 0;
+        //DataManager.Instance.data.Gold = 0;
         Debug.Log("∞ÒµÂ √ ±‚»≠");
     }
 
