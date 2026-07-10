@@ -34,6 +34,9 @@ public class ScoreUIBinder : MonoBehaviour
     public Slider jeonsangyeonSlider;
     public TMP_Text jeonsangyeonStateText;
 
+    [Header("UI Window Object")]
+    public GameObject scoreWindowObject;
+
     public void Refresh()
     {
         var saveData = Datamanager.Instance.saveData;
@@ -104,5 +107,21 @@ public class ScoreUIBinder : MonoBehaviour
             return "친밀";
 
         return "동맹";
+    }
+
+    // ===== 타이머 종료 시 매니저가 호출할 함수 =====
+    public void ToggleScoreUI(bool isActive)
+    {
+        // 1. 매니저가 가진 구멍에 연결된 실제 UI 오브젝트를 켜거나 끕니다.
+        if (scoreWindowObject != null)
+        {
+            scoreWindowObject.SetActive(isActive);
+        }
+
+        // 2. 켜는 거라면 데이터도 최신으로 갱신해 줍니다.
+        if (isActive)
+        {
+            Refresh();
+        }
     }
 }
