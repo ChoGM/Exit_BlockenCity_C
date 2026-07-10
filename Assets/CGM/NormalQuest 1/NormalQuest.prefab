@@ -200,7 +200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questNameText: {fileID: 3257686568346362035}
   descriptionText: {fileID: 7051085746787466032}
-  rewardText: 0
+  rewardText: {fileID: 6352790165167765619}
   progressText: {fileID: 347927044478776182}
 --- !u!1 &2691585005679636575
 GameObject:

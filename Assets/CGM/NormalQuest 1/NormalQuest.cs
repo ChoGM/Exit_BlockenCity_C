@@ -16,9 +16,31 @@ public class NormalQuest : ScriptableObject
     public int targetCount;           // 필요 갯수
     public int currentCount;          // 현재 파괴한 개수
 
-    [Header("보상")]
-    public int reward;             // 보상
-                                   // 완료 여부
+    public int Reward
+    {
+        get
+        {
+            const float minTarget = 5f;
+            const float maxTarget = 20f;
+
+            const float minReward = 100f;
+            const float maxReward = 1000f;
+
+            float t = (targetCount - minTarget) / (maxTarget - minTarget);
+
+            t = Mathf.Pow(t, 1.2f);
+
+            return Mathf.RoundToInt(Mathf.Lerp(minReward, maxReward, t));
+        }
+    }
+    public string Description
+    {
+        get
+        {
+            return $"{targetBlockType} 블럭 {targetCount}개 파괴";
+        }
+    }
+
     [HideInInspector] public bool IsCompleted = false;
 
     // 진행 퍼센트 (UI 표시용)
