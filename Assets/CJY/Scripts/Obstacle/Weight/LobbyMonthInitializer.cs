@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class LobbyMonthInitializer : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class LobbyMonthInitializer : MonoBehaviour
     [Header("Runtime")]
     public int currentMonth = 1;
 
-    [SerializeField] private Text uiText;
+    [SerializeField] private TMP_Text uiText;
 
     private void Start()
     {

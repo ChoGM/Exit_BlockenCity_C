@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// 이 스크립트를 넣으면 HighlightEffect도 자동으로 같이 붙게 해주는 편의성 코드입니다.
+// HighlightEffect도 자동으로 같이 붙게 해주는 편의성 코드입니다.
 [RequireComponent(typeof(HighlightEffect))]
 public class LobbyInteractable : MonoBehaviour, IInteractable
 {
