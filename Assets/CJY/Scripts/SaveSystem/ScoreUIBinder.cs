@@ -37,6 +37,8 @@ public class ScoreUIBinder : MonoBehaviour
     [Header("UI Window Object")]
     public GameObject scoreWindowObject;
 
+    //public static ScoreUIBinder Instance;
+
     public void Refresh()
     {
         var saveData = Datamanager.Instance.saveData;

@@ -56,6 +56,11 @@ public class StageManager : MonoBehaviour
         stageData.JeonSangYeonDelta += amount;
     }
 
+    public void OverStage()
+    {
+        stageData.Reset();
+    }
+
     public void ClearStage()
     {
         var save = Datamanager.Instance.saveData;
