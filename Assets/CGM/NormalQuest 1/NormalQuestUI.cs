@@ -7,7 +7,7 @@ public class NormalQuestUI : MonoBehaviour
 {
     public Text questNameText;
     public Text descriptionText;
-    public int rewardText;
+    public Text rewardText;
     public Text progressText;
 
     private int questID;
@@ -18,16 +18,22 @@ public class NormalQuestUI : MonoBehaviour
     public void SetQuest(NormalQuest quest)
     {
         this.quest = quest;
+
         questID = quest.questID;
+
         questNameText.text = quest.questName;
-        descriptionText.text = quest.description;
-        rewardText = quest.reward;
+        descriptionText.text = quest.Description;
+        rewardText.text = $"{quest.Reward} G";
         progressText.text = $"{quest.currentCount}/{quest.targetCount}";
     }
     private void Update()
     {
-        if (quest != null)
-            progressText.text = $"{quest.currentCount}/{quest.targetCount}";
+        if (quest == null)
+            return;
+
+        progressText.text = $"{quest.currentCount}/{quest.targetCount}";
+        descriptionText.text = quest.Description;
+        rewardText.text = $"{quest.Reward} G";
     }
     // 완료 버튼 클릭 시 호출
     public void OnCompleteButton()

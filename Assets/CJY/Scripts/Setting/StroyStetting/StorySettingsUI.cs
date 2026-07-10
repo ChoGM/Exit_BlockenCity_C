@@ -13,25 +13,23 @@ public class StorySettingsUI : MonoBehaviour
     public GameObject autoAdvanceSelected;
     public GameObject manualAdvanceSelected;
 
+    private void Start()
+    {
+        ApplyCurrentSettings();
+    }
+
     public void ApplyCurrentSettings()
     {
+
         var manager = StorySettingsManager.Instance;
         if (manager == null) return;
 
-        if (textSmallSelected)
-            textSmallSelected.SetActive(manager.textSize == StoryTextSize.Small);
+        textSmallSelected.SetActive(manager.textSize == StoryTextSize.Small);
+        textMediumSelected.SetActive(manager.textSize == StoryTextSize.Medium);
+        textLargeSelected.SetActive(manager.textSize == StoryTextSize.Large);
 
-        if (textMediumSelected)
-            textMediumSelected.SetActive(manager.textSize == StoryTextSize.Medium);
-
-        if (textLargeSelected)
-            textLargeSelected.SetActive(manager.textSize == StoryTextSize.Large);
-
-        if (autoAdvanceSelected)
-            autoAdvanceSelected.SetActive(manager.advanceMode == StoryAdvanceMode.Auto);
-
-        if (manualAdvanceSelected)
-            manualAdvanceSelected.SetActive(manager.advanceMode == StoryAdvanceMode.Manual);
+        autoAdvanceSelected.SetActive(manager.advanceMode == StoryAdvanceMode.Auto);
+        manualAdvanceSelected.SetActive(manager.advanceMode == StoryAdvanceMode.Manual);
     }
 
     public void SetTextSmall()

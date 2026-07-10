@@ -7,5 +7,5 @@ using System;
 public class PlayerData
 {
     public string playerName;
-    public int totalMoney;
+    public int totalMoney = 0;
 }

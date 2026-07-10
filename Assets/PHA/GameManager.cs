@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     public float gameTime = 180f;
+    public ScoreUIBinder scoreManager;
 
     private void Awake()
     {
@@ -31,5 +32,8 @@ public class GameManager : MonoBehaviour
     public void TimeOver()
     {
         Debug.Log("일차 종료!");
+
+        //점수창 활성화
+        scoreManager.ToggleScoreUI(true);
     }
 }

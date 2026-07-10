@@ -13,10 +13,9 @@ MonoBehaviour:
   m_Name: NewQuest 2
   m_EditorClassIdentifier: 
   questID: 3
-  questName: "3\uBC88 \uD018\uC2A4\uD2B8 \uC774\uB984"
-  description: "3\uBC88 \uD018\uC2A4\uD2B8 \uB0B4\uC6A9"
+  questName: "\uBCD1\uC6D0\uBE14\uB7ED \uD30C\uAD34 3"
+  description: 
   targetBlockType: 1
-  targetCount: 500
-  currentCount: 7
-  reward: 0
+  targetCount: 17
+  currentCount: 0
   IsCompleted: 0

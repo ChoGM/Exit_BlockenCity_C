@@ -5,31 +5,47 @@ using UnityEngine;
 public class Sample : MonoBehaviour
 {
     [Header("UI")]
-    public ScoreUIBinder scoreUIBinder; // 점수 UI 바인더 참조
+    public ScoreUIBinder scoreUIBinder;
 
     void Start()
     {
-        // 저장 데이터 로드
         Datamanager.Instance.LoadGameData();
 
-        Debug.Log(
-            "로드 후 이름: " +
-            Datamanager.Instance.saveData.player.playerName
-        );
+        StageManager.Instance.StartStage();
 
-        Debug.Log(
-            "현재 스테이지: " +
-            Datamanager.Instance.saveData.progress.currentStage
-        );
+        scoreUIBinder?.Refresh();
+    }
 
-        // 로드 완료 후 UI 갱신
-        if (scoreUIBinder != null)
+    // 테스트용 키 입력 처리를 위한 Update 함수 추가
+    void Update()
+    {
+        // 0번 키: 스코어 UI 리프레쉬
+        if (Input.GetKeyDown(KeyCode.Alpha0))
         {
-            scoreUIBinder.Refresh();
+            scoreUIBinder?.Refresh();
+            Debug.Log("테스트: UI가 리프레쉬되었습니다.");
         }
-        else
+
+        // 9번 키: 이번 스테이지 획득 머니 증가 (StageManager 호출)
+        if (Input.GetKeyDown(KeyCode.Alpha9))
         {
-            Debug.LogWarning("ScoreUIBinder가 연결되지 않았습니다.");
+            // 예시로 한 번 누를 때마다 100원씩 증가하도록 설정했습니다.
+            StageManager.Instance.AddMoney(100);
+
+            // 값이 바뀐 것을 화면에 바로 보여주기 위해 리프레쉬도 함께 호출합니다.
+            scoreUIBinder?.Refresh();
+            Debug.Log("테스트: 스테이지 머니 +100 증가");
+        }
+
+        // 8번 키: 단월국 호감도 증가 (StageManager 호출)
+        if (Input.GetKeyDown(KeyCode.Alpha8))
+        {
+            // 예시로 한 번 누를 때마다 호감도가 10f씩 증가하도록 설정했습니다.
+            StageManager.Instance.AddDanwol(10f);
+
+            // 값이 바뀐 것을 화면에 바로 보여주기 위해 리프레쉬도 함께 호출합니다.
+            scoreUIBinder?.Refresh();
+            Debug.Log("테스트: 단월국 호감도 +10 증가");
         }
     }
 
@@ -44,27 +60,15 @@ public class Sample : MonoBehaviour
 
         if (progress.currentStage < 12)
         {
+            StageManager.Instance.ClearStage();
+
             progress.currentStage++;
+
             Datamanager.Instance.SaveGameData();
 
-            // 스테이지 변경 후 UI도 갱신
+            StageManager.Instance.StartStage();
+
             scoreUIBinder?.Refresh();
         }
-    }
-
-    public void AddMoney(int amount)
-    {
-        Datamanager.Instance.saveData.player.totalMoney += amount;
-        Datamanager.Instance.SaveGameData();
-
-        scoreUIBinder?.Refresh();
-    }
-
-    public void AddDanwolFavor(int amount)
-    {
-        Datamanager.Instance.saveData.relationship.danwol += amount;
-        Datamanager.Instance.SaveGameData();
-
-        scoreUIBinder?.Refresh();
     }
 }

@@ -44,11 +44,29 @@ public class SettingsUI : MonoBehaviour
         OnClose();
     }
 
+    //private void OnOpen()
+    //{
+    //    // 설정 열릴 때 필요한 처리
+    //    if (storySettingsUI != null)
+    //        storySettingsUI.ApplyCurrentSettings();
+
+    //}
+
     private void OnOpen()
     {
-        // 설정 열릴 때 필요한 처리
-        if (storySettingsUI != null)
-            storySettingsUI.ApplyCurrentSettings();
+        Debug.Log("OnOpen");
+        StartCoroutine(ApplySettingsNextFrame());
+    }
+
+    private IEnumerator ApplySettingsNextFrame()
+    {
+        Debug.Log("Coroutine Start");
+
+        yield return null;
+
+        Debug.Log("Coroutine Apply");
+
+        storySettingsUI.ApplyCurrentSettings();
     }
 
     private void OnClose()
