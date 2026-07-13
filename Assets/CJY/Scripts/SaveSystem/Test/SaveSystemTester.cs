@@ -23,7 +23,7 @@ public class SaveSystemTester : MonoBehaviour
             Datamanager.Instance.saveData.player.playerName;
 
         RefreshStateText();
-        scoreUIBinder?.Refresh();
+        //scoreUIBinder?.Refresh();
     }
 
     // 이름 저장
@@ -61,7 +61,7 @@ public class SaveSystemTester : MonoBehaviour
     private void RefreshAll()
     {
         RefreshStateText();
-        scoreUIBinder?.Refresh();
+        //scoreUIBinder?.Refresh();
     }
 
     // Tester 자체 표시 갱신

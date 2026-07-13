@@ -13,7 +13,7 @@ public class Sample : MonoBehaviour
 
         StageManager.Instance.StartStage();
 
-        scoreUIBinder?.Refresh();
+        scoreUIBinder?.Refresh(false);
     }
 
     // 테스트용 키 입력 처리를 위한 Update 함수 추가
@@ -22,7 +22,7 @@ public class Sample : MonoBehaviour
         // 0번 키: 스코어 UI 리프레쉬
         if (Input.GetKeyDown(KeyCode.Alpha0))
         {
-            scoreUIBinder?.Refresh();
+            scoreUIBinder?.Refresh(false);
             Debug.Log("테스트: UI가 리프레쉬되었습니다.");
         }
 
@@ -33,7 +33,7 @@ public class Sample : MonoBehaviour
             StageManager.Instance.AddMoney(100);
 
             // 값이 바뀐 것을 화면에 바로 보여주기 위해 리프레쉬도 함께 호출합니다.
-            scoreUIBinder?.Refresh();
+            scoreUIBinder?.Refresh(false);
             Debug.Log("테스트: 스테이지 머니 +100 증가");
         }
 
@@ -44,7 +44,7 @@ public class Sample : MonoBehaviour
             StageManager.Instance.AddDanwol(10f);
 
             // 값이 바뀐 것을 화면에 바로 보여주기 위해 리프레쉬도 함께 호출합니다.
-            scoreUIBinder?.Refresh();
+            scoreUIBinder?.Refresh(false);
             Debug.Log("테스트: 단월국 호감도 +10 증가");
         }
     }
@@ -68,7 +68,7 @@ public class Sample : MonoBehaviour
 
             StageManager.Instance.StartStage();
 
-            scoreUIBinder?.Refresh();
+            scoreUIBinder?.Refresh(false);
         }
     }
 }

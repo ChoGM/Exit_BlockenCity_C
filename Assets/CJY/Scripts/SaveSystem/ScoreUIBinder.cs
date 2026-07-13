@@ -10,6 +10,9 @@ public class ScoreUIBinder : MonoBehaviour
     public TMP_Text playerNameText;
     public TMP_Text playerNameText2;
 
+    [Header("Date")]
+    public TMP_Text dateText;
+
     [Header("Money")]
     public TMP_Text totalMoneyText;
     public TMP_Text salaryText;
@@ -35,40 +38,71 @@ public class ScoreUIBinder : MonoBehaviour
     public TMP_Text jeonsangyeonStateText;
 
     [Header("UI Window Object")]
-    public GameObject scoreWindowObject;
+    public GameObject clearWindowObject;
+    public GameObject gameOverWindowObject;
+    public GameObject scoreWindowObject;   // 최상위 부모 (전체 UI를 감싸는 캔버스나 패널)
 
-    [Header("Date")]
-    public TMP_Text dateText;
+    // 기존 함수에 bool 매개변수 추가
+    public void ToggleScoreUI(bool isActive, bool isGameOver = false)
+    {
+        if (scoreWindowObject != null)
+        {
+            scoreWindowObject.SetActive(isActive);
+        }
 
-    //public static ScoreUIBinder Instance;
+        if (isActive)
+        {
+            if (clearWindowObject != null)
+            {
+                clearWindowObject.SetActive(!isGameOver); // 게임오버가 아닐 때(클리어)만 켬
+            }
 
-    public void Refresh()
+            if (gameOverWindowObject != null)
+            {
+                gameOverWindowObject.SetActive(isGameOver);   // 게임오버일 때만 켬
+            }
+
+            // 3. 데이터를 최신 상태에 맞춰 갱신합니다.
+            Refresh(isGameOver);
+        }
+    }
+
+    // Refresh 함수도 상태를 받도록 수정
+    public void Refresh(bool isGameOver)
     {
         var saveData = Datamanager.Instance.saveData;
         var stageData = StageManager.Instance.stageData;
 
-        // 날짜 표시 (예: 01.00)
+        // 날짜 및 플레이어 이름 표시 (공통)
         dateText.text = $"{saveData.progress.currentStage:00}.00.";
-
-        // 플레이어 이름
         playerNameText.text = saveData.player.playerName;
         playerNameText2.text = saveData.player.playerName;
 
-        int baseSalary = GetBaseSalary(saveData.progress.currentStage);
+        // ===== 게임 오버 상태일 때 =====
+        if (isGameOver)
+        {
+            // 월급 0원 및 빨간색 처리
+            salaryText.text = "0";
+            salaryText.color = new Color32(214, 47, 45, 255);
 
-        int totalSalary = baseSalary + stageData.earnedMoney;
+            // 총 자산은 이번 판에 번 돈 없이 기존 자산만 표시
+            totalMoneyText.text = saveData.player.totalMoney.ToString();
+        }
+        // ===== 게임 클리어(성공) 상태일 때 =====
+        else
+        {
+            int baseSalary = GetBaseSalary(saveData.progress.currentStage);
+            int totalSalary = baseSalary + stageData.earnedMoney;
 
-        // 월급 표시
-        //salaryText.text = $"{baseSalary} + {stageData.earnedMoney}";
+            // 월급 및 총 자산 표시
+            //salaryText.text = totalSalary.ToString();
+            salaryText.text = $"{baseSalary} + {stageData.earnedMoney}";
 
-        // 월급 표시
-        salaryText.text = totalSalary.ToString();
+            int totalMoney = saveData.player.totalMoney + totalSalary;
+            totalMoneyText.text = totalMoney.ToString();
+        }
 
-        // 총 자산 표시
-        int totalMoney = saveData.player.totalMoney + totalSalary;
-        totalMoneyText.text = totalMoney.ToString();
-
-        // ===== 세력 =====
+        // ===== 세력 (TetrisManager에서 이미 OverStage()를 호출해 delta가 0이 되므로 그대로 사용 가능) =====
         RefreshRelationship(
             danwolSlider,
             danwolStateText,
@@ -122,22 +156,6 @@ public class ScoreUIBinder : MonoBehaviour
             return "친밀";
 
         return "동맹";
-    }
-
-    // ===== 타이머 종료 시 매니저가 호출할 함수 =====
-    public void ToggleScoreUI(bool isActive)
-    {
-        // 1. 매니저가 가진 구멍에 연결된 실제 UI 오브젝트를 켜거나 끕니다.
-        if (scoreWindowObject != null)
-        {
-            scoreWindowObject.SetActive(isActive);
-        }
-
-        // 2. 켜는 거라면 데이터도 최신으로 갱신해 줍니다.
-        if (isActive)
-        {
-            Refresh();
-        }
     }
 
     private int GetBaseSalary(int currentStage)

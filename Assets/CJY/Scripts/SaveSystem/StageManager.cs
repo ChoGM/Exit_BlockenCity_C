@@ -80,4 +80,13 @@ public class StageManager : MonoBehaviour
 
         stageData.Reset();
     }
+
+    public void RestartStage()
+    {
+        StartStage();
+
+        // 현재 열려있는 인게임 씬의 이름을 자동으로 가져와 다시 로드합니다.
+        string currentSceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+        UnityEngine.SceneManagement.SceneManager.LoadScene(currentSceneName);
+    }
 }

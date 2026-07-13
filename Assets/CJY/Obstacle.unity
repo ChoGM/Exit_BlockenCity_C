@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657892, g: 0.4964128, b: 0.5748173, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -916,11 +916,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 425659903959466483, guid: 8b77b0256eb49b744b2f2fa2f37a3cdb, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 425659903959466483, guid: 8b77b0256eb49b744b2f2fa2f37a3cdb, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 740466218366087753, guid: 8b77b0256eb49b744b2f2fa2f37a3cdb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -956,27 +956,55 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 893264067601489707, guid: 8b77b0256eb49b744b2f2fa2f37a3cdb, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1302720933426247943, guid: 8b77b0256eb49b744b2f2fa2f37a3cdb, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1302720933426247943, guid: 8b77b0256eb49b744b2f2fa2f37a3cdb, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1839943838696902722, guid: 8b77b0256eb49b744b2f2fa2f37a3cdb, type: 3}
       propertyPath: m_text
       value: 00.00.
       objectReference: {fileID: 0}
+    - target: {fileID: 2200579379146257969, guid: 8b77b0256eb49b744b2f2fa2f37a3cdb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2200579379146257969, guid: 8b77b0256eb49b744b2f2fa2f37a3cdb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2200579379146257969, guid: 8b77b0256eb49b744b2f2fa2f37a3cdb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1672152915}
+    - target: {fileID: 2200579379146257969, guid: 8b77b0256eb49b744b2f2fa2f37a3cdb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2200579379146257969, guid: 8b77b0256eb49b744b2f2fa2f37a3cdb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RetryCurrentStage
+      objectReference: {fileID: 0}
+    - target: {fileID: 2200579379146257969, guid: 8b77b0256eb49b744b2f2fa2f37a3cdb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SceneChange, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2200579379146257969, guid: 8b77b0256eb49b744b2f2fa2f37a3cdb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2753885661401887998, guid: 8b77b0256eb49b744b2f2fa2f37a3cdb, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2753885661401887998, guid: 8b77b0256eb49b744b2f2fa2f37a3cdb, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3386569744912928644, guid: 8b77b0256eb49b744b2f2fa2f37a3cdb, type: 3}
       propertyPath: m_text
@@ -988,11 +1016,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4488952353201662481, guid: 8b77b0256eb49b744b2f2fa2f37a3cdb, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4488952353201662481, guid: 8b77b0256eb49b744b2f2fa2f37a3cdb, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4564688386559780503, guid: 8b77b0256eb49b744b2f2fa2f37a3cdb, type: 3}
       propertyPath: m_text
@@ -1001,6 +1029,10 @@ PrefabInstance:
     - target: {fileID: 5423202849612582472, guid: 8b77b0256eb49b744b2f2fa2f37a3cdb, type: 3}
       propertyPath: m_text
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5748261073988646359, guid: 8b77b0256eb49b744b2f2fa2f37a3cdb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 5946138504065574912, guid: 8b77b0256eb49b744b2f2fa2f37a3cdb, type: 3}
       propertyPath: m_IsActive
@@ -1092,11 +1124,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8912921534456574455, guid: 8b77b0256eb49b744b2f2fa2f37a3cdb, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8912921534456574455, guid: 8b77b0256eb49b744b2f2fa2f37a3cdb, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8935768564900909804, guid: 8b77b0256eb49b744b2f2fa2f37a3cdb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1502,6 +1534,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerNameText: {fileID: 1914939943}
   playerNameText2: {fileID: 1124922289}
+  dateText: {fileID: 1809527715}
   totalMoneyText: {fileID: 190705255}
   salaryText: {fileID: 250081062}
   danwolSlider: {fileID: 1673237914}
@@ -1514,8 +1547,9 @@ MonoBehaviour:
   hongryeonStateText: {fileID: 1446270954}
   jeonsangyeonSlider: {fileID: 823874670}
   jeonsangyeonStateText: {fileID: 1703681645}
+  clearWindowObject: {fileID: 0}
+  gameOverWindowObject: {fileID: 0}
   scoreWindowObject: {fileID: 997562292}
-  dateText: {fileID: 1809527715}
 --- !u!4 &1069338448
 Transform:
   m_ObjectHideFlags: 0
@@ -1869,6 +1903,7 @@ GameObject:
   - component: {fileID: 1672152914}
   - component: {fileID: 1672152913}
   - component: {fileID: 1672152912}
+  - component: {fileID: 1672152915}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1917,6 +1952,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1672152915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672152911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd8221436f4b07c4780b012265abb296, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1673237914 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6489005162118426705, guid: 8b77b0256eb49b744b2f2fa2f37a3cdb, type: 3}
