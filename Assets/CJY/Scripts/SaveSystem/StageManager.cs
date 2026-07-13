@@ -65,7 +65,10 @@ public class StageManager : MonoBehaviour
     {
         var save = Datamanager.Instance.saveData;
 
-        save.player.totalMoney += stageData.earnedMoney;
+        int baseSalary =
+            10000 + ((save.progress.currentStage - 1) / 3) * 5000;
+
+        save.player.totalMoney += baseSalary + stageData.earnedMoney;
 
         save.relationship.danwol += stageData.danwolDelta;
         save.relationship.yaseo += stageData.yaseoDelta;

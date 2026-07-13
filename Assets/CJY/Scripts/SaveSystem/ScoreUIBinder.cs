@@ -37,6 +37,9 @@ public class ScoreUIBinder : MonoBehaviour
     [Header("UI Window Object")]
     public GameObject scoreWindowObject;
 
+    [Header("Date")]
+    public TMP_Text dateText;
+
     //public static ScoreUIBinder Instance;
 
     public void Refresh()
@@ -44,15 +47,25 @@ public class ScoreUIBinder : MonoBehaviour
         var saveData = Datamanager.Instance.saveData;
         var stageData = StageManager.Instance.stageData;
 
+        // 날짜 표시 (예: 01.00)
+        dateText.text = $"{saveData.progress.currentStage:00}.00.";
+
         // 플레이어 이름
         playerNameText.text = saveData.player.playerName;
         playerNameText2.text = saveData.player.playerName;
 
-        // 월급 (이번 스테이지 획득)
-        salaryText.text = stageData.earnedMoney.ToString();
+        int baseSalary = GetBaseSalary(saveData.progress.currentStage);
 
-        // 총 자산 (현재 자산 + 이번 월급)
-        int totalMoney = saveData.player.totalMoney + stageData.earnedMoney;
+        int totalSalary = baseSalary + stageData.earnedMoney;
+
+        // 월급 표시
+        //salaryText.text = $"{baseSalary} + {stageData.earnedMoney}";
+
+        // 월급 표시
+        salaryText.text = totalSalary.ToString();
+
+        // 총 자산 표시
+        int totalMoney = saveData.player.totalMoney + totalSalary;
         totalMoneyText.text = totalMoney.ToString();
 
         // ===== 세력 =====
@@ -125,5 +138,15 @@ public class ScoreUIBinder : MonoBehaviour
         {
             Refresh();
         }
+    }
+
+    private int GetBaseSalary(int currentStage)
+    {
+        // 1~3월 : 10000
+        // 4~6월 : 15000
+        // 7~9월 : 20000
+        // 10~12월 : 25000
+
+        return 10000 + ((currentStage - 1) / 3) * 5000;
     }
 }
