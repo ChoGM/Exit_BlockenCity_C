@@ -21,6 +21,8 @@ public class TetrisManager : MonoBehaviour
 
     private int[] typeBlockCount = new int[(int)BlockType.None];
 
+    public ScoreUIBinder scoreUIBinder;
+
     private void Awake()
     {
         if (Instance == null)
@@ -89,6 +91,11 @@ public class TetrisManager : MonoBehaviour
     {
         Debug.Log("[Tetris] GAME OVER");
         // TODO: 게임오버 UI, 입력 차단, 재시작 처리 등
+
+        StageManager.Instance.OverStage();
+
+        scoreUIBinder.ToggleScoreUI(true);
+
     }
 
 }
