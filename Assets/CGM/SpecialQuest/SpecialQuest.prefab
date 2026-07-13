@@ -1265,27 +1265,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questNameText: {fileID: 0}
   descriptionText: {fileID: 0}
-  rewardText: 0
+  rewardText: {fileID: 0}
   progressText: {fileID: 0}
   time: {fileID: 5750395976966028426}
-  backgroundImage: {fileID: 7387269475474237735}
   sliderFillImage: {fileID: 0}
-  blockBreakPanel: {fileID: 3654095751837560981}
-  blockBreakProgress: {fileID: 0}
-  blockNoBreakPanel: {fileID: 1005101149519592643}
-  blockNoBreakProgress: {fileID: 0}
-  HeightLimitPanel: {fileID: 6555049476200123481}
-  HeightLimitProgress: {fileID: 0}
-  HeightAchievementPanel: {fileID: 8064058341464680710}
-  HeightAchievementProgress: {fileID: 0}
-  HeightKeepPanel: {fileID: 7557332250273186365}
-  HeightKeepProgress: {fileID: 0}
-  HeightSpecialBlockPanel: {fileID: 494603685321934070}
-  HeightSpecialBlockProgress: {fileID: 0}
-  InputRestrictionPanel: {fileID: 3273715258823530336}
-  InputRestrictionProgress: {fileID: 0}
-  ViewObstructionPanel: {fileID: 6212953261592198939}
-  ViewObstructionProgress: {fileID: 0}
+  backgroundImage: {fileID: 7387269475474237735}
   defaultBackground: {fileID: 0}
 --- !u!114 &8390355406289107692
 MonoBehaviour:
