@@ -1,3 +1,4 @@
+using System; 
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,9 @@ using UnityEngine;
 public class StorySettingsManager : MonoBehaviour
 {
     public static StorySettingsManager Instance;
+
+    // ===== [추가] 스토리 설정이 바뀔 때 외부에 알려줄 이벤트 =====
+    public event Action OnStorySettingsChanged;
 
     [Header("Current Settings")]
     public StoryTextSize textSize = StoryTextSize.Medium;
@@ -27,21 +31,23 @@ public class StorySettingsManager : MonoBehaviour
         LoadSettings();
     }
 
-    // ===== Setters (설정 UI에서 호출) =====
-
     public void SetTextSize(StoryTextSize size)
     {
         textSize = size;
         PlayerPrefs.SetInt(TEXT_SIZE_KEY, (int)size);
+
+        // ===== [추가] 데이터가 변경되었음을 UI에 알림 =====
+        OnStorySettingsChanged?.Invoke();
     }
 
     public void SetAdvanceMode(StoryAdvanceMode mode)
     {
         advanceMode = mode;
         PlayerPrefs.SetInt(ADVANCE_MODE_KEY, (int)mode);
-    }
 
-    // ===== Getters (스토리 시스템에서 사용 예정) =====
+        // ===== [추가] 데이터가 변경되었음을 UI에 알림 =====
+        OnStorySettingsChanged?.Invoke();
+    }
 
     public StoryTextSize GetTextSize()
     {
@@ -60,5 +66,12 @@ public class StorySettingsManager : MonoBehaviour
 
         advanceMode = (StoryAdvanceMode)PlayerPrefs.GetInt(
             ADVANCE_MODE_KEY, (int)StoryAdvanceMode.Manual);
+    }
+
+    // ===== 스토리 설정 초기화 =====
+    public void ResetSettings()
+    {
+        SetTextSize(StoryTextSize.Medium);
+        SetAdvanceMode(StoryAdvanceMode.Auto);
     }
 }
