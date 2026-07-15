@@ -15,12 +15,26 @@ public class StorySettingsUI : MonoBehaviour
 
     private void Start()
     {
+        // ===== [추가] 매니저의 값 변경 이벤트를 구독 =====
+        if (StorySettingsManager.Instance != null)
+        {
+            StorySettingsManager.Instance.OnStorySettingsChanged += ApplyCurrentSettings;
+        }
+
         ApplyCurrentSettings();
+    }
+
+    // 오브젝트가 파괴될 때 이벤트 구독을 해제해 줍니다 (메모리 누수 방지)
+    private void OnDestroy()
+    {
+        if (StorySettingsManager.Instance != null)
+        {
+            StorySettingsManager.Instance.OnStorySettingsChanged -= ApplyCurrentSettings;
+        }
     }
 
     public void ApplyCurrentSettings()
     {
-
         var manager = StorySettingsManager.Instance;
         if (manager == null) return;
 
@@ -35,30 +49,25 @@ public class StorySettingsUI : MonoBehaviour
     public void SetTextSmall()
     {
         StorySettingsManager.Instance.SetTextSize(StoryTextSize.Small);
-        ApplyCurrentSettings();
     }
 
     public void SetTextMedium()
     {
         StorySettingsManager.Instance.SetTextSize(StoryTextSize.Medium);
-        ApplyCurrentSettings();
     }
 
     public void SetTextLarge()
     {
         StorySettingsManager.Instance.SetTextSize(StoryTextSize.Large);
-        ApplyCurrentSettings();
     }
 
     public void SetAutoAdvance()
     {
         StorySettingsManager.Instance.SetAdvanceMode(StoryAdvanceMode.Auto);
-        ApplyCurrentSettings();
     }
 
     public void SetManualAdvance()
     {
         StorySettingsManager.Instance.SetAdvanceMode(StoryAdvanceMode.Manual);
-        ApplyCurrentSettings();
     }
 }
