@@ -10,6 +10,22 @@ public class Datamanager : MonoBehaviour
     static GameObject container;
     static Datamanager instance;
 
+    private const string SaveFolder = "Save";
+    private const string GameDataFileName = "SaveData.dat";
+
+    private string SavePath
+    {
+        get
+        {
+            string folder = Path.Combine(Application.persistentDataPath, SaveFolder);
+
+            if (!Directory.Exists(folder))
+                Directory.CreateDirectory(folder);
+
+            return Path.Combine(folder, GameDataFileName);
+        }
+    }
+
     public static Datamanager Instance
     {
         get
@@ -24,13 +40,11 @@ public class Datamanager : MonoBehaviour
         }
     }
 
-    string GameDataFileName = "GameData.json";
-
     public SaveData saveData = new SaveData();
 
     public void LoadGameData()
     {
-        string path = Application.persistentDataPath + "/" + GameDataFileName;
+        string path = SavePath;
 
         Debug.Log(path);
 
@@ -89,7 +103,7 @@ public class Datamanager : MonoBehaviour
         };
 
         string wrapperJson = JsonUtility.ToJson(wrapper, true);
-        string path = Application.persistentDataPath + "/" + GameDataFileName;
+        string path = SavePath;
 
         File.WriteAllText(path, wrapperJson);
         Debug.Log("암호화 저장 완료");
