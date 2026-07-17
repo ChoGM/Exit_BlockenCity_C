@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/CJY/Title.unity
     guid: af29bfa71a4c0ce438b27dc1602114af
+  - enabled: 1
+    path: Assets/CJY/Story.unity
+    guid: a39c0d1adf36c5447acdcb5f629ee93e
   m_configObjects: {}
