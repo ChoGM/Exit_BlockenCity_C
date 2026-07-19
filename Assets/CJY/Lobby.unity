@@ -359,8 +359,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c70c8d6fab1f2745b91cef4376359ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useTestMonth: 0
-  testMonth: 4
+  useTestMonth: 1
+  testMonth: 6
   currentMonth: 1
   uiText: {fileID: 1044226741}
 --- !u!114 &169282704
