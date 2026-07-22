@@ -10,15 +10,7 @@ public class StageManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        Instance = this;
     }
 
     public void StartStage()
@@ -79,5 +71,14 @@ public class StageManager : MonoBehaviour
         Datamanager.Instance.SaveGameData();
 
         stageData.Reset();
+    }
+
+    public void RestartStage()
+    {
+        StartStage();
+
+        // 현재 열려있는 인게임 씬의 이름을 자동으로 가져와 다시 로드합니다.
+        string currentSceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+        UnityEngine.SceneManagement.SceneManager.LoadScene(currentSceneName);
     }
 }

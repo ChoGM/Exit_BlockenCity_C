@@ -15,4 +15,4 @@ MonoBehaviour:
   month: 0
   obstacles:
   - type: 0
-    weight: 10
+    weight: 100

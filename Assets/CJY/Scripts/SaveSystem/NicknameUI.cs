@@ -8,7 +8,7 @@ public class NicknameUI : MonoBehaviour
     public TMP_InputField nicknameInput;
     public TMP_Text warningText;
 
-    public GameObject nicknamePanel;
+    //public GameObject nicknamePanel;
 
     private Coroutine warningCoroutine;
 
@@ -37,7 +37,7 @@ public class NicknameUI : MonoBehaviour
         Datamanager.Instance.saveData.player.playerName = inputName;
         Datamanager.Instance.SaveGameData();
 
-        nicknamePanel.SetActive(false);
+        //nicknamePanel.SetActive(false);
 
         gameObject.SetActive(false);
     }

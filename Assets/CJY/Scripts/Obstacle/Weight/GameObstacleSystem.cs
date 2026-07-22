@@ -27,7 +27,7 @@ public class GameObstacleSystem : MonoBehaviour
         MonthlyObstacleTable table = monthlyTables.Find(t => t.month == month);
         if (table == null || table.obstacles.Count == 0)
         {
-            Debug.LogWarning($"[GameObstacleSystem] {month}월 테이블이 비어있음!");
+            //Debug.LogWarning($"[GameObstacleSystem] {month}월 테이블이 비어있음!");
             // 빈 테이블이면 자동으로 None 세팅
             selectedObstacle = new MonthlyObstacleTable.Entry { type = ObstacleType.None, weight = 1 };
             return;
