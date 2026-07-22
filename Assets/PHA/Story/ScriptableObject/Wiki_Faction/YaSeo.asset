@@ -15,7 +15,7 @@ MonoBehaviour:
   factionId: Faction_03
   factionName: "\uC57C\uC11C"
   factionName_eng: YaSeo
-  factionIcon: {fileID: 0}
+  factionIcon: {fileID: 987754923, guid: cd2d5cb1b2e04764881783f8fc40d2ca, type: 3}
   foundingDate: 1953.03.07
   description: "\uB9C8\uC57D \uC720\uD1B5\uC5D0 \uB9DE\uC11C\uB358 \uCCAD\uB144\uC774
     \uC0B4\uD574\uB41C \uC0AC\uAC74\uC744 \uACC4\uAE30\uB85C \uC2DC\uBBFC\uB4E4\uC774
