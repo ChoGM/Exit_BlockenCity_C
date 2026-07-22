@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class NormalQuestUI : MonoBehaviour
 {
-    public Text questNameText;
-    public Text descriptionText;
-    public Text rewardText;
-    public Text progressText;
+    public TMP_Text questNameText;
+    public TMP_Text descriptionText;
+    public TMP_Text rewardText;
+    public TMP_Text progressText;
 
     private int questID;
 
