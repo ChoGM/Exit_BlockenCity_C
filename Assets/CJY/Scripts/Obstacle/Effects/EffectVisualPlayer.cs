@@ -30,8 +30,7 @@ public class EffectVisualPlayer : MonoBehaviour
     [SerializeField] private GameObject overheatUIPrefab;
 
     [Header("==== 블록 비주얼 설정 ====")]
-    [Tooltip("얼음 블록 효과 강도 (0~1)")]
-    [SerializeField, Range(0f, 1f)] private float iceEffect = 0.5f;
+    [SerializeField] private float IceEffect = 0.5f;
 
     // 기본 리소스 경로 (백업용)
     private const string StrongWindPath = "GraphicResourc/Prefabs/VFX/VFX_WindScr_Burst";
@@ -41,9 +40,6 @@ public class EffectVisualPlayer : MonoBehaviour
     private const string SmogPath = "GraphicResourc/Prefabs/VFX/VFX_SmogScr_Loop";
     private const string OverheatPath = "GraphicResourc/Prefabs/VFX/VFX_WindScr_Burst";
     private const string SnowfallPath = "GraphicResourc/Prefabs/VFX/VFX_FrozenScr_Loop";
-
-    [Header("블록 얼음 이미지")]
-    [SerializeField] private float IceEffect = 0.5f;
 
     // 1월 얼음 블록 이미지
     public GameObject VisualFreezeBlock(TetriminoBlock block)
