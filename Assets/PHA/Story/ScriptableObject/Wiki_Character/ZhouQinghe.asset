@@ -16,9 +16,10 @@ MonoBehaviour:
   characterName: "\uC8FC \uCCAD\uD654 (\u5468\u6E05\u548C)"
   characterName_eng: "Zau\xB9 Cing\xB9 Wo\u2074"
   dialogue: 
-  portrait: {fileID: 0}
-  fullBodyImage: {fileID: 0}
-  silhouette: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 85bec89afc5ceca459406c48a30ab2de, type: 3}
+  fullBodyImage: {fileID: 21300000, guid: 800d1738b02f6fe47bb92ceb790d9bbe, type: 3}
+  silhouette: {fileID: 21300000, guid: 74cfabb1a45599140be93306e4b64beb, type: 3}
+  fullBodysilhouette: {fileID: 21300000, guid: e06d184fe14b60043bb7caf53f015944, type: 3}
   age: 25
   job: "\uC57C\uC11C \uC218\uC5FC \uC18C\uC18D \uD611\uC0C1\uAC00"
   height: 175

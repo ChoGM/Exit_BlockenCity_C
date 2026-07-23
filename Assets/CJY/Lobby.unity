@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.45108056, g: 0.5008997, b: 0.57409877, a: 1}
+  m_IndirectSpecularColor: {r: 0.45108014, g: 0.5008989, b: 0.57409763, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2287,7 +2287,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7260284161382141463, guid: 20044245472c5af4391cc84c81c06ac0, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1.2187347
+      value: -0.0031585693
       objectReference: {fileID: 0}
     - target: {fileID: 9159163790188093164, guid: 20044245472c5af4391cc84c81c06ac0, type: 3}
       propertyPath: m_Size
@@ -2929,6 +2929,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1998300830174670936, guid: 35cef70d137471f4aae655974c67b705, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2004963675014085385, guid: 35cef70d137471f4aae655974c67b705, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -3059,7 +3063,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3672296382897230712, guid: 35cef70d137471f4aae655974c67b705, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1.2187347
+      value: -0.0031433105
       objectReference: {fileID: 0}
     - target: {fileID: 3805910620779253331, guid: 35cef70d137471f4aae655974c67b705, type: 3}
       propertyPath: m_SizeDelta.x
@@ -4308,7 +4312,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7260284161382141463, guid: 20044245472c5af4391cc84c81c06ac0, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1.2187347
+      value: -0.0031433105
       objectReference: {fileID: 0}
     - target: {fileID: 9159163790188093164, guid: 20044245472c5af4391cc84c81c06ac0, type: 3}
       propertyPath: m_Size
@@ -5882,7 +5886,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7260284161382141463, guid: 20044245472c5af4391cc84c81c06ac0, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1.2187347
+      value: -0.0031585693
       objectReference: {fileID: 0}
     - target: {fileID: 9159163790188093164, guid: 20044245472c5af4391cc84c81c06ac0, type: 3}
       propertyPath: m_Size

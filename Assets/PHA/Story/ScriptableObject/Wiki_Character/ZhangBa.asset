@@ -16,9 +16,10 @@ MonoBehaviour:
   characterName: "\uC7A5 \uD328 (\u5F35\u9738)"
   characterName_eng: "Zoeng\xB9 Baa\xB3"
   dialogue: 
-  portrait: {fileID: 0}
-  fullBodyImage: {fileID: 0}
-  silhouette: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 76ec4e7c0f91bf44d944d877d3c3d4cc, type: 3}
+  fullBodyImage: {fileID: 21300000, guid: 24fd5b9e03a89ba489171cc37a28e751, type: 3}
+  silhouette: {fileID: 21300000, guid: ef4bee8dcfe64db41b74d8dc76f31326, type: 3}
+  fullBodysilhouette: {fileID: 21300000, guid: bd78279b3b50084418f8ee6944d9c589, type: 3}
   age: 56
   job: "\uD64D\uB828\uADC0 \uBB34\uB825\uBD80 \uB828\uC7A5"
   height: 181

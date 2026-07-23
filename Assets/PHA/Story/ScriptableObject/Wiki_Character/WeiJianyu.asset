@@ -16,9 +16,10 @@ MonoBehaviour:
   characterName: "\uC704 \uAC74\uC6B0 (\u9B4F\u5EFA\u5B87)"
   characterName_eng: "Ngai\u2076 Gin\xB3 Jyu\u2075"
   dialogue: 
-  portrait: {fileID: 0}
-  fullBodyImage: {fileID: 0}
-  silhouette: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 9f69029b9e002f540a386a66c9160b3b, type: 3}
+  fullBodyImage: {fileID: 21300000, guid: b1da7582814775e4a821ec15edd337f7, type: 3}
+  silhouette: {fileID: 21300000, guid: a6c6e443899c6c94b9c3d902c3d638d3, type: 3}
+  fullBodysilhouette: {fileID: 21300000, guid: 944fb80ab2ecc244fb49df3ccdde48ea, type: 3}
   age: 34
   job: "\uD2B9\uBCC4\uCE58\uC548\uAD70 \uD2B9\uBB34\uBD80\uB300\uC7A5"
   height: 178

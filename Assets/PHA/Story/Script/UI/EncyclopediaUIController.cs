@@ -225,7 +225,7 @@ public class EncyclopediaUIController : MonoBehaviour
         if (unlockData.isCharacterUnlocked)
         {
             if (characterPortraitImage != null)
-                characterPortraitImage.sprite = character.portrait;
+                characterPortraitImage.sprite = character.fullBodyImage;
 
             if (characterNameText != null)
                 characterNameText.text = character.characterName;
@@ -254,7 +254,7 @@ public class EncyclopediaUIController : MonoBehaviour
         else
         {
             if (characterPortraitImage != null)
-                characterPortraitImage.sprite = character.silhouette;
+                characterPortraitImage.sprite = character.fullBodysilhouette;
 
             if (characterNameText != null)
                 characterNameText.text = "???";
