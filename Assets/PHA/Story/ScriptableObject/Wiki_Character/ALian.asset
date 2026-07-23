@@ -16,9 +16,10 @@ MonoBehaviour:
   characterName: "\uC544\uB828 (\u96C5\u84EE)"
   characterName_eng: "Ngaa\u2075 Lin\u2074"
   dialogue: 
-  portrait: {fileID: 0}
-  fullBodyImage: {fileID: 0}
-  silhouette: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 65e6e8d4f379e584288cb8b9fb08d872, type: 3}
+  fullBodyImage: {fileID: 21300000, guid: c4c7d2f50f85d464c9d4790696963c7a, type: 3}
+  silhouette: {fileID: 21300000, guid: 2dcb591c7d8f04c49b945cd72925514f, type: 3}
+  fullBodysilhouette: {fileID: 21300000, guid: b59507fc20039994ca5e673dc19ba753, type: 3}
   age: ??
   job: "\uD64D\uB828\uADC0 \uC815\uBCF4\uBD80 \uB828\uC7A5"
   height: 168

@@ -18,6 +18,8 @@ public class CharacterData : ScriptableObject
     public Sprite portrait;        // 도감용 기본 이미지
     public Sprite fullBodyImage;   // 전신 이미지 (선택)
     public Sprite silhouette; // 잠금 상태용 그림자 이미지
+    public Sprite fullBodysilhouette; // 잠금 상태용  전신 그림자 이미지
+
 
     [Header("프로필")]
     public string age;

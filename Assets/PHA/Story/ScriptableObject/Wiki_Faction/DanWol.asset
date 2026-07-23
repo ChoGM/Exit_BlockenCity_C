@@ -15,7 +15,7 @@ MonoBehaviour:
   factionId: Faction_01
   factionName: "\uB2E8\uC6D4\uAD6D"
   factionName_eng: DanWol
-  factionIcon: {fileID: 0}
+  factionIcon: {fileID: 260355830, guid: cd2d5cb1b2e04764881783f8fc40d2ca, type: 3}
   foundingDate: 1920.08.01
   description: "\uC655\uC815\uC758 \uBD80\uD328\uC640 \uBC00\uBB34\uC5ED\uC73C\uB85C
     \uC313\uC778 \uAD8C\uB825\uC740 \uD601\uBA85 \uC774\uD6C4\uC5D0\uB3C4 \uC0AC\uB77C\uC9C0\uC9C0

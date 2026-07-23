@@ -9,6 +9,8 @@ public class EncyclopediaUIController : MonoBehaviour
 
     [Header("세력 UI")]
     public Button[] factionButtons;
+    private int previousFactionIndex = 0;
+
     public TMP_Text factionNameKRText;
     public TMP_Text factionNameENText;
 
@@ -18,6 +20,9 @@ public class EncyclopediaUIController : MonoBehaviour
     public TMP_Text factionFoundingDateText;
 
     public Image factionIconImage;
+
+    [Header("캐릭터 상세 페이지")]
+    [SerializeField] private GameObject characterDetailPage;
 
     [Header("캐릭터 선택 버튼")]
     public Button[] characterButtons;
@@ -60,10 +65,17 @@ public class EncyclopediaUIController : MonoBehaviour
         {
             int index = i;
 
-            if (factionButtons[i] != null)
+            if (factionButtons[i] == null)
+                continue;
+
+            // 마천교, 전상연은 선택 불가
+            if (index >= 3)
             {
-                factionButtons[i].onClick.AddListener(() => SelectFaction(index));
+                factionButtons[i].interactable = false;
+                continue;
             }
+
+            factionButtons[i].onClick.AddListener(() => SelectFaction(index));
         }
     }
 
@@ -88,8 +100,35 @@ public class EncyclopediaUIController : MonoBehaviour
         if (factions[factionIndex] == null)
             return;
 
+        // 이전 선택 저장
+        previousFactionIndex = currentFactionIndex;
+
+        // 현재 선택 변경
         currentFactionIndex = factionIndex;
         currentCharacterIndex = 0;
+
+        if (characterDetailPage != null)
+            characterDetailPage.SetActive(false);
+
+        // 이전 버튼 원래 상태로 복구
+        if (previousFactionIndex != currentFactionIndex)
+        {
+            GameObject previousRoot = factionButtons[previousFactionIndex].transform.parent.gameObject;
+
+            Animator animator = previousRoot.GetComponent<Animator>();
+
+            Transform active = previousRoot.transform.Find("BTN_Active");
+            Transform inactive = previousRoot.transform.Find("BTN_Inactive");
+
+            if (animator != null)
+                animator.Play("Inactive");
+
+            if (active != null)
+                active.gameObject.SetActive(true);
+
+            if (inactive != null)
+                inactive.gameObject.SetActive(false);
+        }
 
         RefreshFactionUI();
         RefreshCharacterButtonUI();
@@ -186,7 +225,7 @@ public class EncyclopediaUIController : MonoBehaviour
         if (unlockData.isCharacterUnlocked)
         {
             if (characterPortraitImage != null)
-                characterPortraitImage.sprite = character.portrait;
+                characterPortraitImage.sprite = character.fullBodyImage;
 
             if (characterNameText != null)
                 characterNameText.text = character.characterName;
@@ -215,7 +254,7 @@ public class EncyclopediaUIController : MonoBehaviour
         else
         {
             if (characterPortraitImage != null)
-                characterPortraitImage.sprite = character.silhouette;
+                characterPortraitImage.sprite = character.fullBodysilhouette;
 
             if (characterNameText != null)
                 characterNameText.text = "???";
