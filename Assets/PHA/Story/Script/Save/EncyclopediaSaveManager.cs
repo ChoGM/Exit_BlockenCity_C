@@ -4,7 +4,7 @@ using UnityEngine;
 
 /// <summary>
 /// 데이터 확인하려면 이쪽으로
-/// C:/Users/사용자명/AppData/LocalLow/DefaultCompany/MyGame
+/// C:/Users/사용자명/AppData/LocalLow/Exit\BlokenCity
 /// </summary>
 
 public class EncyclopediaSaveManager : MonoBehaviour
