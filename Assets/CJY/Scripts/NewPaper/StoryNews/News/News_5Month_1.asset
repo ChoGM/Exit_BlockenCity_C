@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe6ee89c1483430429077faf1e0c2c23, type: 3}
   m_Name: News_5Month_1
   m_EditorClassIdentifier: 
+  id: NEWS_05_01
   targetMonth: 5
   title: "\uB2E8\uC6D4\uAD6D\uC740 \uC9C0\uAE08 \uB204\uAD6C\uC5D0\uAC8C \uB6AB\uB838\uB098"
   content: "\uCD5C\uADFC \uB3C4\uC2EC\uC5D0 \uC704\uCE58\uD55C \uC815\uBD80 \uCCAD\uC0AC
