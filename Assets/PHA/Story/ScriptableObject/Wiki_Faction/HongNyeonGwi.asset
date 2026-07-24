@@ -15,7 +15,7 @@ MonoBehaviour:
   factionId: Faction_02
   factionName: "\uD64D\uB828\uADC0"
   factionName_eng: GongNyeonGwi
-  factionIcon: {fileID: 0}
+  factionIcon: {fileID: -1187677617, guid: cd2d5cb1b2e04764881783f8fc40d2ca, type: 3}
   foundingDate: 1907.11.11
   description: "\uC2DC\uBBFC \uD601\uBA85\uAE30, \uC655\uC815\uC744 \uBB34\uB108\uB728\uB9AC\uAE30
     \uC704\uD574 \uACB0\uC131\uB41C \uBB34\uC7A5 \uC870\uC9C1\uC73C\uB85C \uC2DC\uC791\uD588\uB2E4.

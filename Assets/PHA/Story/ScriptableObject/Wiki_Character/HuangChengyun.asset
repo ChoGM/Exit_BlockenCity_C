@@ -16,9 +16,10 @@ MonoBehaviour:
   characterName: "\uD669 \uC131\uC724 (\u9EC3\u6210\u5141)"
   characterName_eng: "Wong\u2074 Sing\u2074 Wan\u2075"
   dialogue: 
-  portrait: {fileID: 0}
-  fullBodyImage: {fileID: 0}
-  silhouette: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 81615526a14f3fc4db5612d498954892, type: 3}
+  fullBodyImage: {fileID: 21300000, guid: 5a5ce463d664099448dd1196a0fe69e3, type: 3}
+  silhouette: {fileID: 21300000, guid: fe653321f17efa74ea6ffecfeecadf9b, type: 3}
+  fullBodysilhouette: {fileID: 21300000, guid: e02f9033a3104ef458194d0cbfe5e49f, type: 3}
   age: 24
   job: "\uB465\uC9C0 \uC18C\uC18D \uC791\uC804 \uCC38\uBAA8"
   height: 190
