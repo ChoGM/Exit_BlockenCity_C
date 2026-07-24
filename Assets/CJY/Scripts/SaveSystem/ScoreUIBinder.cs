@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement; // 씬 이동을 위해 추가
 using TMPro;
 
 public class ScoreUIBinder : MonoBehaviour
@@ -42,9 +43,28 @@ public class ScoreUIBinder : MonoBehaviour
     public GameObject gameOverWindowObject;
     public GameObject scoreWindowObject;   // 최상위 부모 (전체 UI를 감싸는 캔버스나 패널)
 
-    // 기존 함수에 bool 매개변수 추가
+    [Header("Scene Names")]
+    public string storySceneName = "StoryScene"; // 게임 클리어 시 이동할 씬 이름
+    public string lobbySceneName = "Lobby";      // 게임 오버 시 이동할 씬 이름
+
+    // 현재 결과 창의 상태를 저장할 변수
+    private bool isGameOverState;
+
+    private void Awake()
+    {
+        // 씬이 시작될 때 현재 살아있는 GameManager.Instance에 자신을 등록
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.scoreManager = this;
+        }
+    }
+
+    // 기존 함수에 bool 매개변수 추가 및 상태 저장
     public void ToggleScoreUI(bool isActive, bool isGameOver = false)
     {
+        // 1. 현재 상태 저장
+        isGameOverState = isGameOver;
+
         if (scoreWindowObject != null)
         {
             scoreWindowObject.SetActive(isActive);
@@ -64,6 +84,21 @@ public class ScoreUIBinder : MonoBehaviour
 
             // 3. 데이터를 최신 상태에 맞춰 갱신합니다.
             Refresh(isGameOver);
+        }
+    }
+
+    // ===== 추가된 부분: 다음/확인 버튼에서 호출할 함수 =====
+    public void OnNextButtonClick()
+    {
+        if (isGameOverState)
+        {
+            // 게임 오버 상태 -> 로비 씬으로 이동
+            SceneManager.LoadScene(lobbySceneName);
+        }
+        else
+        {
+            // 게임 클리어 상태 -> 스토리 씬으로 이동
+            SceneManager.LoadScene(storySceneName);
         }
     }
 
@@ -95,14 +130,13 @@ public class ScoreUIBinder : MonoBehaviour
             int totalSalary = baseSalary + stageData.earnedMoney;
 
             // 월급 및 총 자산 표시
-            //salaryText.text = totalSalary.ToString();
             salaryText.text = $"{baseSalary} + {stageData.earnedMoney}";
 
             int totalMoney = saveData.player.totalMoney + totalSalary;
             totalMoneyText.text = totalMoney.ToString();
         }
 
-        // ===== 세력 (TetrisManager에서 이미 OverStage()를 호출해 delta가 0이 되므로 그대로 사용 가능) =====
+        // ===== 세력 =====
         RefreshRelationship(
             danwolSlider,
             danwolStateText,
@@ -160,11 +194,6 @@ public class ScoreUIBinder : MonoBehaviour
 
     private int GetBaseSalary(int currentStage)
     {
-        // 1~3월 : 10000
-        // 4~6월 : 15000
-        // 7~9월 : 20000
-        // 10~12월 : 25000
-
         return 10000 + ((currentStage - 1) / 3) * 5000;
     }
 }
