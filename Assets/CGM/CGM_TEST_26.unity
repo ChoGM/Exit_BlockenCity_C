@@ -212,6 +212,8 @@ MonoBehaviour:
   clearWindowObject: {fileID: 0}
   gameOverWindowObject: {fileID: 0}
   scoreWindowObject: {fileID: 1946601597}
+  storySceneName: StoryScene
+  lobbySceneName: Lobby
 --- !u!4 &60633818
 Transform:
   m_ObjectHideFlags: 0
