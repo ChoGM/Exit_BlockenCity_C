@@ -269,6 +269,7 @@ public class DialogUI : MonoBehaviour
         if (currentLine.acceptBranch != -1)
         {
             SpecialQuestData matchedQuest = allQuestData.Find(q => q.branchID == currentLine.acceptBranch);
+           
             if (matchedQuest != null)
             {
                 SpecialQuestManager.Instance.AddQuest(matchedQuest);

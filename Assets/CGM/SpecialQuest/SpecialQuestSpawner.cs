@@ -74,11 +74,13 @@ public class SpecialQuestSpawner : MonoBehaviour
     {
         int month = Datamanager.Instance.saveData.progress.currentStage; ;  // 1~12
 
-        int a = SliderToDigit(sliderA);
-        int b = SliderToDigit(sliderB);
-        int c = SliderToDigit(sliderC);
+        int a = Datamanager.Instance.saveData.friendlinessData.DanWol;
+        int b = Datamanager.Instance.saveData.friendlinessData.HongNyeonGwi;
+        int c = Datamanager.Instance.saveData.friendlinessData.YaSeo;
+        int d = Datamanager.Instance.saveData.friendlinessData.JeonSangYeon;
+        int e = Datamanager.Instance.saveData.friendlinessData.MaCheonGyo;
 
-        int generatedID = month * 1000 + a * 100 + b * 10 + c;
+        int generatedID = month * 100000 + a * 10000 + b * 1000 + c * 100 + d * 10 + e;
 
         Debug.Log($"생성된 QuestID → {generatedID}");
 
@@ -102,24 +104,34 @@ public class SpecialQuestSpawner : MonoBehaviour
         int bestID = -1;
         int bestScore = int.MaxValue;
 
-        int t100 = (targetID / 100) % 10;
-        int t10 = (targetID / 10) % 10;
-        int t1 = targetID % 10;
+        // 목표 ID 분리
+        int tMonth = targetID / 100000;
+        int tA = (targetID / 10000) % 10;
+        int tB = (targetID / 1000) % 10;
+        int tC = (targetID / 100) % 10;
+        int tD = (targetID / 10) % 10;
+        int tE = targetID % 10;
 
         foreach (int id in allBranch)
         {
-            if (id / 1000 != targetID / 1000) continue; // 같은 월만
+            // 월이 다르면 제외
+            if (id / 100000 != tMonth)
+                continue;
 
-            int i100 = (id / 100) % 10;
-            int i10 = (id / 10) % 10;
-            int i1 = id % 10;
+            int iA = (id / 10000) % 10;
+            int iB = (id / 1000) % 10;
+            int iC = (id / 100) % 10;
+            int iD = (id / 10) % 10;
+            int iE = id % 10;
 
             int score =
-                Mathf.Abs(t100 - i100) +
-                Mathf.Abs(t10 - i10) +
-                Mathf.Abs(t1 - i1);
+                Mathf.Abs(tA - iA) +
+                Mathf.Abs(tB - iB) +
+                Mathf.Abs(tC - iC) +
+                Mathf.Abs(tD - iD) +
+                Mathf.Abs(tE - iE);
 
-            if (score < bestScore || (score == bestScore && id < bestID))
+            if (score < bestScore || (score == bestScore && (bestID == -1 || id < bestID)))
             {
                 bestScore = score;
                 bestID = id;
