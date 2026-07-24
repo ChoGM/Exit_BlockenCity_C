@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   background: {fileID: -1526326893, guid: a0a4a4d624feb004ca24742a802f1415, type: 3}
   sliderColor: {r: 0, g: 0, b: 0, a: 1}
-  branchID: 51
+  branchID: 211112
   questName: "\uC2A4\uD398\uC15C\uD018\uC2A4\uD2B8\uD14C\uC2A4\uD2B8 6\uBC88"
   description: "\uC2A4\uD398\uC15C\uD018\uC2A4\uD2B8\uD14C\uC2A4\uD2B8 6\uBC88\uC785\uB2C8\uB2F9\n\uD2B9\uC815
     \uB192\uC774 \uD2B9\uC815 \uBE14\uB7ED \uC124\uCE58 \uD018\uC2A4\uD2B8\n\uC2DC\uAC04

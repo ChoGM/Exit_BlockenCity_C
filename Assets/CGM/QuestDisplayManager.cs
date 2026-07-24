@@ -1,14 +1,20 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class QuestDisplayManager : MonoBehaviour
 {
-    private int lastCount = -1;
+    public static QuestDisplayManager Instance;
 
-    [SerializeField] private Transform questList;
+    [Header("부모")]
+    [SerializeField] private Transform detailRoot;
+    [SerializeField] private Transform summaryRoot;
 
-    private void Start()
+    // 현재 퀘스트 순서
+    private List<MonoBehaviour> questList = new List<MonoBehaviour>();
+
+    private void Awake()
     {
-        Refresh();
+        Instance = this;
     }
 
     private void Update()
@@ -17,45 +23,78 @@ public class QuestDisplayManager : MonoBehaviour
         {
             Rotate();
         }
-
-        if (lastCount != questList.childCount)
-        {
-            lastCount = questList.childCount;
-            Refresh();
-        }
     }
 
-    public void Rotate()
-    {
-        if (questList.childCount <= 1)
-            return;
+    //--------------------------------------------------
+    // 등록
+    //--------------------------------------------------
 
-        // 맨 아래를 맨 위로
-        Transform last = questList.GetChild(questList.childCount - 1);
-        last.SetAsFirstSibling();
+    public void Register(MonoBehaviour ui)
+    {
+        questList.Add(ui);
 
         Refresh();
     }
 
-    public void Refresh()
+    //--------------------------------------------------
+    // 제거
+    //--------------------------------------------------
+
+    public void Remove(MonoBehaviour ui)
     {
-        for (int i = 0; i < questList.childCount; i++)
+        questList.Remove(ui);
+
+        Refresh();
+    }
+
+    //--------------------------------------------------
+    // TAB
+    //--------------------------------------------------
+
+    public void Rotate()
+    {
+        if (questList.Count <= 1)
+            return;
+
+        MonoBehaviour last = questList[questList.Count - 1];
+
+        questList.RemoveAt(questList.Count - 1);
+
+        questList.Insert(0, last);
+
+        Refresh();
+    }
+
+    //--------------------------------------------------
+    // 새로 배치
+    //--------------------------------------------------
+
+    private void Refresh()
+    {
+        for (int i = 0; i < questList.Count; i++)
         {
-            Transform child = questList.GetChild(i);
+            bool detail = (i == 0);
 
-            bool expanded = (i == 0);
+            MonoBehaviour ui = questList[i];
 
-            NormalQuestUI normal = child.GetComponent<NormalQuestUI>();
+            if (detail)
+                ui.transform.SetParent(detailRoot, false);
+            else
+                ui.transform.SetParent(summaryRoot, false);
+
+            NormalQuestUI normal = ui as NormalQuestUI;
+
             if (normal != null)
             {
-                normal.SetExpanded(expanded);
+                normal.SetExpanded(detail);
                 continue;
             }
 
-            SpecialQuestUI special = child.GetComponent<SpecialQuestUI>();
+            SpecialQuestUI special = ui as SpecialQuestUI;
+
             if (special != null)
             {
-                special.SetExpanded(expanded);
+                special.SetExpanded(detail);
             }
         }
     }

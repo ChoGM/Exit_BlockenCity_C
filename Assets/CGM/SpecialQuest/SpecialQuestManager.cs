@@ -40,6 +40,8 @@ public class SpecialQuestManager : MonoBehaviour
         instance.ui = uiObj.GetComponent<SpecialQuestUI>();
         instance.ui.SetQuest(questData);
 
+        QuestDisplayManager.Instance.Register(instance.ui);
+
         activeQuests.Add(instance);
 
         // 타이머 생성
@@ -100,6 +102,8 @@ public class SpecialQuestManager : MonoBehaviour
 
     private void Cleanup(SpecialQuestInstance instance)
     {
+        QuestDisplayManager.Instance.Remove(instance.ui);
+
         activeTimers.RemoveAll(t => t.IsFor(instance));
         activeQuests.Remove(instance);
     }
