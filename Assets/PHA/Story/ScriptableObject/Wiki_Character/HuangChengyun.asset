@@ -17,7 +17,7 @@ MonoBehaviour:
   characterName_eng: "Wong\u2074 Sing\u2074 Wan\u2075"
   dialogue: 
   portrait: {fileID: 21300000, guid: 81615526a14f3fc4db5612d498954892, type: 3}
-  fullBodyImage: {fileID: 21300000, guid: 5a5ce463d664099448dd1196a0fe69e3, type: 3}
+  fullBodyImage: {fileID: 21300000, guid: bc212b66698bb7b4db6e1005e76f7dd1, type: 3}
   silhouette: {fileID: 21300000, guid: fe653321f17efa74ea6ffecfeecadf9b, type: 3}
   fullBodysilhouette: {fileID: 21300000, guid: e02f9033a3104ef458194d0cbfe5e49f, type: 3}
   age: 24

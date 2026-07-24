@@ -431,7 +431,7 @@ MonoBehaviour:
   rainPrefab: {fileID: 9114443294951168263, guid: 2d4a9f5450fbd3a41b7c1684023cb69d, type: 3}
   smogPrefab: {fileID: 6492334026871894552, guid: f35cb9adac0a2b04e8e4f25b0ff931db, type: 3}
   snowfallPrefab: {fileID: 9048698040502420976, guid: 8eee7abefaaf1e6499d200acfddc45de, type: 3}
-  overheatUIPrefab: {fileID: 0}
+  overheatUIPrefab: {fileID: 1874151193}
   IceEffect: 0.5
 --- !u!114 &78634945
 MonoBehaviour:
@@ -450,9 +450,9 @@ MonoBehaviour:
   inputBlocker: {fileID: 78634942}
   tetrisController: {fileID: 411465151}
   tetrisspawner: {fileID: 411465152}
-  useInspectorObstacle: 0
+  useInspectorObstacle: 1
   selectedObstacleEntry:
-    type: 0
+    type: 7
     weight: 100
   obstacleSystemEnabled: 1
 --- !u!4 &78634946
@@ -1182,7 +1182,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1029284930}
+    m_TransformParent: {fileID: 1976377803}
     m_Modifications:
     - target: {fileID: 1875636031864762464, guid: ca2e5f67b12f44248a7377a7e579d4e1, type: 3}
       propertyPath: m_Name
@@ -1219,6 +1219,18 @@ PrefabInstance:
     - target: {fileID: 6527750474262295593, guid: ca2e5f67b12f44248a7377a7e579d4e1, type: 3}
       propertyPath: m_SizeDelta.y
       value: 320
+      objectReference: {fileID: 0}
+    - target: {fileID: 6527750474262295593, guid: ca2e5f67b12f44248a7377a7e579d4e1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6527750474262295593, guid: ca2e5f67b12f44248a7377a7e579d4e1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6527750474262295593, guid: ca2e5f67b12f44248a7377a7e579d4e1, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6527750474262295593, guid: ca2e5f67b12f44248a7377a7e579d4e1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1479,8 +1491,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5748261073988646359, guid: 8b77b0256eb49b744b2f2fa2f37a3cdb, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5748261073988646359, guid: 8b77b0256eb49b744b2f2fa2f37a3cdb, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5946138504065574912, guid: 8b77b0256eb49b744b2f2fa2f37a3cdb, type: 3}
       propertyPath: m_IsActive
@@ -2623,6 +2639,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 840186810}
   m_LocalEulerAnglesHint: {x: 22.5, y: -225, z: 0}
+--- !u!1 &1874151193 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1875636031864762464, guid: ca2e5f67b12f44248a7377a7e579d4e1, type: 3}
+  m_PrefabInstance: {fileID: 681439405}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1911559995
 GameObject:
   m_ObjectHideFlags: 0
@@ -3123,7 +3144,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 8990654906520901349, guid: d77dd0935335f0d4c969b760cf5955d5, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 9060924070244879431, guid: d77dd0935335f0d4c969b760cf5955d5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 681439406}
     m_AddedComponents:
@@ -3131,6 +3152,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1352885721}
   m_SourcePrefab: {fileID: 100100000, guid: d77dd0935335f0d4c969b760cf5955d5, type: 3}
+--- !u!224 &1976377803 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 9060924070244879431, guid: d77dd0935335f0d4c969b760cf5955d5, type: 3}
+  m_PrefabInstance: {fileID: 1965335693}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
