@@ -26,6 +26,13 @@ public class SpecialQuestUI : MonoBehaviour
 
     private CanvasGroup canvasGroup;
 
+    [Header("요약 UI")]
+    [SerializeField] private GameObject summaryPanel;
+    [SerializeField] private TMP_Text summaryName;
+    [SerializeField] private Slider summarySlider;
+
+    [Header("상세 UI")]
+    [SerializeField] private GameObject detailPanel;
     private void Awake()
     {
         canvasGroup = GetComponent<CanvasGroup>();
@@ -60,17 +67,24 @@ public class SpecialQuestUI : MonoBehaviour
         // 초기 진행도
         progressText.text = GetProgressText(0, false);
 
+        UpdateSummary();
         Show();
     }
 
     // =========================
     // 진행도 업데이트 (핵심)
     // =========================
+    private int currentProgress;
+
     public void UpdateProgress(int value, bool flag = false)
     {
         if (quest == null) return;
 
+        currentProgress = value;
+
         progressText.text = GetProgressText(value, flag);
+
+        UpdateSummary();
     }
 
     // =========================
@@ -141,5 +155,43 @@ public class SpecialQuestUI : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
         canvasGroup.alpha = 1f;
+    }
+    private void UpdateSummary()
+    {
+        if (summaryName == null)
+            return;
+
+        summaryName.text = quest.questName;
+
+        switch (quest.questType)
+        {
+            case SpecialQuestType.BlockBreak:
+                summarySlider.maxValue = quest.targetCount;
+                summarySlider.value = currentProgress;
+                break;
+
+            case SpecialQuestType.HeightAchievement:
+            case SpecialQuestType.HeightLimit:
+            case SpecialQuestType.HeightKeep:
+            case SpecialQuestType.HeightSpecialBlock:
+                summarySlider.maxValue = quest.targetHeight;
+                summarySlider.value = currentProgress + 1;
+                break;
+
+            default:
+                summarySlider.maxValue = 1;
+                summarySlider.value = 1;
+                break;
+        }
+    }
+    public void SetExpanded(bool expanded)
+    {
+        detailPanel.SetActive(expanded);
+        summaryPanel.SetActive(!expanded);
+
+        if (!expanded)
+        {
+            UpdateSummary();
+        }
     }
 }
