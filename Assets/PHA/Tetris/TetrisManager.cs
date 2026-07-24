@@ -94,7 +94,7 @@ public class TetrisManager : MonoBehaviour
 
         StageManager.Instance.OverStage();
 
-        scoreUIBinder.ToggleScoreUI(true);
+        scoreUIBinder.ToggleScoreUI(true, true);
 
     }
 

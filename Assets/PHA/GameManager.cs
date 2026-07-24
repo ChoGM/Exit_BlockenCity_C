@@ -7,7 +7,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     public float gameTime = 180f;
-    public ScoreUIBinder scoreManager;
+
+    [HideInInspector] public ScoreUIBinder scoreManager;
 
     private void Awake()
     {
