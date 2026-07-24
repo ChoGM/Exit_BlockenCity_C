@@ -22,9 +22,14 @@ public class QuestManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null) Instance = this;
-        else Destroy(gameObject);
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+    }
 
+    private void Start()
+    {
         GenerateInitialQuests();
     }
 
@@ -88,6 +93,8 @@ public class QuestManager : MonoBehaviour
 
         questUIMap[newQuest.questID] = questUIObj;
 
+        QuestDisplayManager.Instance.Register(questUI);
+
         newQuest.currentCount = 0;
         newQuest.IsCompleted = false;
 
@@ -108,6 +115,8 @@ public class QuestManager : MonoBehaviour
             // UI 제거
             if (questUIMap.ContainsKey(questID))
             {
+                QuestDisplayManager.Instance.Remove(questUIMap[questID].GetComponent<NormalQuestUI>());
+
                 Destroy(questUIMap[questID]);
                 questUIMap.Remove(questID);
             }

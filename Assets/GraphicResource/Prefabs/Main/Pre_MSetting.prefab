@@ -2359,6 +2359,7 @@ GameObject:
   - component: {fileID: 793799309483769318}
   - component: {fileID: 3661452505369554933}
   - component: {fileID: 2488270290679927007}
+  - component: {fileID: 602563866194487363}
   m_Layer: 5
   m_Name: Pre_MSetting
   m_TagString: Untagged
@@ -2484,6 +2485,18 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &602563866194487363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8263806667078951957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e33475833a21ca4289d55b6a47c9af2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8656967240872443885
 GameObject:
   m_ObjectHideFlags: 0

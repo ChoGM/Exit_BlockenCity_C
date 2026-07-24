@@ -17,7 +17,7 @@ MonoBehaviour:
   characterName_eng: "Maa\u2075 Zi\xB3 Hung\u2074"
   dialogue: 
   portrait: {fileID: 21300000, guid: 815b90b108fe36944b33465e5c9faa36, type: 3}
-  fullBodyImage: {fileID: 21300000, guid: c8f58dee1c420954cb9205570c704455, type: 3}
+  fullBodyImage: {fileID: 21300000, guid: 254112ff02ce59d44a25a72b4d7bdc4b, type: 3}
   silhouette: {fileID: 21300000, guid: 23e85ce80b8e5984e88e4104f301a467, type: 3}
   fullBodysilhouette: {fileID: 21300000, guid: 3d733f0445054e04b82197f7d38b3f8a, type: 3}
   age: 21

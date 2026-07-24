@@ -17,7 +17,7 @@ MonoBehaviour:
   characterName_eng: "Lei\u2075 Si\xB9 Waa\u2074"
   dialogue: 
   portrait: {fileID: 21300000, guid: f0c79fc48404af2449d3aced45e358e3, type: 3}
-  fullBodyImage: {fileID: 21300000, guid: 9db72cccf328c944fbc1fa2ce09e21b8, type: 3}
+  fullBodyImage: {fileID: 21300000, guid: 75218a0a141038248ae29653193fce59, type: 3}
   silhouette: {fileID: 21300000, guid: 61a07ca5858cbd94ab8e18fb8a9ff285, type: 3}
   fullBodysilhouette: {fileID: 21300000, guid: 18f665f53c7a3bc438186a8299b45162, type: 3}
   storyPortraits:

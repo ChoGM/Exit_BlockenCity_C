@@ -9,5 +9,7 @@ public class SaveData
     public PlayerData player = new PlayerData();
     public RelationshipData relationship = new RelationshipData();
     public ProgressData progress = new ProgressData();
+
+    public NewsData news = new NewsData();
 }
 

@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class CutScVFXController : MonoBehaviour
 {
+    [Header("Audio")]
+    public AudioSource typingSFX;
+    public AudioSource typingEndSFX;
+    [Space(5f)]
 
     [Header("Typing Settings")]
     
@@ -31,6 +35,12 @@ public class CutScVFXController : MonoBehaviour
     {
         StopAllCoroutines();
 
+        if (typingSFX != null)
+            typingSFX.Stop();
+
+        if (typingEndSFX != null)
+            typingEndSFX.Stop();
+
         text1.text = "";
         text2.text = "";
         text3.text = "";
@@ -48,6 +58,11 @@ public class CutScVFXController : MonoBehaviour
     private IEnumerator TypeSingle(Text target, string message, bool allowBlink)
     {
         string currentText = "";
+
+        if (typingSFX != null)
+        {
+            typingSFX.Play();
+        }
 
         for (int i = 0; i < message.Length; i++)
         {
@@ -69,6 +84,16 @@ public class CutScVFXController : MonoBehaviour
                 target.text = currentText + cursorChar;
                 yield return new WaitForSeconds(typingSpeed);
             }
+        }
+        
+        if (typingSFX != null)
+        {
+            typingSFX.Stop();
+        }
+
+        if (typingEndSFX != null)
+        {
+            typingEndSFX.Play();
         }
 
         if (allowBlink)
