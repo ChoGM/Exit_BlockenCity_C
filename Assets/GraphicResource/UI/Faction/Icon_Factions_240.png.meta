@@ -193,6 +193,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Icon_Factions_240_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 468213eebae83754d89af6ecdd744354
+      internalID: -643638917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Factions_240_5
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2f99d28f9a339947a6cc18576a2f260
+      internalID: 2082395660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -208,6 +250,8 @@ TextureImporter:
       Icon_Factions_240_1: 1500012042
       Icon_Factions_240_2: 1479445852
       Icon_Factions_240_3: -800888730
+      Icon_Factions_240_4: -643638917
+      Icon_Factions_240_5: 2082395660
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

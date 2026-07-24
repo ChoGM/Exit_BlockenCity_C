@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe6ee89c1483430429077faf1e0c2c23, type: 3}
-  m_Name: News_9Month_2
+  m_Name: News_9Month_1
   m_EditorClassIdentifier: 
+  id: NEWS_09_01
   targetMonth: 9
   title: "\uAE30\uC5B4\uC774 \uC0AC\uC774\uBE44 \uBC1C \uB4E4\uC774\uB294 \uBB34\uC9C0\uD568"
   content: "\uCD5C\uADFC \uB4E4\uC5B4 \uC815\uBD80\uC758 \uB300\uC678 \uBA54\uC2DC\uC9C0\uC640

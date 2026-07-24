@@ -25,6 +25,9 @@ public class StoryNewsSystem : MonoBehaviour
         // 기사가 존재한다면 기존 UI에 띄웁니다.
         if (todayStory != null)
         {
+            // [추가] 이번에 등장한 신문을 도감에 해금 등록
+            NewsUnlockManager.UnlockNews(todayStory.id);
+
             newsUI.DisplayNews(todayStory.title, todayStory.content, todayStory.icon, month);
         }
         else
