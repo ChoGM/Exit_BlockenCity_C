@@ -20,6 +20,16 @@ MonoBehaviour:
   fullBodyImage: {fileID: 21300000, guid: 9db72cccf328c944fbc1fa2ce09e21b8, type: 3}
   silhouette: {fileID: 21300000, guid: 61a07ca5858cbd94ab8e18fb8a9ff285, type: 3}
   fullBodysilhouette: {fileID: 21300000, guid: 18f665f53c7a3bc438186a8299b45162, type: 3}
+  storyPortraits:
+  - portraitId: D_01_00
+    displayName: "\uB9AC\uC2DC\uD654_\uAE30\uBCF8"
+    portraitSprite: {fileID: 0}
+  - portraitId: D_01_01
+    displayName: "\uB9AC\uC2DC\uD654_\uD654\uB0A8"
+    portraitSprite: {fileID: 0}
+  - portraitId: D_01_02
+    displayName: "\uB9AC\uC2DC\uD654_\uC6C3\uC74C"
+    portraitSprite: {fileID: 0}
   age: 24
   job: "\uACF5\uC791\uCCAD \uCC28\uAD00 \uBCF4\uC88C"
   height: 161
