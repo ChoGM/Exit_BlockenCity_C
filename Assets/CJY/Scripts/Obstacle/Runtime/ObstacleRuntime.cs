@@ -34,6 +34,18 @@ public class ObstacleRuntime
         if (!AreConditionsMet(state)) return;
         if (!effectsByTrigger.TryGetValue(trigger, out var effects)) return;
 
+        // [추가] OnStart 시점에 싱글톤에서 현재 방해물 타입을 가져와 사운드 재생
+        if (trigger == ObstacleTriggerType.OnStart)
+        {
+            var selected = GameObstacleSystem.Instance?.GetSelectedObstacle();
+            if (selected != null)
+            {
+                ObstacleSoundManager.Instance?.PlayObstacleSound(selected.type);
+
+                Debug.Log("방해물 소리 재생 시도: " + selected.type);
+            }
+        }
+
         foreach (var effect in effects)
             effect(state);
     }

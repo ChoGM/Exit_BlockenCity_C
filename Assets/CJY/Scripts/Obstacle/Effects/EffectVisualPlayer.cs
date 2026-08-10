@@ -80,6 +80,9 @@ public class EffectVisualPlayer : MonoBehaviour
         var prefab = strongWindPrefab ?? Resources.Load<GameObject>(StrongWindPath);
         //var prefab = Resources.Load<GameObject>(StrongWindPath);
 
+        // [추가] 강풍 효과음 1회 재생
+        ObstacleSoundManager.Instance?.PlayObstacleSound(ObstacleType.StrongWind);
+
         if (prefab == null) return null;
 
         return Instantiate(prefab);
@@ -166,8 +169,6 @@ public class EffectVisualPlayer : MonoBehaviour
     }
 
     // 10월 건기 블록 파괴 효과
-
-    // 10월 건기 블록 파괴 이펙트 (블록 위치)
     public GameObject PlayBlockCrumbleEffect(Vector3 position)
     {
         if (drySeasonBlockBreakPrefab == null)

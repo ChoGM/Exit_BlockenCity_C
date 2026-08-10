@@ -23,6 +23,7 @@ public class TetrisSpawner : MonoBehaviour
     // 추가
     // 블록 스폰 시 호출 이벤트
     public event Action<TetriminoBlock> OnBlockSpawned;
+    public event Action<TetriminoBlock> OnBlockSwapped;
 
     private void Awake()
     {
@@ -88,6 +89,9 @@ public class TetrisSpawner : MonoBehaviour
         oldCurrent.transform.position = spawnPosition;
         oldCurrent.SetIsSelet(false);
         nextBlock = oldCurrent;
+
+        // [추가] 블록 교체(Hold) 이벤트 호출
+        OnBlockSwapped?.Invoke(currentBlock);
 
         return true;
     }
