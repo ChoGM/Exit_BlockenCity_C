@@ -1244,6 +1244,91 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &360747875
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 360747878}
+  - component: {fileID: 360747877}
+  - component: {fileID: 360747876}
+  - component: {fileID: 360747879}
+  m_Layer: 0
+  m_Name: ItemSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &360747876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360747875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4725e034ffffc2b4c83d6fa9b65e582e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialItems:
+  - item: {fileID: 11400000, guid: 809b81598c67c224e9a4a9311a87e019, type: 2}
+    count: 3
+  - item: {fileID: 11400000, guid: cdfe646f80bfbed4dbefacbed949b487, type: 2}
+    count: 3
+  - item: {fileID: 11400000, guid: b48557a054ad78940acb2453a7ff8ab2, type: 2}
+    count: 3
+--- !u!114 &360747877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360747875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee89ea6d25fa53f439ecaca6caa9c4b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 360747876}
+  itemEffects: []
+--- !u!4 &360747878
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360747875}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.0485678, y: 2.818353, z: 1.4222056}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &360747879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360747875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5d43fb7de502f648aac3730475d3402, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lastPlacedBlock: {fileID: 0}
+  currentState: 0
+  placementSequence: 0
+  lastPlacementSequence: -1
+  boardVersion: 0
+  lastPieceBoardVersion: -1
 --- !u!114 &523577287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2541,7 +2626,7 @@ MonoBehaviour:
   inputDelayTime: 0.8
   windDuration: 5
   windInterval: 0.3
-  windWaitIntervalRange: {x: 2, y: 5}
+  windWaitIntervalRange: {x: 2, y: 3}
   dustSpawnIntervalRange: {x: 2, y: 5}
   lightningIntervalRange: {x: 2, y: 5}
   lightningStopTime: 1
@@ -2583,7 +2668,7 @@ MonoBehaviour:
   snowfallPrefab: {fileID: 9048698040502420976, guid: 8eee7abefaaf1e6499d200acfddc45de, type: 3}
   overheatUIPrefab: {fileID: 1819773039}
   IceEffect: 0.5
-  drySeasonBlockBreakPrefab: {fileID: 2413884647712648143, guid: a85bb9c69c623c04c862e09ced645be4, type: 3}
+  drySeasonBlockBreakPrefab: {fileID: 2413884647712648143, guid: fe3b38614d648c640b60ac9e63d0c0b2, type: 3}
   drySeasonScreenPrefab: {fileID: 2966933459605977948, guid: 7a1f92c1a83c21d44b7d287c8bac4d66, type: 3}
 --- !u!114 &1451626580
 MonoBehaviour:
@@ -2604,7 +2689,7 @@ MonoBehaviour:
   tetrisspawner: {fileID: 69628388}
   useInspectorObstacle: 1
   selectedObstacleEntry:
-    type: 5
+    type: 8
     weight: 100
   obstacleSystemEnabled: 1
 --- !u!4 &1451626581
@@ -4697,3 +4782,4 @@ SceneRoots:
   - {fileID: 583091958}
   - {fileID: 1682489265}
   - {fileID: 623847362}
+  - {fileID: 360747878}
