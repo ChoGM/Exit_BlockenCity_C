@@ -11,6 +11,11 @@ public enum UndoTargetState
 
 public class LastPlacedBlockTracker : MonoBehaviour
 {
+    [Header("References")]
+    [SerializeField]
+    private TetrisTower tower;
+
+
     [Header("Runtime Debug")]
     [SerializeField]
     private TetriminoBlock lastPlacedBlock;
@@ -31,6 +36,9 @@ public class LastPlacedBlockTracker : MonoBehaviour
     private int lastPieceBoardVersion = -1;
 
 
+    private bool towerEventSubscribed = false;
+
+
     public TetriminoBlock LastPlacedBlock => lastPlacedBlock;
 
     public UndoTargetState CurrentState => currentState;
@@ -42,19 +50,85 @@ public class LastPlacedBlockTracker : MonoBehaviour
 
     private void OnEnable()
     {
+        // 일반 Piece Lock 추적
         TetriminoBlock.OnAnyBlockLocked += HandleBlockLocked;
+
+        TrySubscribeTowerEvent();
+    }
+
+
+    private void Start()
+    {
+        // OnEnable 시점에 TetrisManager가 준비되지 않았을 경우 대비
+        TrySubscribeTowerEvent();
     }
 
 
     private void OnDisable()
     {
         TetriminoBlock.OnAnyBlockLocked -= HandleBlockLocked;
+
+        UnsubscribeTowerEvent();
     }
 
 
     /// <summary>
-    /// 일반 TetriminoBlock이 정상적으로 Lock되었을 때 호출된다.
-    /// 새로운 블록이 설치되면 Undo 대상도 새 블록으로 갱신된다.
+    /// TetrisTower 이벤트 연결.
+    /// Inspector에서 직접 Tower를 넣어도 되고,
+    /// 비어 있으면 자동으로 찾는다.
+    /// </summary>
+    private void TrySubscribeTowerEvent()
+    {
+        if (towerEventSubscribed)
+            return;
+
+
+        if (tower == null &&
+            TetrisManager.Instance != null)
+        {
+            tower = TetrisManager.Instance.tower;
+        }
+
+
+        if (tower == null)
+        {
+            tower = FindObjectOfType<TetrisTower>();
+        }
+
+
+        if (tower == null)
+        {
+            Debug.LogWarning(
+                "[UndoTracker] TetrisTower를 찾지 못했습니다."
+            );
+
+            return;
+        }
+
+
+        tower.OnTowerStructureChanged += HandleTowerStructureChanged;
+
+        towerEventSubscribed = true;
+    }
+
+
+    private void UnsubscribeTowerEvent()
+    {
+        if (!towerEventSubscribed)
+            return;
+
+        if (tower != null)
+        {
+            tower.OnTowerStructureChanged -= HandleTowerStructureChanged;
+        }
+
+        towerEventSubscribed = false;
+    }
+
+
+    /// <summary>
+    /// 일반 TetriminoBlock이 Lock되었을 때
+    /// 새로운 Undo 대상으로 기록.
     /// </summary>
     private void HandleBlockLocked(TetriminoBlock block)
     {
@@ -81,43 +155,53 @@ public class LastPlacedBlockTracker : MonoBehaviour
 
 
     /// <summary>
-    /// 현재 마지막 Piece를 Undo할 수 있는지 검사한다.
-    /// 실제 블록 삭제는 하지 않는다.
+    /// 자동 라인 삭제 등으로 Tower 자체가 변경됨.
+    /// </summary>
+    private void HandleTowerStructureChanged()
+    {
+        NotifyBoardStructureChanged();
+    }
+
+
+    /// <summary>
+    /// 현재 마지막 Piece를 Undo할 수 있는지 검사.
     /// </summary>
     public bool CanUndo()
     {
-        // 기록 자체가 없음
         if (currentState == UndoTargetState.NoTarget)
             return false;
 
-        // 이미 Undo를 사용함
+
         if (currentState == UndoTargetState.AlreadyUsed)
             return false;
 
-        // 마지막 Piece 이후 Board 구조가 바뀜
+
         if (currentState == UndoTargetState.BoardChanged)
             return false;
 
-        // Unity Object가 이미 Destroy됨
+
         if (lastPlacedBlock == null)
         {
             currentState = UndoTargetState.TargetDestroyed;
+
             return false;
         }
 
-        // 기록 당시 Board와 현재 Board가 다름
+
         if (lastPieceBoardVersion != boardVersion)
         {
             currentState = UndoTargetState.BoardChanged;
+
             return false;
         }
+
 
         return currentState == UndoTargetState.Available;
     }
 
 
     /// <summary>
-    /// Undo Effect가 실제 삭제할 Piece를 요청할 때 사용한다.
+    /// Undo Effect에서 실제 삭제 대상을 요청.
     /// </summary>
     public bool TryGetUndoTarget(
         out TetriminoBlock target,
@@ -127,8 +211,10 @@ public class LastPlacedBlockTracker : MonoBehaviour
         {
             target = null;
             state = currentState;
+
             return false;
         }
+
 
         target = lastPlacedBlock;
         state = currentState;
@@ -138,21 +224,20 @@ public class LastPlacedBlockTracker : MonoBehaviour
 
 
     /// <summary>
-    /// 폭탄, 최하단 삭제, 자동 라인 삭제, 재해 등으로
-    /// 고정된 Board 구조 자체가 바뀌었음을 알린다.
-    ///
-    /// 다음 단계부터 해당 시스템들이 이 메서드를 호출하게 된다.
+    /// 폭탄, 최하단 삭제, 자동 라인 삭제,
+    /// 재해 등으로 Board 구조가 변경됐을 때 호출.
     /// </summary>
     public void NotifyBoardStructureChanged()
     {
         boardVersion++;
+
 
         if (currentState == UndoTargetState.Available)
         {
             currentState = UndoTargetState.BoardChanged;
 
             Debug.Log(
-                $"[UndoTracker] Board 변경으로 기존 Undo 대상 무효화 | " +
+                $"[UndoTracker] Board 변경으로 Undo 대상 무효화 | " +
                 $"BoardVersion: {boardVersion}"
             );
         }
@@ -160,18 +245,20 @@ public class LastPlacedBlockTracker : MonoBehaviour
 
 
     /// <summary>
-    /// Undo가 실제로 성공했을 때 호출한다.
-    /// 같은 대상에 Undo를 연속 사용할 수 없게 한다.
+    /// Undo가 실제로 성공한 뒤 호출.
+    /// 같은 상태에서 연속 Undo를 막는다.
     /// </summary>
     public void NotifyUndoSucceeded()
     {
         boardVersion++;
 
         currentState = UndoTargetState.AlreadyUsed;
+
         lastPlacedBlock = null;
 
+
         Debug.Log(
-            $"[UndoTracker] Undo 사용 완료 | " +
+            $"[UndoTracker] Undo 성공 | " +
             $"Sequence: {lastPlacementSequence} | " +
             $"BoardVersion: {boardVersion}"
         );

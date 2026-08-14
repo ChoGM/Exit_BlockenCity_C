@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,9 @@ public class TetrisTower : MonoBehaviour
 {
     private int[,,] towerGrid;
     private Vector3Int towerSize;
+
+    // 타워의 고정 블록 구조가 크게 변경되었을 때 알림
+    public event Action OnTowerStructureChanged;
 
     public void Initialize()
     {
@@ -121,6 +125,9 @@ public class TetrisTower : MonoBehaviour
         }
 
         RebuildGridFromLockedChildren();
+
+        // Undo 대상 무효화를 위해 Tower 구조 변경 알림
+        OnTowerStructureChanged?.Invoke();
     }
 
     // 전체 타워 검사 (블럭 락 될때마다 매니저에서 얘 호출되게)
@@ -157,6 +164,7 @@ public class TetrisTower : MonoBehaviour
         Debug.Log("[TetrisTower] Spawn Position: " + spawnPos);
         return spawnPos;
     }
+
     public int GetCurrentHeight() // 높이 반환 추가
     {
         int maxY = 0;
