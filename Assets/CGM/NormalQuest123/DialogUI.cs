@@ -45,6 +45,8 @@ public class DialogUI : MonoBehaviour
     public static DialogUI Instance;
     public bool IsDialogActive => dialogPanel.activeSelf;
     public bool IsDialogRunning { get; private set; }
+    private bool wasPausedBeforeDialog = false;
+
     private void Awake()
     {
         Instance = this;
@@ -111,37 +113,85 @@ public class DialogUI : MonoBehaviour
         Debug.Log($"[DialogUI] StartDialog 호출됨 / branch = {branch}");
         Debug.Log($"DialogManager.Instance = {DialogManager.Instance}");
 
+        // 대화 시작 전 Pause 상태 저장
+        wasPausedBeforeDialog =
+            GameManager.Instance != null &&
+            GameManager.Instance.IsGamePaused();
+
+        // 이미 Pause 상태가 아니라면 대화를 위해 Pause
+        if (!wasPausedBeforeDialog)
+        {
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.PauseGame();
+            }
+
+            Debug.Log("[DialogUI] 대화 시작 → 게임 Pause");
+        }
+
         IsDialogRunning = true;
 
         DialogManager.Instance.ClearQueue();
         DialogManager.Instance.LoadDialogByBranch(branch);
         isWaitingForChoice = false;
-        //HideAllButtons();
+
         dialogPanel.SetActive(true);
         ShowNextDialog();
+    }
+    private void EndDialog(string message = "")
+    {
+        IsDialogRunning = false;
+
+        if (typingCoroutine != null)
+        {
+            StopCoroutine(typingCoroutine);
+            typingCoroutine = null;
+        }
+
+        isTyping = false;
+        isWaitingForChoice = false;
+
+        HideAllButtons();
+
+        nameText.text = "";
+
+        if (!string.IsNullOrEmpty(message))
+        {
+            dialogText.text = message;
+        }
+
+        dialogPanel.SetActive(false);
+
+        // 대화 시작 전에 Pause 상태가 아니었다면 Resume
+        if (!wasPausedBeforeDialog)
+        {
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.ResumeGame();
+            }
+
+            Debug.Log("[DialogUI] 대화 종료 → 게임 Resume");
+        }
+
+        wasPausedBeforeDialog = false;
     }
 
     public void ShowNextDialog()
     {
         //HideAllButtons();
-
         if (!DialogManager.Instance.HasMoreDialog())
         {
-            IsDialogRunning = false;
-
-            nameText.text = "";
-            dialogText.text = "대화가 종료되었습니다.";
-            dialogPanel.SetActive(false);
+            EndDialog("대화가 종료되었습니다.");
             return;
         }
+
         currentLine = DialogManager.Instance.GetNextDialog();
 
-        // ⭐ null 방어
         if (currentLine == null)
         {
             Debug.LogError("currentLine NULL 발생");
-            IsDialogRunning = false;
-            dialogPanel.SetActive(false);
+
+            EndDialog();
             return;
         }
 
@@ -307,9 +357,7 @@ public class DialogUI : MonoBehaviour
         else
         {
             DialogManager.Instance.ClearQueue();
-            nameText.text = "";
-            dialogText.text = "대화를 거절했습니다.";
-            dialogPanel.SetActive(false);
+            EndDialog("대화를 거절했습니다.");
         }
     }
 }
