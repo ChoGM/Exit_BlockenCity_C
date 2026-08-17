@@ -1258,6 +1258,7 @@ GameObject:
   - component: {fileID: 360747879}
   - component: {fileID: 360747881}
   - component: {fileID: 360747880}
+  - component: {fileID: 360747882}
   m_Layer: 0
   m_Name: ItemSystem
   m_TagString: Untagged
@@ -1299,6 +1300,7 @@ MonoBehaviour:
   inventory: {fileID: 360747876}
   itemEffects:
   - {fileID: 360747881}
+  - {fileID: 360747882}
 --- !u!4 &360747878
 Transform:
   m_ObjectHideFlags: 0
@@ -1358,6 +1360,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tracker: {fileID: 360747879}
+  tower: {fileID: 69628391}
+--- !u!114 &360747882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360747875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fececb0f545d3e4090cf90446e9c25e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   tower: {fileID: 69628391}
 --- !u!114 &523577287
 MonoBehaviour:
