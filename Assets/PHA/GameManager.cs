@@ -22,7 +22,6 @@ public class GameManager : MonoBehaviour
         else
             Destroy(gameObject);
     }
-
     // [추가] 오브젝트가 활성화될 때 씬 로드 이벤트 구독
     private void OnEnable()
     {
@@ -67,13 +66,31 @@ public class GameManager : MonoBehaviour
     public void PauseGame()
     {
         isPaused = true;
+
+        if (TetrisManager.Instance != null)
+        {
+            TetrisManager.Instance.SetPause(true);
+        }
+
+        Debug.Log("[GameManager] 게임 일시정지");
     }
 
     public void ResumeGame()
     {
         isPaused = false;
+
+        if (TetrisManager.Instance != null)
+        {
+            TetrisManager.Instance.SetPause(false);
+        }
+
+        Debug.Log("[GameManager] 게임 재개");
     }
 
+    public bool IsGamePaused()
+    {
+        return isPaused;
+    }
     public void StopGame()
     {
         isGameEnded = true;
