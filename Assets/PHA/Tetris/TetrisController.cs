@@ -120,6 +120,13 @@ public class TetrisController : MonoBehaviour
         if (spawner == null) return;
 
         Vector3 target = currentBlock.transform.position;
+
+        // [추가] 스왑 검사 전 기존 회전 잠금을 먼저 초기화
+        if (inputBlocker != null)
+        {
+            inputBlocker.blockRotation = false;
+        }
+
         bool ok = spawner.TrySwapWithNext(target);
 
         if (ok)

@@ -40,6 +40,13 @@ public class EffectVisualPlayer : MonoBehaviour
     private const string SmogPath = "GraphicResourc/Prefabs/VFX/VFX_SmogScr_Loop";
     private const string SnowfallPath = "GraphicResourc/Prefabs/VFX/VFX_FrozenScr_Loop";
 
+    [Header("==== 건기 이펙트 설정 ====")]
+    [Tooltip("10월 건기: 블록 파괴 위치에 재생될 파티클 이펙트")]
+    [SerializeField] private GameObject drySeasonBlockBreakPrefab;
+
+    [Tooltip("10월 건기: 블록 파괴 시 화면 전체에 재생될 이펙트")]
+    [SerializeField] private GameObject drySeasonScreenPrefab;
+
     // 1월 얼음 블록 이미지
     public GameObject VisualFreezeBlock(TetriminoBlock block)
     {
@@ -72,6 +79,9 @@ public class EffectVisualPlayer : MonoBehaviour
     {
         var prefab = strongWindPrefab ?? Resources.Load<GameObject>(StrongWindPath);
         //var prefab = Resources.Load<GameObject>(StrongWindPath);
+
+        // [추가] 강풍 효과음 1회 재생
+        ObstacleSoundManager.Instance?.PlayObstacleSound(ObstacleType.StrongWind);
 
         if (prefab == null) return null;
 
@@ -159,9 +169,36 @@ public class EffectVisualPlayer : MonoBehaviour
     }
 
     // 10월 건기 블록 파괴 효과
-    public void PlayBlockCrumbleEffect(Vector3 position)
+    public GameObject PlayBlockCrumbleEffect(Vector3 position)
     {
-        // 미정
+        if (drySeasonBlockBreakPrefab == null)
+        {
+            Debug.LogWarning("[PlayBlockCrumbleEffect] 건기 블록 파괴 프리팹이 연결되지 않았습니다.");
+            return null;
+        }
+
+        return Instantiate(drySeasonBlockBreakPrefab, position, Quaternion.identity);
+    }
+
+    // 10월 건기 화면 이펙트 (화면 전체)
+    public GameObject PlayDrySeasonScreenEffect()
+    {
+        if (drySeasonScreenPrefab == null)
+        {
+            Debug.LogWarning("[PlayDrySeasonScreenEffect] 건기 화면 이펙트 프리팹이 연결되지 않았습니다.");
+            return null;
+        }
+
+        var instance = Instantiate(drySeasonScreenPrefab);
+
+        // Canvas 기반 UI/화면 이펙트일 경우 메인 카메라 바인딩
+        var binder = instance.GetComponent<EffectCameraBinder>();
+        if (binder != null)
+        {
+            binder.BindToMainCamera(instance);
+        }
+
+        return instance;
     }
 
     // 11월 스모그 효과
