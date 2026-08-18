@@ -53,30 +53,89 @@ public class TetriminoBlock : MonoBehaviour
 
     public bool IsLocked => isLock;
 
+    //추가
+    //폭탄 아이템에서 사용하는 내용
+    [Header("Special Piece")]
+    [SerializeField]
+    private TetriminoBlockChild specialCellPrefab;
+
+    private SpecialBlockLockHandler specialLockHandler;
+
+    public bool IsSpecialPiece
+        => specialLockHandler != null;
+
 
     void Awake()
     {
         isSelect = false;
 
-        //블럭 모양 가져오기
+
+        // ---------------------------------------------
+        // 특수 Piece 확인
+        // ---------------------------------------------
+
+        specialLockHandler =
+            GetComponent<SpecialBlockLockHandler>();
+
+
+        if (specialLockHandler != null)
+        {
+            // 특수 Piece는 일반 BlockType을 사용하지 않는다.
+            blockType = BlockType.None;
+
+            // 1 x 1 Piece
+            shapeData = new Vector3[]
+            {
+            Vector3.zero
+            };
+
+
+            if (specialCellPrefab == null)
+            {
+                Debug.LogError(
+                    "[TetriminoBlock] " +
+                    "Special Piece의 Cell Prefab이 없습니다."
+                );
+
+                return;
+            }
+
+
+            blockPrefab =
+                specialCellPrefab.gameObject;
+
+
+            return;
+        }
+
+
+        // ---------------------------------------------
+        // 기존 일반 Tetrimino
+        // ---------------------------------------------
+
         shapeType = GetRandomShapeType();
-        shapeData = BlockData.Shapes[shapeType];
+
+        shapeData =
+            BlockData.Shapes[shapeType];
 
 
-        //블럭 타입 처음은 None 표시
         blockType = BlockType.None;
 
-        //블럭 머티리얼 설정
         blockType = GetRandomBlockType();
-        //blockMaterial = BlockMaterialBinder.Materials[blockType];
 
-        if (!BlockPrefabBinder.Prefabs.TryGetValue(blockType, out blockPrefab) || blockPrefab == null)
+
+        if (!BlockPrefabBinder.Prefabs.TryGetValue(
+                blockType,
+                out blockPrefab)
+            || blockPrefab == null)
         {
-            Debug.LogError($"[TetriminoBlock] Missing prefab for type {blockType}");
+            Debug.LogError(
+                $"[TetriminoBlock] " +
+                $"Missing prefab for type {blockType}"
+            );
         }
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         CheckPrefabs();
@@ -98,7 +157,6 @@ public class TetriminoBlock : MonoBehaviour
         navigator.gameObject.SetActive(isSelect);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!isSelect) return;
@@ -159,40 +217,144 @@ public class TetriminoBlock : MonoBehaviour
             navigator.gameObject.SetActive(isSelect);
     }
 
+    //public void BlockLock()
+    //{
+    //    isSelect = false;
+    //    isLock = true;
+
+    //    int towerHeight = 8; // y 최대 개수
+    //    foreach (var child in tetriminoBlockChild)
+    //    {
+    //        if (child == null) continue;
+    //        Vector3Int pos = WorldToTowerOffset(child.transform.position); // 위치→타워셀 좌표 변환
+    //        if (pos.y >= towerHeight)   // 꼭대기(유효범위 밖)면 게임오버
+    //        {
+    //            TetrisManager.Instance.GameOver();
+    //            return; // 더 진행하지 않음 (타워 등록/다음 스폰 X)
+    //        }
+    //    }
+
+    //    foreach (var child in tetriminoBlockChild)
+    //    {
+    //        if (child != null)
+    //        {
+    //            // 자식 블럭의 월드 좌표 → 타워 좌표
+    //            Vector3Int towerPos = WorldToTowerOffset(child.transform.position);
+
+    //            // 타워에 등록
+    //            TetrisManager.Instance.tower.AddBlockToTower(towerPos, blockType);
+
+    //            // 추가
+    //            // Child에게 좌표 기억시킴
+    //            child.SetGridPosition(towerPos);
+
+    //            child.BlockLock();
+    //        }
+    //    }
+
+    //    if (navigator != null)
+    //    {
+    //        Destroy(navigator.gameObject);
+    //        navigator = null;
+    //    }
+
+    //    //추가
+    //    //블록 락 이벤트 활성화
+    //    OnAnyBlockLocked?.Invoke(this);
+
+    //    //높이부분 추가
+    //    //int currentHeight = TetrisManager.Instance.tower.GetCurrentHeight();
+    //    //SpecialQuestManager.Instance.OnHeightChanged(currentHeight);
+
+    //    SpecialQuestManager.Instance.OnBlockDropped();
+    //    TetrisManager.Instance.CheckTower();
+    //    TetrisManager.Instance.SpawnNextBlock();
+    //}
+
     public void BlockLock()
     {
+        // 중복 Lock 방지
+        if (isLock)
+            return;
+
+
         isSelect = false;
         isLock = true;
 
-        int towerHeight = 8; // y 최대 개수
+
+        // ---------------------------------------------
+        // 특수 Piece라면 일반 Tower 등록을 하지 않는다.
+        // ---------------------------------------------
+
+        if (specialLockHandler != null)
+        {
+            if (navigator != null)
+            {
+                Destroy(navigator.gameObject);
+                navigator = null;
+            }
+
+
+            specialLockHandler.HandleSpecialLock(this);
+
+            return;
+        }
+
+
+        // ---------------------------------------------
+        // 여기부터 기존 일반 BlockLock
+        // ---------------------------------------------
+
+        int towerHeight = 8;
+
+
         foreach (var child in tetriminoBlockChild)
         {
-            if (child == null) continue;
-            Vector3Int pos = WorldToTowerOffset(child.transform.position); // 위치→타워셀 좌표 변환
-            if (pos.y >= towerHeight)   // 꼭대기(유효범위 밖)면 게임오버
+            if (child == null)
+                continue;
+
+
+            Vector3Int pos =
+                WorldToTowerOffset(
+                    child.transform.position
+                );
+
+
+            if (pos.y >= towerHeight)
             {
                 TetrisManager.Instance.GameOver();
-                return; // 더 진행하지 않음 (타워 등록/다음 스폰 X)
+
+                return;
             }
         }
+
 
         foreach (var child in tetriminoBlockChild)
         {
             if (child != null)
             {
-                // 자식 블럭의 월드 좌표 → 타워 좌표
-                Vector3Int towerPos = WorldToTowerOffset(child.transform.position);
+                Vector3Int towerPos =
+                    WorldToTowerOffset(
+                        child.transform.position
+                    );
 
-                // 타워에 등록
-                TetrisManager.Instance.tower.AddBlockToTower(towerPos, blockType);
 
-                // 추가
-                // Child에게 좌표 기억시킴
-                child.SetGridPosition(towerPos);
+                TetrisManager.Instance.tower
+                    .AddBlockToTower(
+                        towerPos,
+                        blockType
+                    );
+
+
+                child.SetGridPosition(
+                    towerPos
+                );
+
 
                 child.BlockLock();
             }
         }
+
 
         if (navigator != null)
         {
@@ -200,16 +362,14 @@ public class TetriminoBlock : MonoBehaviour
             navigator = null;
         }
 
-        //추가
-        //블록 락 이벤트 활성화
+
         OnAnyBlockLocked?.Invoke(this);
 
-        //높이부분 추가
-        //int currentHeight = TetrisManager.Instance.tower.GetCurrentHeight();
-        //SpecialQuestManager.Instance.OnHeightChanged(currentHeight);
 
         SpecialQuestManager.Instance.OnBlockDropped();
+
         TetrisManager.Instance.CheckTower();
+
         TetrisManager.Instance.SpawnNextBlock();
     }
 
@@ -247,8 +407,14 @@ public class TetriminoBlock : MonoBehaviour
     // 블럭 모양 설정 && 머티리얼 불러오기
     private void SpawnBlockVisual()
     {
-        if (shapeData == null || shapeData.Length == 0 || tetriminoBlock == null)
+        //if (shapeData == null || shapeData.Length == 0 || tetriminoBlock == null)
+        //    return;
+
+        if (shapeData == null ||
+            shapeData.Length == 0)
+        {
             return;
+        }
 
         tetriminoBlockChild = new TetriminoBlockChild[shapeData.Length];
 
@@ -316,6 +482,15 @@ public class TetriminoBlock : MonoBehaviour
         );
     }
 
+    //추가
+    //아이템 시스템에서 사용
+    public Vector3Int WorldToTowerPosition(
+    Vector3 worldPosition)
+    {
+        return WorldToTowerOffset(
+            worldPosition
+        );
+    }
 
     public bool CanMove(Vector3 direction)
     {
@@ -368,19 +543,47 @@ public class TetriminoBlock : MonoBehaviour
     }
 
     // 자식들이 비었다면 껍데기 삭제
+    //public void CleanupIfEmpty()
+    //{
+    //    int alive = 0;
+    //    if (tetriminoBlockChild != null)
+    //    {
+    //        foreach (var c in tetriminoBlockChild)
+    //        {
+    //            if (c != null) alive++;
+    //        }
+    //    }
+
+    //    if (alive == 0)
+    //        Destroy(gameObject);
+    //}
+
     public void CleanupIfEmpty()
     {
         int alive = 0;
+
+
         if (tetriminoBlockChild != null)
         {
             foreach (var c in tetriminoBlockChild)
             {
-                if (c != null) alive++;
+                if (c == null)
+                    continue;
+
+
+                if (c.PendingDestroy)
+                    continue;
+
+
+                alive++;
             }
         }
 
+
         if (alive == 0)
+        {
             Destroy(gameObject);
+        }
     }
 
     public void SetLocalPosition(Vector3Int position)

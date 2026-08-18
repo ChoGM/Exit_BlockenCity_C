@@ -955,21 +955,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d139008936d2c6045ae3879ea487c69a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerLayout: {fileID: 0}
+  settingPresets: []
+  stageSettings: []
   tetrisTowerSize: {x: 4, y: 8, z: 4}
-  stageTowerSizes:
-  - stage: 1
-    towerSize: {x: 4, y: 8, z: 4}
-  - stage: 2
-    towerSize: {x: 4, y: 8, z: 4}
-  - stage: 3
-    towerSize: {x: 5, y: 8, z: 5}
-  - stage: 4
-    towerSize: {x: 5, y: 8, z: 5}
   fallInterval: 1.5
   tower: {fileID: 69628391}
   spawner: {fileID: 69628388}
   controller: {fileID: 69628389}
+  towerLayout: {fileID: 0}
   scoreUIBinder: {fileID: 591717713}
 --- !u!4 &69628394
 Transform:
@@ -1259,6 +1252,7 @@ GameObject:
   - component: {fileID: 360747881}
   - component: {fileID: 360747880}
   - component: {fileID: 360747882}
+  - component: {fileID: 360747883}
   m_Layer: 0
   m_Name: ItemSystem
   m_TagString: Untagged
@@ -1301,6 +1295,7 @@ MonoBehaviour:
   itemEffects:
   - {fileID: 360747881}
   - {fileID: 360747882}
+  - {fileID: 360747883}
 --- !u!4 &360747878
 Transform:
   m_ObjectHideFlags: 0
@@ -1374,6 +1369,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tower: {fileID: 69628391}
+--- !u!114 &360747883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360747875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e65dc00a2a4c8d54b90a800f182434b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawner: {fileID: 0}
+  controller: {fileID: 0}
+  bombPiecePrefab: {fileID: 5306157888216561460, guid: 503e0752c2ff8ca4f8a992ad4cb000af, type: 3}
 --- !u!114 &523577287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2934,11 +2944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tetrisController: {fileID: 69628389}
-  cameraPoints:
-  - {fileID: 645464980}
-  - {fileID: 536223503}
-  - {fileID: 686344858}
-  - {fileID: 1923242553}
+  targetCamera: {fileID: 0}
   moveSpeed: 6
   rotateSpeed: 8
   currentDir: 0

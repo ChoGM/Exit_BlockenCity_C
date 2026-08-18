@@ -23,14 +23,11 @@ public class ItemDebugTester : MonoBehaviour
             TestBottomLayerClearItem();
         }
 
-
-        // 7 = 폭탄
+        // 7 = 3x3x3 폭탄
         if (Input.GetKeyDown(KeyCode.Alpha7) ||
             Input.GetKeyDown(KeyCode.Keypad7))
         {
-            Debug.Log(
-                "[ItemDebug] 7번키 - 폭탄 아이템은 다음 단계에서 연결합니다."
-            );
+            TestBombItem();
         }
     }
 
@@ -107,6 +104,45 @@ public class ItemDebugTester : MonoBehaviour
 
         Debug.Log(
             $"[ItemDebug] [6번키 - 최하단 제거] " +
+            $"Success: {result.Success} | " +
+            $"Reason: {result.FailureReason} | " +
+            $"Message: {result.Message} | " +
+            $"Inventory: {beforeCount} -> {afterCount}"
+        );
+    }
+
+    private void TestBombItem()
+    {
+        if (ItemManager.Instance == null)
+        {
+            Debug.LogError(
+                "[ItemDebug] ItemManager를 찾을 수 없습니다."
+            );
+
+            return;
+        }
+
+
+        int beforeCount =
+            ItemManager.Instance.GetItemCount(
+                GameItemId.Bomb3x3
+            );
+
+
+        ItemUseResult result =
+            ItemManager.Instance.TryUseItem(
+                GameItemId.Bomb3x3
+            );
+
+
+        int afterCount =
+            ItemManager.Instance.GetItemCount(
+                GameItemId.Bomb3x3
+            );
+
+
+        Debug.Log(
+            $"[ItemDebug] [7번키 - 3x3x3 폭탄] " +
             $"Success: {result.Success} | " +
             $"Reason: {result.FailureReason} | " +
             $"Message: {result.Message} | " +

@@ -96,25 +96,49 @@ public class TetrisController : MonoBehaviour
 
     private void XRotate()
     {
-        if (currentBlock == null) return;
+        if (currentBlock == null)
+            return;
+
+        //추가
+        if (currentBlock.IsSpecialPiece)
+            return;
+
         currentBlock.RotateX();
     }
 
+
     private void YRotate()
     {
-        if (currentBlock == null) return;
+        if (currentBlock == null)
+            return;
+
+        //추가
+        if (currentBlock.IsSpecialPiece)
+            return;
+
         currentBlock.RotateY();
     }
 
+
     private void ZRotate()
     {
-        if (currentBlock == null) return;
+        if (currentBlock == null)
+            return;
+
+        //추가
+        if (currentBlock.IsSpecialPiece)
+            return;
+
         currentBlock.RotateZ();
     }
 
     private void BlockChange() 
     {
         if (currentBlock == null) return;
+
+        //추가
+        if (currentBlock.IsSpecialPiece)
+            return;
 
         var spawner = FindObjectOfType<TetrisSpawner>();
         if (spawner == null) return;
