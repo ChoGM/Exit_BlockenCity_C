@@ -73,6 +73,13 @@ public class TetrisSpawner : MonoBehaviour
     {
         if (currentBlock == null || nextBlock == null) return false;
 
+        //추가
+        // Bomb 등 특수 Piece는 Next와 교환 불가
+        if (currentBlock.IsSpecialPiece)
+        {
+            return false;
+        }
+
         // next를 현재 위치로 옮길 수 있는지 검사 (타워 경계/충돌 포함)
         Vector3 delta = targetWorldPos - nextBlock.transform.position;
         if (!nextBlock.CanMove(delta)) return false;  // 못 들어오면 스왑 안 함
@@ -92,6 +99,75 @@ public class TetrisSpawner : MonoBehaviour
 
         // [추가] 블록 교체(Hold) 이벤트 호출
         OnBlockSwapped?.Invoke(currentBlock);
+
+        return true;
+    }
+
+    //추가
+    //아이템 시스템에서 사용
+    public bool TryReplaceCurrentBlock(
+    TetriminoBlock replacementPrefab,
+    out TetriminoBlock replacementBlock)
+    {
+        replacementBlock = null;
+
+
+        if (currentBlock == null ||
+            replacementPrefab == null)
+        {
+            return false;
+        }
+
+
+        // 현재 Piece 위치 유지
+        Vector3 targetPosition =
+            currentBlock.transform.position;
+
+
+        // 기존 Piece
+        TetriminoBlock oldCurrent =
+            currentBlock;
+
+
+        oldCurrent.SetIsSelet(false);
+
+
+        // 특수 Piece 생성
+        replacementBlock =
+            Instantiate(
+                replacementPrefab,
+                targetPosition,
+                Quaternion.identity
+            );
+
+
+        if (replacementBlock == null)
+        {
+            oldCurrent.SetIsSelet(true);
+
+            return false;
+        }
+
+
+        // 새로운 current 등록
+        currentBlock =
+            replacementBlock;
+
+
+        currentBlock.SetIsSelet(true);
+
+
+        // 기존 떨어지던 일반 Piece 제거
+        oldCurrent.gameObject.SetActive(false);
+
+        Destroy(oldCurrent.gameObject);
+
+
+        Debug.Log(
+            $"[TetrisSpawner] Current Piece 교체 | " +
+            $"{oldCurrent.name} -> {currentBlock.name}"
+        );
+
 
         return true;
     }
