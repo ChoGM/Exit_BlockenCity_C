@@ -44,7 +44,7 @@ MonoBehaviour:
     nodeType: 2
     text: "(\uB0A1\uC740 \uAC74\uBB3C\uACFC \uADF8 \uC0AC\uC774\uB97C \uC5BD\uC740
       \uAD6C\uC870\uBB3C\uB4E4\uC774 \uD750\uB9B0 \uD558\uB298 \uC544\uB798 \uB354\uC6B1
-      \uC5B4\uB461\uAC8C \uB0B4\uB824\uC549\uC544 \uC788\uC5C8\uB2E4.)\r"
+      \uC5B4\uB461\uAC8C \uB0B4\uB824\uC549\uC544 \uC788\uC5C8\uB2E4.)"
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Sihwa_01
@@ -1347,7 +1347,7 @@ MonoBehaviour:
     effects: []
   - nodeId: Narration_12
     nodeType: 2
-    text: "(\uB9AC \uC2DC\uD654\uAC00 \uC7A0\uC2DC \uC0DD\uAC01\uC5D0 \uC7A0\uACBC\uB2E4.)\r"
+    text: "(\uB9AC \uC2DC\uD654\uAC00 \uC7A0\uC2DC \uC0DD\uAC01\uC5D0 \uC7A0\uACBC\uB2E4.)"
     character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
     portraitId: D_01_00
     nextNodeId: Sihwa_27

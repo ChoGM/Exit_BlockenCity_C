@@ -29,7 +29,7 @@ MonoBehaviour:
   - nodeId: Intro_01
     nodeType: 2
     text: "(\uC11C\uB85C \uB2E4\uB978 \uBCF4\uACE0\uC11C \uC138 \uC7A5\uC774 \uCC45\uC0C1
-      \uC704\uC5D0 \uB193\uC600\uB2E4.)\r"
+      \uC704\uC5D0 \uB193\uC600\uB2E4.)"
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Intro_02
@@ -88,7 +88,7 @@ MonoBehaviour:
       \uB300\uD574\uC11C \uC5B4\uB5BB\uAC8C \uC0DD\uAC01\uD558\uC2DC\uB098\uC694?"
     character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
     portraitId: D_01_00
-    nextNodeId: 'Choice_Question '
+    nextNodeId: Choice_Question
     choices: []
     dimPortrait: 0
     keepPortrait: 1
@@ -96,12 +96,12 @@ MonoBehaviour:
     autoAdvance: 0
     autoAdvanceDelay: 0
     effects: []
-  - nodeId: 'Choice_Question '
+  - nodeId: Choice_Question
     nodeType: 3
     text: 
     character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
     portraitId: D_01_00
-    nextNodeId: 'Choice_Question '
+    nextNodeId: Choice_Question
     choices:
     - choiceText: "\uD64D\uB828\uADC0\uC5D0 \uB300\uD574 \uBB3B\uB294\uB2E4."
       targetNodeId: A_000
@@ -182,7 +182,7 @@ MonoBehaviour:
     nodeType: 0
     text: "\uAD73\uC774 \uC228\uAE30\uB824\uACE0 \uD558\uC9C0 \uC54A\uC544\uB3C4
       \uB429\uB2C8\uB2E4. \uC774\uACF3\uC5D0 \uC788\uB294 \uC774\uC0C1 \uC5B4\uB5A4
-      \uD615\uD0DC\uB85C\uB4E0 \uC811\uCD09\uD588\uACA0\uC8E0.\r"
+      \uD615\uD0DC\uB85C\uB4E0 \uC811\uCD09\uD588\uACA0\uC8E0."
     character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
     portraitId: D_01_02
     nextNodeId: A_Sihwa_03
@@ -292,7 +292,7 @@ MonoBehaviour:
   - nodeId: A_Sihwa_05
     nodeType: 0
     text: "\uADF8\uAC8C \uC77C\uBC18\uC801\uC778 \uBC18\uC751\uC774\uAE34 \uD558\uC8E0.
-      \uAF64\uB098 \uAC15\uB82C\uD55C \uC778\uC0C1\uC744 \uB0A8\uACBC\uB098 \uBCF4\uAD70\uC694.\r"
+      \uAF64\uB098 \uAC15\uB82C\uD55C \uC778\uC0C1\uC744 \uB0A8\uACBC\uB098 \uBCF4\uAD70\uC694."
     character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
     portraitId: D_01_00
     nextNodeId: A_Sihwa_06
@@ -307,7 +307,7 @@ MonoBehaviour:
     nodeType: 0
     text: "\uACBD\uACC4\uB97C \uD558\uB294 \uAC83\uC740 \uC88B\uC740 \uC790\uC138\uC785\uB2C8\uB2E4.
       \uC774\uACF3\uC5D0\uC11C \uD64D\uB828\uADC0\uAC00 \uC544\uBB34 \uC774\uC720
-      \uC5C6\uC774 \uC811\uADFC\uD558\uC9C4 \uC54A\uC744\uD14C\uB2C8\uAE4C\uC694.\r\r"
+      \uC5C6\uC774 \uC811\uADFC\uD558\uC9C4 \uC54A\uC744\uD14C\uB2C8\uAE4C\uC694."
     character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
     portraitId: D_01_00
     nextNodeId: A_Sihwa_07
@@ -322,7 +322,7 @@ MonoBehaviour:
     nodeType: 0
     text: "\uADF8\uB807\uB2E4\uACE0 \uC790\uC2E0\uC774 \uAC00\uC9C4 \uB450\uB824\uC6C0\uC744
       \uC0C1\uB300\uC5D0\uAC8C \uBC14\uB85C \uB0B4\uBCF4\uC774\uB294 \uAC83\uC740
-      \uC88B\uC740 \uBC29\uBC95\uC740 \uC544\uB2D9\uB2C8\uB2E4.\r\r\r"
+      \uC88B\uC740 \uBC29\uBC95\uC740 \uC544\uB2D9\uB2C8\uB2E4."
     character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
     portraitId: D_01_00
     nextNodeId: A_Sihwa_17
@@ -477,7 +477,7 @@ MonoBehaviour:
     nodeType: 0
     text: "\uD64D\uB828\uADC0\uC758 \uC0AC\uB78C\uACFC \uB9CC\uB0AC\uC744 \uB54C,
       \uADF8\uAC00 \uB2F9\uC2E0\uC774 \uB204\uAD70\uC9C0 \uC54C\uACE0 \uC788\uB294
-      \uAC83 \uAC19\uC558\uC2B5\uB2C8\uAE4C?\r"
+      \uAC83 \uAC19\uC558\uC2B5\uB2C8\uAE4C?"
     character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
     portraitId: D_01_00
     nextNodeId: A_Narration_05
@@ -603,7 +603,7 @@ MonoBehaviour:
     nodeType: 0
     text: "\uC57C\uC11C\uC5D0 \uB300\uD55C \uBCF4\uACE0\uC11C\uB97C \uC77D\uC5B4\uBCF4\uC168\uAD70\uC694.
       \uC774 \uAD6C\uB8E1\uCC44\uC131 \uC548\uC5D0\uC11C\uB3C4 \uD601\uBA85 \uC9D1\uB2E8\uC774\uB784
-      \uAC83\uC774 \uC788\uB294 \uAC83\uC774 \uC2E0\uAE30\uD560 \uC815\uB3C4\uC774\uC8E0.\r"
+      \uAC83\uC774 \uC788\uB294 \uAC83\uC774 \uC2E0\uAE30\uD560 \uC815\uB3C4\uC774\uC8E0."
     character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
     portraitId: D_01_00
     nextNodeId: B_Sihwa_02
@@ -788,7 +788,7 @@ MonoBehaviour:
   - nodeId: B_Warily
     nodeType: 1
     text: "\uB9CC\uB0AC\uB358 \uADF8 \uC0AC\uB78C\uC740 \uC800\uB97C \uACBD\uACC4\uD558\uB294
-      \uAC83 \uAC19\uC558\uC2B5\uB2C8\uB2E4. "
+      \uAC83 \uAC19\uC558\uC2B5\uB2C8\uB2E4."
     character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
     portraitId: D_01_00
     nextNodeId: B_Narration_02
@@ -958,7 +958,7 @@ MonoBehaviour:
   - nodeId: B_Sihwa_16
     nodeType: 0
     text: "\uAC10\uC774\uB77C. \uADF8\uAC74 \uB2F9\uC2E0\uC774 \uC774\uACF3 \uCD9C\uC2E0\uC774\uAE30
-      \uB54C\uBB38\uC5D0 \uD560 \uC218 \uC788\uB294 \uB9D0\uC778\uAC00\uC694?\r"
+      \uB54C\uBB38\uC5D0 \uD560 \uC218 \uC788\uB294 \uB9D0\uC778\uAC00\uC694?"
     character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
     portraitId: D_01_00
     nextNodeId: B_Sihwa_17
@@ -1101,7 +1101,7 @@ MonoBehaviour:
     nodeType: 0
     text: "\uB2F9\uC2E0\uC774 \uD574\uC57C\uD558\uB294 \uC77C\uC774 \uBB34\uC5C7\uC778\uC9C0,
       \uBB34\uC5C7 \uB355\uBD84\uC5D0 \uADF8 \uC790\uB9AC\uC5D0 \uC124 \uC218 \uC788\uB294\uC9C0\uB97C
-      \uC798 \uAE30\uC5B5\uD558\uBA74\uC11C \uB9D0\uC774\uC8E0. \r"
+      \uC798 \uAE30\uC5B5\uD558\uBA74\uC11C \uB9D0\uC774\uC8E0."
     character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
     portraitId: D_01_00
     nextNodeId: C_Sihwa_04
