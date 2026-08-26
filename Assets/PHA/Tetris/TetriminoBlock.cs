@@ -385,11 +385,10 @@ public class TetriminoBlock : MonoBehaviour
         Destroy(gameObject);
     }
 
-    // 블럭 모양 랜덤
+    // 블럭 모양 랜덤 -> 수정
     private BlockShapes GetRandomShapeType()
     {
-        BlockShapes[] values = (BlockShapes[])System.Enum.GetValues(typeof(BlockShapes));
-        return values[Random.Range(0, values.Length)];
+        return TetrisManager.Instance.GetRandomStageShape();
     }
 
     // 블럭 타입 랜덤으로 정해주기
