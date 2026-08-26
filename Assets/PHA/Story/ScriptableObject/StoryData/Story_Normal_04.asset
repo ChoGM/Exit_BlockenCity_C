@@ -97,7 +97,7 @@ MonoBehaviour:
   - nodeId: Sihwa_03
     nodeType: 0
     text: "\uCC98\uC74C \uC774\uACF3\uC5D0 \uC654\uC744 \uB54C\uC640 \uBE44\uAD50\uD558\uBA74
-      \uBBFF\uAE30 \uC5B4\uB824\uC6B8 \uC815\uB3C4\uB85C\uC694.\r"
+      \uBBFF\uAE30 \uC5B4\uB824\uC6B8 \uC815\uB3C4\uB85C\uC694."
     character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
     portraitId: D_01_00
     nextNodeId: Narration_04
@@ -111,7 +111,7 @@ MonoBehaviour:
   - nodeId: Narration_04
     nodeType: 2
     text: "(\uB9AC \uC2DC\uD654\uAC00 \uBCF4\uACE0\uC11C\uB97C \uCC45\uC0C1 \uC704\uC5D0
-      \uB0B4\uB824\uB193\uC558\uB2E4.)\r"
+      \uB0B4\uB824\uB193\uC558\uB2E4.)"
     character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
     portraitId: D_01_00
     nextNodeId: Sihwa_04
@@ -304,7 +304,7 @@ MonoBehaviour:
     effects: []
   - nodeId: A_Sihwa_05
     nodeType: 0
-    text: " \uC5B4\uCA4C\uBA74 \uC81C\uAC00 \uAC00\uC7A5 \uBC1B\uACE0 \uC2F6\uC740
+    text: "\uC5B4\uCA4C\uBA74 \uC81C\uAC00 \uAC00\uC7A5 \uBC1B\uACE0 \uC2F6\uC740
       \uBCF4\uACE0\uC11C\uC77C\uC9C0\uB3C4 \uBAA8\uB974\uACA0\uB124\uC694."
     character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
     portraitId: D_01_02
@@ -394,7 +394,7 @@ MonoBehaviour:
       \uBC14\uB77C\uBD24\uB2E4.)"
     character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
     portraitId: D_01_00
-    nextNodeId: 'B_Sihwa_01 '
+    nextNodeId: B_Sihwa_01
     choices: []
     dimPortrait: 1
     keepPortrait: 1
@@ -402,7 +402,7 @@ MonoBehaviour:
     autoAdvance: 0
     autoAdvanceDelay: 0
     effects: []
-  - nodeId: 'B_Sihwa_01 '
+  - nodeId: B_Sihwa_01
     nodeType: 0
     text: "\uBD88\uC548\uD558\uB2E4."
     character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
@@ -597,7 +597,7 @@ MonoBehaviour:
     effects: []
   - nodeId: C_Sihwa_01
     nodeType: 0
-    text: "\uC775\uC219\uD574\uC84C\uB2E4.\r"
+    text: "\uC775\uC219\uD574\uC84C\uB2E4."
     character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
     portraitId: D_01_00
     nextNodeId: C_Sihwa_02

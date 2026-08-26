@@ -1,0 +1,7 @@
+﻿StoryId,StoryType,StoryTitle,Year,Month,Day,Priority,PlayOnce,PlayTiming,UnlockFactionId,StartNodeId,Memo
+Normal_01,Normal,발령,1960,1,17,100,TRUE,Monthly,Normal_01,appointment_001,
+Normal_02,Normal,단순하게 사는 법,1960,2,14,100,TRUE,Monthly,Normal_02,Intro_01,
+Normal_03,Normal,불확실함 속에서,1960,3,0,100,TRUE,Monthly,Normal_03,Intro_01,
+Normal_04,Normal,고요의 순간,1960,4,27,100,TRUE,Monthly,,Narration_01,
+Normal_05,Normal,인간은 파괴될 지언정,1960,5,21,100,TRUE,Monthly,,Intro_01,
+Normal_06,Normal,조금은 낭만적인 것,1960,6,19,100,TRUE,Monthly,,Intro_01,
