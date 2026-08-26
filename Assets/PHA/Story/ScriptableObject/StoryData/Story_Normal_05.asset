@@ -281,7 +281,7 @@ MonoBehaviour:
   - nodeId: A_001
     nodeType: 1
     text: "\uCD5C\uADFC \uAD6C\uB8E1\uCC44\uC131 \uB0B4\uC5D0\uC11C \uB9C8\uC57D\uB4E4\uC774
-      \uD37C\uC9C0\uACE0 \uC788\uC2B5\uB2C8\uB2E4. "
+      \uD37C\uC9C0\uACE0 \uC788\uC2B5\uB2C8\uB2E4."
     character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
     portraitId: D_01_00
     nextNodeId: A_Sihwa_01
@@ -336,7 +336,7 @@ MonoBehaviour:
     nodeType: 0
     text: "\uC815\uBD80\uC5D0\uC11C\uB3C4 \uC720\uD1B5 \uACBD\uB85C\uB97C \uD30C\uC545\uD558\uACE0
       \uC788\uC9C0\uB9CC, \uC544\uC9C1 \uB69C\uB837\uD558\uAC8C \uB098\uC628 \uAC83\uC740
-      \uC5C6\uC2B5\uB2C8\uB2E4.\r\n"
+      \uC5C6\uC2B5\uB2C8\uB2E4."
     character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
     portraitId: D_01_01
     nextNodeId: A_Sihwa_04
@@ -503,7 +503,7 @@ MonoBehaviour:
     effects: []
   - nodeId: B_Narration_01
     nodeType: 2
-    text: "(\uB9AC \uC2DC\uD654\uAC00 \uC7A0\uC2DC \uCE68\uBB35\uD588\uB2E4.)\r"
+    text: "(\uB9AC \uC2DC\uD654\uAC00 \uC7A0\uC2DC \uCE68\uBB35\uD588\uB2E4.)"
     character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
     portraitId: D_01_00
     nextNodeId: B_Sihwa_02
@@ -1544,7 +1544,7 @@ MonoBehaviour:
     effects: []
   - nodeId: Sihwa_20
     nodeType: 0
-    text: "\uC544.\r"
+    text: "\uC544."
     character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
     portraitId: D_01_00
     nextNodeId: Sihwa_21
