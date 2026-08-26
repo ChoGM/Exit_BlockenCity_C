@@ -25,9 +25,9 @@ MonoBehaviour:
   targetHeight: 0
   restrictedInput: 
   darknessLevel: 0
-  timeType: 1
+  timeType: 2
   timeRole: 2
-  timeValue: 15
+  timeValue: 80
   friendlinessType: 1
   friendlinessReward: 1
   rewardColor: {r: 1, g: 0.4392157, b: 0.4392157, a: 1}

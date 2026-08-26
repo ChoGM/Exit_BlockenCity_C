@@ -690,6 +690,34 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 583687623}
+    - target: {fileID: 7454036310846578745, guid: 1ec83719e2c10254f85b4be0e3d526f8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7454036310846578745, guid: 1ec83719e2c10254f85b4be0e3d526f8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7454036310846578745, guid: 1ec83719e2c10254f85b4be0e3d526f8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 169282703}
+    - target: {fileID: 7454036310846578745, guid: 1ec83719e2c10254f85b4be0e3d526f8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7454036310846578745, guid: 1ec83719e2c10254f85b4be0e3d526f8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: OnClickNewspaperButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 7454036310846578745, guid: 1ec83719e2c10254f85b4be0e3d526f8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: LobbyMonthInitializer, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7454036310846578745, guid: 1ec83719e2c10254f85b4be0e3d526f8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1406,9 +1434,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allCanvases:
-  - {fileID: 0}
+  - {fileID: 265844106}
   - {fileID: 328240515}
-  - {fileID: 0}
+  - {fileID: 928687916716786129}
 --- !u!4 &613539844
 Transform:
   m_ObjectHideFlags: 0

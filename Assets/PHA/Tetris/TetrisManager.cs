@@ -7,33 +7,78 @@ public class TetrisManager : MonoBehaviour
 {
     public static TetrisManager Instance;
 
+    [Header("Setting Presets")]
+    public List<StageSettingPreset> settingPresets = new List<StageSettingPreset>();
+
+    [Header("Stage Settings")]
+    public List<StageSetting> stageSettings = new List<StageSetting>();
+
+    public StageSettingPreset CurrentSettingPreset
+    {
+        get;
+        private set;
+    }
+
+    public StageSetting CurrentStageSetting
+    {
+        get;
+        private set;
+    }
+
+    [Header("Tower")]
+
     public Vector3Int tetrisTowerSize = new Vector3Int(4, 8, 4);
+
     public float fallInterval;
     public TetrisTower tower;
     public TetrisSpawner spawner;
     public TetrisController controller;
 
+    [Header("Tower Layout")]
+    public Transform towerLayout;
+
     private int[] typeBlockCount = new int[(int)BlockType.None];
     public ScoreUIBinder scoreUIBinder;
 
-    public bool isGameEnded { get; private set; } = false;
-    public bool isPaused { get; private set; } = false; // [추가] 일시정지 상태 플래그
+    public bool isGameEnded
+    {
+        get;
+        private set;
+    } = false;
+
+    public bool isPaused
+    {
+        get;
+        private set;
+    } = false;
 
     private void Awake()
     {
         if (Instance == null)
+        {
             Instance = this;
+
+            ApplyStageSetting();
+        }
         else
+        {
             Destroy(gameObject);
+        }
     }
 
-    void Start()
+    private void Start()
     {
         isGameEnded = false;
         isPaused = false;
 
+        ApplyStageSetting();
+
+        tower.Initialize();
+
         Vector3 spawnPos = tower.GetSpawnPosition();
+
         spawner.SetTowerSpawnPosition(spawnPos);
+
         SpawnNextBlock();
 
         for (int i = 0; i < typeBlockCount.Length; i++)
@@ -42,7 +87,61 @@ public class TetrisManager : MonoBehaviour
         }
     }
 
-    // [추가] 일시정지 상태 설정 함수
+    private void ApplyStageSetting()
+    {
+        if (Datamanager.Instance == null)
+        {
+            Debug.LogError("[TetrisManager] Datamanager.Instance가 없습니다.");
+            return;
+        }
+
+        int currentStage = Datamanager.Instance.saveData.progress.currentStage;
+
+        Debug.Log($"[TetrisManager] 현재 Stage : {currentStage}");
+
+        StageSetting stageSetting = stageSettings.Find(x => x.stage == currentStage);
+
+
+        if (stageSetting == null)
+        {
+            Debug.LogError($"[TetrisManager] " + $"Stage {currentStage}의 설정이 없습니다.");
+            return;
+        }
+
+        CurrentStageSetting = stageSetting;
+
+        StageSettingPreset preset = settingPresets.Find(x => x.presetID == stageSetting.presetID);
+
+
+        if (preset == null)
+        {
+            Debug.LogError( $"[TetrisManager] " + $"Preset ID {stageSetting.presetID}를 찾을 수 없습니다.");
+            return;
+        }
+
+        CurrentSettingPreset = preset;
+
+        tetrisTowerSize = preset.towerSize;
+
+
+        Debug.Log($"[TetrisManager] " + $"Stage {currentStage} → " + $"Preset {preset.presetID}");
+
+        Debug.Log($"[TetrisManager] " + $"Tower Size : {preset.towerSize}");
+
+        if (towerLayout != null)
+        {
+            towerLayout.localPosition = preset.layoutPosition;
+            towerLayout.localScale = preset.layoutScale;
+        }
+
+
+        Debug.Log($"[TetrisManager] " + $"Layout Position : " + $"{preset.layoutPosition}");
+
+        Debug.Log($"[TetrisManager] " + $"Layout Scale : " + $"{preset.layoutScale}");
+
+        Debug.Log($"[TetrisManager] " + $"Stage {currentStage} " + $"Preset {preset.presetID} 적용 완료");
+    }
+
     public void SetPause(bool pause)
     {
         isPaused = pause;
@@ -50,7 +149,9 @@ public class TetrisManager : MonoBehaviour
 
     public void GameClear()
     {
-        if (isGameEnded) return;
+        if (isGameEnded)
+            return;
+
         isGameEnded = true;
 
         if (GameManager.Instance != null)
@@ -67,42 +168,63 @@ public class TetrisManager : MonoBehaviour
 
         if (scoreUIBinder != null)
         {
-            scoreUIBinder.ToggleScoreUI(true, isGameOver: false);
+            scoreUIBinder.ToggleScoreUI(
+                true,
+                isGameOver: false
+            );
         }
     }
 
-    public void IncreaseTypeBlockCount(BlockType type) => typeBlockCount[(int)type]++;
+    public void IncreaseTypeBlockCount(BlockType type)
+    {
+        typeBlockCount[(int)type]++;
+    }
+
     public void DecreaseTypeBlockCount(BlockType type)
     {
         typeBlockCount[(int)type]--;
+
+
         if (QuestManager.Instance != null)
         {
             QuestManager.Instance.UpdateQuestProgress(type);
         }
     }
-    public int GetBlockCount(BlockType type) => typeBlockCount[(int)type];
-    public int[] GetAllBlockCounts() => (int[])typeBlockCount.Clone();
+
+    public int GetBlockCount(BlockType type)
+    {
+        return typeBlockCount[(int)type];
+    }
+
+    public int[] GetAllBlockCounts()
+    {
+        return (int[])typeBlockCount.Clone();
+    }
+
 
     public void SpawnNextBlock()
     {
-        // [수정] 게임 종료 OR 일시정지 상태면 새 블록 생성 안 함
-        if (isGameEnded || isPaused) return;
+        if (isGameEnded || isPaused)
+            return;
 
         spawner.SpawnBlock();
+
         controller.SetCurrentBlock(spawner.GetTetriminoBlock());
     }
 
     public void CheckTower()
     {
-        // [수정] 게임 종료 OR 일시정지 상태면 검사 차단
-        if (isGameEnded || isPaused) return;
+        if (isGameEnded || isPaused)
+            return;
 
         tower.CheckAndDeleteFullLines();
     }
 
     public void GameOver()
     {
-        if (isGameEnded) return;
+        if (isGameEnded)
+            return;
+
         isGameEnded = true;
 
         if (GameManager.Instance != null)
@@ -117,11 +239,17 @@ public class TetrisManager : MonoBehaviour
             controller.enabled = false;
         }
 
-        StageManager.Instance.OverStage();
+        if (StageManager.Instance != null)
+        {
+            StageManager.Instance.OverStage();
+        }
 
         if (scoreUIBinder != null)
         {
-            scoreUIBinder.ToggleScoreUI(true, isGameOver: true);
+            scoreUIBinder.ToggleScoreUI(
+                true,
+                isGameOver: true
+            );
         }
     }
 }

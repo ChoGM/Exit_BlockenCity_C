@@ -25,76 +25,61 @@ public class NewsBookUI : MonoBehaviour
 
     private void OnEnable()
     {
-        // 창이 활성화될 때마다 이벤트 등록 및 UI 갱신
         InitSlotButtons();
         UpdateBookUI();
     }
 
-    /// <summary>
-    /// 각 신문 오브젝트의 Button 컴포넌트에 클릭 이벤트를 등록합니다.
-    /// </summary>
     private void InitSlotButtons()
     {
-        if (newsSlots == null || newsSlots.Count == 0)
-        {
-            Debug.LogError("[NewsBookUI] newsSlots 리스트가 비어있습니다! Inspector를 확인해주세요.");
-            return;
-        }
+        if (newsSlots == null || newsSlots.Count == 0) return;
 
         foreach (var slot in newsSlots)
         {
-            if (slot.newsImageObject == null)
-            {
-                Debug.LogWarning("[NewsBookUI] newsImageObject가 연결되지 않은 슬롯이 있습니다.");
-                continue;
-            }
+            if (slot.newsImageObject == null) continue;
 
-            // 자식 오브젝트에 Button이 붙어있어도 찾을 수 있도록 GetComponentInChildren 사용
             Button button = slot.newsImageObject.GetComponentInChildren<Button>();
+            if (button == null) continue;
 
-            if (button == null)
-            {
-                Debug.LogError($"[NewsBookUI] '{slot.newsImageObject.name}' 오브젝트 또는 자식에 Button 컴포넌트가 없습니다!");
-                continue;
-            }
-
-            StoryNewsData data = slot.newsData; // 람다 캡처
+            StoryNewsData data = slot.newsData;
 
             button.onClick.RemoveAllListeners();
             button.onClick.AddListener(() =>
             {
-                Debug.Log($"[NewsBookUI] '{slot.newsImageObject.name}' 클릭됨! (Data 존재: {data != null})");
                 OpenNewsPopup(data);
             });
         }
     }
 
     /// <summary>
-    /// [데모버전] 저장 데이터와 상관없이 모든 신문 오브젝트를 활성화합니다.
+    /// 저장된 NewsData(또는 데모 상태)에 따라 해금된 신문 슬롯만 화면에 표시합니다.
     /// </summary>
     public void UpdateBookUI()
     {
+        if (newsSlots == null) return;
+
         foreach (var slot in newsSlots)
         {
             if (slot.newsImageObject == null) continue;
-            slot.newsImageObject.SetActive(true);
+
+            bool isUnlocked = false;
+
+            if (slot.newsData != null)
+            {
+                // NewsUnlockManager를 통해 해금 여부 확인 (데모 옵션 반영됨)
+                isUnlocked = NewsUnlockManager.IsUnlocked(slot.newsData.id);
+            }
+
+            // 해금된 신문만 활성화
+            slot.newsImageObject.SetActive(isUnlocked);
         }
     }
 
-    /// <summary>
-    /// 클릭한 신문의 데이터를 팝업 UI에 채우고 켜줍니다.
-    /// </summary>
     public void OpenNewsPopup(StoryNewsData data)
     {
-        if (newsPanel == null)
-        {
-            Debug.LogError("[NewsBookUI] newsPanel이 Inspector에 연결되지 않았습니다!");
-            return;
-        }
+        if (newsPanel == null) return;
 
-        // 데이터가 없더라도 일단 패널은 켜서 작동 여부 확인
         newsPanel.SetActive(true);
-        newsPanel.transform.SetAsLastSibling(); // 다른 UI 뒤에 가려지지 않도록 맨 앞으로 이동
+        newsPanel.transform.SetAsLastSibling();
 
         if (data != null)
         {
@@ -111,10 +96,6 @@ public class NewsBookUI : MonoBehaviour
             {
                 dateText.text = $"{data.targetMonth:D2}.xx";
             }
-        }
-        else
-        {
-            Debug.LogWarning("[NewsBookUI] 데이터(newsData)가 null 상태로 팝업이 열렸습니다.");
         }
     }
 

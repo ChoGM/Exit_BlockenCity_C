@@ -60,19 +60,11 @@ public class UIButtonHandler : MonoBehaviour
 
     public void PauseGame()
     {
-        // 1. GameManager 타이머 정지
         if (GameManager.Instance != null)
         {
             GameManager.Instance.PauseGame();
         }
 
-        // 2. TetrisManager 일시정지 처리
-        if (TetrisManager.Instance != null)
-        {
-            TetrisManager.Instance.SetPause(true);
-        }
-
-        // 3. 설정 창 열기
         if (settingsWindow != null)
         {
             settingsWindow.SetActive(true);
@@ -83,24 +75,16 @@ public class UIButtonHandler : MonoBehaviour
 
     public void ResumeGame()
     {
-        // 1. 설정 창 닫기
         if (settingsWindow != null)
         {
             settingsWindow.SetActive(false);
         }
 
-        // 2. GameManager 타이머 재개
         if (GameManager.Instance != null)
         {
             GameManager.Instance.ResumeGame();
         }
 
-        // 3. TetrisManager 일시정지 해제
-        if (TetrisManager.Instance != null)
-        {
-            TetrisManager.Instance.SetPause(false);
-        }
-
-        Debug.Log("[ResumeGame] 게임 재개 완료");
+        Debug.Log("[ResumeGame] 게임 재개");
     }
 }

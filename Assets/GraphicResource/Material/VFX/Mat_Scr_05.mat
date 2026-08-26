@@ -54,15 +54,15 @@ Material:
     - _DstBlend: 10
     - _FadeInTime: 0.2
     - _FadeOutTime: 1
-    - _FadeRadialPower: 3.2
-    - _FadeRadialScale: 2.7
+    - _FadeRadialPower: 3
+    - _FadeRadialScale: 2.6
     - _ISLOOPING: 0
     - _ISNOISED: 1
-    - _Opacity: 1
+    - _Opacity: 0.8
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SrcBlend: 5
-    - _StartTime: 178.6211
+    - _StartTime: 11.370379
     - _Surface: 1
     - _Width: 20
     - _ZTest: 4

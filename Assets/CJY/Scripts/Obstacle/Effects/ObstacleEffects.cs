@@ -240,6 +240,103 @@ public class ObstacleEffects : MonoBehaviour
     }
 
     // 10월 : 블록 파괴 확률 (건기)
+    //public void BreakBlockOnPlace(ObstacleGameState state)
+    //{
+    //    Debug.Log("건기 (y축 압축 낙하)");
+
+    //    var block = state.LockedBlock;
+    //    if (block == null) return;
+
+    //    var children = block.GetComponentsInChildren<TetriminoBlockChild>();
+    //    if (children.Length == 0) return;
+
+    //    var tower = TetrisManager.Instance.tower;
+    //    if (tower == null) return;
+
+    //    List<TetriminoBlockChild> deleted = new();
+    //    List<TetriminoBlockChild> survivors = new();
+
+    //    // 1) 삭제할 블록 선택
+    //    foreach (var c in children)
+    //    {
+    //        if (c != null && UnityEngine.Random.value <= BreakBlockChance)
+    //            deleted.Add(c);
+    //        else
+    //            survivors.Add(c);
+    //    }
+
+    //    if (deleted.Count == 0) return;
+
+    //    // 2) 컬럼(x,z)별 삭제된 y좌표 수집
+    //    Dictionary<Vector2Int, List<float>> deletedMap = new();
+
+    //    foreach (var d in deleted)
+    //    {
+    //        Vector3 wp = d.transform.position;
+    //        Vector2Int key = new Vector2Int(
+    //            Mathf.RoundToInt(wp.x * 10f),
+    //            Mathf.RoundToInt(wp.z * 10f)
+    //        );
+    //        if (!deletedMap.ContainsKey(key))
+    //            deletedMap[key] = new List<float>();
+    //        deletedMap[key].Add(wp.y);
+    //    }
+
+    //    // 3) 컬럼별로 압축
+    //    foreach (var kv in deletedMap)
+    //    {
+    //        Vector2Int key = kv.Key;
+    //        var deletedYs = kv.Value;
+
+    //        // 해당 컬럼에서 살아남은 블록 찾기
+    //        var column = survivors.Where(c =>
+    //        {
+    //            Vector3 wp = c.transform.position;
+    //            Vector2Int k = new Vector2Int(
+    //                Mathf.RoundToInt(wp.x * 10f),
+    //                Mathf.RoundToInt(wp.z * 10f)
+    //            );
+    //            return k == key;
+    //        }).OrderBy(c => c.transform.position.y).ToList();
+
+    //        foreach (var c in column)
+    //        {
+    //            Vector3 wp = c.transform.position;
+
+    //            // 삭제된 y중 c보다 아래에 있는 칸 수
+    //            int fallCount = deletedYs.Count(dy => dy < wp.y);
+
+    //            if (fallCount <= 0) continue;
+
+    //            float targetY = wp.y - fallCount;
+    //            Vector3 target = new Vector3(wp.x, targetY, wp.z);
+
+    //            // 타워에서 기존 위치 제거
+    //            tower.RemoveBlockFromTower(c.GridPosition);
+
+    //            Debug.DrawLine(wp, target, Color.green, 2f);
+    //            Debug.Log($"[압축] {c.name} {wp.y:F1} -> {targetY:F1} (낙하 {fallCount}칸)");
+
+    //            state.StartManagedCoroutine?.Invoke(SmoothDropAndSync(c, target, tower));
+    //        }
+    //    }
+
+    //    // 4) 실제 삭제 수행
+    //    foreach (var d in deleted)
+    //    {
+    //        tower.RemoveBlockFromTower(d.GridPosition);
+    //        d.DeletBlock();
+    //    }
+
+    //    // 5) 이펙트
+    //    state.VisualPlayer.PlayBlockCrumbleEffect(block.transform.position);
+    //    block.CleanupIfEmpty();
+    //}
+
+
+    // 시각적 낙하 + 타워정보 갱신
+
+    // 10월 : 블록 파괴 확률 (건기)
     public void BreakBlockOnPlace(ObstacleGameState state)
     {
         Debug.Log("건기 (y축 압축 낙하)");
@@ -321,20 +418,26 @@ public class ObstacleEffects : MonoBehaviour
             }
         }
 
-        // 4) 실제 삭제 수행
+        // 4) 실제 삭제 및 이펙트 재생
         foreach (var d in deleted)
         {
+            // (A) 블록 각 위치마다 파괴 이펙트 생성
+            var worldVfx = state.VisualPlayer?.PlayBlockCrumbleEffect(d.transform.position);
+            if (worldVfx != null)
+                state.RegisterObject?.Invoke(worldVfx);
+
             tower.RemoveBlockFromTower(d.GridPosition);
             d.DeletBlock();
         }
 
-        // 5) 이펙트
-        state.VisualPlayer.PlayBlockCrumbleEffect(block.transform.position);
+        // (B) 화면 전체 파괴 이펙트 1회 재생
+        var screenVfx = state.VisualPlayer?.PlayDrySeasonScreenEffect();
+        if (screenVfx != null)
+            state.RegisterObject?.Invoke(screenVfx);
+
         block.CleanupIfEmpty();
     }
 
-
-    // 시각적 낙하 + 타워정보 갱신
     private IEnumerator SmoothDropAndSync(TetriminoBlockChild child, Vector3 targetWorldPos, TetrisTower tower)
     {
         if (child == null) yield break;

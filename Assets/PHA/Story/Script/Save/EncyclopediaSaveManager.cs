@@ -1,23 +1,20 @@
 using System.IO;
 using UnityEngine;
 
-
-/// <summary>
-/// 데이터 확인하려면 이쪽으로
-/// C:/Users/사용자명/AppData/LocalLow/Exit\BlokenCity
-/// </summary>
-
 public class EncyclopediaSaveManager : MonoBehaviour
 {
     public static EncyclopediaSaveManager Instance;
 
-    public EncyclopediaSaveData SaveData { get; private set; }
-
-    private string SavePath
+    // Datamanager의 SaveData 내 도감 데이터 프로퍼티
+    public EncyclopediaSaveData SaveData
     {
         get
         {
-            return Path.Combine(Application.persistentDataPath, "encyclopedia_unlock.json");
+            if (Datamanager.Instance != null && Datamanager.Instance.saveData != null)
+            {
+                return Datamanager.Instance.saveData.encyclopedia;
+            }
+            return null;
         }
     }
 
@@ -26,10 +23,7 @@ public class EncyclopediaSaveManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-
             DontDestroyOnLoad(gameObject);
-
-            Load();
         }
         else
         {
@@ -41,38 +35,21 @@ public class EncyclopediaSaveManager : MonoBehaviour
 
     public void Save()
     {
-        string json = JsonUtility.ToJson(SaveData, true);
-
-        File.WriteAllText(SavePath, json);
-
-        Debug.Log($"도감 저장 완료 : {SavePath}");
+        // 도감 개별 저장이 아닌, 전체 데이터 매니저를 통해 암호화 저장 호출
+        if (Datamanager.Instance != null)
+        {
+            Datamanager.Instance.SaveGameData();
+            Debug.Log("도감 데이터가 Datamanager를 통해 통합 저장되었습니다.");
+        }
     }
 
     public void Load()
     {
-        Debug.Log($"도감 저장 경로 : {SavePath}");
-
-        if (File.Exists(SavePath))
+        // Datamanager에서 이미 게임 데이터를 불러오므로 별도 개별 로드는 필요하지 않습니다.
+        if (Datamanager.Instance != null)
         {
-            string json = File.ReadAllText(SavePath);
-
-            SaveData = JsonUtility.FromJson<EncyclopediaSaveData>(json);
-
-            Debug.Log("도감 데이터 불러오기 완료");
+            Datamanager.Instance.LoadGameData();
         }
-        else
-        {
-            Debug.Log("도감 저장 파일 없음 → 새 파일 생성");
-
-            CreateNewSaveData();
-
-            Save();
-        }
-    }
-
-    private void CreateNewSaveData()
-    {
-        SaveData = new EncyclopediaSaveData();
     }
 
     #endregion
@@ -81,7 +58,10 @@ public class EncyclopediaSaveManager : MonoBehaviour
 
     public CharacterUnlockData GetCharacterUnlockData(string characterId)
     {
-        foreach (CharacterUnlockData data in SaveData.characters)
+        var saveData = SaveData;
+        if (saveData == null) return null;
+
+        foreach (CharacterUnlockData data in saveData.characters)
         {
             if (data.characterId == characterId)
             {
@@ -89,17 +69,16 @@ public class EncyclopediaSaveManager : MonoBehaviour
             }
         }
 
-        // 없으면 새로 생성
-        CharacterUnlockData newData = new CharacterUnlockData();
+        // 없으면 새로 생성하여 Datamanager 데이터에 추가
+        CharacterUnlockData newData = new CharacterUnlockData
+        {
+            characterId = characterId,
+            isCharacterUnlocked = false,
+            storyUnlocked = new bool[4],
+            relationUnlocked = new bool[3]
+        };
 
-        newData.characterId = characterId;
-        newData.isCharacterUnlocked = false;
-
-        newData.storyUnlocked = new bool[4];
-        newData.relationUnlocked = new bool[3];
-
-        SaveData.characters.Add(newData);
-
+        saveData.characters.Add(newData);
         Save();
 
         return newData;
@@ -108,20 +87,17 @@ public class EncyclopediaSaveManager : MonoBehaviour
     public bool IsCharacterUnlocked(string characterId)
     {
         CharacterUnlockData data = GetCharacterUnlockData(characterId);
-
-        return data.isCharacterUnlocked;
+        return data != null && data.isCharacterUnlocked;
     }
 
     public void UnlockCharacter(string characterId)
     {
         CharacterUnlockData data = GetCharacterUnlockData(characterId);
 
-        if (!data.isCharacterUnlocked)
+        if (data != null && !data.isCharacterUnlocked)
         {
             data.isCharacterUnlocked = true;
-
             Save();
-
             Debug.Log($"캐릭터 해금 : {characterId}");
         }
     }
@@ -133,8 +109,7 @@ public class EncyclopediaSaveManager : MonoBehaviour
     public bool IsStoryUnlocked(string characterId, int storyIndex)
     {
         CharacterUnlockData data = GetCharacterUnlockData(characterId);
-
-        if (storyIndex < 0 || storyIndex >= data.storyUnlocked.Length)
+        if (data == null || storyIndex < 0 || storyIndex >= data.storyUnlocked.Length)
             return false;
 
         return data.storyUnlocked[storyIndex];
@@ -143,16 +118,13 @@ public class EncyclopediaSaveManager : MonoBehaviour
     public void UnlockStory(string characterId, int storyIndex)
     {
         CharacterUnlockData data = GetCharacterUnlockData(characterId);
-
-        if (storyIndex < 0 || storyIndex >= data.storyUnlocked.Length)
+        if (data == null || storyIndex < 0 || storyIndex >= data.storyUnlocked.Length)
             return;
 
         if (!data.storyUnlocked[storyIndex])
         {
             data.storyUnlocked[storyIndex] = true;
-
             Save();
-
             Debug.Log($"스토리 해금 : {characterId} / Story {storyIndex}");
         }
     }
@@ -164,8 +136,7 @@ public class EncyclopediaSaveManager : MonoBehaviour
     public bool IsRelationUnlocked(string characterId, int relationIndex)
     {
         CharacterUnlockData data = GetCharacterUnlockData(characterId);
-
-        if (relationIndex < 0 || relationIndex >= data.relationUnlocked.Length)
+        if (data == null || relationIndex < 0 || relationIndex >= data.relationUnlocked.Length)
             return false;
 
         return data.relationUnlocked[relationIndex];
@@ -174,16 +145,13 @@ public class EncyclopediaSaveManager : MonoBehaviour
     public void UnlockRelation(string characterId, int relationIndex)
     {
         CharacterUnlockData data = GetCharacterUnlockData(characterId);
-
-        if (relationIndex < 0 || relationIndex >= data.relationUnlocked.Length)
+        if (data == null || relationIndex < 0 || relationIndex >= data.relationUnlocked.Length)
             return;
 
         if (!data.relationUnlocked[relationIndex])
         {
             data.relationUnlocked[relationIndex] = true;
-
             Save();
-
             Debug.Log($"관계 해금 : {characterId} / Relation {relationIndex}");
         }
     }
@@ -194,11 +162,12 @@ public class EncyclopediaSaveManager : MonoBehaviour
 
     public void ResetAllData()
     {
-        CreateNewSaveData();
-
-        Save();
-
-        Debug.Log("도감 데이터 초기화 완료");
+        if (SaveData != null)
+        {
+            SaveData.characters.Clear();
+            Save();
+            Debug.Log("도감 데이터 초기화 완료");
+        }
     }
 
     #endregion

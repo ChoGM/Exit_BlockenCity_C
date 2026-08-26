@@ -19,13 +19,22 @@ public class SpecialQuestTimer
         if (quest.isFinished) return;
         if (quest.data.timeType != TimeType.Seconds) return;
 
+        // 게임이 Pause 상태라면 타이머 정지
+        if (GameManager.Instance != null && GameManager.Instance.IsGamePaused())
+        {
+            return;
+        }
+
         quest.remainSeconds -= deltaTime;
+
         quest.ui?.UpdateTimer(quest.remainSeconds);
 
         if (quest.remainSeconds <= 0)
+        {
+            quest.remainSeconds = 0;
             Finish();
+        }
     }
-
     public void OnBlockDropped()
     {
         if (quest.isFinished) return;

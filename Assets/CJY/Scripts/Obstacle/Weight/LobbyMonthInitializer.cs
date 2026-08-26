@@ -61,9 +61,24 @@ public class LobbyMonthInitializer : MonoBehaviour
             Debug.LogWarning("[LobbyMonthInitializer] WeatherNewsSystem이 씬에 없습니다!");
         }
 
+        //if (StoryNewsSystem.Instance != null)
+        //{
+        //    StoryNewsSystem.Instance.ShowStoryNews(month);
+        //}
+        //else
+        //{
+        //    Debug.LogWarning("[LobbyMonthInitializer] StoryNewsSystem이 씬에 없습니다!");
+        //}
+    }
+
+    /// <summary>
+    /// 로비의 신문 버튼(Button) OnClick 이벤트에 연결할 함수
+    /// </summary>
+    public void OnClickNewspaperButton()
+    {
         if (StoryNewsSystem.Instance != null)
         {
-            StoryNewsSystem.Instance.ShowStoryNews(month);
+            StoryNewsSystem.Instance.ShowStoryNews(currentMonth);
         }
         else
         {

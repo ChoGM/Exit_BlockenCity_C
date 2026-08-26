@@ -8,7 +8,10 @@ public class StoryNewsSystem : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private StoryNewsDatabase database;
-    [SerializeField] private StoryNewsUI newsUI; // 기존 날씨 뉴스 UI 스크립트 그대로 사용
+    [SerializeField] private StoryNewsUI newsUI;
+
+    // 이번 달에 선정된 신문 데이터를 저장해두는 변수
+    private StoryNewsData currentMonthNews;
 
     private void Awake()
     {
@@ -16,19 +19,24 @@ public class StoryNewsSystem : MonoBehaviour
         else Destroy(gameObject);
     }
 
-    // LobbyMonthInitializer에서 월이 정해진 후 호출
+    /// <summary>
+    /// 신문 버튼 클릭 시 호출
+    /// </summary>
     public void ShowStoryNews(int month)
     {
-        // 데이터베이스에서 이번 달 기사 중 하나를 랜덤으로 가져옴
-        StoryNewsData todayStory = database.GetRandomNews(month);
-
-        // 기사가 존재한다면 기존 UI에 띄웁니다.
-        if (todayStory != null)
+        // 이번 달 기사가 아직 뽑히지 않았거나, 월이 바뀌었다면 새로운 기사를 랜덤 추첨
+        if (currentMonthNews == null || currentMonthNews.targetMonth != month)
         {
-            // [추가] 이번에 등장한 신문을 도감에 해금 등록
-            NewsUnlockManager.UnlockNews(todayStory.id);
+            currentMonthNews = database.GetRandomNews(month);
+        }
 
-            newsUI.DisplayNews(todayStory.title, todayStory.content, todayStory.icon, month);
+        // 기사가 존재할 경우 UI 출력 및 해금 등록
+        if (currentMonthNews != null)
+        {
+            // 버튼을 눌러 신문 UI를 '확인'하는 시점에 도감에 해금(저장)
+            NewsUnlockManager.UnlockNews(currentMonthNews.id);
+
+            newsUI.DisplayNews(currentMonthNews.title, currentMonthNews.content, currentMonthNews.icon, month);
         }
         else
         {
