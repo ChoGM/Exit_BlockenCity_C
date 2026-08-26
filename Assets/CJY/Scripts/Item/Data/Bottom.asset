@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 1
   itemName: "\uCD5C\uD558\uB2E8 \uC81C\uAC70"
-  description: 
+  description: "\uB85C\uB4DC\uB864\uB7EC\uB85C \uBC14\uB2E5\uC744 \uBC00\uC5B4\uBD99\uC5EC
+    \uAC00\uC7A5 \uC544\uB798 \uD55C \uC904\uC758 \uBE14\uB85D\uC744 \uC81C\uAC70\uD569\uB2C8\uB2E4."
   icon: {fileID: 21300000, guid: c5652268543d0b14f80b80ec187e4db1, type: 3}
   price: 0
