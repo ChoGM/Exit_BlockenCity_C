@@ -5,6 +5,9 @@ using TetrisGame;
 
 public class TetrisManager : MonoBehaviour
 {
+    [Header("Stage Shape Settings")]
+    public List<StageShapeSetting> stageShapeSettings = new();
+
     public static TetrisManager Instance;
 
     [Header("Setting Presets")]
@@ -251,5 +254,66 @@ public class TetrisManager : MonoBehaviour
                 isGameOver: true
             );
         }
+    }
+
+    public BlockShapes GetRandomStageShape()
+    {
+        int currentStage = Datamanager.Instance.saveData.progress.currentStage;
+
+        foreach (var setting in stageShapeSettings)
+        {
+            if (setting.stage != currentStage)
+                continue;
+
+            if (setting.availableShapes == null || setting.availableShapes.Count == 0)
+                break;
+
+            int totalWeight = 0;
+
+            foreach (var shape in setting.availableShapes)
+            {
+                if (shape.weight > 0)
+                    totalWeight += shape.weight;
+            }
+
+            if (totalWeight <= 0)
+            {
+                Debug.LogWarning($"Stage {currentStage}의 Shape 가중치가 모두 0입니다.");
+                break;
+            }
+
+            int randomValue = Random.Range(0, totalWeight);
+
+            foreach (var shape in setting.availableShapes)
+            {
+                if (shape.weight <= 0)
+                    continue;
+
+                randomValue -= shape.weight;
+
+                if (randomValue < 0)
+                {
+                    return shape.shape;
+                }
+            }
+        }
+
+        // 설정이 없을 경우 기본 7종
+        BlockShapes[] defaultShapes =
+        {
+        BlockShapes.I,
+        BlockShapes.O,
+        BlockShapes.T,
+        BlockShapes.L,
+        BlockShapes.J,
+        BlockShapes.S,
+        BlockShapes.Z
+    };
+
+        return defaultShapes[Random.Range(0, defaultShapes.Length)];
+    }
+    private BlockShapes GetRandomShapeType()
+    {
+        return TetrisManager.Instance.GetRandomStageShape();
     }
 }

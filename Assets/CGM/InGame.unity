@@ -480,6 +480,8 @@ MonoBehaviour:
   snowfallPrefab: {fileID: 9048698040502420976, guid: 8eee7abefaaf1e6499d200acfddc45de, type: 3}
   overheatUIPrefab: {fileID: 1874151193}
   IceEffect: 0.5
+  drySeasonBlockBreakPrefab: {fileID: 0}
+  drySeasonScreenPrefab: {fileID: 0}
 --- !u!114 &78634945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1144,6 +1146,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d139008936d2c6045ae3879ea487c69a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stageShapeSettings:
+  - stage: 0
+    availableShapes:
+    - shape: 0
+      weight: 1
+    - shape: 0
+      weight: 1
   settingPresets:
   - presetID: 1
     towerSize: {x: 4, y: 8, z: 4}

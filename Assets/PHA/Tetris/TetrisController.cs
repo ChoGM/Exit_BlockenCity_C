@@ -72,66 +72,148 @@ public class TetrisController : MonoBehaviour
     private void MoveForward() => Move(InputDir.Back);
     private void MoveBack() => Move(InputDir.Forward);
 
-    private void SoftDrop() 
+    private void SoftDrop()
     {
-        if (currentBlock == null) return;
-        Vector3 dir = Vector3.down;
-        if (currentBlock.CanMove(dir)) currentBlock.Move(dir);
+        if (IsGameplayPaused())
+            return;
+
+
+        if (currentBlock == null)
+            return;
+
+
+        Vector3 dir =
+            Vector3.down;
+
+
+        if (currentBlock.CanMove(dir))
+        {
+            currentBlock.Move(dir);
+        }
     }
 
-    private void HardDrop() 
+    private void HardDrop()
     {
-        if (currentBlock == null) return;
+        if (IsGameplayPaused())
+            return;
 
-        // 최대 하강 횟수 = 타워 높이
-        int guard = TetrisManager.Instance.tetrisTowerSize.y;
 
-        while (guard-- > 0 && currentBlock.CanMove(Vector3.down))
+        if (currentBlock == null)
+            return;
+
+
+        if (TetrisManager.Instance == null)
+            return;
+
+
+        int guard =
+            TetrisManager.Instance
+                .tetrisTowerSize.y;
+
+
+        while (guard-- > 0 &&
+               currentBlock.CanMove(
+                   Vector3.down))
         {
-            currentBlock.Move(Vector3.down); // 한 칸씩 즉시 내림 (한 프레임에 처리됨 -> 눈에 보이는 이동 없음)
+            currentBlock.Move(
+                Vector3.down
+            );
         }
 
-        currentBlock.BlockLock(); // 바닥/블럭에 닿았으면 바로 락
+
+        currentBlock.BlockLock();
     }
 
     private void XRotate()
     {
-        if (currentBlock == null) return;
+        if (IsGameplayPaused())
+            return;
+
+        //추가
+        if (currentBlock == null)
+            return;
+
+        // Bomb 같은 특수 블록은 회전 금지
+        if (currentBlock.IsSpecialPiece)
+            return;
+
         currentBlock.RotateX();
     }
 
     private void YRotate()
     {
-        if (currentBlock == null) return;
+        if (IsGameplayPaused())
+            return;
+
+        //추가
+        if (currentBlock == null)
+            return;
+
+        if (currentBlock.IsSpecialPiece)
+            return;
+
         currentBlock.RotateY();
     }
 
+
     private void ZRotate()
     {
-        if (currentBlock == null) return;
+        if (IsGameplayPaused())
+            return;
+
+        //추가
+        if (currentBlock == null)
+            return;
+
+        if (currentBlock.IsSpecialPiece)
+            return;
+
         currentBlock.RotateZ();
     }
 
-    private void BlockChange() 
+    private void BlockChange()
     {
-        if (currentBlock == null) return;
+        if (IsGameplayPaused())
+            return;
 
-        var spawner = FindObjectOfType<TetrisSpawner>();
-        if (spawner == null) return;
+        //추가
+        if (currentBlock == null)
+            return;
 
-        Vector3 target = currentBlock.transform.position;
 
-        // [추가] 스왑 검사 전 기존 회전 잠금을 먼저 초기화
+        // Bomb 상태에서는 교체 불가
+        if (currentBlock.IsSpecialPiece)
+            return;
+
+
+        var spawner =
+            FindObjectOfType<TetrisSpawner>();
+
+
+        if (spawner == null)
+            return;
+
+
+        Vector3 target =
+            currentBlock.transform.position;
+
+
         if (inputBlocker != null)
         {
             inputBlocker.blockRotation = false;
         }
 
-        bool ok = spawner.TrySwapWithNext(target);
+
+        bool ok =
+            spawner.TrySwapWithNext(
+                target
+            );
+
 
         if (ok)
         {
-            currentBlock = spawner.GetTetriminoBlock();
+            currentBlock =
+                spawner.GetTetriminoBlock();
         }
     }
 
@@ -197,12 +279,46 @@ public class TetrisController : MonoBehaviour
 
     private void Move(InputDir input)
     {
-        if (currentBlock == null) return;
+        if (IsGameplayPaused())
+            return;
 
-        Vector3 dir = GetWorldDir(input);
+
+        if (currentBlock == null)
+            return;
+
+
+        Vector3 dir =
+            GetWorldDir(input);
+
+
         if (currentBlock.CanMove(dir))
+        {
             currentBlock.Move(dir);
+        }
     }
 
+    private bool IsGameplayPaused()
+    {
+        if (GameManager.Instance != null)
+        {
+            if (GameManager.Instance.IsGamePaused() ||
+                GameManager.Instance.isGameEnded)
+            {
+                return true;
+            }
+        }
 
+
+        if (TetrisManager.Instance != null)
+        {
+            if (TetrisManager.Instance.isPaused ||
+                TetrisManager.Instance.isGameEnded)
+            {
+                return true;
+            }
+        }
+
+
+        return false;
+    }
 }
