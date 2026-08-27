@@ -1,8 +1,13 @@
+using System.Collections;
 using UnityEngine;
 using TMPro;
 
 public class ShopCharacterPresenter : MonoBehaviour
 {
+    // =====================================================
+    // UI
+    // =====================================================
+
     [Header("Dialogue UI")]
     [SerializeField]
     private TMP_Text dialogueText;
@@ -11,6 +16,19 @@ public class ShopCharacterPresenter : MonoBehaviour
     [Header("Speech Bubble")]
     [SerializeField]
     private AudioVisualizer speechBubbleVisualizer;
+
+
+    // =====================================================
+    // 캐릭터
+    // =====================================================
+
+    [Header("Characters")]
+
+    [SerializeField]
+    private GameObject shopkeeperCharacter;
+
+    [SerializeField]
+    private GameObject brokerCharacter;
 
 
     // =====================================================
@@ -35,6 +53,12 @@ public class ShopCharacterPresenter : MonoBehaviour
     [SerializeField]
     private string shopPurchaseFailMessage =
         "잔액이 조금 부족한 것 같네요.";
+
+
+    [TextArea(2, 4)]
+    [SerializeField]
+    private string shopRepurchaseMessage =
+        "또 필요한 물건이 있으신가요?";
 
 
     // =====================================================
@@ -62,12 +86,28 @@ public class ShopCharacterPresenter : MonoBehaviour
 
 
     // =====================================================
-    // 상점 입장
+    // 타이밍
+    // =====================================================
+
+    [Header("Dialogue Timing")]
+
+    [Tooltip("구매 결과 대사 후 기본 질문으로 돌아가기까지의 시간")]
+    [Min(0f)]
+    [SerializeField]
+    private float returnMessageDelay = 2.5f;
+
+
+    // =====================================================
+    // 상점 진입
     // =====================================================
 
     [Header("Shop Enter")]
+
     [SerializeField]
     private bool playGreetingOnEnable = false;
+
+
+    private Coroutine returnMessageCoroutine;
 
 
     private void OnEnable()
@@ -79,15 +119,47 @@ public class ShopCharacterPresenter : MonoBehaviour
     }
 
 
+    private void OnDisable()
+    {
+        StopReturnMessageCoroutine();
+    }
+
+
     // =====================================================
-    // 상점 입장 인사
+    // 상점 입장
     // =====================================================
 
     public void PlayShopGreeting()
     {
+        StopReturnMessageCoroutine();
+
+        ShowShopkeeper();
+
+
         SetDialogue(
             shopGreetingMessage
         );
+
+
+        PlaySpeechAnimation();
+    }
+
+
+    // =====================================================
+    // 상점 기본 / 재구매 질문
+    // =====================================================
+
+    public void PlayShopRepurchasePrompt()
+    {
+        StopReturnMessageCoroutine();
+
+        ShowShopkeeper();
+
+
+        SetDialogue(
+            shopRepurchaseMessage
+        );
+
 
         PlaySpeechAnimation();
     }
@@ -100,6 +172,11 @@ public class ShopCharacterPresenter : MonoBehaviour
     public void PlayItemPurchaseSuccess(
         ItemData itemData)
     {
+        StopReturnMessageCoroutine();
+
+        ShowShopkeeper();
+
+
         string message =
             shopPurchaseSuccessMessage;
 
@@ -117,6 +194,9 @@ public class ShopCharacterPresenter : MonoBehaviour
         SetDialogue(message);
 
         PlaySpeechAnimation();
+
+
+        StartShopReturnMessage();
     }
 
 
@@ -127,6 +207,11 @@ public class ShopCharacterPresenter : MonoBehaviour
     public void PlayItemPurchaseFailed(
         ItemData itemData)
     {
+        StopReturnMessageCoroutine();
+
+        ShowShopkeeper();
+
+
         string message =
             shopPurchaseFailMessage;
 
@@ -144,18 +229,27 @@ public class ShopCharacterPresenter : MonoBehaviour
         SetDialogue(message);
 
         PlaySpeechAnimation();
+
+
+        StartShopReturnMessage();
     }
 
 
     // =====================================================
-    // 브로커 접선 시작
+    // 브로커 접선
     // =====================================================
 
     public void PlayBrokerGreeting()
     {
+        StopReturnMessageCoroutine();
+
+        ShowBroker();
+
+
         SetDialogue(
             brokerGreetingMessage
         );
+
 
         PlaySpeechAnimation();
     }
@@ -167,11 +261,22 @@ public class ShopCharacterPresenter : MonoBehaviour
 
     public void PlayFavorPurchaseSuccess()
     {
+        StopReturnMessageCoroutine();
+
+        ShowBroker();
+
+
         SetDialogue(
             brokerPurchaseSuccessMessage
         );
 
+
         PlaySpeechAnimation();
+
+
+        // 결과 대사 후
+        // 다시 "어느 쪽에 이야기를 넣어드릴까요?"
+        StartBrokerReturnMessage();
     }
 
 
@@ -181,11 +286,154 @@ public class ShopCharacterPresenter : MonoBehaviour
 
     public void PlayFavorPurchaseFailed()
     {
+        StopReturnMessageCoroutine();
+
+        ShowBroker();
+
+
         SetDialogue(
             brokerPurchaseFailMessage
         );
 
+
         PlaySpeechAnimation();
+
+
+        // 실패 후에도 다시 세력 선택 질문
+        StartBrokerReturnMessage();
+    }
+
+
+    // =====================================================
+    // 상점 기본 질문으로 자동 복귀
+    // =====================================================
+
+    private void StartShopReturnMessage()
+    {
+        StopReturnMessageCoroutine();
+
+
+        returnMessageCoroutine =
+            StartCoroutine(
+                ReturnToShopMessageRoutine()
+            );
+    }
+
+
+    private IEnumerator ReturnToShopMessageRoutine()
+    {
+        yield return new WaitForSeconds(
+            returnMessageDelay
+        );
+
+
+        returnMessageCoroutine = null;
+
+
+        ShowShopkeeper();
+
+
+        SetDialogue(
+            shopRepurchaseMessage
+        );
+
+
+        PlaySpeechAnimation();
+    }
+
+
+    // =====================================================
+    // 브로커 질문으로 자동 복귀
+    // =====================================================
+
+    private void StartBrokerReturnMessage()
+    {
+        StopReturnMessageCoroutine();
+
+
+        returnMessageCoroutine =
+            StartCoroutine(
+                ReturnToBrokerMessageRoutine()
+            );
+    }
+
+
+    private IEnumerator ReturnToBrokerMessageRoutine()
+    {
+        yield return new WaitForSeconds(
+            returnMessageDelay
+        );
+
+
+        returnMessageCoroutine = null;
+
+
+        ShowBroker();
+
+
+        SetDialogue(
+            brokerGreetingMessage
+        );
+
+
+        PlaySpeechAnimation();
+    }
+
+
+    // =====================================================
+    // 예약된 대사 중지
+    // =====================================================
+
+    private void StopReturnMessageCoroutine()
+    {
+        if (returnMessageCoroutine == null)
+            return;
+
+
+        StopCoroutine(
+            returnMessageCoroutine
+        );
+
+
+        returnMessageCoroutine = null;
+    }
+
+
+    // =====================================================
+    // 상점 캐릭터 표시
+    // =====================================================
+
+    private void ShowShopkeeper()
+    {
+        if (shopkeeperCharacter != null)
+        {
+            shopkeeperCharacter.SetActive(true);
+        }
+
+
+        if (brokerCharacter != null)
+        {
+            brokerCharacter.SetActive(false);
+        }
+    }
+
+
+    // =====================================================
+    // 브로커 표시
+    // =====================================================
+
+    private void ShowBroker()
+    {
+        if (shopkeeperCharacter != null)
+        {
+            shopkeeperCharacter.SetActive(false);
+        }
+
+
+        if (brokerCharacter != null)
+        {
+            brokerCharacter.SetActive(true);
+        }
     }
 
 
@@ -199,7 +447,8 @@ public class ShopCharacterPresenter : MonoBehaviour
         if (dialogueText == null)
         {
             Debug.LogWarning(
-                "[ShopCharacterPresenter] Dialogue Text가 연결되지 않았습니다."
+                "[ShopCharacterPresenter] " +
+                "Dialogue Text가 연결되지 않았습니다."
             );
 
             return;
@@ -212,7 +461,7 @@ public class ShopCharacterPresenter : MonoBehaviour
 
 
     // =====================================================
-    // 말풍선 애니메이션 실행
+    // 말풍선 애니메이션
     // =====================================================
 
     private void PlaySpeechAnimation()
@@ -220,7 +469,8 @@ public class ShopCharacterPresenter : MonoBehaviour
         if (speechBubbleVisualizer == null)
         {
             Debug.LogWarning(
-                "[ShopCharacterPresenter] AudioVisualizer가 연결되지 않았습니다."
+                "[ShopCharacterPresenter] " +
+                "AudioVisualizer가 연결되지 않았습니다."
             );
 
             return;
