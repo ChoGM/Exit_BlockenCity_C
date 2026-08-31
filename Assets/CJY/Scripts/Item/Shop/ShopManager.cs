@@ -286,6 +286,9 @@ public class ShopManager : MonoBehaviour
             favorAmount
         );
 
+        // 재화 + 우호도 저장
+        Datamanager.Instance
+            .SaveGameData();
 
         OnMoneyChanged?.Invoke(
             newMoney

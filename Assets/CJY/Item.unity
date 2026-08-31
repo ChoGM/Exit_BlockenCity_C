@@ -1012,6 +1012,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d139008936d2c6045ae3879ea487c69a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stageShapeSettings: []
   settingPresets: []
   stageSettings: []
   tetrisTowerSize: {x: 4, y: 8, z: 4}
@@ -1667,13 +1668,14 @@ GameObject:
   - component: {fileID: 360747878}
   - component: {fileID: 360747877}
   - component: {fileID: 360747876}
+  - component: {fileID: 360747884}
   - component: {fileID: 360747879}
   - component: {fileID: 360747881}
   - component: {fileID: 360747880}
   - component: {fileID: 360747882}
   - component: {fileID: 360747883}
   m_Layer: 0
-  m_Name: ItemSystem
+  m_Name: ItemManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1693,11 +1695,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialItems:
   - item: {fileID: 11400000, guid: 809b81598c67c224e9a4a9311a87e019, type: 2}
-    count: 10
+    count: 0
   - item: {fileID: 11400000, guid: cdfe646f80bfbed4dbefacbed949b487, type: 2}
-    count: 10
+    count: 0
   - item: {fileID: 11400000, guid: b48557a054ad78940acb2453a7ff8ab2, type: 2}
-    count: 10
+    count: 0
 --- !u!114 &360747877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1803,6 +1805,20 @@ MonoBehaviour:
   spawner: {fileID: 0}
   controller: {fileID: 0}
   bombPiecePrefab: {fileID: 5306157888216561460, guid: 503e0752c2ff8ca4f8a992ad4cb000af, type: 3}
+--- !u!114 &360747884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360747875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38383c5ea907bb7478b08f35fa65a4b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 360747876}
+  loadGameDataOnStart: 1
 --- !u!1 &434384670
 GameObject:
   m_ObjectHideFlags: 0
