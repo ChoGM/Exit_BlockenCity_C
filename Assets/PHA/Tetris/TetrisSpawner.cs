@@ -46,12 +46,6 @@ public class TetrisSpawner : MonoBehaviour
             // 기본 스폰 위치
             Vector3 spawnPos = towerSpawnPosition;
 
-            // I 모양이면 한 칸 더 높게 스폰
-            if (newBlock.shapeType == BlockShapes.I) 
-            {
-                spawnPos += Vector3.up;
-            }
-
             newBlock.transform.position = spawnPos;
             newBlock.SetIsSelet(true);
         }

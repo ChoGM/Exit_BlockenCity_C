@@ -3,7 +3,10 @@ namespace TetrisGame
 {
     public enum BlockShapes
     {
-        I, O, T, L, J, S, Z
+        O, T, L, J, S, Z,
+        One,
+        Two,
+        Three_I, Three_L,
     }
 
     public enum BlockType

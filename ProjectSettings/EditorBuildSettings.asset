@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/CGM/InGame.unity
     guid: 36ab13e5e446fd948b37db90d9e8b4b5
+  - enabled: 1
+    path: Assets/CJY/Item.unity
+    guid: f9b9b53f3e19b374788b16668905745e
   m_configObjects: {}
