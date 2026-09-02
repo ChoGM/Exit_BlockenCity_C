@@ -301,7 +301,6 @@ public class TetrisManager : MonoBehaviour
         // 설정이 없을 경우 기본 7종
         BlockShapes[] defaultShapes =
         {
-        BlockShapes.I,
         BlockShapes.O,
         BlockShapes.T,
         BlockShapes.L,

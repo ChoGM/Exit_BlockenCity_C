@@ -1147,12 +1147,138 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageShapeSettings:
-  - stage: 0
+  - stage: 1
     availableShapes:
     - shape: 0
-      weight: 1
+      weight: 12
+    - shape: 1
+      weight: 12
+    - shape: 2
+      weight: 6
+    - shape: 3
+      weight: 6
+    - shape: 4
+      weight: 6
+    - shape: 5
+      weight: 6
+    - shape: 6
+      weight: 12
+    - shape: 7
+      weight: 12
+    - shape: 8
+      weight: 12
+    - shape: 9
+      weight: 12
+  - stage: 2
+    availableShapes:
     - shape: 0
-      weight: 1
+      weight: 12
+    - shape: 1
+      weight: 12
+    - shape: 2
+      weight: 6
+    - shape: 3
+      weight: 6
+    - shape: 4
+      weight: 6
+    - shape: 5
+      weight: 6
+    - shape: 6
+      weight: 9
+    - shape: 7
+      weight: 10
+    - shape: 8
+      weight: 11
+    - shape: 9
+      weight: 11
+  - stage: 3
+    availableShapes:
+    - shape: 0
+      weight: 12
+    - shape: 1
+      weight: 12
+    - shape: 2
+      weight: 6
+    - shape: 3
+      weight: 6
+    - shape: 4
+      weight: 6
+    - shape: 5
+      weight: 6
+    - shape: 6
+      weight: 6
+    - shape: 7
+      weight: 8
+    - shape: 8
+      weight: 10
+    - shape: 9
+      weight: 10
+  - stage: 4
+    availableShapes:
+    - shape: 0
+      weight: 12
+    - shape: 1
+      weight: 12
+    - shape: 2
+      weight: 6
+    - shape: 3
+      weight: 6
+    - shape: 4
+      weight: 6
+    - shape: 5
+      weight: 6
+    - shape: 6
+      weight: 3
+    - shape: 7
+      weight: 6
+    - shape: 8
+      weight: 9
+    - shape: 9
+      weight: 9
+  - stage: 5
+    availableShapes:
+    - shape: 0
+      weight: 12
+    - shape: 1
+      weight: 12
+    - shape: 2
+      weight: 6
+    - shape: 3
+      weight: 6
+    - shape: 4
+      weight: 6
+    - shape: 5
+      weight: 6
+    - shape: 6
+      weight: 0
+    - shape: 7
+      weight: 4
+    - shape: 8
+      weight: 8
+    - shape: 9
+      weight: 8
+  - stage: 6
+    availableShapes:
+    - shape: 0
+      weight: 12
+    - shape: 1
+      weight: 12
+    - shape: 2
+      weight: 6
+    - shape: 3
+      weight: 6
+    - shape: 4
+      weight: 6
+    - shape: 5
+      weight: 6
+    - shape: 6
+      weight: 0
+    - shape: 7
+      weight: 2
+    - shape: 8
+      weight: 7
+    - shape: 9
+      weight: 7
   settingPresets:
   - presetID: 1
     towerSize: {x: 4, y: 8, z: 4}
@@ -1176,7 +1302,15 @@ MonoBehaviour:
   - stage: 1
     presetID: 1
   - stage: 2
-    presetID: 2
+    presetID: 1
+  - stage: 3
+    presetID: 1
+  - stage: 4
+    presetID: 1
+  - stage: 5
+    presetID: 1
+  - stage: 6
+    presetID: 1
   tetrisTowerSize: {x: 4, y: 8, z: 4}
   fallInterval: 1.5
   tower: {fileID: 411465153}

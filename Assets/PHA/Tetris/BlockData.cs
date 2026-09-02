@@ -6,9 +6,6 @@ public static class BlockData
 {
     public static readonly Dictionary<BlockShapes, Vector3[]> Shapes = new()
     {
-        { BlockShapes.I, new Vector3[] {
-            new Vector3(-1, 0, 0), new Vector3(0, 0, 0), new Vector3(1, 0, 0), new Vector3(2, 0, 0)
-        }},
         { BlockShapes.O, new Vector3[] {
             new Vector3(0, 0, 0), new Vector3(1, 0, 0), new Vector3(0, 1, 0), new Vector3(1, 1, 0)
         }},
@@ -27,6 +24,21 @@ public static class BlockData
         { BlockShapes.Z, new Vector3[] {
             new Vector3(0, 0, 0), new Vector3(-1, 0, 0), new Vector3(0, 1, 0), new Vector3(1, 1, 0)
         }},
+
+        { BlockShapes.One, new Vector3[] {
+            new Vector3(0, 0, 0)
+        }},
+        { BlockShapes.Two, new Vector3[] {
+            new Vector3(0, 0, 0), new Vector3(-1, 0, 0)
+        }},
+        { BlockShapes.Three_I, new Vector3[] {
+            new Vector3(0, 0, 0), new Vector3(-1, 0, 0), new Vector3(1, 0, 0)
+        }},
+        { BlockShapes.Three_L, new Vector3[] {
+            new Vector3(0, 0, 0), new Vector3(-1, 0, 0), new Vector3(0, 1, 0)
+        }},
+
+
     };
 
 }
