@@ -28,7 +28,7 @@ MonoBehaviour:
   darknessLevel: 0
   timeType: 2
   timeRole: 2
-  timeValue: 80
+  timeValue: 70
   friendlinessType: 0
   friendlinessReward: 1
   rewardColor: {r: 0.972549, g: 0.36078432, b: 0.59607846, a: 1}

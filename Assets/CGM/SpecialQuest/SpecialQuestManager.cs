@@ -19,7 +19,7 @@ public class SpecialQuestManager : MonoBehaviour
 
     private void Update()
     {
-        for (int i = 0; i < activeTimers.Count; i++)
+        for (int i = activeTimers.Count - 1; i >= 0; i--)
         {
             activeTimers[i].Update(Time.deltaTime);
         }
@@ -141,8 +141,10 @@ public class SpecialQuestManager : MonoBehaviour
 
     public void OnBlockDestroyed(BlockType destroyedType)
     {
-        foreach (var instance in activeQuests)
+        for (int i = activeQuests.Count - 1; i >= 0; i--)
         {
+            var instance = activeQuests[i];
+
             if (instance.isFinished) continue;
             if (instance.data.questType != SpecialQuestType.BlockBreak) continue;
             if (destroyedType != instance.data.blockType) continue;
@@ -207,8 +209,10 @@ public class SpecialQuestManager : MonoBehaviour
 
     public void OnBlockPlaced(Vector3Int pos, BlockType type)
     {
-        foreach (var instance in activeQuests)
+        for (int i = activeQuests.Count - 1; i >= 0; i--)
         {
+            var instance = activeQuests[i];
+
             if (instance.isFinished)
                 continue;
 
@@ -223,6 +227,7 @@ public class SpecialQuestManager : MonoBehaviour
                 if (instance.breakCount >= instance.data.targetCount)
                 {
                     CompleteQuest(instance);
+                    continue;
                 }
             }
 
@@ -239,7 +244,9 @@ public class SpecialQuestManager : MonoBehaviour
                 );
 
                 if (installed)
+                {
                     CompleteQuest(instance);
+                }
             }
         }
     }

@@ -6,6 +6,6 @@ using System;
 [Serializable]
 public class ProgressData
 {
-    public int currentStage = 1; // 1 ~ 12 (1월 ~ 12월)
+    public int currentStage = 5; // 1 ~ 12 (1월 ~ 12월)
 }
 
