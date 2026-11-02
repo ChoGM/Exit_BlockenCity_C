@@ -9,7 +9,12 @@ public class ObstacleEffects : MonoBehaviour
     [SerializeField] private float freezeChance = 0.9f;
 
     [Header("잔설 (입력 지연)")]
-    [SerializeField] private float inputDelayTime = 0.5f;
+    [SerializeField]
+    private SnowInputMode snowInputMode =
+    SnowInputMode.QueueDelay;
+
+    [SerializeField, Min(0f)]
+    private float inputDelayTime = 0.5f;
 
     [Header("강풍 (블록 밀림)")]
     [SerializeField] private float windDuration = 3f;
@@ -119,7 +124,7 @@ public class ObstacleEffects : MonoBehaviour
         var blocker = state.InputBlocker;
         if (blocker == null) return;
 
-        blocker.SetInputProcessDelay(inputDelayTime);
+        blocker.SetSnowInputMode(snowInputMode,inputDelayTime);
 
         //var obj = state.VisualPlayer?.SnowfallEffect();
         //if (obj != null) state.RegisterObject?.Invoke(obj);
