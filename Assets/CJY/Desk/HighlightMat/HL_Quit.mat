@@ -52,7 +52,7 @@ Material:
     m_Floats:
     - _EdgeOpacity: 0
     - _EdgeScale: 1
-    - _FlickerSpeed: 2.5
+    - _FlickerSpeed: 3
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:

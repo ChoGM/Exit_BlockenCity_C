@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+public enum SnowInputMode
+{
+    QueueDelay,   // 기존 큐 방식
+    DelayedLock   // 지연 후 실행 + 입력 잠금
+}
+
 public class InputBlocker : MonoBehaviour
 {
     public bool blockRotation = false;
@@ -40,6 +46,17 @@ public class InputBlocker : MonoBehaviour
     // 딜레이 시간
     public float inputProcessDelay = 0.0f;
 
+    // 현재 잔설 입력 모드
+    private SnowInputMode snowInputMode =
+        SnowInputMode.QueueDelay;
+
+    // DelayedLock 처리 중인지
+    private bool isDelayedInputLocked = false;
+
+    // 각 입력 처리 코루틴
+    private Coroutine queueCoroutine;
+    private Coroutine delayedLockCoroutine;
+
     void Start()
     {
         HookInput();
@@ -56,10 +73,19 @@ public class InputBlocker : MonoBehaviour
         blockHardDrop = false;
 
         inputQueue.Clear();
-        isProcessingInput = false;
+
         StopAllCoroutines();
 
-        inputProcessDelay = 0;
+        isProcessingInput = false;
+        isDelayedInputLocked = false;
+
+        queueCoroutine = null;
+        delayedLockCoroutine = null;
+
+        // 기본 모드로 복구
+        snowInputMode = SnowInputMode.QueueDelay;
+
+        inputProcessDelay = 0f;
     }
 
     public void HookInput()
@@ -151,10 +177,32 @@ public class InputBlocker : MonoBehaviour
 
     private void EnqueueInput(Action inputAction)
     {
+        // 신규 방식: 입력 지연 + 잠금
+        if (snowInputMode == SnowInputMode.DelayedLock)
+        {
+            // 이미 처리 중이라면 추가 입력 무시
+            if (isDelayedInputLocked)
+                return;
+
+            // 첫 입력을 받는 순간 잠금
+            isDelayedInputLocked = true;
+
+            // 일정 시간 뒤 해당 입력 실행
+            delayedLockCoroutine = StartCoroutine(
+                ProcessDelayedInput(inputAction)
+            );
+
+            return;
+        }
+
+        // 기존 방식: QueueDelay
         inputQueue.Enqueue(inputAction);
+
         if (!isProcessingInput)
         {
-            StartCoroutine(ProcessInputQueue());
+            queueCoroutine = StartCoroutine(
+                ProcessInputQueue()
+            );
         }
     }
 
@@ -165,11 +213,75 @@ public class InputBlocker : MonoBehaviour
         while (inputQueue.Count > 0)
         {
             var inputAction = inputQueue.Dequeue();
+
             inputAction?.Invoke();
 
-            yield return new WaitForSeconds(inputProcessDelay);
+            yield return new WaitForSeconds(
+                inputProcessDelay
+            );
         }
 
         isProcessingInput = false;
+
+        // 추가
+        queueCoroutine = null;
+    }
+
+    public void SetSnowInputMode(
+    SnowInputMode mode,
+    float delay)
+    {
+        // 이전 입력 처리 중지
+        if (queueCoroutine != null)
+        {
+            StopCoroutine(queueCoroutine);
+            queueCoroutine = null;
+        }
+
+        if (delayedLockCoroutine != null)
+        {
+            StopCoroutine(delayedLockCoroutine);
+            delayedLockCoroutine = null;
+        }
+
+        // 기존 대기 입력 제거
+        inputQueue.Clear();
+
+        // 처리 상태 초기화
+        isProcessingInput = false;
+        isDelayedInputLocked = false;
+
+        // 새로운 모드 설정
+        snowInputMode = mode;
+        inputProcessDelay = Mathf.Max(0f, delay);
+
+        Debug.Log(
+            $"[SnowInput] Mode: {snowInputMode}, " +
+            $"Delay: {inputProcessDelay}"
+        );
+    }
+
+    private IEnumerator ProcessDelayedInput(
+    Action inputAction)
+    {
+        // 지정한 시간만큼 입력 실행 대기
+        yield return new WaitForSeconds(
+            inputProcessDelay
+        );
+
+        try
+        {
+            // 대기 종료 시점에 입력 차단 상태 확인
+            if (!isInputBlocked)
+            {
+                inputAction?.Invoke();
+            }
+        }
+        finally
+        {
+            // 실행 성공 여부와 관계없이 잠금 해제
+            isDelayedInputLocked = false;
+            delayedLockCoroutine = null;
+        }
     }
 }

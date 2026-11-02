@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657892, g: 0.4964128, b: 0.5748173, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4429,8 +4429,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2771027fcc413f4a9d04c06ed50453d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startGameTime: 10
-  gameTime: 10
+  startGameTime: 180
+  gameTime: 180
   scoreManager: {fileID: 758890260}
 --- !u!114 &1828716668
 MonoBehaviour:
@@ -4991,6 +4991,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   freezeChance: 0.1
+  snowInputMode: 1
   inputDelayTime: 0.8
   windDuration: 3
   windInterval: 0.3
@@ -5067,7 +5068,7 @@ MonoBehaviour:
   tetrisspawner: {fileID: 1666622169}
   useInspectorObstacle: 1
   selectedObstacleEntry:
-    type: 8
+    type: 2
     weight: 100
   obstacleSystemEnabled: 1
 --- !u!4 &2142764466
