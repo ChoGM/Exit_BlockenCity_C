@@ -55,6 +55,10 @@ public class DialogUI : MonoBehaviour
     public List<Canvas> targetCanvases;
     public Camera blurCamera;
 
+    // 블러 처리 중에만 활성화할 오브젝트
+    [Header("Objects Active Only During Blur")]
+    public List<GameObject> blurActiveObjects;
+
     private List<Camera> originalRenderCameras = new List<Camera>();
 
     private void Awake()
@@ -435,6 +439,13 @@ public class DialogUI : MonoBehaviour
 
     private void StartDialogBlur()
     {
+        // 블러 중에만 사용할 오브젝트 활성화
+        foreach (GameObject obj in blurActiveObjects)
+        {
+            if (obj != null)
+                obj.SetActive(true);
+        }
+
         if (blurCamera == null)
         {
             Debug.LogWarning("[DialogUI] Blur Camera가 설정되지 않았습니다.");
@@ -447,7 +458,6 @@ public class DialogUI : MonoBehaviour
             return;
         }
 
-        // 기존 카메라 정보 초기화
         originalRenderCameras.Clear();
 
         foreach (Canvas canvas in targetCanvases)
@@ -458,35 +468,37 @@ public class DialogUI : MonoBehaviour
                 continue;
             }
 
-            // 기존 Render Camera 저장
             originalRenderCameras.Add(canvas.worldCamera);
-
-            // Blur Camera로 변경
             canvas.worldCamera = blurCamera;
         }
 
-        Debug.Log($"[DialogUI] Dialog 시작 → {targetCanvases.Count}개 Canvas에 Blur Camera 적용");
+        Debug.Log("[DialogUI] 블러 시작 및 오브젝트 활성화");
     }
 
     private void EndDialogBlur()
     {
-        if (targetCanvases == null)
-            return;
-
-        for (int i = 0; i < targetCanvases.Count; i++)
+        // 기존 Canvas 카메라 복구
+        if (targetCanvases != null)
         {
-            Canvas canvas = targetCanvases[i];
-
-            if (canvas == null)
-                continue;
-
-            if (i < originalRenderCameras.Count)
+            for (int i = 0; i < targetCanvases.Count; i++)
             {
-                canvas.worldCamera = originalRenderCameras[i];
+                Canvas canvas = targetCanvases[i];
+
+                if (canvas != null && i < originalRenderCameras.Count)
+                {
+                    canvas.worldCamera = originalRenderCameras[i];
+                }
             }
         }
 
-        Debug.Log("[DialogUI] Dialog 종료 → 모든 Canvas의 기존 Render Camera 복구");
+        // 블러 중에만 활성화했던 오브젝트 비활성화
+        foreach (GameObject obj in blurActiveObjects)
+        {
+            if (obj != null)
+                obj.SetActive(false);
+        }
+
+        Debug.Log("[DialogUI] 블러 종료 및 오브젝트 비활성화");
     }
 
 }
