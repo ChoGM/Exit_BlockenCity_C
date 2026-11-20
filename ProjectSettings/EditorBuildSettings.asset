@@ -29,7 +29,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/CJY/Item.unity
     guid: f9b9b53f3e19b374788b16668905745e
-  - enabled: 1
+  - enabled: 0
     path: Assets/CJY/Effect.unity
     guid: 6f120d5abef47e44c8901a6bb7dade2e
   m_configObjects: {}
