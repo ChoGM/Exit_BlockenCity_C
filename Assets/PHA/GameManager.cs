@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement; // [추가] 씬 관리를 위해 필요
 
 public class GameManager : MonoBehaviour
 {
+    private HashSet<string> pauseReasons = new HashSet<string>();
+
     public static GameManager Instance;
 
     public float startGameTime = 150f;   // Inspector에서 초 단위 설정 (0인지 확인 필요!)
@@ -75,6 +77,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("[GameManager] 게임 일시정지");
     }
 
+
     public void ResumeGame()
     {
         isPaused = false;
@@ -119,5 +122,41 @@ public class GameManager : MonoBehaviour
         gameTime = startGameTime;
         isGameEnded = false;
         isPaused = false;
+        pauseReasons.Clear();
+    }
+
+    public void AddPauseReason(string reason)
+    {
+        if (isGameEnded) return;
+
+        pauseReasons.Add(reason);
+        ApplyPauseState();
+    }
+
+    public void RemovePauseReason(string reason)
+    {
+        pauseReasons.Remove(reason);
+        ApplyPauseState();
+    }
+
+    private void ApplyPauseState()
+    {
+        bool shouldPause = pauseReasons.Count > 0;
+
+        if (shouldPause)
+        {
+            if (!isPaused)
+                PauseGame();
+        }
+        else
+        {
+            if (isPaused)
+                ResumeGame();
+        }
+    }
+
+    public bool IsPauseRequested(string reason)
+    {
+        return pauseReasons.Contains(reason);
     }
 }
