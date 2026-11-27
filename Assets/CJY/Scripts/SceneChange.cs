@@ -14,6 +14,10 @@ public class SceneChange : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
+    public void LoadInGameScene()
+    {
+        SceneManager.LoadScene("InGame");
+    }
 
     // =========================
     // Title

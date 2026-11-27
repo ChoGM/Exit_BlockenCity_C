@@ -6,6 +6,26 @@ using static Unity.Collections.AllocatorManager;
 
 public class EffectVisualPlayer : MonoBehaviour
 {
+    [Header("==== VFX 생성 부모 ====")]
+    [Tooltip("Hierarchy의 VFX 오브젝트를 연결하세요. 지정하지 않으면 기존처럼 루트에 생성됩니다.")]
+    [SerializeField] private Transform vfxRoot;
+
+    // VFX를 생성할 때부터 부모를 지정하며, 기존 월드 좌표를 유지합니다.
+    private GameObject InstantiateVFX(GameObject prefab)
+    {
+        return vfxRoot != null
+            ? Instantiate(prefab, vfxRoot, true)
+            : Instantiate(prefab);
+    }
+
+    // 건기 블록 파괴 효과 등 특정 월드 좌표에서 생성되는 VFX용.
+    private GameObject InstantiateVFX(GameObject prefab, Vector3 position, Quaternion rotation)
+    {
+        return vfxRoot != null
+            ? Instantiate(prefab, position, rotation, vfxRoot)
+            : Instantiate(prefab, position, rotation);
+    }
+
     [Header("==== 이펙트 프리팹 설정 ====")]
 
     [SerializeField]
@@ -177,7 +197,7 @@ public class EffectVisualPlayer : MonoBehaviour
 
 
         GameObject instance =
-            Instantiate(prefab);
+            InstantiateVFX(prefab);
 
 
         ObstacleSoundManager.Instance?.
@@ -212,7 +232,7 @@ public class EffectVisualPlayer : MonoBehaviour
 
 
         GameObject instance =
-            Instantiate(prefab);
+            InstantiateVFX(prefab);
 
 
         ObstacleSoundManager.Instance?.
@@ -239,7 +259,7 @@ public class EffectVisualPlayer : MonoBehaviour
 
 
         GameObject instance =
-            Instantiate(prefab);
+            InstantiateVFX(prefab);
 
 
         ObstacleSoundManager.Instance?.
@@ -266,7 +286,7 @@ public class EffectVisualPlayer : MonoBehaviour
 
 
         GameObject instance =
-            Instantiate(prefab);
+            InstantiateVFX(prefab);
 
 
         ObstacleSoundManager.Instance?.
@@ -298,7 +318,7 @@ public class EffectVisualPlayer : MonoBehaviour
 
 
         GameObject instance =
-            Instantiate(prefab);
+            InstantiateVFX(prefab);
 
 
         // 비 VFX 오브젝트에 Loop AudioSource 추가
@@ -372,7 +392,7 @@ public class EffectVisualPlayer : MonoBehaviour
 
             if (overheatEffectPrefab != null)
             {
-                Instantiate(overheatEffectPrefab);
+                InstantiateVFX(overheatEffectPrefab);
             }
 
             overheatSoundPlayed = true;
@@ -404,7 +424,7 @@ public class EffectVisualPlayer : MonoBehaviour
 
 
         GameObject instance =
-            Instantiate(
+            InstantiateVFX(
                 drySeasonBlockBreakPrefab,
                 position,
                 Quaternion.identity
@@ -443,7 +463,7 @@ public class EffectVisualPlayer : MonoBehaviour
 
 
         var instance =
-            Instantiate(drySeasonScreenPrefab);
+            InstantiateVFX(drySeasonScreenPrefab);
 
 
         var binder =
@@ -478,7 +498,7 @@ public class EffectVisualPlayer : MonoBehaviour
 
 
         GameObject instance =
-            Instantiate(prefab);
+            InstantiateVFX(prefab);
 
 
         ObstacleSoundManager.Instance?.

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.014272037, g: 0.006544047, b: 0.0014980278, a: 1}
+  m_IndirectSpecularColor: {r: 0.014272067, g: 0.0065440787, b: 0.0014980306, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -357,7 +357,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Effect
+          m_StringArgument: InGame
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &168933787
@@ -3691,6 +3691,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1187014634}
   m_CullTransparentMesh: 1
+--- !u!1 &1193728982
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1193728984}
+  - component: {fileID: 1193728983}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1193728983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193728982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 214d0a42f2784154fb2f9aa03d3a0f80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainMixer: {fileID: 24100000, guid: 027c873ff74c72841988a3fed3436e34, type: 2}
+  masterVolume: 1
+  bgmVolume: 1
+  sfxVolume: 1
+--- !u!4 &1193728984
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193728982}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1015, y: 540, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1250112858 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1773447943470429083, guid: 7b5ee8c251420884188bbac4a8216a31, type: 3}
@@ -25347,9 +25395,9 @@ SceneRoots:
   m_Roots:
   - {fileID: 1140374349}
   - {fileID: 1673273002}
+  - {fileID: 1257644048}
   - {fileID: 43769785}
   - {fileID: 583687625}
-  - {fileID: 1257644048}
   - {fileID: 1443160032}
   - {fileID: 1706278915}
   - {fileID: 169282705}
@@ -25363,3 +25411,4 @@ SceneRoots:
   - {fileID: 431192645}
   - {fileID: 408075086}
   - {fileID: 543450652669907731}
+  - {fileID: 1193728984}
