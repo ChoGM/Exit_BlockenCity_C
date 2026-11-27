@@ -5,6 +5,8 @@ public class SettingInGameManager : MonoBehaviour
     [Header("UI Button Handler")]
     [SerializeField] private UIButtonHandler uiButtonHandler;
 
+    private const string PAUSE_REASON = "Settings";
+
     private void Start()
     {
         // 인스펙터에 직접 할당하지 않은 경우 씬 내에서 찾습니다.
@@ -28,31 +30,38 @@ public class SettingInGameManager : MonoBehaviour
     /// </summary>
     public void TogglePause()
     {
-        if (uiButtonHandler == null)
-        {
-            uiButtonHandler = FindObjectOfType<UIButtonHandler>();
+        if (GameManager.Instance == null) return;
+        if (GameManager.Instance.isGameEnded) return;
 
-            if (uiButtonHandler == null)
-            {
-                Debug.LogWarning("[SettingManager] 씬 내에서 UIButtonHandler를 찾을 수 없습니다.");
-                return;
-            }
-        }
-
-        // 게임이 이미 종료된 상태라면 일시정지 메뉴가 열리지 않도록 예외 처리
-        if (GameManager.Instance != null && GameManager.Instance.isGameEnded)
+        if (GameManager.Instance.IsPauseRequested(PAUSE_REASON))
         {
-            return;
-        }
-
-        // 현재 일시정지 상태 확인 후 토글 처리
-        if (GameManager.Instance != null && GameManager.Instance.isPaused)
-        {
-            uiButtonHandler.ResumeGame(); // 일시정지 해제
+            ResumeSettings();
         }
         else
         {
-            uiButtonHandler.PauseGame(); // 일시정지 실행
+            PauseSettings();
         }
     }
+    public void PauseSettings()
+    {
+        GameManager.Instance.AddPauseReason(PAUSE_REASON);
+
+        if (uiButtonHandler != null &&
+            uiButtonHandler.settingsWindow != null)
+        {
+            uiButtonHandler.settingsWindow.SetActive(true);
+        }
+    }
+
+    public void ResumeSettings()
+    {
+        if (uiButtonHandler != null &&
+            uiButtonHandler.settingsWindow != null)
+        {
+            uiButtonHandler.settingsWindow.SetActive(false);
+        }
+
+        GameManager.Instance.RemovePauseReason(PAUSE_REASON);
+    }
+
 }

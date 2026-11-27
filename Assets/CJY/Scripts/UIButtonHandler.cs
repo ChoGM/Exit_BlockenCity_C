@@ -62,7 +62,7 @@ public class UIButtonHandler : MonoBehaviour
     {
         if (GameManager.Instance != null)
         {
-            GameManager.Instance.PauseGame();
+            GameManager.Instance.AddPauseReason("Settings");
         }
 
         if (settingsWindow != null)
@@ -70,7 +70,7 @@ public class UIButtonHandler : MonoBehaviour
             settingsWindow.SetActive(true);
         }
 
-        Debug.Log("[PauseGame] 일시정지 완료");
+        Debug.Log("[PauseGame] 설정창 활성화");
     }
 
     public void ResumeGame()
@@ -82,9 +82,9 @@ public class UIButtonHandler : MonoBehaviour
 
         if (GameManager.Instance != null)
         {
-            GameManager.Instance.ResumeGame();
+            GameManager.Instance.RemovePauseReason("Settings");
         }
 
-        Debug.Log("[ResumeGame] 게임 재개");
+        Debug.Log("[ResumeGame] 설정창 비활성화");
     }
 }
