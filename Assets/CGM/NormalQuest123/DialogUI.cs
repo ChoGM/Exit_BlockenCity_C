@@ -46,7 +46,6 @@ public class DialogUI : MonoBehaviour
     public static DialogUI Instance;
     public bool IsDialogActive => dialogPanel.activeSelf;
     public bool IsDialogRunning { get; private set; }
-    private bool wasPausedBeforeDialog = false;
 
     [Header("Mouse Click Settings")]
     public GameObject dialogClickArea;
@@ -125,35 +124,27 @@ public class DialogUI : MonoBehaviour
     public void StartDialog(int branch)
     {
         Debug.Log($"[DialogUI] StartDialog 호출됨 / branch = {branch}");
-        Debug.Log($"DialogManager.Instance = {DialogManager.Instance}");
 
+        // 대화 블러 시작
         StartDialogBlur();
 
-        // 대화 시작 전 Pause 상태 저장
-        wasPausedBeforeDialog =
-            GameManager.Instance != null &&
-            GameManager.Instance.IsGamePaused();
-
-        // 이미 Pause 상태가 아니라면 대화를 위해 Pause
-        if (!wasPausedBeforeDialog)
+        // 퀘스트 대화 전용 Pause 요청 등록
+        if (GameManager.Instance != null)
         {
-            if (GameManager.Instance != null)
-            {
-                GameManager.Instance.PauseGame();
-            }
-
-            Debug.Log("[DialogUI] 대화 시작 → 게임 Pause");
+            GameManager.Instance.AddPauseReason("QuestDialog");
         }
 
         IsDialogRunning = true;
 
         DialogManager.Instance.ClearQueue();
         DialogManager.Instance.LoadDialogByBranch(branch);
+
         isWaitingForChoice = false;
 
         dialogPanel.SetActive(true);
         ShowNextDialog();
     }
+
     private void EndDialog(string message = "")
     {
         IsDialogRunning = false;
@@ -178,19 +169,16 @@ public class DialogUI : MonoBehaviour
 
         dialogPanel.SetActive(false);
 
+        // 블러 종료
         EndDialogBlur();
-        // 대화 시작 전에 Pause 상태가 아니었다면 Resume
-        if (!wasPausedBeforeDialog)
-        {
-            if (GameManager.Instance != null)
-            {
-                GameManager.Instance.ResumeGame();
-            }
 
-            Debug.Log("[DialogUI] 대화 종료 → 게임 Resume");
+        // 퀘스트 대화 전용 Pause 요청 해제
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.RemovePauseReason("QuestDialog");
         }
 
-        wasPausedBeforeDialog = false;
+        Debug.Log("[DialogUI] 대화 종료 및 Pause 요청 해제");
     }
 
     public void ShowNextDialog()
@@ -327,7 +315,7 @@ public class DialogUI : MonoBehaviour
         declineButton.gameObject.SetActive(false);
     }
 
-    private void OnAcceptClicked()
+    public void OnAcceptClicked()
     {
         Debug.Log("수락 선택됨");
         isWaitingForChoice = false;
@@ -349,7 +337,7 @@ public class DialogUI : MonoBehaviour
         ShowNextDialog();
     }
 
-    private void OnDeclineClicked()
+    public void OnDeclineClicked()
     {
         Debug.Log("거절 선택됨");
         isWaitingForChoice = false;
