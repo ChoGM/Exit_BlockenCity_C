@@ -1,2038 +1,344 @@
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Text;
 using UnityEditor;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 public static class StoryCsvImporter
 {
-    // =========================================================
-    // ∞Ê∑Œ
-    // =========================================================
+    private const string CsvFolder = "Assets/PHA/Story/Data/CSV";
+    private const string StoryAssetFolder = "Assets/PHA/Story/Data/StoryAssets";
 
-    private const string CsvFolder =
-        "Assets/PHA/Story/Data/CSV";
-
-    private const string StoryAssetFolder =
-        "Assets/PHA/Story/Data/StoryAssets";
-
-    private const string StoriesFile =
-        "Stories.csv";
-
-    private const string NodesFile =
-        "StoryNodes.csv";
-
-    private const string ChoicesFile =
-        "StoryChoices.csv";
-
-    private const string ConditionsFile =
-        "StoryConditions.csv";
-
-    private const string EffectsFile =
-        "StoryEffects.csv";
-
-
-    // =========================================================
-    // CSV µ•¿Ã≈ÕøÎ ≥ª∫Œ ≈¨∑°Ω∫
-    // =========================================================
-
-    private class StoryCsvData
-    {
-        public string storyId;
-        public StoryType storyType;
-        public string storyTitle;
-
-        public int year;
-        public int month;
-        public int day;
-
-        public int priority;
-        public bool playOnce;
-
-        public StoryPlayTiming playTiming;
-
-        public string unlockFactionId;
-        public string startNodeId;
-    }
-
-
-    private class NodeCsvData
-    {
-        public string storyId;
-
-        public int order;
-
-        public string nodeId;
-
-        public StoryNodeType nodeType;
-
-        public string text;
-
-        public string characterId;
-        public string portraitId;
-
-        public string nextNodeId;
-
-        public bool dimPortrait;
-        public bool keepPortrait;
-
-        public bool useTypingEffect;
-
-        public bool autoAdvance;
-        public float autoAdvanceDelay;
-    }
-
-
-    private class ChoiceCsvData
-    {
-        public string storyId;
-        public string nodeId;
-
-        public int choiceIndex;
-
-        public string choiceText;
-        public string targetNodeId;
-
-        public string resultKey;
-        public string resultValue;
-
-        public bool useCondition;
-
-        public string requiredKey;
-        public string requiredValue;
-
-        public bool hideWhenLocked;
-        public string lockedText;
-    }
-
-
-    private class ConditionCsvData
-    {
-        public string storyId;
-
-        public int conditionIndex;
-
-        public StoryConditionType conditionType;
-
-        public string key;
-        public string value;
-
-        public int intValue;
-    }
-
-
-    private class EffectCsvData
-    {
-        public string storyId;
-        public string nodeId;
-
-        public int effectIndex;
-
-        public StoryEffectType effectType;
-        public StoryEffectTarget target;
-
-        public float duration;
-        public float strength;
-
-        public bool waitForCompletion;
-    }
-
-
-    // =========================================================
-    // ∏ﬁ¥∫
-    // =========================================================
+    [MenuItem("Story/CSV/Validate and Preview StoryData")]
+    public static void ValidateAllStoryData() => Run(false);
 
     [MenuItem("Story/CSV/Import All StoryData")]
-    public static void ImportAllStoryData()
+    public static void ImportAllStoryData() => Run(true);
+
+    private sealed class Draft
     {
-        if (!ValidateCsvFiles())
-        {
-            return;
-        }
+        public StoryData Existing, Data;
+        public bool Changed;
+    }
 
-        EnsureStoryAssetFolder();
-
+    private static void Run(bool import)
+    {
+        var drafts = new List<Draft>();
         try
         {
-            List<StoryCsvData> stories =
-                LoadStories();
-
-            List<NodeCsvData> nodes =
-                LoadNodes();
-
-            List<ChoiceCsvData> choices =
-                LoadChoices();
-
-            List<ConditionCsvData> conditions =
-                LoadConditions();
-
-            List<EffectCsvData> effects =
-                LoadEffects();
-
-
-            if (stories.Count == 0)
+            var input = new Input();
+            var existing = AssetsById<StoryData>(story => story.StoryId);
+            var characters = AssetsById<CharacterData>(character => character.CharacterId);
+            var catalogs = LoadAssets<StoryBackgroundCatalog>().ToList();
+            foreach (var row in input.Stories)
             {
-                Debug.LogWarning(
-                    "[StoryCsvImporter] " +
-                    "Stories.csvø° StoryData∞° æ¯Ω¿¥œ¥Ÿ."
-                );
-
-                return;
+                string id = row.Required("StoryId");
+                existing.TryGetValue(id, out var original);
+                var data = original ? Object.Instantiate(original) : ScriptableObject.CreateInstance<StoryData>();
+                data.name = original ? original.name : "Story_" + string.Join("_", id.Split(Path.GetInvalidFileNameChars()));
+                var draft = new Draft { Existing = original, Data = data };
+                drafts.Add(draft);
+                input.Build(row, data, original, characters, catalogs);
+                draft.Changed = !original || EditorJsonUtility.ToJson(original) != EditorJsonUtility.ToJson(data);
             }
-
-
-            Dictionary<string, CharacterData>
-                characters =
-                    BuildCharacterDatabase();
-
-
-            Dictionary<string, StoryData>
-                existingStories =
-                    BuildExistingStoryDatabase();
-
-
-            int createdCount = 0;
-            int updatedCount = 0;
-            int errorCount = 0;
-
-
-            foreach (StoryCsvData storyCsv
-                     in stories)
+            var changed = drafts.Where(d => d.Changed).ToList();
+            var report = new StringBuilder("Ïä§ÌÜ†Î¶¨ CSV Í≤ÄÏ¶ù ÏôÑÎ£å\n");
+            foreach (var draft in changed)
             {
-                if (string.IsNullOrWhiteSpace(
-                        storyCsv.storyId))
+                var old = draft.Existing;
+                report.AppendLine($"{draft.Data.StoryId}: {(old ? "ÏàòÏ†ï" : "ÏÉùÏÑ±")} ¬∑ ÎÖ∏Îìú {old?.Nodes.Count ?? 0} ‚Üí {draft.Data.Nodes.Count}, ÏÑ†ÌÉùÏßÄ {ChoiceCount(old)} ‚Üí {ChoiceCount(draft.Data)}");
+            }
+            report.Append($"Î≥ÄÍ≤Ω {changed.Count}Í∞ú / ÏûÖÎ†• {drafts.Count}Í∞ú. CSVÏóê ÏóÜÎäî Ïä§ÌÜ†Î¶¨Îäî Ïú†ÏßÄÌï©ÎãàÎã§.");
+            Debug.Log(report.ToString());
+            if (import && changed.Count > 0)
+            {
+                Apply(changed);
+                Debug.Log($"Ïä§ÌÜ†Î¶¨ ÏóêÏÖã {changed.Count}Í∞ú Î∞òÏòÅ ÏôÑÎ£å.");
+            }
+        }
+        catch (Exception error) { Debug.LogError($"Ïä§ÌÜ†Î¶¨ CSV Ï≤òÎ¶¨ Ïã§Ìå®\n{error}"); }
+        finally
+        {
+            foreach (var draft in drafts)
+                if (draft.Data && !EditorUtility.IsPersistent(draft.Data)) Object.DestroyImmediate(draft.Data);
+        }
+    }
+
+    private static int ChoiceCount(StoryData data) =>
+        data ? data.Nodes.Where(n => n != null && n.NodeType == StoryNodeType.Choice)
+                         .Sum(n => n.Choices?.Count ?? 0) : 0;
+
+    private static IEnumerable<T> LoadAssets<T>() where T : Object =>
+        AssetDatabase.FindAssets("t:" + typeof(T).Name).Select(AssetDatabase.GUIDToAssetPath)
+            .Select(path => AssetDatabase.LoadAssetAtPath<T>(path)).Where(asset => asset != null);
+
+    private static Dictionary<string, T> AssetsById<T>(Func<T, string> key) where T : Object
+    {
+        var assets = new Dictionary<string, T>(StringComparer.Ordinal);
+        foreach (var asset in LoadAssets<T>())
+        {
+            string id = key(asset);
+            if (string.IsNullOrWhiteSpace(id)) continue;
+            if (assets.TryGetValue(id, out var first))
+                throw new InvalidDataException($"Ï§ëÎ≥µ {typeof(T).Name} ID '{id}': {AssetDatabase.GetAssetPath(first)}, {AssetDatabase.GetAssetPath(asset)}");
+            assets.Add(id, asset);
+        }
+        return assets;
+    }
+
+    // Drafts are fully materialized and compared before entering this method.
+    private static void Apply(List<Draft> changed)
+    {
+        var created = new List<string>();
+        Undo.IncrementCurrentGroup();
+        int group = Undo.GetCurrentGroup();
+        Undo.SetCurrentGroupName("Import Story CSV");
+        try
+        {
+            foreach (var draft in changed)
+            {
+                if (draft.Existing)
                 {
-                    Debug.LogError(
-                        "[StoryCsvImporter] " +
-                        "StoryId∞° ∫ÒæÓ ¿÷¥¬ «‡¿Ã ¿÷Ω¿¥œ¥Ÿ."
-                    );
-
-                    errorCount++;
-
-                    continue;
-                }
-
-
-                StoryData storyAsset;
-
-                bool isNew =
-                    !existingStories.TryGetValue(
-                        storyCsv.storyId,
-                        out storyAsset
-                    );
-
-
-                if (isNew)
-                {
-                    storyAsset =
-                        CreateStoryAsset(
-                            storyCsv.storyId
-                        );
-
-                    if (storyAsset == null)
-                    {
-                        errorCount++;
-                        continue;
-                    }
-
-                    existingStories[
-                        storyCsv.storyId
-                    ] = storyAsset;
-
-                    createdCount++;
+                    Undo.RegisterCompleteObjectUndo(draft.Existing, "Import Story CSV");
+                    EditorUtility.CopySerialized(draft.Data, draft.Existing);
+                    EditorUtility.SetDirty(draft.Existing);
                 }
                 else
                 {
-                    updatedCount++;
-                }
-
-
-                bool success =
-                    ApplyStoryData(
-                        storyAsset,
-                        storyCsv,
-                        nodes,
-                        choices,
-                        conditions,
-                        effects,
-                        characters
-                    );
-
-
-                if (!success)
-                {
-                    errorCount++;
-                }
-            }
-
-
-            AssetDatabase.SaveAssets();
-            AssetDatabase.Refresh();
-
-
-            Debug.Log(
-                "[StoryCsvImporter] Import øœ∑·\n" +
-                $"ª˝º∫: {createdCount}\n" +
-                $"æ˜µ•¿Ã∆Æ: {updatedCount}\n" +
-                $"ø¿∑˘: {errorCount}"
-            );
-        }
-        catch (Exception exception)
-        {
-            Debug.LogError(
-                "[StoryCsvImporter] Import ¡ﬂ øπø‹ πﬂª˝\n" +
-                exception
-            );
-        }
-    }
-
-
-    // =========================================================
-    // StoryData ¿˚øÎ
-    // =========================================================
-
-    private static bool ApplyStoryData(
-        StoryData storyAsset,
-        StoryCsvData storyCsv,
-        List<NodeCsvData> allNodes,
-        List<ChoiceCsvData> allChoices,
-        List<ConditionCsvData> allConditions,
-        List<EffectCsvData> allEffects,
-        Dictionary<string, CharacterData> characters)
-    {
-        SerializedObject serializedStory =
-            new SerializedObject(
-                storyAsset
-            );
-
-
-        // -----------------------------------------------------
-        // ±‚∫ª ¡§∫∏
-        // -----------------------------------------------------
-
-        SetString(
-            serializedStory,
-            "storyId",
-            storyCsv.storyId
-        );
-
-        SetEnum(
-            serializedStory,
-            "storyType",
-            (int)storyCsv.storyType
-        );
-
-        SetString(
-            serializedStory,
-            "storyTitle",
-            storyCsv.storyTitle
-        );
-
-        SetInt(
-            serializedStory,
-            "year",
-            storyCsv.year
-        );
-
-        SetInt(
-            serializedStory,
-            "month",
-            storyCsv.month
-        );
-
-        SetInt(
-            serializedStory,
-            "day",
-            storyCsv.day
-        );
-
-        SetInt(
-            serializedStory,
-            "priority",
-            storyCsv.priority
-        );
-
-        SetBool(
-            serializedStory,
-            "playOnce",
-            storyCsv.playOnce
-        );
-
-        SetEnum(
-            serializedStory,
-            "playTiming",
-            (int)storyCsv.playTiming
-        );
-
-        SetString(
-            serializedStory,
-            "unlockFactionId",
-            storyCsv.unlockFactionId
-        );
-
-        SetString(
-            serializedStory,
-            "startNodeId",
-            storyCsv.startNodeId
-        );
-
-
-        // -----------------------------------------------------
-        // Conditions
-        // -----------------------------------------------------
-
-        List<ConditionCsvData> storyConditions =
-            allConditions.FindAll(
-                data =>
-                    data.storyId ==
-                    storyCsv.storyId
-            );
-
-        storyConditions.Sort(
-            (a, b) =>
-                a.conditionIndex.CompareTo(
-                    b.conditionIndex
-                )
-        );
-
-
-        SerializedProperty conditionsProperty =
-            serializedStory.FindProperty(
-                "conditions"
-            );
-
-        if (conditionsProperty != null)
-        {
-            conditionsProperty.ClearArray();
-
-            foreach (ConditionCsvData condition
-                     in storyConditions)
-            {
-                int index =
-                    conditionsProperty.arraySize;
-
-                conditionsProperty
-                    .InsertArrayElementAtIndex(
-                        index
-                    );
-
-                SerializedProperty element =
-                    conditionsProperty
-                        .GetArrayElementAtIndex(
-                            index
-                        );
-
-                SetRelativeEnum(
-                    element,
-                    "conditionType",
-                    (int)condition.conditionType
-                );
-
-                SetRelativeString(
-                    element,
-                    "key",
-                    condition.key
-                );
-
-                SetRelativeString(
-                    element,
-                    "value",
-                    condition.value
-                );
-
-                SetRelativeInt(
-                    element,
-                    "intValue",
-                    condition.intValue
-                );
-            }
-        }
-
-
-        // -----------------------------------------------------
-        // Nodes
-        // -----------------------------------------------------
-
-        List<NodeCsvData> storyNodes =
-            allNodes.FindAll(
-                data =>
-                    data.storyId ==
-                    storyCsv.storyId
-            );
-
-        storyNodes.Sort(
-            (a, b) =>
-                a.order.CompareTo(
-                    b.order
-                )
-        );
-
-
-        SerializedProperty nodesProperty =
-            serializedStory.FindProperty(
-                "nodes"
-            );
-
-        if (nodesProperty == null)
-        {
-            Debug.LogError(
-                $"[{storyCsv.storyId}] " +
-                "StoryDataø°º≠ 'nodes' « µÂ∏¶ " +
-                "√£¡ˆ ∏¯«ﬂΩ¿¥œ¥Ÿ.",
-                storyAsset
-            );
-
-            return false;
-        }
-
-
-        nodesProperty.ClearArray();
-
-
-        foreach (NodeCsvData nodeCsv
-                 in storyNodes)
-        {
-            int index =
-                nodesProperty.arraySize;
-
-            nodesProperty
-                .InsertArrayElementAtIndex(
-                    index
-                );
-
-            SerializedProperty nodeProperty =
-                nodesProperty
-                    .GetArrayElementAtIndex(
-                        index
-                    );
-
-
-            SetRelativeString(
-                nodeProperty,
-                "nodeId",
-                nodeCsv.nodeId
-            );
-
-            SetRelativeEnum(
-                nodeProperty,
-                "nodeType",
-                (int)nodeCsv.nodeType
-            );
-
-            SetRelativeString(
-                nodeProperty,
-                "text",
-                nodeCsv.text
-            );
-
-
-            // Character
-            SerializedProperty characterProperty =
-                nodeProperty
-                    .FindPropertyRelative(
-                        "character"
-                    );
-
-            if (characterProperty != null)
-            {
-                characterProperty.objectReferenceValue =
-                    FindCharacter(
-                        characters,
-                        nodeCsv.characterId,
-                        storyCsv.storyId,
-                        nodeCsv.nodeId
-                    );
-            }
-
-
-            SetRelativeString(
-                nodeProperty,
-                "portraitId",
-                nodeCsv.portraitId
-            );
-
-            SetRelativeString(
-                nodeProperty,
-                "nextNodeId",
-                nodeCsv.nextNodeId
-            );
-
-            SetRelativeBool(
-                nodeProperty,
-                "dimPortrait",
-                nodeCsv.dimPortrait
-            );
-
-            SetRelativeBool(
-                nodeProperty,
-                "keepPortrait",
-                nodeCsv.keepPortrait
-            );
-
-            SetRelativeBool(
-                nodeProperty,
-                "useTypingEffect",
-                nodeCsv.useTypingEffect
-            );
-
-            SetRelativeBool(
-                nodeProperty,
-                "autoAdvance",
-                nodeCsv.autoAdvance
-            );
-
-            SetRelativeFloat(
-                nodeProperty,
-                "autoAdvanceDelay",
-                nodeCsv.autoAdvanceDelay
-            );
-
-
-            // -------------------------------------------------
-            // Choices
-            // -------------------------------------------------
-
-            SerializedProperty choicesProperty =
-                nodeProperty
-                    .FindPropertyRelative(
-                        "choices"
-                    );
-
-            if (choicesProperty != null)
-            {
-                choicesProperty.ClearArray();
-
-
-                List<ChoiceCsvData> nodeChoices =
-                    allChoices.FindAll(
-                        choice =>
-                            choice.storyId ==
-                            storyCsv.storyId &&
-                            choice.nodeId ==
-                            nodeCsv.nodeId
-                    );
-
-
-                nodeChoices.Sort(
-                    (a, b) =>
-                        a.choiceIndex.CompareTo(
-                            b.choiceIndex
-                        )
-                );
-
-
-                foreach (ChoiceCsvData choiceCsv
-                         in nodeChoices)
-                {
-                    int choiceIndex =
-                        choicesProperty.arraySize;
-
-                    choicesProperty
-                        .InsertArrayElementAtIndex(
-                            choiceIndex
-                        );
-
-                    SerializedProperty choice =
-                        choicesProperty
-                            .GetArrayElementAtIndex(
-                                choiceIndex
-                            );
-
-
-                    SetRelativeString(
-                        choice,
-                        "choiceText",
-                        choiceCsv.choiceText
-                    );
-
-                    SetRelativeString(
-                        choice,
-                        "targetNodeId",
-                        choiceCsv.targetNodeId
-                    );
-
-                    SetRelativeString(
-                        choice,
-                        "resultKey",
-                        choiceCsv.resultKey
-                    );
-
-                    SetRelativeString(
-                        choice,
-                        "resultValue",
-                        choiceCsv.resultValue
-                    );
-
-                    SetRelativeBool(
-                        choice,
-                        "useCondition",
-                        choiceCsv.useCondition
-                    );
-
-                    SetRelativeString(
-                        choice,
-                        "requiredKey",
-                        choiceCsv.requiredKey
-                    );
-
-                    SetRelativeString(
-                        choice,
-                        "requiredValue",
-                        choiceCsv.requiredValue
-                    );
-
-                    SetRelativeBool(
-                        choice,
-                        "hideWhenLocked",
-                        choiceCsv.hideWhenLocked
-                    );
-
-                    SetRelativeString(
-                        choice,
-                        "lockedText",
-                        choiceCsv.lockedText
-                    );
-                }
-            }
-
-
-            // -------------------------------------------------
-            // Effects
-            // -------------------------------------------------
-
-            SerializedProperty effectsProperty =
-                nodeProperty
-                    .FindPropertyRelative(
-                        "effects"
-                    );
-
-            if (effectsProperty != null)
-            {
-                effectsProperty.ClearArray();
-
-
-                List<EffectCsvData> nodeEffects =
-                    allEffects.FindAll(
-                        effect =>
-                            effect.storyId ==
-                            storyCsv.storyId &&
-                            effect.nodeId ==
-                            nodeCsv.nodeId
-                    );
-
-
-                nodeEffects.Sort(
-                    (a, b) =>
-                        a.effectIndex.CompareTo(
-                            b.effectIndex
-                        )
-                );
-
-
-                foreach (EffectCsvData effectCsv
-                         in nodeEffects)
-                {
-                    int effectIndex =
-                        effectsProperty.arraySize;
-
-                    effectsProperty
-                        .InsertArrayElementAtIndex(
-                            effectIndex
-                        );
-
-                    SerializedProperty effect =
-                        effectsProperty
-                            .GetArrayElementAtIndex(
-                                effectIndex
-                            );
-
-
-                    SetRelativeEnum(
-                        effect,
-                        "effectType",
-                        (int)effectCsv.effectType
-                    );
-
-                    SetRelativeEnum(
-                        effect,
-                        "target",
-                        (int)effectCsv.target
-                    );
-
-                    SetRelativeFloat(
-                        effect,
-                        "duration",
-                        effectCsv.duration
-                    );
-
-                    SetRelativeFloat(
-                        effect,
-                        "strength",
-                        effectCsv.strength
-                    );
-
-                    SetRelativeBool(
-                        effect,
-                        "waitForCompletion",
-                        effectCsv.waitForCompletion
-                    );
-                }
-            }
-        }
-
-
-        serializedStory
-            .ApplyModifiedProperties();
-
-
-        EditorUtility.SetDirty(
-            storyAsset
-        );
-
-
-        Debug.Log(
-            $"[StoryCsvImporter] " +
-            $"¿˚øÎ øœ∑·: {storyCsv.storyId}",
-            storyAsset
-        );
-
-
-        return true;
-    }
-
-
-    // =========================================================
-    // ±‚¡∏ StoryData ∞Àªˆ
-    // =========================================================
-
-    private static Dictionary<string, StoryData>
-        BuildExistingStoryDatabase()
-    {
-        Dictionary<string, StoryData> result =
-            new Dictionary<string, StoryData>();
-
-
-        string[] guids =
-            AssetDatabase.FindAssets(
-                "t:StoryData"
-            );
-
-
-        foreach (string guid in guids)
-        {
-            string path =
-                AssetDatabase.GUIDToAssetPath(
-                    guid
-                );
-
-            StoryData story =
-                AssetDatabase
-                    .LoadAssetAtPath<StoryData>(
-                        path
-                    );
-
-
-            if (story == null ||
-                string.IsNullOrWhiteSpace(
-                    story.StoryId))
-            {
-                continue;
-            }
-
-
-            if (result.ContainsKey(
-                    story.StoryId))
-            {
-                Debug.LogError(
-                    "[StoryCsvImporter] " +
-                    $"¡ﬂ∫π StoryId πﬂ∞ﬂ: " +
-                    $"{story.StoryId}\n" +
-                    $"Asset: {path}"
-                );
-
-                continue;
-            }
-
-
-            result.Add(
-                story.StoryId,
-                story
-            );
-        }
-
-
-        return result;
-    }
-
-
-    // =========================================================
-    // Ω≈±‘ StoryData ª˝º∫
-    // =========================================================
-
-    private static StoryData CreateStoryAsset(
-        string storyId)
-    {
-        StoryData story =
-            ScriptableObject
-                .CreateInstance<StoryData>();
-
-
-        string fileName =
-            $"Story_{MakeSafeFileName(storyId)}.asset";
-
-
-        string path =
-            Path.Combine(
-                StoryAssetFolder,
-                fileName
-            )
-            .Replace("\\", "/");
-
-
-        /*
-         * »§Ω√ ∞∞¿∫ ∆ƒ¿œ∏Ì¿Ã ¿ÃπÃ ¡∏¿Á«—¥Ÿ∏È
-         * Unity∞° ∞Ì¿Ø ∞Ê∑Œ∏¶ ª˝º∫«œµµ∑œ «’¥œ¥Ÿ.
-         *
-         * ¿œπ›¿˚¿∏∑Œ StoryId ∞Àªˆø°º≠ ∏’¿˙
-         * ±‚¡∏ asset¿ª √£¿∏π«∑Œ ø©±‚±Ó¡ˆ ø¿¥¬ ∞ÊøÏ¥¬
-         * Ω≈±‘ StoryData¿‘¥œ¥Ÿ.
-         */
-        path =
-            AssetDatabase
-                .GenerateUniqueAssetPath(
-                    path
-                );
-
-
-        AssetDatabase.CreateAsset(
-            story,
-            path
-        );
-
-
-        Debug.Log(
-            $"[StoryCsvImporter] " +
-            $"ªı StoryData ª˝º∫: {path}",
-            story
-        );
-
-
-        return story;
-    }
-
-
-    // =========================================================
-    // CharacterData ∞Àªˆ
-    // =========================================================
-
-    private static Dictionary<string, CharacterData>
-        BuildCharacterDatabase()
-    {
-        Dictionary<string, CharacterData> result =
-            new Dictionary<string, CharacterData>();
-
-
-        string[] guids =
-            AssetDatabase.FindAssets(
-                "t:CharacterData"
-            );
-
-
-        foreach (string guid in guids)
-        {
-            string path =
-                AssetDatabase.GUIDToAssetPath(
-                    guid
-                );
-
-            CharacterData character =
-                AssetDatabase
-                    .LoadAssetAtPath<CharacterData>(
-                        path
-                    );
-
-
-            if (character == null ||
-                string.IsNullOrWhiteSpace(
-                    character.CharacterId))
-            {
-                continue;
-            }
-
-
-            if (result.ContainsKey(
-                    character.CharacterId))
-            {
-                Debug.LogWarning(
-                    "[StoryCsvImporter] " +
-                    "¡ﬂ∫π CharacterId: " +
-                    character.CharacterId,
-                    character
-                );
-
-                continue;
-            }
-
-
-            result.Add(
-                character.CharacterId,
-                character
-            );
-        }
-
-
-        return result;
-    }
-
-
-    private static CharacterData FindCharacter(
-        Dictionary<string, CharacterData> database,
-        string characterId,
-        string storyId,
-        string nodeId)
-    {
-        if (string.IsNullOrWhiteSpace(
-                characterId))
-        {
-            return null;
-        }
-
-
-        if (database.TryGetValue(
-                characterId,
-                out CharacterData character))
-        {
-            return character;
-        }
-
-
-        Debug.LogWarning(
-            "[StoryCsvImporter] " +
-            $"CharacterData∏¶ √£¡ˆ ∏¯«ﬂΩ¿¥œ¥Ÿ.\n" +
-            $"Story: {storyId}\n" +
-            $"Node: {nodeId}\n" +
-            $"CharacterId: {characterId}"
-        );
-
-
-        return null;
-    }
-
-
-    // =========================================================
-    // CSV Load
-    // =========================================================
-
-    private static List<StoryCsvData>
-        LoadStories()
-    {
-        List<Dictionary<string, string>> rows =
-            ReadCsv(
-                GetCsvPath(StoriesFile)
-            );
-
-
-        List<StoryCsvData> result =
-            new List<StoryCsvData>();
-
-
-        foreach (var row in rows)
-        {
-            string storyId =
-                Get(row, "StoryId");
-
-
-            if (string.IsNullOrWhiteSpace(
-                    storyId))
-            {
-                continue;
-            }
-
-
-            result.Add(
-                new StoryCsvData
-                {
-                    storyId = storyId,
-
-                    storyType =
-                        ParseEnum(
-                            Get(row, "StoryType"),
-                            StoryType.Normal
-                        ),
-
-                    storyTitle =
-                        Get(row, "StoryTitle"),
-
-                    year =
-                        ParseInt(
-                            Get(row, "Year")
-                        ),
-
-                    month =
-                        ParseInt(
-                            Get(row, "Month")
-                        ),
-
-                    day =
-                        ParseInt(
-                            Get(row, "Day")
-                        ),
-
-                    priority =
-                        ParseInt(
-                            Get(row, "Priority"),
-                            100
-                        ),
-
-                    playOnce =
-                        ParseBool(
-                            Get(row, "PlayOnce"),
-                            true
-                        ),
-
-                    playTiming =
-                        ParseEnum(
-                            Get(row, "PlayTiming"),
-                            StoryPlayTiming.Monthly
-                        ),
-
-                    unlockFactionId =
-                        Get(
-                            row,
-                            "UnlockFactionId"
-                        ),
-
-                    startNodeId =
-                        Get(
-                            row,
-                            "StartNodeId"
-                        )
-                }
-            );
-        }
-
-
-        return result;
-    }
-
-
-    private static List<NodeCsvData>
-        LoadNodes()
-    {
-        List<Dictionary<string, string>> rows =
-            ReadCsv(
-                GetCsvPath(NodesFile)
-            );
-
-
-        List<NodeCsvData> result =
-            new List<NodeCsvData>();
-
-
-        foreach (var row in rows)
-        {
-            string storyId =
-                Get(row, "StoryId");
-
-            string nodeId =
-                Get(row, "NodeId");
-
-
-            if (string.IsNullOrWhiteSpace(
-                    storyId) ||
-                string.IsNullOrWhiteSpace(
-                    nodeId))
-            {
-                continue;
-            }
-
-
-            result.Add(
-                new NodeCsvData
-                {
-                    storyId = storyId,
-
-                    order =
-                        ParseInt(
-                            Get(row, "NodeOrder")
-                        ),
-
-                    nodeId = nodeId,
-
-                    nodeType =
-                        ParseEnum(
-                            Get(row, "NodeType"),
-                            StoryNodeType.Narration
-                        ),
-
-                    text =
-                        Get(row, "Text"),
-
-                    characterId =
-                        Get(row, "CharacterId"),
-
-                    portraitId =
-                        Get(row, "PortraitId"),
-
-                    nextNodeId =
-                        Get(row, "NextNodeId"),
-
-                    dimPortrait =
-                        ParseBool(
-                            Get(row, "DimPortrait")
-                        ),
-
-                    keepPortrait =
-                        ParseBool(
-                            Get(row, "KeepPortrait"),
-                            true
-                        ),
-
-                    useTypingEffect =
-                        ParseBool(
-                            Get(row, "UseTypingEffect"),
-                            true
-                        ),
-
-                    autoAdvance =
-                        ParseBool(
-                            Get(row, "AutoAdvance")
-                        ),
-
-                    autoAdvanceDelay =
-                        ParseFloat(
-                            Get(
-                                row,
-                                "AutoAdvanceDelay"
-                            ),
-                            1.5f
-                        )
-                }
-            );
-        }
-
-
-        return result;
-    }
-
-
-    private static List<ChoiceCsvData>
-        LoadChoices()
-    {
-        List<Dictionary<string, string>> rows =
-            ReadCsv(
-                GetCsvPath(ChoicesFile)
-            );
-
-
-        List<ChoiceCsvData> result =
-            new List<ChoiceCsvData>();
-
-
-        foreach (var row in rows)
-        {
-            string storyId =
-                Get(row, "StoryId");
-
-            string nodeId =
-                Get(row, "NodeId");
-
-
-            if (string.IsNullOrWhiteSpace(
-                    storyId) ||
-                string.IsNullOrWhiteSpace(
-                    nodeId))
-            {
-                continue;
-            }
-
-
-            result.Add(
-                new ChoiceCsvData
-                {
-                    storyId = storyId,
-                    nodeId = nodeId,
-
-                    choiceIndex =
-                        ParseInt(
-                            Get(row, "ChoiceIndex")
-                        ),
-
-                    choiceText =
-                        Get(row, "ChoiceText"),
-
-                    targetNodeId =
-                        Get(row, "TargetNodeId"),
-
-                    resultKey =
-                        Get(row, "ResultKey"),
-
-                    resultValue =
-                        Get(row, "ResultValue"),
-
-                    useCondition =
-                        ParseBool(
-                            Get(row, "UseCondition")
-                        ),
-
-                    requiredKey =
-                        Get(row, "RequiredKey"),
-
-                    requiredValue =
-                        Get(row, "RequiredValue"),
-
-                    hideWhenLocked =
-                        ParseBool(
-                            Get(row, "HideWhenLocked"),
-                            true
-                        ),
-
-                    lockedText =
-                        Get(row, "LockedText")
-                }
-            );
-        }
-
-
-        return result;
-    }
-
-
-    private static List<ConditionCsvData>
-        LoadConditions()
-    {
-        string path =
-            GetCsvPath(
-                ConditionsFile
-            );
-
-
-        if (!File.Exists(path))
-        {
-            return new List<ConditionCsvData>();
-        }
-
-
-        List<Dictionary<string, string>> rows =
-            ReadCsv(path);
-
-
-        List<ConditionCsvData> result =
-            new List<ConditionCsvData>();
-
-
-        foreach (var row in rows)
-        {
-            string storyId =
-                Get(row, "StoryId");
-
-
-            if (string.IsNullOrWhiteSpace(
-                    storyId))
-            {
-                continue;
-            }
-
-
-            result.Add(
-                new ConditionCsvData
-                {
-                    storyId = storyId,
-
-                    conditionIndex =
-                        ParseInt(
-                            Get(
-                                row,
-                                "ConditionIndex"
-                            )
-                        ),
-
-                    conditionType =
-                        ParseEnum(
-                            Get(
-                                row,
-                                "ConditionType"
-                            ),
-                            StoryConditionType.None
-                        ),
-
-                    key =
-                        Get(row, "Key"),
-
-                    value =
-                        Get(row, "Value"),
-
-                    intValue =
-                        ParseInt(
-                            Get(row, "IntValue")
-                        )
-                }
-            );
-        }
-
-
-        return result;
-    }
-
-
-    private static List<EffectCsvData>
-        LoadEffects()
-    {
-        string path =
-            GetCsvPath(
-                EffectsFile
-            );
-
-
-        if (!File.Exists(path))
-        {
-            return new List<EffectCsvData>();
-        }
-
-
-        List<Dictionary<string, string>> rows =
-            ReadCsv(path);
-
-
-        List<EffectCsvData> result =
-            new List<EffectCsvData>();
-
-
-        foreach (var row in rows)
-        {
-            string storyId =
-                Get(row, "StoryId");
-
-            string nodeId =
-                Get(row, "NodeId");
-
-
-            if (string.IsNullOrWhiteSpace(
-                    storyId) ||
-                string.IsNullOrWhiteSpace(
-                    nodeId))
-            {
-                continue;
-            }
-
-
-            result.Add(
-                new EffectCsvData
-                {
-                    storyId = storyId,
-                    nodeId = nodeId,
-
-                    effectIndex =
-                        ParseInt(
-                            Get(row, "EffectIndex")
-                        ),
-
-                    effectType =
-                        ParseEnum(
-                            Get(row, "EffectType"),
-                            StoryEffectType.None
-                        ),
-
-                    target =
-                        ParseEnum(
-                            Get(row, "Target"),
-                            StoryEffectTarget.Portrait
-                        ),
-
-                    duration =
-                        ParseFloat(
-                            Get(row, "Duration")
-                        ),
-
-                    strength =
-                        ParseFloat(
-                            Get(row, "Strength"),
-                            1f
-                        ),
-
-                    waitForCompletion =
-                        ParseBool(
-                            Get(
-                                row,
-                                "WaitForCompletion"
-                            )
-                        )
-                }
-            );
-        }
-
-
-        return result;
-    }
-
-
-    // =========================================================
-    // CSV Parser
-    // =========================================================
-
-    /*
-     * ¥‹º¯ Split(',')∏¶ ªÁøÎ«œ¡ˆ æ Ω¿¥œ¥Ÿ.
-     *
-     * ¥ÎªÁø° Ω∞«•∞° ¿÷∞≈≥™,
-     * Excel ºø æ»ø° ¡ŸπŸ≤ﬁ¿Ã µÈæÓ∞° ¿÷æÓµµ
-     * ¡§ªÛ¿˚¿∏∑Œ ¿–±‚ ¿ß«— CSV Parser¿‘¥œ¥Ÿ.
-     */
-    private static List<Dictionary<string, string>>
-        ReadCsv(string path)
-    {
-        string csv =
-            File.ReadAllText(
-                path,
-                Encoding.UTF8
-            );
-
-
-        List<List<string>> rawRows =
-            ParseCsv(csv);
-
-
-        List<Dictionary<string, string>> result =
-            new List<Dictionary<string, string>>();
-
-
-        if (rawRows.Count == 0)
-        {
-            return result;
-        }
-
-
-        List<string> headers =
-            rawRows[0];
-
-
-        for (int rowIndex = 1;
-             rowIndex < rawRows.Count;
-             rowIndex++)
-        {
-            List<string> row =
-                rawRows[rowIndex];
-
-
-            bool hasValue = false;
-
-            foreach (string value in row)
-            {
-                if (!string.IsNullOrWhiteSpace(
-                        value))
-                {
-                    hasValue = true;
-                    break;
-                }
-            }
-
-
-            if (!hasValue)
-            {
-                continue;
-            }
-
-
-            Dictionary<string, string>
-                dictionary =
-                    new Dictionary<string, string>(
-                        StringComparer
-                            .OrdinalIgnoreCase
-                    );
-
-
-            for (int column = 0;
-                 column < headers.Count;
-                 column++)
-            {
-                string header =
-                    headers[column]
-                        .Trim()
-                        .TrimStart('\uFEFF');
-
-
-                string value =
-                    column < row.Count
-                        ? row[column]
-                        : string.Empty;
-
-
-                dictionary[header] =
-                    value;
-            }
-
-
-            result.Add(
-                dictionary
-            );
-        }
-
-
-        return result;
-    }
-
-
-    private static List<List<string>>
-        ParseCsv(string csv)
-    {
-        List<List<string>> rows =
-            new List<List<string>>();
-
-        List<string> currentRow =
-            new List<string>();
-
-        StringBuilder currentField =
-            new StringBuilder();
-
-
-        bool insideQuotes = false;
-
-
-        for (int i = 0;
-             i < csv.Length;
-             i++)
-        {
-            char c =
-                csv[i];
-
-
-            if (insideQuotes)
-            {
-                if (c == '"')
-                {
-                    /*
-                     * "" ¥¬ CSV ≥ª∫Œø°º≠
-                     * Ω«¡¶ " πÆ¿⁄∏¶ ¿«πÃ«’¥œ¥Ÿ.
-                     */
-                    if (i + 1 < csv.Length &&
-                        csv[i + 1] == '"')
+                    if (!AssetDatabase.IsValidFolder(StoryAssetFolder))
                     {
-                        currentField.Append('"');
-                        i++;
+                        Directory.CreateDirectory(StoryAssetFolder);
+                        AssetDatabase.Refresh();
                     }
-                    else
-                    {
-                        insideQuotes = false;
-                    }
+                    string path = AssetDatabase.GenerateUniqueAssetPath($"{StoryAssetFolder}/{draft.Data.name}.asset");
+                    AssetDatabase.CreateAsset(draft.Data, path);
+                    if (AssetDatabase.GetAssetPath(draft.Data) != path) throw new IOException($"ÏóêÏÖã ÏÉùÏÑ± Ïã§Ìå®: {path}");
+                    created.Add(path);
                 }
-                else
+            }
+            foreach (var draft in changed)
+                AssetDatabase.SaveAssetIfDirty(draft.Existing ? draft.Existing : draft.Data);
+            Undo.CollapseUndoOperations(group);
+        }
+        catch
+        {
+            Undo.RevertAllDownToGroup(group);
+            foreach (string path in created) AssetDatabase.DeleteAsset(path);
+            foreach (var draft in changed)
+                if (draft.Existing) AssetDatabase.SaveAssetIfDirty(draft.Existing);
+            throw;
+        }
+    }
+
+    private sealed class Input
+    {
+        private const string StoryHeaders = "StoryId StoryType StoryTitle Year Month Day Priority PlayOnce PlayTiming UnlockFactionId StartNodeId";
+        private const string NodeHeaders = "StoryId NodeOrder NodeId NodeType Text CharacterId PortraitId NextNodeId DimPortrait KeepPortrait UseTypingEffect AutoAdvance AutoAdvanceDelay";
+        private const string ChoiceHeaders = "StoryId NodeId ChoiceIndex ChoiceText TargetNodeId ResultKey ResultValue UseCondition RequiredKey RequiredValue HideWhenLocked LockedText";
+        private const string ConditionHeaders = "StoryId ConditionIndex ConditionType Key Value IntValue";
+        private const string EffectHeaders = "StoryId NodeId EffectIndex EffectType Target Duration Strength WaitForCompletion";
+
+        public readonly List<StoryCsvRow> Stories;
+        private readonly ILookup<string, StoryCsvRow> nodes, conditions;
+        private readonly ILookup<(string, string), StoryCsvRow> choices, effects;
+        private readonly bool hasConditions, hasEffects;
+        private readonly HashSet<string> validBackgrounds = new HashSet<string>(StringComparer.Ordinal);
+
+        public Input()
+        {
+            Stories = Read("Stories.csv", StoryHeaders);
+            if (Stories.Count == 0) throw new InvalidDataException("Stories.csv: Ïä§ÌÜ†Î¶¨Í∞Ä ÏóÜÏäµÎãàÎã§.");
+            var storyIds = new HashSet<string>(StringComparer.Ordinal);
+            foreach (var row in Stories)
+                if (!storyIds.Add(row.Required("StoryId"))) throw row.Error("Ï§ëÎ≥µ StoryId: " + row.Id("StoryId"));
+
+            var nodeRows = Read("StoryNodes.csv", NodeHeaders);
+            var choiceRows = Read("StoryChoices.csv", ChoiceHeaders);
+            hasConditions = File.Exists(Path.Combine(CsvFolder, "StoryConditions.csv"));
+            hasEffects = File.Exists(Path.Combine(CsvFolder, "StoryEffects.csv"));
+            var conditionRows = hasConditions ? Read("StoryConditions.csv", ConditionHeaders) : new List<StoryCsvRow>();
+            var effectRows = hasEffects ? Read("StoryEffects.csv", EffectHeaders) : new List<StoryCsvRow>();
+            foreach (var row in nodeRows.Concat(choiceRows).Concat(conditionRows).Concat(effectRows))
+                if (!storyIds.Contains(row.Required("StoryId"))) throw row.Error("Îì±Î°ùÎêòÏßÄ ÏïäÏùÄ StoryId: " + row.Id("StoryId"));
+            var nodeKeys = new HashSet<(string, string)>();
+            foreach (var row in nodeRows)
+                if (!nodeKeys.Add((row.Id("StoryId"), row.Required("NodeId"))))
+                    throw row.Error("Ïä§ÌÜ†Î¶¨ ÎÇ¥Î∂ÄÏùò Ï§ëÎ≥µ NodeId: " + row.Id("NodeId"));
+            foreach (var row in choiceRows.Concat(effectRows))
+                if (!nodeKeys.Contains((row.Id("StoryId"), row.Required("NodeId"))))
+                    throw row.Error("ÏÜåÏÜç ÎÖ∏Îìú ÏóÜÏùå: " + row.Id("NodeId"));
+
+            nodes = nodeRows.ToLookup(r => r.Id("StoryId"));
+            conditions = conditionRows.ToLookup(r => r.Id("StoryId"));
+            choices = choiceRows.ToLookup(r => (r.Id("StoryId"), r.Id("NodeId")));
+            effects = effectRows.ToLookup(r => (r.Id("StoryId"), r.Id("NodeId")));
+        }
+
+        private static List<StoryCsvRow> Read(string file, string headers) => StoryCsvRow.Read(CsvFolder, file, headers);
+
+        private static List<StoryCsvRow> Ordered(IEnumerable<StoryCsvRow> rows, string key)
+        {
+            var ordered = new SortedDictionary<int, StoryCsvRow>();
+            foreach (var r in rows)
+            {
+                int index = r.Integer(key, min: 0);
+                if (ordered.ContainsKey(index)) throw r.Error($"Ï§ëÎ≥µ {key}: {index}");
+                ordered.Add(index, r);
+            }
+            return ordered.Values.ToList();
+        }
+
+        public void Build(StoryCsvRow story, StoryData draft, StoryData original,
+            Dictionary<string, CharacterData> characters, List<StoryBackgroundCatalog> catalogs)
+        {
+            string id = story.Id("StoryId");
+            using var obj = new SerializedObject(draft);
+            var nodeRows = Ordered(nodes[id], "NodeOrder");
+            var ids = new HashSet<string>(nodeRows.Select(n => n.Id("NodeId")), StringComparer.Ordinal);
+            string start = story.Required("StartNodeId");
+            if (!ids.Contains(start)) throw story.Error($"ÏãúÏûë ÎÖ∏Îìú '{start}' ÏóÜÏùå ({id})");
+            obj.FindProperty("storyId").stringValue = id;
+            story.Required("StoryType");
+            obj.FindProperty("storyType").intValue = (int)story.EnumValue("StoryType", StoryType.Normal);
+            obj.FindProperty("storyTitle").stringValue = story.Raw("StoryTitle");
+            obj.FindProperty("year").intValue = story.Integer("Year", 0, 0);
+            obj.FindProperty("month").intValue = story.Integer("Month", 0, 0, 12);
+            obj.FindProperty("day").intValue = story.Integer("Day", 0, 0, 31);
+            obj.FindProperty("priority").intValue = story.Integer("Priority", 100);
+            obj.FindProperty("playOnce").boolValue = story.Flag("PlayOnce", true);
+            obj.FindProperty("playTiming").intValue = (int)story.EnumValue("PlayTiming", StoryPlayTiming.Monthly);
+            obj.FindProperty("unlockFactionId").stringValue = story.Id("UnlockFactionId");
+            obj.FindProperty("startNodeId").stringValue = start;
+            obj.FindProperty("defaultBackgroundId").stringValue = Background(story, "DefaultBackgroundId", catalogs);
+
+            // Missing optional files used to be interpreted as an empty list. Avoid erasing authored data.
+            if (!hasConditions && original && original.Conditions?.Count > 0)
+                throw story.Error("Í∏∞Ï°¥ Ï°∞Í±¥Ïù¥ ÏûàÏúºÎÇò StoryConditions.csvÍ∞Ä ÏóÜÏäµÎãàÎã§. Ï°∞Í±¥ÏùÑ ÏÇ≠Ï†úÌïòÎ†§Î©¥ Ìó§ÎçîÍ∞Ä ÏûàÎäî Îπà ÌååÏùºÏùÑ ÏÇ¨Ïö©ÌïòÏÑ∏Ïöî.");
+            if (!hasEffects && original && original.Nodes.Any(n => n?.Effects?.Count > 0))
+                throw story.Error("Í∏∞Ï°¥ Ìö®Í≥ºÍ∞Ä ÏûàÏúºÎÇò StoryEffects.csvÍ∞Ä ÏóÜÏäµÎãàÎã§. Ìö®Í≥ºÎ•º ÏÇ≠Ï†úÌïòÎ†§Î©¥ Ìó§ÎçîÍ∞Ä ÏûàÎäî Îπà ÌååÏùºÏùÑ ÏÇ¨Ïö©ÌïòÏÑ∏Ïöî.");
+
+            Fill(obj.FindProperty("conditions"), Ordered(conditions[id], "ConditionIndex"), WriteCondition);
+            var adjacency = new Dictionary<string, List<string>>(StringComparer.Ordinal);
+            Fill(obj.FindProperty("nodes"), nodeRows, (p, row) =>
+            {
+                string nodeId = row.Id("NodeId");
+                var edges = new List<string>();
+                adjacency.Add(nodeId, edges);
+                row.Required("NodeType");
+                var type = row.EnumValue("NodeType", StoryNodeType.Narration);
+                p.FindPropertyRelative("nodeType").intValue = (int)type;
+                p.FindPropertyRelative("nodeId").stringValue = nodeId;
+                p.FindPropertyRelative("text").stringValue = row.Raw("Text");
+                string characterId = row.Id("CharacterId");
+                CharacterData character = null;
+                if (characterId.Length > 0 && !characters.TryGetValue(characterId, out character))
+                    throw row.Error("Îì±Î°ùÎêòÏßÄ ÏïäÏùÄ CharacterId: " + characterId);
+                p.FindPropertyRelative("character").objectReferenceValue = character;
+                string portraitId = row.Id("PortraitId");
+                p.FindPropertyRelative("portraitId").stringValue = portraitId;
+                if (type == StoryNodeType.CharacterDialogue && character && portraitId.Length > 0 &&
+                    (character.StoryPortraits == null || !character.StoryPortraits.Any(s => s != null && s.PortraitId == portraitId && s.PortraitSprite)))
+                    Debug.LogWarning($"{row.Location}: {characterId}Ïùò '{portraitId}' ÌëúÏ†ïÏù¥ ÏóÜÏñ¥ Í∏∞Ï°¥ Í∏∞Î≥∏ ÌëúÏ†ï Ï≤òÎ¶¨Î•º ÏÇ¨Ïö©Ìï©ÎãàÎã§.");
+                string next = row.Id("NextNodeId");
+                if (next.Length == 0 && type != StoryNodeType.Choice && type != StoryNodeType.End)
+                    throw row.Error($"'{nodeId}'Ïùò NextNodeIdÍ∞Ä ÎπÑÏóàÏäµÎãàÎã§. ÎßàÏßÄÎßâ Î°úÍ∑∏Îäî End ÎÖ∏ÎìúÎ°ú Ïó∞Í≤∞ÌïòÏÑ∏Ïöî.");
+                if (next.Length > 0 && !ids.Contains(next)) throw row.Error($"NextNodeId '{next}' ÏóÜÏùå ({id}/{nodeId})");
+                if (next.Length > 0 && type != StoryNodeType.Choice && type != StoryNodeType.End) edges.Add(next);
+                p.FindPropertyRelative("nextNodeId").stringValue = next;
+                p.FindPropertyRelative("dimPortrait").boolValue = row.Flag("DimPortrait");
+                p.FindPropertyRelative("keepPortrait").boolValue = row.Flag("KeepPortrait", true);
+                p.FindPropertyRelative("useTypingEffect").boolValue = row.Flag("UseTypingEffect", true);
+                p.FindPropertyRelative("autoAdvance").boolValue = row.Flag("AutoAdvance");
+                p.FindPropertyRelative("autoAdvanceDelay").floatValue = row.Seconds("AutoAdvanceDelay", 1.5f);
+                p.FindPropertyRelative("backgroundId").stringValue = Background(row, "BackgroundId", catalogs);
+                p.FindPropertyRelative("backgroundTransition").intValue = (int)row.EnumValue("BackgroundTransition", StoryBackgroundTransition.Instant);
+                p.FindPropertyRelative("backgroundTransitionDuration").floatValue = row.Seconds("BackgroundTransitionDuration", 0.3f);
+
+                var options = Ordered(choices[(id, nodeId)], "ChoiceIndex");
+                if (type != StoryNodeType.Choice && options.Count > 0)
+                    throw options[0].Error($"'{nodeId}'Îäî Choice ÎÖ∏ÎìúÍ∞Ä ÏïÑÎãôÎãàÎã§.");
+                if (type == StoryNodeType.Choice && (options.Count == 0 || options.Count > 3))
+                    throw row.Error($"Choice '{nodeId}'Ïùò ÏÑ†ÌÉùÏßÄ Í∞úÏàò {options.Count} (ÌóàÏö©: 1~3)");
+                if (options.Count > 0 && options.All(c => c.Flag("UseCondition")))
+                    Debug.LogWarning($"{row.Location}: '{nodeId}'Ïùò Î™®Îì† ÏÑ†ÌÉùÏßÄÏóê Ï°∞Í±¥Ïù¥ ÏûàÏäµÎãàÎã§. Î™®Îëê Ïû†Í∏∞Îäî ÏßÑÌñâ Í≤ΩÎ°úÎ•º ÌôïÏù∏ÌïòÏÑ∏Ïöî.");
+                Fill(p.FindPropertyRelative("choices"), options, (choice, option) =>
                 {
-                    currentField.Append(c);
-                }
+                    string target = option.Required("TargetNodeId");
+                    if (!ids.Contains(target)) throw option.Error($"Ïù¥Îèô ÎåÄÏÉÅ '{target}' ÏóÜÏùå ({id}/{nodeId})");
+                    edges.Add(target);
+                    WriteChoice(choice, option);
+                });
+                Fill(p.FindPropertyRelative("effects"), Ordered(effects[(id, nodeId)], "EffectIndex"), WriteEffect);
+            });
 
-
-                continue;
-            }
-
-
-            if (c == '"')
+            var reached = new HashSet<string>();
+            var pending = new Stack<string>();
+            pending.Push(start);
+            while (pending.Count > 0)
             {
-                insideQuotes = true;
+                string current = pending.Pop();
+                if (reached.Add(current)) foreach (var target in adjacency[current]) pending.Push(target);
             }
-            else if (c == ',')
-            {
-                currentRow.Add(
-                    currentField.ToString()
-                );
-
-                currentField.Clear();
-            }
-            else if (c == '\r')
-            {
-                /*
-                 * Windows CRLF¥¬
-                 * ¥Ÿ¿Ω \nø°º≠ √≥∏Æ«’¥œ¥Ÿ.
-                 */
-            }
-            else if (c == '\n')
-            {
-                currentRow.Add(
-                    currentField.ToString()
-                );
-
-                currentField.Clear();
-
-
-                rows.Add(
-                    currentRow
-                );
-
-                currentRow =
-                    new List<string>();
-            }
-            else
-            {
-                currentField.Append(c);
-            }
+            foreach (var row in nodeRows.Where(n => !reached.Contains(n.Id("NodeId"))))
+                Debug.LogWarning($"{row.Location}: ÏãúÏûë ÎÖ∏ÎìúÏóêÏÑú ÎèÑÎã¨Ìï† Ïàò ÏóÜÏäµÎãàÎã§ ({id}/{row.Id("NodeId")}).");
+            obj.ApplyModifiedPropertiesWithoutUndo();
         }
 
-
-        /*
-         * ∏∂¡ˆ∏∑ «‡¿Ã ∞≥«‡¿∏∑Œ ≥°≥™¡ˆ æ ¥¬ ∞ÊøÏ
-         */
-        if (currentField.Length > 0 ||
-            currentRow.Count > 0)
+        private string Background(StoryCsvRow row, string column, List<StoryBackgroundCatalog> catalogs)
         {
-            currentRow.Add(
-                currentField.ToString()
-            );
-
-            rows.Add(
-                currentRow
-            );
+            string id = row.Id(column);
+            if (id.Length == 0 || id == StoryBackgroundCatalog.HideId || validBackgrounds.Contains(id)) return id;
+            if (!catalogs.Any(c => c.TryGetSprite(id, out var sprite) && sprite != null))
+                throw row.Error($"{column}: Ïπ¥ÌÉàÎ°úÍ∑∏Ïóê Îì±Î°ùÎêú SpriteÍ∞Ä ÏóÜÏäµÎãàÎã§ ('{id}').");
+            validBackgrounds.Add(id);
+            return id;
         }
 
-
-        return rows;
-    }
-
-
-    // =========================================================
-    // SerializedProperty Helper
-    // =========================================================
-
-    private static void SetString(
-        SerializedObject obj,
-        string propertyName,
-        string value)
-    {
-        SerializedProperty property =
-            obj.FindProperty(propertyName);
-
-        if (property != null)
+        private static void Fill(SerializedProperty list, IReadOnlyList<StoryCsvRow> rows,
+            Action<SerializedProperty, StoryCsvRow> write)
         {
-            property.stringValue =
-                value ?? string.Empty;
+            list.ClearArray();
+            list.arraySize = rows.Count;
+            for (int i = 0; i < rows.Count; i++) write(list.GetArrayElementAtIndex(i), rows[i]);
         }
-    }
 
-
-    private static void SetInt(
-        SerializedObject obj,
-        string propertyName,
-        int value)
-    {
-        SerializedProperty property =
-            obj.FindProperty(propertyName);
-
-        if (property != null)
+        private static void WriteCondition(SerializedProperty p, StoryCsvRow row)
         {
-            property.intValue = value;
+            row.Required("ConditionType");
+            var type = row.EnumValue("ConditionType", StoryConditionType.None);
+            if (type != StoryConditionType.None) row.Required("Key");
+            p.FindPropertyRelative("conditionType").intValue = (int)type;
+            p.FindPropertyRelative("key").stringValue = row.Id("Key");
+            p.FindPropertyRelative("value").stringValue = row.Id("Value");
+            p.FindPropertyRelative("intValue").intValue = row.Integer("IntValue", 0);
         }
-    }
 
-
-    private static void SetBool(
-        SerializedObject obj,
-        string propertyName,
-        bool value)
-    {
-        SerializedProperty property =
-            obj.FindProperty(propertyName);
-
-        if (property != null)
+        private static void WriteChoice(SerializedProperty p, StoryCsvRow row)
         {
-            property.boolValue = value;
+            row.Required("ChoiceText");
+            if (row.Flag("UseCondition")) row.Required("RequiredKey");
+            p.FindPropertyRelative("choiceText").stringValue = row.Raw("ChoiceText");
+            p.FindPropertyRelative("targetNodeId").stringValue = row.Id("TargetNodeId");
+            p.FindPropertyRelative("resultKey").stringValue = row.Id("ResultKey");
+            p.FindPropertyRelative("resultValue").stringValue = row.Id("ResultValue");
+            p.FindPropertyRelative("useCondition").boolValue = row.Flag("UseCondition");
+            p.FindPropertyRelative("requiredKey").stringValue = row.Id("RequiredKey");
+            p.FindPropertyRelative("requiredValue").stringValue = row.Id("RequiredValue");
+            p.FindPropertyRelative("hideWhenLocked").boolValue = row.Flag("HideWhenLocked", true);
+            p.FindPropertyRelative("lockedText").stringValue = row.Raw("LockedText");
         }
-    }
 
-
-    private static void SetEnum(
-        SerializedObject obj,
-        string propertyName,
-        int value)
-    {
-        SerializedProperty property =
-            obj.FindProperty(propertyName);
-
-        if (property != null)
+        private static void WriteEffect(SerializedProperty p, StoryCsvRow row)
         {
-            property.enumValueIndex = value;
+            row.Required("EffectType");
+            p.FindPropertyRelative("effectType").intValue = (int)row.EnumValue("EffectType", StoryEffectType.None);
+            p.FindPropertyRelative("target").intValue = (int)row.EnumValue("Target", StoryEffectTarget.Portrait);
+            p.FindPropertyRelative("duration").floatValue = row.Seconds("Duration", 0);
+            p.FindPropertyRelative("strength").floatValue = row.Seconds("Strength", 1);
+            p.FindPropertyRelative("waitForCompletion").boolValue = row.Flag("WaitForCompletion");
         }
-    }
-
-
-    private static void SetRelativeString(
-        SerializedProperty parent,
-        string name,
-        string value)
-    {
-        SerializedProperty property =
-            parent.FindPropertyRelative(name);
-
-        if (property != null)
-        {
-            property.stringValue =
-                value ?? string.Empty;
-        }
-    }
-
-
-    private static void SetRelativeInt(
-        SerializedProperty parent,
-        string name,
-        int value)
-    {
-        SerializedProperty property =
-            parent.FindPropertyRelative(name);
-
-        if (property != null)
-        {
-            property.intValue = value;
-        }
-    }
-
-
-    private static void SetRelativeFloat(
-        SerializedProperty parent,
-        string name,
-        float value)
-    {
-        SerializedProperty property =
-            parent.FindPropertyRelative(name);
-
-        if (property != null)
-        {
-            property.floatValue = value;
-        }
-    }
-
-
-    private static void SetRelativeBool(
-        SerializedProperty parent,
-        string name,
-        bool value)
-    {
-        SerializedProperty property =
-            parent.FindPropertyRelative(name);
-
-        if (property != null)
-        {
-            property.boolValue = value;
-        }
-    }
-
-
-    private static void SetRelativeEnum(
-        SerializedProperty parent,
-        string name,
-        int value)
-    {
-        SerializedProperty property =
-            parent.FindPropertyRelative(name);
-
-        if (property != null)
-        {
-            property.enumValueIndex = value;
-        }
-    }
-
-
-    // =========================================================
-    // Parsing Helper
-    // =========================================================
-
-    private static string Get(
-        Dictionary<string, string> row,
-        string key)
-    {
-        if (row.TryGetValue(
-                key,
-                out string value))
-        {
-            return value?.Trim()
-                ?? string.Empty;
-        }
-
-        return string.Empty;
-    }
-
-
-    private static int ParseInt(
-        string value,
-        int defaultValue = 0)
-    {
-        if (int.TryParse(
-                value,
-                out int result))
-        {
-            return result;
-        }
-
-        return defaultValue;
-    }
-
-
-    private static float ParseFloat(
-        string value,
-        float defaultValue = 0f)
-    {
-        if (float.TryParse(
-                value,
-                NumberStyles.Float,
-                CultureInfo.InvariantCulture,
-                out float result))
-        {
-            return result;
-        }
-
-        return defaultValue;
-    }
-
-
-    private static bool ParseBool(
-        string value,
-        bool defaultValue = false)
-    {
-        if (string.IsNullOrWhiteSpace(
-                value))
-        {
-            return defaultValue;
-        }
-
-
-        if (bool.TryParse(
-                value,
-                out bool result))
-        {
-            return result;
-        }
-
-
-        if (value == "1")
-        {
-            return true;
-        }
-
-        if (value == "0")
-        {
-            return false;
-        }
-
-
-        return defaultValue;
-    }
-
-
-    private static T ParseEnum<T>(
-        string value,
-        T defaultValue)
-        where T : struct
-    {
-        if (Enum.TryParse(
-                value,
-                true,
-                out T result))
-        {
-            return result;
-        }
-
-        return defaultValue;
-    }
-
-
-    // =========================================================
-    // ∞Ê∑Œ
-    // =========================================================
-
-    private static bool ValidateCsvFiles()
-    {
-        string stories =
-            GetCsvPath(
-                StoriesFile
-            );
-
-        string nodes =
-            GetCsvPath(
-                NodesFile
-            );
-
-        string choices =
-            GetCsvPath(
-                ChoicesFile
-            );
-
-
-        if (!File.Exists(stories))
-        {
-            Debug.LogError(
-                $"CSV∞° æ¯Ω¿¥œ¥Ÿ: {stories}"
-            );
-
-            return false;
-        }
-
-
-        if (!File.Exists(nodes))
-        {
-            Debug.LogError(
-                $"CSV∞° æ¯Ω¿¥œ¥Ÿ: {nodes}"
-            );
-
-            return false;
-        }
-
-
-        if (!File.Exists(choices))
-        {
-            Debug.LogError(
-                $"CSV∞° æ¯Ω¿¥œ¥Ÿ: {choices}"
-            );
-
-            return false;
-        }
-
-
-        return true;
-    }
-
-
-    private static string GetCsvPath(
-        string fileName)
-    {
-        return Path.Combine(
-            CsvFolder,
-            fileName
-        );
-    }
-
-
-    private static void EnsureStoryAssetFolder()
-    {
-        if (!Directory.Exists(
-                StoryAssetFolder))
-        {
-            Directory.CreateDirectory(
-                StoryAssetFolder
-            );
-
-            AssetDatabase.Refresh();
-        }
-    }
-
-
-    private static string MakeSafeFileName(
-        string value)
-    {
-        if (string.IsNullOrWhiteSpace(
-                value))
-        {
-            return "Story";
-        }
-
-
-        foreach (char invalid
-                 in Path.GetInvalidFileNameChars())
-        {
-            value =
-                value.Replace(
-                    invalid,
-                    '_'
-                );
-        }
-
-
-        return value;
     }
 }

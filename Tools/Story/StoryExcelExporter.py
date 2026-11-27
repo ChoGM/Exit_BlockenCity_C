@@ -1,1024 +1,242 @@
+"""Validate and export the story workbook. --check only reads the workbook and CSVs."""
 from __future__ import annotations
-
 import argparse
 import csv
-import sys
+import os
+import re
+import tempfile
+from collections import Counter
+from datetime import datetime
 from pathlib import Path
-
+from shutil import copy2
 from openpyxl import load_workbook
-
-
-# ============================================================
-# 경로
-# ============================================================
-
-SCRIPT_PATH = Path(__file__).resolve()
-PROJECT_ROOT = SCRIPT_PATH.parents[2]
-
-STORY_DATA_FOLDER = (
-    PROJECT_ROOT
-    / "Assets"
-    / "PHA"
-    / "Story"
-    / "Data"
-)
-
-EXCEL_FOLDER = STORY_DATA_FOLDER / "Excel"
-CSV_FOLDER = STORY_DATA_FOLDER / "CSV"
-
-EXCEL_PATH = EXCEL_FOLDER / "StoryData.xlsx"
-
-
-STORIES_CSV = CSV_FOLDER / "Stories.csv"
-NODES_CSV = CSV_FOLDER / "StoryNodes.csv"
-CHOICES_CSV = CSV_FOLDER / "StoryChoices.csv"
-CONDITIONS_CSV = CSV_FOLDER / "StoryConditions.csv"
-EFFECTS_CSV = CSV_FOLDER / "StoryEffects.csv"
-CHARACTERS_CSV = CSV_FOLDER / "Characters.csv"
-
-
-# ============================================================
-# 현재 Excel 시트 구조
-# ============================================================
-
-META_HEADER_ROW = 4
-META_DATA_ROW = 5
-
-NODE_HEADER_ROW = 11
-NODE_START_ROW = 12
-NODE_END_ROW = 220
-
-CHOICE_HEADER_ROW = 225
-CHOICE_START_ROW = 226
-CHOICE_END_ROW = 300
-
-CONDITION_HEADER_ROW = 305
-CONDITION_START_ROW = 306
-CONDITION_END_ROW = 340
-
-EFFECT_HEADER_ROW = 345
-EFFECT_START_ROW = 346
-EFFECT_END_ROW = 400
-
-
-# ============================================================
-# 제외할 시스템 시트
-# ============================================================
-
-SYSTEM_SHEETS = {
-    "README",
-    "Enums",
-    "Characters",
-    "StoryList",
-    "STORY_TEMPLATE",
-}
-
-
-# ============================================================
-# CSV Header
-# ============================================================
-
-STORY_HEADERS = [
-    "StoryId",
-    "StoryType",
-    "StoryTitle",
-    "Year",
-    "Month",
-    "Day",
-    "Priority",
-    "PlayOnce",
-    "PlayTiming",
-    "UnlockFactionId",
-    "StartNodeId",
-    "Memo",
-]
-
-NODE_HEADERS = [
-    "StoryId",
-    "NodeOrder",
-    "NodeId",
-    "NodeType",
-    "Text",
-    "CharacterId",
-    "PortraitId",
-    "NextNodeId",
-    "DimPortrait",
-    "KeepPortrait",
-    "UseTypingEffect",
-    "AutoAdvance",
-    "AutoAdvanceDelay",
-    "Memo",
-]
-
-CHOICE_HEADERS = [
-    "StoryId",
-    "NodeId",
-    "ChoiceIndex",
-    "ChoiceText",
-    "TargetNodeId",
-    "ResultKey",
-    "ResultValue",
-    "UseCondition",
-    "RequiredKey",
-    "RequiredValue",
-    "HideWhenLocked",
-    "LockedText",
-    "Memo",
-]
-
-CONDITION_HEADERS = [
-    "StoryId",
-    "ConditionIndex",
-    "ConditionType",
-    "Key",
-    "Value",
-    "IntValue",
-    "Memo",
-]
-
-EFFECT_HEADERS = [
-    "StoryId",
-    "NodeId",
-    "EffectIndex",
-    "EffectType",
-    "Target",
-    "Duration",
-    "Strength",
-    "WaitForCompletion",
-    "Memo",
-]
-
-CHARACTER_HEADERS = [
-    "CharacterId",
-    "CharacterName",
-    "CharacterNameEng",
-    "PortraitId",
-    "PortraitLabel",
-    "SpriteName",
-]
-
-
-# ============================================================
-# 공통 함수
-# ============================================================
-
-def cell_value(
-    worksheet,
-    row: int,
-    column: int,
-    default=""
-):
-    value = worksheet.cell(
-        row=row,
-        column=column
-    ).value
-
-    if value is None:
-        return default
-
-    return value
-
-
-def text_value(value):
-    if value is None:
-        return ""
-
-    return str(value)
-
-
-def normalize_bool(value):
-    if isinstance(value, bool):
-        return "TRUE" if value else "FALSE"
-
-    text = str(value).strip().upper()
-
-    if text in (
-        "TRUE",
-        "1",
-        "YES",
-        "Y",
-    ):
-        return "TRUE"
-
-    return "FALSE"
-
-
-def is_empty_row(values):
-    return not any(
-        value is not None
-        and str(value).strip() != ""
-        for value in values
-    )
-
-
-def write_csv(
-    path: Path,
-    headers: list[str],
-    rows: list[list]
-):
-    path.parent.mkdir(
-        parents=True,
-        exist_ok=True
-    )
-
-    with path.open(
-        "w",
-        encoding="utf-8-sig",
-        newline=""
-    ) as file:
-
-        writer = csv.writer(
-            file,
-            quoting=csv.QUOTE_MINIMAL
-        )
-
-        writer.writerow(headers)
-
-        writer.writerows(rows)
-
-    print(
-        f"[CSV] {path.name} "
-        f"({len(rows)} rows)"
-    )
-
-
-# ============================================================
-# Story 기본 정보
-# ============================================================
-
-def read_story_meta(
-    worksheet
-):
-    values = [
-        cell_value(
-            worksheet,
-            META_DATA_ROW,
-            column
-        )
-        for column in range(
-            1,
-            13
-        )
-    ]
-
-    story_id = text_value(
-        values[0]
-    ).strip()
-
-    if not story_id:
-        return None
-
-    return [
-        story_id,
-
-        text_value(
-            values[1]
-        ).strip(),
-
-        text_value(
-            values[2]
-        ),
-
-        values[3] or 0,
-        values[4] or 0,
-        values[5] or 0,
-
-        values[6] or 100,
-
-        normalize_bool(
-            values[7]
-        ),
-
-        text_value(
-            values[8]
-        ).strip(),
-
-        text_value(
-            values[9]
-        ).strip(),
-
-        text_value(
-            values[10]
-        ).strip(),
-
-        text_value(
-            values[11]
-        ),
-    ]
-
-
-# ============================================================
-# Nodes
-# ============================================================
-
-def read_nodes(
-    worksheet,
-    story_id
-):
-    rows = []
-
-    for row in range(
-        NODE_START_ROW,
-        NODE_END_ROW + 1
-    ):
-        node_id = text_value(
-            cell_value(
-                worksheet,
-                row,
-                2
-            )
-        ).strip()
-
-        if not node_id:
+from openpyxl.utils.cell import range_boundaries
+from story_schema import DATA_DIR, FIELDS, KEYS, REQUIRED, empty_data, validate
+
+TABLE_TYPES={"StoriesAll":"Stories","StoryCharacters":"Characters","StoryConditionsAll":"StoryConditions",
+             "StoryEffectsAll":"StoryEffects","StoryBackgrounds":"Backgrounds","StoryNodes_":"StoryNodes","StoryChoices_":"StoryChoices"}
+LEGACY_SKIP={"README","Enums","Characters","StoryList","STORY_TEMPLATE"}
+ALIASES={"Order":"NodeOrder","ChoiceNodeId":"NodeId"}
+def headers(ws,row):
+    return {n:ALIASES.get(str(cell.value),str(cell.value)) for n,cell in enumerate(ws[row],1) if cell.value}
+def verify_columns(ws,row,kind,columns,scoped=False):
+    required=set(REQUIRED[kind].split())
+    if scoped:required.discard("StoryId")
+    missing=required-set(columns.values())
+    if missing:raise ValueError(f"{ws.title}:{row} 필수 열 누락: {', '.join(sorted(missing))}")
+    if len(set(columns.values()))!=len(columns):raise ValueError(f"{ws.title}:{row} 중복 열 제목")
+
+def read_row(ws,row,kind,columns):
+    result={}
+    for column,field in columns.items():
+        if field not in FIELDS[kind]:continue
+        cell=ws.cell(row,column)
+        if cell.data_type in {"f","e"}:
+            raise ValueError(f"{ws.title}!{cell.coordinate} [{field}]: 수식 또는 셀 오류입니다. 계산된 값을 붙여 넣으세요.")
+        if cell.value is not None and cell.value!="":result[field]=cell.value
+    if not result:return None
+    result["_where"]=f"{ws.title}:{row}"
+    return result
+
+def read_tables(w,data):
+    seen=set()
+    for ws in w:
+        for t in ws.tables.values():
+            kind=next((k for prefix,k in TABLE_TYPES.items() if t.name.startswith(prefix)),None)
+            if not kind:continue
+            _,head,_,_=range_boundaries(t.ref)
+            columns=headers(ws,head)
+            scoped=kind in ("StoryNodes","StoryChoices")
+            verify_columns(ws,head,kind,columns,scoped)
+            expected_columns=set(FIELDS[kind])
+            if scoped:
+                expected_columns -= {"StoryId","NodeOrder","ChoiceIndex"}
+            missing_columns=expected_columns-set(columns.values())
+            if missing_columns:
+                raise ValueError(f"{ws.title}:{head} 표 열 누락: {', '.join(sorted(missing_columns))}")
+            sid=str(ws["B1"].value or "").strip() if scoped else ""
+            if scoped and not sid:raise ValueError(f"{ws.title}!B1: StoryId를 입력하세요.")
+            if (kind,sid) in seen:raise ValueError(f"{ws.title}: 중복된 {kind} 표, StoryId={sid}")
+            seen.add((kind,sid))
+            indices=Counter()
+            for row in range(head+1,ws.max_row+1):
+                record=read_row(ws,row,kind,columns)
+                if record is None:continue
+                if scoped:
+                    record["StoryId"]=sid
+                    if kind=="StoryNodes":
+                        indices[sid]+=1
+                        record["NodeOrder"]=indices[sid]
+                        record["_modern"]=True
+                    else:
+                        key=record.get("NodeId","")
+                        record["ChoiceIndex"]=indices[key]
+                        indices[key]+=1
+                data[kind].append(record)
+    expected={(k,"") for k in FIELDS if k not in ("StoryNodes","StoryChoices","Backgrounds")}
+    for s in data["Stories"]:
+        for k in ("StoryNodes","StoryChoices"):expected.add((k,str(s.get("StoryId","")).strip()))
+    missing=expected-seen
+    if missing:raise ValueError(f"필수 표가 없습니다: {sorted(missing)}")
+
+def legacy_read(w,data):
+    chars=w["Characters"] if "Characters" in w.sheetnames else None
+    if chars is not None:
+        cols=headers(chars,1)
+        verify_columns(chars,1,"Characters",cols)
+        for i in range(2,chars.max_row+1):
+            r=read_row(chars,i,"Characters",cols)
+            if r:data["Characters"].append(r)
+    for ws in w:
+        if ws.title in LEGACY_SKIP:continue
+        sections=[]
+        for row in ws.iter_rows():
+            keys={c.value for c in row if isinstance(c.value,str)}
+            for marker,kind in (("StartNodeId","Stories"),("NodeType","StoryNodes"),("ChoiceIndex","StoryChoices"),
+                                ("ConditionIndex","StoryConditions"),("EffectIndex","StoryEffects")):
+                if marker in keys and ({"StoryId","NodeId","ChoiceNodeId","ConditionType"} & keys):
+                    sections.append((row[0].row,kind))
+                    break
+        if not sections:
+            raise ValueError(f"{ws.title}: 기존 스토리 시트에서 헤더를 찾지 못했습니다.")
+        if len(sections)!=5 or len({k for _,k in sections})!=5:
+            raise ValueError(f"{ws.title}: 기존 양식의 메타·로그·선택지·조건·효과 헤더를 확인하세요.")
+        meta_row=next(r for r,k in sections if k=="Stories")
+        scols=headers(ws,meta_row)
+        meta=read_row(ws,meta_row+1,"Stories",scols)
+        if not meta or not meta.get("StoryId"):raise ValueError(f"{ws.title}:{meta_row+1}: StoryId 없음")
+        data["Stories"].append(meta)
+        # Legacy section captions are merged cells. Other nonempty rows include drafts missing IDs.
+        captions={region.min_row for region in ws.merged_cells.ranges if region.min_row==region.max_row and region.min_col==1}
+        for i,(head,kind) in enumerate(sections):
+            if kind=="Stories":continue
+            cols=headers(ws,head)
+            verify_columns(ws,head,kind,cols,True)
+            end=sections[i+1][0] if i+1<len(sections) else ws.max_row+1
+            for row in range(head+1,end):
+                if row in captions:continue
+                r=read_row(ws,row,kind,cols)
+                if r:
+                    r["StoryId"]=meta["StoryId"]
+                    data[kind].append(r)
+    if not data["Stories"]:raise ValueError("기존 양식에 스토리가 없습니다.")
+
+def resolve_choice_text_formulas(book):
+    """Evaluate only our known preview lookup, without Excel's stale formula cache.
+
+    Operates on the in-memory workbook; the authored formulas remain on disk.
+    Other formulas remain rejected by read_row.
+    """
+    tables = {t.name: (s, t) for s in book for t in s.tables.values()}
+    for sheet in book:
+        for table in sheet.tables.values():
+            if not table.name.startswith('StoryChoices_'):
+                continue
+            head = range_boundaries(table.ref)[1]
+            cols = {value: col for col, value in headers(sheet, head).items()}
+            if 'ChoiceText' not in cols or 'TargetNodeId' not in cols:
+                continue
+            for row in range(head + 1, sheet.max_row + 1):
+                cell = sheet.cell(row, cols['ChoiceText'])
+                if cell.data_type != 'f':
+                    continue
+                pattern = (r'=IFERROR\(INDEX\((StoryNodes_\d+)\[Text\],MATCH\('
+                           + re.escape(table.name)
+                           + r'\[\[#This Row\],\[TargetNodeId\]\],\1\[NodeId\],0\)\),""\)')
+                match = re.fullmatch(pattern, cell.value)
+                if not match or match[1] not in tables:
+                    continue
+                source, source_table = tables[match[1]]
+                if source['B1'].value != sheet['B1'].value:
+                    raise ValueError(f'{sheet.title}!{cell.coordinate}: lookup points to another story.')
+                source_cols = {value: col for col, value in headers(source, range_boundaries(source_table.ref)[1]).items()}
+                target = sheet.cell(row, cols['TargetNodeId']).value
+                values = [source.cell(r, source_cols['Text']) for r in range(3, source.max_row + 1)
+                          if target not in (None, '') and source.cell(r, source_cols['NodeId']).value == target]
+                if len(values) > 1 or any(c.data_type in {'f', 'e'} for c in values):
+                    raise ValueError(f'{sheet.title}!{cell.coordinate}: ambiguous or invalid source text.')
+                cell.value = values[0].value if values else None
+                if isinstance(cell.value, str):
+                    cell.data_type = 's'
+
+
+def read_workbook(path):
+    w=load_workbook(path,data_only=False)
+    data=empty_data()
+    try:
+        resolve_choice_text_formulas(w)
+        if any(any(t.startswith(tuple(TABLE_TYPES)) for t in s.tables) for s in w):
+            read_tables(w,data)
+        else:legacy_read(w,data)
+        return data
+    finally:w.close()
+
+def preview(data,output):
+    for kind,rows in data.items():
+        if kind=="Backgrounds":continue  # Unity owns this catalog.
+        old_path=output/(kind+".csv")
+        if not old_path.exists():
+            print(f"{kind}: 신규 {len(rows)}행")
             continue
-
-        node_type = text_value(
-            cell_value(
-                worksheet,
-                row,
-                3
-            )
-        ).strip()
-
-        rows.append(
-            [
-                story_id,
-
-                cell_value(
-                    worksheet,
-                    row,
-                    1,
-                    0
-                ),
-
-                node_id,
-
-                node_type,
-
-                text_value(
-                    cell_value(
-                        worksheet,
-                        row,
-                        4
-                    )
-                ),
-
-                text_value(
-                    cell_value(
-                        worksheet,
-                        row,
-                        5
-                    )
-                ).strip(),
-
-                text_value(
-                    cell_value(
-                        worksheet,
-                        row,
-                        6
-                    )
-                ).strip(),
-
-                text_value(
-                    cell_value(
-                        worksheet,
-                        row,
-                        7
-                    )
-                ).strip(),
-
-                normalize_bool(
-                    cell_value(
-                        worksheet,
-                        row,
-                        8
-                    )
-                ),
-
-                normalize_bool(
-                    cell_value(
-                        worksheet,
-                        row,
-                        9
-                    )
-                ),
-
-                normalize_bool(
-                    cell_value(
-                        worksheet,
-                        row,
-                        10
-                    )
-                ),
-
-                normalize_bool(
-                    cell_value(
-                        worksheet,
-                        row,
-                        11
-                    )
-                ),
-
-                cell_value(
-                    worksheet,
-                    row,
-                    12,
-                    1.5
-                ),
-
-                text_value(
-                    cell_value(
-                        worksheet,
-                        row,
-                        14
-                    )
-                ),
-            ]
-        )
-
-    return rows
-
-
-# ============================================================
-# Choices
-# ============================================================
-
-def read_choices(
-    worksheet,
-    story_id
-):
-    rows = []
-
-    for row in range(
-        CHOICE_START_ROW,
-        CHOICE_END_ROW + 1
-    ):
-        choice_node_id = text_value(
-            cell_value(
-                worksheet,
-                row,
-                1
-            )
-        ).strip()
-
-        if not choice_node_id:
-            continue
-
-        rows.append(
-            [
-                story_id,
-                choice_node_id,
-
-                cell_value(
-                    worksheet,
-                    row,
-                    2,
-                    0
-                ),
-
-                text_value(
-                    cell_value(
-                        worksheet,
-                        row,
-                        3
-                    )
-                ),
-
-                text_value(
-                    cell_value(
-                        worksheet,
-                        row,
-                        4
-                    )
-                ).strip(),
-
-                text_value(
-                    cell_value(
-                        worksheet,
-                        row,
-                        5
-                    )
-                ).strip(),
-
-                text_value(
-                    cell_value(
-                        worksheet,
-                        row,
-                        6
-                    )
-                ).strip(),
-
-                normalize_bool(
-                    cell_value(
-                        worksheet,
-                        row,
-                        7
-                    )
-                ),
-
-                text_value(
-                    cell_value(
-                        worksheet,
-                        row,
-                        8
-                    )
-                ).strip(),
-
-                text_value(
-                    cell_value(
-                        worksheet,
-                        row,
-                        9
-                    )
-                ).strip(),
-
-                normalize_bool(
-                    cell_value(
-                        worksheet,
-                        row,
-                        10
-                    )
-                ),
-
-                text_value(
-                    cell_value(
-                        worksheet,
-                        row,
-                        11
-                    )
-                ),
-
-                text_value(
-                    cell_value(
-                        worksheet,
-                        row,
-                        12
-                    )
-                ),
-            ]
-        )
-
-    return rows
-
-
-# ============================================================
-# Conditions
-# ============================================================
-
-def read_conditions(
-    worksheet,
-    story_id
-):
-    rows = []
-
-    for row in range(
-        CONDITION_START_ROW,
-        CONDITION_END_ROW + 1
-    ):
-        condition_type = text_value(
-            cell_value(
-                worksheet,
-                row,
-                2
-            )
-        ).strip()
-
-        if not condition_type:
-            continue
-
-        # None은 실제 조건 없음으로 처리
-        if condition_type == "None":
-            continue
-
-        rows.append(
-            [
-                story_id,
-
-                cell_value(
-                    worksheet,
-                    row,
-                    1,
-                    0
-                ),
-
-                condition_type,
-
-                text_value(
-                    cell_value(
-                        worksheet,
-                        row,
-                        3
-                    )
-                ).strip(),
-
-                text_value(
-                    cell_value(
-                        worksheet,
-                        row,
-                        4
-                    )
-                ).strip(),
-
-                cell_value(
-                    worksheet,
-                    row,
-                    5,
-                    0
-                ),
-
-                text_value(
-                    cell_value(
-                        worksheet,
-                        row,
-                        6
-                    )
-                ),
-            ]
-        )
-
-    return rows
-
-
-# ============================================================
-# Effects
-# ============================================================
-
-def read_effects(
-    worksheet,
-    story_id
-):
-    rows = []
-
-    for row in range(
-        EFFECT_START_ROW,
-        EFFECT_END_ROW + 1
-    ):
-        node_id = text_value(
-            cell_value(
-                worksheet,
-                row,
-                1
-            )
-        ).strip()
-
-        effect_type = text_value(
-            cell_value(
-                worksheet,
-                row,
-                3
-            )
-        ).strip()
-
-        if not node_id:
-            continue
-
-        if (
-            not effect_type
-            or effect_type == "None"
-        ):
-            continue
-
-        rows.append(
-            [
-                story_id,
-                node_id,
-
-                cell_value(
-                    worksheet,
-                    row,
-                    2,
-                    0
-                ),
-
-                effect_type,
-
-                text_value(
-                    cell_value(
-                        worksheet,
-                        row,
-                        4
-                    )
-                ).strip(),
-
-                cell_value(
-                    worksheet,
-                    row,
-                    5,
-                    0
-                ),
-
-                cell_value(
-                    worksheet,
-                    row,
-                    6,
-                    1
-                ),
-
-                normalize_bool(
-                    cell_value(
-                        worksheet,
-                        row,
-                        7
-                    )
-                ),
-
-                text_value(
-                    cell_value(
-                        worksheet,
-                        row,
-                        8
-                    )
-                ),
-            ]
-        )
-
-    return rows
-
-
-# ============================================================
-# Characters
-# ============================================================
-
-def read_characters(
-    workbook
-):
-    if "Characters" not in workbook.sheetnames:
-        return []
-
-    worksheet = workbook[
-        "Characters"
-    ]
-
-    rows = []
-
-    row = 2
-
-    while True:
-        values = [
-            cell_value(
-                worksheet,
-                row,
-                column
-            )
-            for column in range(
-                1,
-                7
-            )
-        ]
-
-        if is_empty_row(values):
-            break
-
-        character_id = text_value(
-            values[0]
-        ).strip()
-
-        if character_id:
-            rows.append(
-                [
-                    character_id,
-                    text_value(values[1]),
-                    text_value(values[2]),
-                    text_value(values[3]),
-                    text_value(values[4]),
-                    text_value(values[5]),
-                ]
-            )
-
-        row += 1
-
-    return rows
-
-
-# ============================================================
-# Excel → CSV
-# ============================================================
-
-def export_excel():
-    if not EXCEL_PATH.exists():
-        raise FileNotFoundError(
-            f"Excel 파일이 없습니다:\n"
-            f"{EXCEL_PATH}"
-        )
-
-    print("=" * 60)
-    print("Story Excel Exporter")
-    print("=" * 60)
-
-    workbook = load_workbook(
-        EXCEL_PATH,
-        data_only=False
-    )
-
-    stories = []
-    nodes = []
-    choices = []
-    conditions = []
-    effects = []
-
-    story_ids = set()
-
-    # --------------------------------------------------------
-    # 스토리 시트 탐색
-    # --------------------------------------------------------
-
-    for sheet_name in workbook.sheetnames:
-
-        if sheet_name in SYSTEM_SHEETS:
-            continue
-
-        worksheet = workbook[
-            sheet_name
-        ]
-
-        meta = read_story_meta(
-            worksheet
-        )
-
-        if meta is None:
-            print(
-                f"[SKIP] StoryId 없음: "
-                f"{sheet_name}"
-            )
-
-            continue
-
-        story_id = meta[0]
-
-        if story_id in story_ids:
-            raise ValueError(
-                f"중복 StoryId 발견: "
-                f"{story_id}"
-            )
-
-        story_ids.add(
-            story_id
-        )
-
-        stories.append(
-            meta
-        )
-
-        story_nodes = read_nodes(
-            worksheet,
-            story_id
-        )
-
-        story_choices = read_choices(
-            worksheet,
-            story_id
-        )
-
-        story_conditions = (
-            read_conditions(
-                worksheet,
-                story_id
-            )
-        )
-
-        story_effects = read_effects(
-            worksheet,
-            story_id
-        )
-
-        nodes.extend(
-            story_nodes
-        )
-
-        choices.extend(
-            story_choices
-        )
-
-        conditions.extend(
-            story_conditions
-        )
-
-        effects.extend(
-            story_effects
-        )
-
-        print(
-            f"[Story] {story_id}"
-            f" | Nodes {len(story_nodes)}"
-            f" | Choices {len(story_choices)}"
-        )
-
-    # --------------------------------------------------------
-    # Characters
-    # --------------------------------------------------------
-
-    characters = read_characters(
-        workbook
-    )
-
-    # --------------------------------------------------------
-    # CSV 저장
-    # --------------------------------------------------------
-
-    write_csv(
-        STORIES_CSV,
-        STORY_HEADERS,
-        stories
-    )
-
-    write_csv(
-        NODES_CSV,
-        NODE_HEADERS,
-        nodes
-    )
-
-    write_csv(
-        CHOICES_CSV,
-        CHOICE_HEADERS,
-        choices
-    )
-
-    write_csv(
-        CONDITIONS_CSV,
-        CONDITION_HEADERS,
-        conditions
-    )
-
-    write_csv(
-        EFFECTS_CSV,
-        EFFECT_HEADERS,
-        effects
-    )
-
-    if characters:
-        write_csv(
-            CHARACTERS_CSV,
-            CHARACTER_HEADERS,
-            characters
-        )
-
-    print()
-    print("=" * 60)
-    print("Export 완료")
-    print("=" * 60)
-
-    print(
-        f"Stories   : {len(stories)}"
-    )
-
-    print(
-        f"Nodes     : {len(nodes)}"
-    )
-
-    print(
-        f"Choices   : {len(choices)}"
-    )
-
-    print(
-        f"Conditions: {len(conditions)}"
-    )
-
-    print(
-        f"Effects   : {len(effects)}"
-    )
-
-    print(
-        f"Characters: {len(characters)}"
-    )
-
-    print()
-    print(
-        f"CSV Folder:\n{CSV_FOLDER}"
-    )
-
-
-# ============================================================
-# Main
-# ============================================================
+        with old_path.open(encoding="utf-8-sig",newline="") as f:
+            old=list(csv.DictReader(f))
+        def by_id(records):
+            return {tuple(str(r.get(k,"")) for k in KEYS[kind]):r for r in records}
+        left,right=by_id(old),by_id(rows)
+        common=left.keys() & right.keys()
+        changed=sum(any(str(left[key].get(f,"") or "")!=str(right[key].get(f,"") or "")
+                        for f in FIELDS[kind]) for key in common)
+        print(f"{kind}: {len(old)} → {len(rows)}행  추가 {len(right.keys()-left.keys())} · 수정 {changed} · 삭제 {len(left.keys()-right.keys())}")
+
+def save_csvs(data,output):
+    output.mkdir(parents=True,exist_ok=True)
+    targets=[(kind,output/(kind+".csv")) for kind in data if kind!="Backgrounds"]
+    backup=output.parent/".story-backups"/datetime.now().strftime("%Y%m%d-%H%M%S-%f")
+    with tempfile.TemporaryDirectory(dir=output.parent,prefix=".story-export-") as tmp:
+        staging=Path(tmp)
+        for kind,dest in targets:
+            with (staging/dest.name).open("w",encoding="utf-8-sig",newline="") as f:
+                writer=csv.DictWriter(f,fieldnames=FIELDS[kind],extrasaction="ignore")
+                writer.writeheader()
+                writer.writerows(data[kind])
+        for _,dest in targets:
+            if dest.exists():
+                backup.mkdir(parents=True,exist_ok=True)
+                copy2(dest,backup/dest.name)
+        installed=[]
+        try:
+            for _,dest in targets:
+                os.replace(staging/dest.name,dest)
+                installed.append(dest)
+        except BaseException:
+            for dest in reversed(installed):
+                saved=backup/dest.name
+                if saved.exists():copy2(saved,dest)
+                else:dest.unlink(missing_ok=True)
+            raise
+    if backup.exists():print(f"이전 CSV 백업: {backup}")
+
+def export(path,output,check=False,auto_next=False):
+    data=read_workbook(path)
+    errors,warnings=validate(data,auto_next=auto_next)
+    for w in warnings:print("[경고]",w)
+    if errors:raise ValueError("\n".join(["변환 중단 — 다음 항목을 수정하세요.",*errors]))
+    preview(data,output)
+    if not check:save_csvs(data,output)
+    return data
 
 def main():
-    parser = argparse.ArgumentParser(
-        description=(
-            "StoryData.xlsx를 Unity용 "
-            "Story CSV 파일들로 변환합니다."
-        )
-    )
+    p=argparse.ArgumentParser(description=__doc__)
+    p.add_argument("--input",type=Path,default=DATA_DIR/"Excel/StoryData.xlsx")
+    p.add_argument("--output-dir",type=Path,default=DATA_DIR/"CSV")
+    p.add_argument("--check",action="store_true")
+    p.add_argument("--auto-next",action="store_true",help="새 양식에서 같은 Branch/Scene의 연속 로그 자동 연결")
+    a=p.parse_args()
+    export(a.input,a.output_dir,a.check,a.auto_next)
 
-    parser.parse_args()
+if __name__=="__main__":
+    try:main()
+    except (ValueError,OSError) as e:raise SystemExit(str(e))
 
-    try:
-        export_excel()
-
-    except Exception as exception:
-
-        print()
-        print(
-            "[ERROR] Story Excel Export 실패"
-        )
-
-        print(
-            str(exception)
-        )
-
-        sys.exit(1)
-
-
-if __name__ == "__main__":
-    main()
-
-# 실행 : python StoryExcelExporter.py
+# 편집한 엑셀을 CSV로 변환
+# python .\StoryExcelExporter.py

@@ -1,0 +1,205 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa573599e69a6074fae017c9bb7c0b7e, type: 3}
+  m_Name: Story_Normal_11
+  m_EditorClassIdentifier: 
+  storyId: Normal_11
+  storyType: 0
+  storyTitle: "\uB098\uB984\uB300\uB85C\uC758 \uD5CC\uC2E0"
+  year: 1960
+  month: 11
+  day: 18
+  priority: 100
+  playOnce: 1
+  playTiming: 1
+  availableMonth: 11
+  conditions: []
+  unlockFactionId: 
+  startNodeId: Intro_01
+  nodes:
+  - nodeId: Intro_01
+    nodeType: 2
+    text: "(\uC0AC\uBB34\uC2E4\uC5D0 \uB4E4\uC5B4\uC11C\uC790 \uCC3D\uAC00\uC5D0
+      \uC11C \uC788\uB294 \uB9AC \uC2DC\uD654\uAC00 \uBCF4\uC600\uB2E4.)"
+    character: {fileID: 0}
+    portraitId: 
+    nextNodeId: Intro_02
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 0
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Intro_02
+    nodeType: 2
+    text: "(\uADF8\uB140\uB294 User\uAC00 \uB4E4\uC5B4\uC628 \uAC83\uC744 \uB208\uCE58\uCC44\uC9C0
+      \uBABB\uD55C \uB4EF\uD588\uB2E4.)"
+    character: {fileID: 0}
+    portraitId: 
+    nextNodeId: Intro_03
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 0
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Intro_03
+    nodeType: 2
+    text: "(\uCC3D\uBC16\uC73C\uB85C\uB294 \uAD6C\uB8E1\uCC44\uC131\uC758 \uAC74\uBB3C\uB4E4\uC774
+      \uBE7D\uBE7D\uD558\uAC8C \uC774\uC5B4\uC838 \uC788\uC5C8\uB2E4.)"
+    character: {fileID: 0}
+    portraitId: 
+    nextNodeId: Intro_04
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 0
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Intro_04
+    nodeType: 2
+    text: "(\uD55C\uB3D9\uC548 \uC544\uBB34\uB7F0 \uB9D0\uB3C4 \uC5C6\uC5C8\uB2E4.)"
+    character: {fileID: 0}
+    portraitId: 
+    nextNodeId: Intro_05
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 0
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Intro_05
+    nodeType: 2
+    text: "(\uC778\uAE30\uCC99\uC744 \uB0B4\uC790 \uADF8\uC81C\uC57C \uB9AC \uC2DC\uD654\uAC00
+      \uB4A4\uB97C \uB3CC\uC544\uBD24\uB2E4.)"
+    character: {fileID: 0}
+    portraitId: 
+    nextNodeId: Sihwa_01
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 0
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Sihwa_01
+    nodeType: 0
+    text: "\u2026."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: Sihwa_02
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 0
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Sihwa_02
+    nodeType: 0
+    text: "\uC624\uC168\uAD70\uC694."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: Narration_01
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Narration_01
+    nodeType: 2
+    text: "(\uB9AC \uC2DC\uD654\uAC00 \uD750\uD2B8\uB7EC\uC9C4 \uC11C\uB958\uB97C
+      \uAC00\uC9C0\uB7F0\uD788 \uC815\uB9AC\uD588\uB2E4.)"
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: Sihwa_03
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Sihwa_03
+    nodeType: 0
+    text: "\uC8C4\uC1A1\uD569\uB2C8\uB2E4. \uC7A0\uC2DC \uB2E4\uB978 \uC0DD\uAC01\uC744
+      \uD558\uACE0 \uC788\uC5C8\uC2B5\uB2C8\uB2E4."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: Choice_01
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Choice_01
+    nodeType: 3
+    text: "\uC8C4\uC1A1\uD569\uB2C8\uB2E4. \uC7A0\uC2DC \uB2E4\uB978 \uC0DD\uAC01\uC744
+      \uD558\uACE0 \uC788\uC5C8\uC2B5\uB2C8\uB2E4."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: 
+    choices:
+    - choiceText: "\uBB34\uC2A8 \uC77C\uC774 \uC788\uC5C8\uB294\uC9C0 \uBB3B\uB294\uB2E4."
+      targetNodeId: A_001
+      resultKey: 
+      resultValue: 
+      useCondition: 0
+      requiredKey: 
+      requiredValue: 
+      hideWhenLocked: 0
+      lockedText: 
+    - choiceText: "\uD53C\uACE4\uD574 \uBCF4\uC778\uB2E4\uACE0 \uB9D0\uD55C\uB2E4."
+      targetNodeId: B_001
+      resultKey: 
+      resultValue: 
+      useCondition: 0
+      requiredKey: 
+      requiredValue: 
+      hideWhenLocked: 0
+      lockedText: 
+    - choiceText: "\uBCC4\uB2E4\uB978 \uB9D0\uC744 \uD558\uC9C0 \uC54A\uB294\uB2E4."
+      targetNodeId: C_001
+      resultKey: 
+      resultValue: 
+      useCondition: 0
+      requiredKey: 
+      requiredValue: 
+      hideWhenLocked: 0
+      lockedText: 
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A_001
+    nodeType: 1
+    text: "\uBB34\uC2A8 \uC77C \uC788\uC73C\uC2E0\uAC00\uC694?"
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: A_Sihwa_01
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []

@@ -15,6 +15,7 @@ MonoBehaviour:
   storyId: Normal_01
   storyType: 0
   storyTitle: "\uBC1C\uB839"
+  defaultBackgroundId: 
   year: 1960
   month: 1
   day: 17
@@ -30,6 +31,9 @@ MonoBehaviour:
     nodeType: 0
     text: "\uBC18\uAC11\uC2B5\uB2C8\uB2E4. \uC774\uBC88\uC5D0 \uC81C3\uC7AC\uAC74\uC9C0\uAD6C\uB85C
       \uBC1C\uB839\uBC1B\uC73C\uC168\uB2E4\uB294 \uBCF4\uACE0\uB97C \uBC1B\uC558\uC2B5\uB2C8\uB2E4."
+    backgroundId: BG_Office_01
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
     portraitId: D_01_00
     nextNodeId: appointment_002
@@ -44,6 +48,9 @@ MonoBehaviour:
     nodeType: 0
     text: "\uACF5\uC791\uCCAD \uCC28\uAD00\uB2D8\uC744 \uBCF4\uC88C\uD558\uACE0 \uC788\uB294
       \uB9AC \uC2DC\uD654\uC785\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
     portraitId: D_01_00
     nextNodeId: appointment_player_001
@@ -57,6 +64,9 @@ MonoBehaviour:
   - nodeId: appointment_player_001
     nodeType: 1
     text: "{PlayerName}\uC785\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
     portraitId: D_01_00
     nextNodeId: appointment_player_002
@@ -71,6 +81,9 @@ MonoBehaviour:
     nodeType: 1
     text: "\uC81C3\uC7AC\uAC74\uC9C0\uAD6C \uD604\uC7A5\uAC10\uB3C5\uAD00\uC73C\uB85C
       \uBD80\uC784\uD588\uC2B5\uB2C8\uB2E4. \uC798 \uBD80\uD0C1\uB4DC\uB9BD\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
     portraitId: D_01_00
     nextNodeId: appointment_003
@@ -86,6 +99,9 @@ MonoBehaviour:
     text: "\uC55E\uC73C\uB85C \uC81C3\uC7AC\uAC74\uC9C0\uAD6C\uC758 \uBAA8\uB4E0
       \uC791\uC5C5 \uBCF4\uACE0\uB294 \uC800\uC5D0\uAC8C \uC9C1\uC811 \uD558\uC2DC\uBA74
       \uB429\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
     portraitId: D_01_00
     nextNodeId: appointment_004
@@ -100,6 +116,9 @@ MonoBehaviour:
     nodeType: 0
     text: "\uBD80\uC784\uD55C \uC9C0 \uD55C \uB2EC \uC815\uB3C4 \uB418\uC168\uC8E0.
       \uC774\uACF3\uC740 \uC5B4\uB5BB\uC2B5\uB2C8\uAE4C."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
     portraitId: D_01_00
     nextNodeId: appointment_choice_001
@@ -113,6 +132,9 @@ MonoBehaviour:
   - nodeId: appointment_choice_001
     nodeType: 3
     text: 
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
     portraitId: D_01_00
     nextNodeId: 
@@ -155,6 +177,9 @@ MonoBehaviour:
     text: "(\uB9AC \uC2DC\uD654\uB294 \uACE0\uAC1C\uB97C \uB044\uB355\uC600\uC9C0\uB9CC,
       \uADF8 \uD45C\uC815\uC5D0\uB294 \uBCC4\uB2E4\uB978 \uAC10\uD765\uC774 \uC5C6\uC5B4
       \uBCF4\uC600\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
     portraitId: D_01_00
     nextNodeId: appointment_005
@@ -170,6 +195,9 @@ MonoBehaviour:
     text: "\uAD6C\uB8E1\uCC44\uC131 \uCD9C\uC2E0\uC774\uB77C\uACE0 \uB4E4\uC5C8\uC2B5\uB2C8\uB2E4.
       \uADF8\uB7F0 \uBC30\uACBD\uC774 \uAC10\uC0C1\uC5D0 \uC601\uD5A5\uC744 \uC92C\uC744
       \uC218\uB3C4 \uC788\uACA0\uAD70\uC694."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
     portraitId: D_01_00
     nextNodeId: appointment_006
@@ -185,6 +213,9 @@ MonoBehaviour:
     text: "\uD558\uC9C0\uB9CC \uADF8\uAC74 \uC911\uC694\uD558\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4.
       \uCD9C\uC2E0\uBCF4\uB2E4 \uC911\uC694\uD55C \uAC74, \uC55E\uC73C\uB85C \uB2F9\uC2E0\uC774
       \uC5B4\uB5BB\uAC8C \uD589\uB3D9\uD558\uB290\uB0D0\uC785\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
     portraitId: D_01_00
     nextNodeId: appointment_narration_002
@@ -199,6 +230,9 @@ MonoBehaviour:
     nodeType: 2
     text: "(\uB9AC \uC2DC\uD654\uB294 \uCC45\uC0C1 \uC704\uC5D0 \uAD6C\uB8E1\uCC44\uC131\uC758
       \uAD6C\uC870\uB3C4\uB97C \uD3BC\uCCE4\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
     portraitId: D_01_00
     nextNodeId: appointment_007
@@ -214,6 +248,9 @@ MonoBehaviour:
     text: "\uC774\uACF3\uC740 \uB2F9\uC2E0\uC774 \uC0DD\uAC01\uD558\uB294 \uAC83\uBCF4\uB2E4
       \uD6E8\uC52C \uBCF5\uC7A1\uD55C \uC774\uD574\uAD00\uACC4\uAC00 \uC5BD\uD600
       \uC788\uC2B5\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
     portraitId: D_01_00
     nextNodeId: appointment_008
@@ -230,6 +267,9 @@ MonoBehaviour:
       \uC2DC\uC791\uD55C \uC9C0\uB3C4 \uC5BC\uB9C8 \uB418\uC9C0 \uC54A\uC558\uC2B5\uB2C8\uB2E4.
       \uADF8\uB098\uB9C8 \uBA87\uBA87 \uAD6C\uC5ED\uC740 \uC7AC\uAC74\uC744 \uBC1B\uC544\uB4E4\uC600\uAE30\uC5D0
       \uC5EC\uAE30\uAE4C\uC9C0 \uC62C \uC218 \uC788\uC5C8\uB358 \uAC81\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
     portraitId: D_01_00
     nextNodeId: appointment_009
@@ -245,6 +285,9 @@ MonoBehaviour:
     text: "\uBB34\uC2A8 \uB73B\uC778\uC9C0 \uC774\uD574\uD558\uC168\uC73C\uB9AC\uB77C
       \uC0DD\uAC01\uD569\uB2C8\uB2E4. \uB2F9\uC2E0\uC758 \uC5ED\uD560\uC740 \uC0DD\uAC01\uBCF4\uB2E4
       \uD6E8\uC52C \uC911\uC694\uD569\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
     portraitId: D_01_00
     nextNodeId: appointment_narration_003
@@ -258,6 +301,9 @@ MonoBehaviour:
   - nodeId: appointment_narration_003
     nodeType: 2
     text: "(\uBB34\uAC70\uC6B4 \uCE68\uBB35\uC774 \uB9F4\uB3CC\uC558\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
     portraitId: D_01_00
     nextNodeId: appointment_010
@@ -273,6 +319,9 @@ MonoBehaviour:
     text: "\uCC28\uAD00\uB2D8\uC758 \uBCF4\uC88C\uC778 \uC81C\uAC00 \uC9C1\uC811
       \uB2F9\uC2E0\uC758 \uBCF4\uACE0\uB97C \uBC1B\uB294\uB2E4\uB294 \uAC83\uC774
       \uBB34\uC2A8 \uC758\uBBF8\uC778\uC9C0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
     portraitId: D_01_00
     nextNodeId: appointment_011
@@ -287,6 +336,9 @@ MonoBehaviour:
     nodeType: 0
     text: "\uADF8\uB9CC\uD07C \uC815\uBD80\uAC00 \uC774\uACF3\uC744 \uC8FC\uC2DC\uD558\uACE0
       \uC788\uB2E4\uB294 \uB73B\uC785\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
     portraitId: D_01_00
     nextNodeId: appointment_012
@@ -301,6 +353,9 @@ MonoBehaviour:
     nodeType: 0
     text: "\uBD80\uB514 \uB9E1\uC740 \uBC14\uB97C \uB2E4\uD574\uC8FC\uC2DC\uAE38
       \uBC14\uB78D\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
     portraitId: D_01_00
     nextNodeId: appointment_end
@@ -314,6 +369,9 @@ MonoBehaviour:
   - nodeId: appointment_end
     nodeType: 4
     text: 
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
     portraitId: D_01_00
     nextNodeId: 
@@ -329,6 +387,9 @@ MonoBehaviour:
     text: "\uC194\uC9C1\uD788 \uB9D0\uD574\uC11C, \uCD5C\uC545\uC5D0 \uAC00\uAE4C\uC6E0\uC2B5\uB2C8\uB2E4.
       \uC774\uACF3\uC5D4 \uADDC\uCE59\uB3C4 \uC5C6\uACE0, \uBB34\uC9C8\uC11C\uD55C
       \uACF3\uC774\uB2C8\uAE4C\uC694."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
     portraitId: D_01_00
     nextNodeId: appointment_narration_001
@@ -344,6 +405,9 @@ MonoBehaviour:
     text: "\uC544\uC9C1\uC740 \uD310\uB2E8\uD558\uAE30 \uC5B4\uB835\uC2B5\uB2C8\uB2E4.
       \uC870\uAE08 \uB354 \uACAA\uC5B4\uBD10\uC57C \uC81C\uB300\uB85C \uC54C \uC218
       \uC788\uACA0\uC8E0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
     portraitId: D_01_00
     nextNodeId: appointment_narration_001
@@ -359,6 +423,9 @@ MonoBehaviour:
     text: "\uC0DD\uAC01\uBCF4\uB2E4 \uAD1C\uCC2E\uC740 \uACF3\uC778 \uAC83 \uAC19\uC2B5\uB2C8\uB2E4.
       \uB098\uB984 \uC9C8\uC11C\uB3C4 \uC788\uACE0, \uC0AC\uB78C\uB4E4\uB3C4 \uAD1C\uCC2E\uC740
       \uAC83 \uAC19\uACE0\uC694."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
     portraitId: D_01_00
     nextNodeId: appointment_narration_001

@@ -67,6 +67,8 @@ public class StoryUI : MonoBehaviour
 
     private void Awake()
     {
+        // Hide the empty white Image before the first rendered frame.
+        HideCharacterImage();
         ValidateChoiceObjects();
 
         if (logTemplate != null)
@@ -100,6 +102,7 @@ public class StoryUI : MonoBehaviour
     public void Open()
     {
         StopTyping();
+        HideCharacterImage();
 
         // 스토리 시작 직후에는 제목과 대화창을 모두 정리
         if (dialogueRoot != null)

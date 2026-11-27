@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c26542a6d0041da983a9f1c2e0c2794, type: 3}
+  m_Name: StoryBackgroundCatalog
+  m_EditorClassIdentifier:
+  entries:
+  - id: BG_Alley_01
+    displayName: BG_Alley_01
+    sprite: {fileID: 21300000, guid: 4cfcf9c64b7deb04ca9501f4dead78d7, type: 3}
+  - id: BG_EmptyLot_01
+    displayName: BG_EmptyLot_01
+    sprite: {fileID: 21300000, guid: 3146fd081703af14ca23bfc18aefeb1a, type: 3}
+  - id: BG_Office_01
+    displayName: BG_Office_01
+    sprite: {fileID: 21300000, guid: 3710dd14c05bc2b44859d7e643a6321f, type: 3}

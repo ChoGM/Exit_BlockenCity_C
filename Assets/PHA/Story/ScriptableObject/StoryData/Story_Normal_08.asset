@@ -15,6 +15,7 @@ MonoBehaviour:
   storyId: Normal_08
   storyType: 0
   storyTitle: "\uC5B4\uB514\uC5D0\uC11C \uC5B4\uB514\uB85C"
+  defaultBackgroundId: 
   year: 1960
   month: 8
   day: 23
@@ -30,6 +31,9 @@ MonoBehaviour:
     nodeType: 2
     text: "(\uC0AC\uBB34\uC2E4 \uBB38\uC744 \uB450\uB4DC\uB9AC\uB294 \uC18C\uB9AC\uAC00
       \uB4E4\uB838\uB2E4.)"
+    backgroundId: BG_Office_01
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Intro_02
@@ -45,6 +49,9 @@ MonoBehaviour:
     text: "(\uBB38\uC744 \uC5F4\uACE0 \uB4E4\uC5B4\uC628 \uC0AC\uB78C\uC740 \uC774\uC804\uC5D0
       \uC544\uB3D9 \uC2E4\uC885 \uC0AC\uAC74\uC744 \uC870\uC0AC\uD558\uB7EC \uC654\uB358
       \uC704 \uAC74\uC6B0\uC600\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Intro_03
@@ -58,9 +65,12 @@ MonoBehaviour:
   - nodeId: Intro_03
     nodeType: 2
     text: "(\uC704 \uAC74\uC6B0\uAC00 \uC9E7\uAC8C \uACBD\uB840\uD588\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
-    portraitId: Intro_04
-    nextNodeId: 
+    portraitId: 
+    nextNodeId: Intro_04
     choices: []
     dimPortrait: 0
     keepPortrait: 0
@@ -71,6 +81,9 @@ MonoBehaviour:
   - nodeId: Intro_04
     nodeType: 0
     text: "\uB2E4\uC2DC \uBD59\uB294\uAD70\uC694."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
     portraitId: D_03_00
     nextNodeId: Intro_05
@@ -84,6 +97,9 @@ MonoBehaviour:
   - nodeId: Intro_05
     nodeType: 0
     text: "\uADF8\uB3D9\uC548 \uBCC4\uB2E4\uB978 \uC77C\uC740 \uC5C6\uC5C8\uC2B5\uB2C8\uAE4C?"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
     portraitId: D_03_00
     nextNodeId: Choice_01
@@ -97,37 +113,40 @@ MonoBehaviour:
   - nodeId: Choice_01
     nodeType: 3
     text: "\uADF8\uB3D9\uC548 \uBCC4\uB2E4\uB978 \uC77C\uC740 \uC5C6\uC5C8\uC2B5\uB2C8\uAE4C?"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
     portraitId: D_03_00
     nextNodeId: 
     choices:
-    - choiceText: "\uBCC4\uB2E4\uB978 \uC77C\uC740 \uC5C6\uC5C8\uB2E4\uACE0 \uB300\uB2F5\uD55C\uB2E4."
+    - choiceText: "\uB124, \uD3C9\uC18C\uC640 \uAC19\uC558\uC5B4\uC694."
       targetNodeId: A_001
       resultKey: 
       resultValue: 
       useCondition: 0
       requiredKey: 
-      requiredValue: 
+      requiredValue: True
       hideWhenLocked: 0
       lockedText: 
-    - choiceText: "\uC774\uC0C1\uD55C \uC18C\uBB38\uC774 \uB3CC\uACE0 \uC788\uB2E4\uACE0
-        \uB300\uB2F5\uD55C\uB2E4."
+    - choiceText: "\uC774\uC0C1\uD55C \uC18C\uBB38\uC774 \uB3CC\uACE0 \uC788\uB294
+        \uAC83 \uAC19\uC558\uC2B5\uB2C8\uB2E4."
       targetNodeId: B_001
       resultKey: 
       resultValue: 
       useCondition: 0
       requiredKey: 
-      requiredValue: 
+      requiredValue: True
       hideWhenLocked: 0
       lockedText: 
-    - choiceText: "\uC0AC\uB78C\uB4E4\uC758 \uBD84\uC704\uAE30\uAC00 \uB2EC\uB77C\uC84C\uB2E4\uACE0
-        \uB300\uB2F5\uD55C\uB2E4."
+    - choiceText: "\uC8FC\uBBFC\uB4E4\uC758 \uBD84\uC704\uAE30\uAC00 \uD3C9\uC18C\uC640
+        \uB2EC\uB790\uC5B4\uC694."
       targetNodeId: C_001
       resultKey: 
       resultValue: 
       useCondition: 0
       requiredKey: 
-      requiredValue: 
+      requiredValue: True
       hideWhenLocked: 0
       lockedText: 
     dimPortrait: 1
@@ -138,13 +157,2997 @@ MonoBehaviour:
     effects: []
   - nodeId: A_001
     nodeType: 1
-    text: "\uBCC4 \uB2E4\uB978 \uC77C\uC740 \uC5C6\uC5C8\uC2B5\uB2C8\uB2E4."
+    text: "\uB124, \uD3C9\uC18C\uC640 \uAC19\uC558\uC5B4\uC694."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
     portraitId: D_03_00
-    nextNodeId: 
+    nextNodeId: A_002
     choices: []
     dimPortrait: 1
     keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A_002
+    nodeType: 0
+    text: "\uADF8\uB807\uC2B5\uB2C8\uAE4C."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: A_003
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A_003
+    nodeType: 2
+    text: "(\uC704 \uAC74\uC6B0\uAC00 {PlayerName}\uC744/\uB97C \uC7A0\uC2DC \uBC14\uB77C\uBD24\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: A_004
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A_004
+    nodeType: 0
+    text: "\uADF8\uB807\uB2E4\uBA74 \uB2E4\uD589\uC785\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: A_005
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A_005
+    nodeType: 0
+    text: "\uB2E4\uB9CC \uC81C\uAC00 \uD655\uC778\uD560 \uAC83\uC774 \uD558\uB098
+      \uC788\uC2B5\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_01
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B_001
+    nodeType: 1
+    text: "\uC774\uC0C1\uD55C \uC18C\uBB38\uC774 \uB3CC\uACE0 \uC788\uB294 \uAC83
+      \uAC19\uC558\uC2B5\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: B_002
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B_002
+    nodeType: 0
+    text: "\uC5B4\uB5A4 \uC18C\uBB38\uC785\uB2C8\uAE4C?"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: B_003
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B_003
+    nodeType: 2
+    text: "(\uC704 \uAC74\uC6B0\uB294 {PlayerName}\uC758 \uC124\uBA85\uC744 \uB04A\uC9C0
+      \uC54A\uACE0 \uB4E4\uC5C8\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: B_004
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B_004
+    nodeType: 0
+    text: "\uBE44\uC2B7\uD55C \uC774\uC57C\uAE30\uAC00 \uB2E4\uB978 \uAD6C\uC5ED\uC5D0\uC11C\uB3C4
+      \uB098\uC624\uACE0 \uC788\uC2B5\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: B_005
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B_005
+    nodeType: 0
+    text: "\uB300\uBD80\uBD84\uC740 \uC220\uC5D0 \uCDE8\uD55C \uC0AC\uB78C\uC758
+      \uC7A5\uB09C\uC774\uAC70\uB098, \uD64D\uB828\uADC0\uAC00 \uC8FC\uBBFC\uB4E4\uC5D0\uAC8C
+      \uAC81\uC744 \uC8FC\uB824\uACE0 \uBC8C\uC778 \uC77C\uC774\uB77C\uACE0 \uC0DD\uAC01\uD558\uB354\uAD70\uC694."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: B_006
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B_006
+    nodeType: 0
+    text: "\uC544\uC9C1 \uC5B4\uB290 \uCABD\uB3C4 \uD655\uC778\uB41C \uAC83\uC740
+      \uC5C6\uC2B5\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_01
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C_001
+    nodeType: 1
+    text: "\uC8FC\uBBFC\uB4E4\uC758 \uBD84\uC704\uAE30\uAC00 \uD3C9\uC18C\uC640 \uB2EC\uB790\uC5B4\uC694."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: C_002
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C_002
+    nodeType: 0
+    text: "\uAD70\uC774 \uB4E4\uC5B4\uC628 \uB4A4\uC774\uB2C8 \uC800\uD76C\uB97C
+      \uACBD\uACC4\uD558\uB294 \uC0AC\uB78C\uB3C4 \uC788\uACA0\uC8E0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: C_003
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C_003
+    nodeType: 0
+    text: "\uD558\uC9C0\uB9CC \uADF8\uAC83\uB9CC\uC774 \uC774\uC720\uB294 \uC544\uB2CC
+      \uAC83 \uAC19\uAD70\uC694."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: C_004
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C_004
+    nodeType: 0
+    text: "\uCD5C\uADFC\uC5D0\uB294 \uD3C9\uC18C\uC640 \uB2E4\uB978 \uC77C\uC744
+      \uBAA9\uACA9\uD588\uB2E4\uB294 \uC774\uC57C\uAE30\uB3C4 \uB098\uC624\uACE0
+      \uC788\uC73C\uB2C8\uAE4C\uC694."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_01
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_01
+    nodeType: 2
+    text: "(\uC704 \uAC74\uC6B0\uAC00 \uD488\uC5D0\uC11C \uC791\uAC8C \uC811\uD78C
+      \uC885\uC774\uB97C \uAEBC\uB0C8\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_02
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_02
+    nodeType: 2
+    text: "(\uADF8\uB294 \uC0AC\uBB34\uC2E4 \uBB38\uC774 \uB2EB\uD600 \uC788\uB294\uC9C0
+      \uD655\uC778\uD55C \uB4A4, \uC885\uC774\uB97C \uCC45\uC0C1 \uC704\uC5D0 \uD3BC\uCCE4\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_03
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_03
+    nodeType: 2
+    text: "(\uC885\uC774\uC5D0\uB294 \uC6D0\uACFC \uC120\uC774 \uC5BD\uD78C \uB0AF\uC120
+      \uBAA8\uC591\uC774 \uAC70\uCE60\uAC8C \uC62E\uACA8 \uADF8\uB824\uC838 \uC788\uC5C8\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_04
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_04
+    nodeType: 0
+    text: "\uC774\uB7F0 \uBB38\uC591\uC744 \uBCF8 \uC801\uC774 \uC788\uC2B5\uB2C8\uAE4C?"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Choice_2
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Choice_2
+    nodeType: 3
+    text: "\uC774\uB7F0 \uBB38\uC591\uC744 \uBCF8 \uC801\uC774 \uC788\uC2B5\uB2C8\uAE4C?"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: 
+    choices:
+    - choiceText: "\uBCF8 \uC801 \uC788\uC5C8\uC5B4\uC694."
+      targetNodeId: A2_001
+      resultKey: 
+      resultValue: 
+      useCondition: 0
+      requiredKey: 
+      requiredValue: True
+      hideWhenLocked: 0
+      lockedText: 
+    - choiceText: "\uC815\uD655\uD558\uC9C4 \uC54A\uC9C0\uB9CC \uBE44\uC2B7\uD55C
+        \uAC78 \uBD24\uB358 \uAC83 \uAC19\uC2B5\uB2C8\uB2E4."
+      targetNodeId: B2_001
+      resultKey: 
+      resultValue: 
+      useCondition: 0
+      requiredKey: 
+      requiredValue: True
+      hideWhenLocked: 0
+      lockedText: 
+    - choiceText: "\uC544\uB1E8, \uCC98\uC74C \uBCF4\uB294 \uBB38\uC591\uC774\uC5D0\uC694."
+      targetNodeId: C2_001
+      resultKey: 
+      resultValue: 
+      useCondition: 0
+      requiredKey: 
+      requiredValue: True
+      hideWhenLocked: 0
+      lockedText: 
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A2_001
+    nodeType: 1
+    text: "\uBCF8 \uC801 \uC788\uC5C8\uC5B4\uC694."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: A2_002
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A2_002
+    nodeType: 2
+    text: "(\uC704 \uAC74\uC6B0\uC758 \uC2DC\uC120\uC774 {PlayerName}\uC5D0\uAC8C
+      \uACE0\uC815\uB418\uC5C8\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: A2_003
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A2_003
+    nodeType: 0
+    text: "\uC5B4\uB514\uC5D0\uC11C \uBCF4\uC168\uC2B5\uB2C8\uAE4C?"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: A2_004
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A2_004
+    nodeType: 2
+    text: "({PlayerName}\uC774/\uAC00 \uC7A5\uC18C\uC640 \uC0C1\uD669\uC744 \uC124\uBA85\uD588\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: A2_005
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A2_005
+    nodeType: 0
+    text: "\uC8FC\uBCC0\uC5D0 \uB2E4\uB978 \uAC83\uC740 \uC5C6\uC5C8\uC2B5\uB2C8\uAE4C?"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: A2_006
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A2_006
+    nodeType: 0
+    text: "\uD53C\uAC00 \uBB3B\uC5B4 \uC788\uAC70\uB098, \uB3D9\uBB3C\uC758 \uC0AC\uCCB4\uAC00
+      \uB193\uC5EC \uC788\uC5C8\uB2E4\uB4E0\uC9C0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: A2_007
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A2_007
+    nodeType: 2
+    text: "(\uC704 \uAC74\uC6B0\uB294 {PlayerName}\uC758 \uB300\uB2F5\uC744 \uB4E4\uC73C\uBA70
+      \uC791\uC740 \uC218\uCCA9\uC5D0 \uC7A5\uC18C\uB97C \uC801\uC5C8\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: A2_008
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A2_008
+    nodeType: 0
+    text: "\uC54C\uACA0\uC2B5\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: A2_009
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A2_009
+    nodeType: 0
+    text: "\uB2F9\uBD84\uAC04 \uADF8\uACF3\uC5D0\uB294 \uAC00\uAE4C\uC774 \uAC00\uC9C0
+      \uB9C8\uC2ED\uC2DC\uC624."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: A2_010
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A2_010
+    nodeType: 0
+    text: "\uB2E4\uB978 \uC0AC\uB78C\uC5D0\uAC8C\uB294 \uC544\uC9C1 \uC774\uC57C\uAE30\uD558\uC9C0
+      \uC54A\uB294 \uD3B8\uC774 \uC88B\uACA0\uC2B5\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_05
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B2_001
+    nodeType: 1
+    text: "\uC815\uD655\uD558\uC9C4 \uC54A\uC9C0\uB9CC \uBE44\uC2B7\uD55C \uAC78
+      \uBD24\uB358 \uAC83 \uAC19\uC2B5\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: B2_002
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B2_002
+    nodeType: 0
+    text: "\uD655\uC2E4\uD558\uC9C0 \uC54A\uC544\uB3C4 \uAD1C\uCC2E\uC2B5\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: B2_003
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B2_003
+    nodeType: 0
+    text: "\uC5B4\uB514\uC5D0\uC11C \uBCF4\uC168\uB294\uC9C0\uB9CC \uB9D0\uC500\uD574\uC8FC\uC2ED\uC2DC\uC624."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: B2_004
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B2_004
+    nodeType: 2
+    text: "({PlayerName}\uC774/\uAC00 \uAE30\uC5B5\uB098\uB294 \uC7A5\uC18C\uB97C
+      \uC124\uBA85\uD588\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: B2_005
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B2_005
+    nodeType: 0
+    text: "\uC644\uC804\uD788 \uAC19\uC740 \uBAA8\uC591\uC740 \uC544\uB2D0 \uC218\uB3C4
+      \uC788\uACA0\uAD70\uC694."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: B2_006
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B2_006
+    nodeType: 0
+    text: "\uD558\uC9C0\uB9CC \uBE44\uC2B7\uD55C \uD754\uC801\uC774 \uC5EC\uB7EC
+      \uC7A5\uC18C\uC5D0\uC11C \uBC1C\uACAC\uB418\uACE0 \uC788\uC2B5\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: B2_007
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B2_007
+    nodeType: 0
+    text: "\uC0DD\uAC01\uB098\uB294 \uAC83\uC774 \uB354 \uC788\uB2E4\uBA74 \uC0AC\uC18C\uD55C
+      \uAC83\uC774\uB77C\uB3C4 \uB9D0\uC500\uD574\uC8FC\uC2ED\uC2DC\uC624."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_05
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C2_001
+    nodeType: 1
+    text: "\uC544\uB1E8, \uCC98\uC74C \uBCF4\uB294 \uBB38\uC591\uC774\uC5D0\uC694."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: C2_002
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C2_002
+    nodeType: 0
+    text: "\uADF8\uB807\uC2B5\uB2C8\uAE4C."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: C2_003
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C2_003
+    nodeType: 0
+    text: "\uADF8\uB807\uB2E4\uBA74 \uC55E\uC73C\uB85C\uB294 \uAE30\uC5B5\uD574\uB450\uC2ED\uC2DC\uC624."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: C2_004
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C2_004
+    nodeType: 2
+    text: "(\uC704 \uAC74\uC6B0\uAC00 \uC885\uC774\uB97C {PlayerName} \uCABD\uC73C\uB85C
+      \uB3CC\uB824\uB193\uC558\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: C2_005
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C2_005
+    nodeType: 0
+    text: "\uC644\uC804\uD788 \uAC19\uC740 \uBAA8\uC591\uC774 \uC544\uB2C8\uC5B4\uB3C4
+      \uB429\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: C2_006
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C2_006
+    nodeType: 0
+    text: "\uC6D0 \uC548\uC5D0 \uC120\uC774 \uACB9\uCCD0 \uC788\uAC70\uB098, \uC54C\uC544\uBCF4\uAE30
+      \uC5B4\uB824\uC6B4 \uAE00\uC790 \uAC19\uC740 \uAC83\uC774 \uBC18\uBCF5\uB418\uC5B4
+      \uC788\uB2E4\uBA74 \uC54C\uB824\uC8FC\uC2ED\uC2DC\uC624."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: C2_007
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C2_007
+    nodeType: 0
+    text: "\uBCBD\uC774\uB098 \uBB38\uBFD0 \uC544\uB2C8\uB77C \uBC14\uB2E5\uC774\uB098
+      \uCC9C\uC7A5\uC5D0 \uB0A8\uC544 \uC788\uC744 \uC218\uB3C4 \uC788\uC2B5\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_05
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_05
+    nodeType: 2
+    text: "(\uC704 \uAC74\uC6B0\uAC00 \uC885\uC774\uB97C \uB2E4\uC2DC \uC811\uC5C8\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_06
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_06
+    nodeType: 0
+    text: "\uCD5C\uADFC \uAD6C\uB8E1\uCC44\uC131\uC5D0\uC11C \uC124\uBA85\uD558\uAE30
+      \uC5B4\uB824\uC6B4 \uC77C\uB4E4\uC774 \uBA87 \uCC28\uB840 \uBC1C\uC0DD\uD588\uC2B5\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_07
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_07
+    nodeType: 0
+    text: "\uC0AC\uB78C\uC774 \uAC70\uC758 \uB2E4\uB2C8\uC9C0 \uC54A\uB294 \uACC4\uB2E8\uC5D0\uC11C
+      \uD53C\uB85C \uBCF4\uC774\uB294 \uBC1C\uC790\uAD6D\uC774 \uBC1C\uACAC\uB410\uC2B5\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_08
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_08
+    nodeType: 0
+    text: "\uBC1C\uC790\uAD6D\uC740 \uC704\uCE35\uC73C\uB85C \uC774\uC5B4\uC84C\uC9C0\uB9CC,
+      \uB05D\uC5D0\uB294 \uC544\uBB34\uAC83\uB3C4 \uC5C6\uC5C8\uACE0\uC694."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_09
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_09
+    nodeType: 2
+    text: "(\uC704 \uAC74\uC6B0\uB294 \uD45C\uC815\uC758 \uBCC0\uD654 \uC5C6\uC774
+      \uB9D0\uC744 \uC774\uC5C8\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_10
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_10
+    nodeType: 0
+    text: "\uB2E4\uB978 \uAD6C\uC5ED\uC5D0\uC11C\uB294 \uB3D9\uBB3C\uC758 \uC0AC\uCCB4\uAC00
+      \uBC1C\uACAC\uB410\uC2B5\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_11
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_11
+    nodeType: 0
+    text: "\uB208\uC774 \uD6FC\uC190\uB41C \uCC44 \uB192\uC740 \uACF3\uC5D0 \uB9E4\uB2EC\uB824
+      \uC788\uC5C8\uC2B5\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_12
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_12
+    nodeType: 0
+    text: "\uADF8 \uC8FC\uBCC0\uC5D0\uB294 \uBC29\uAE08 \uBCF4\uC5EC\uB4DC\uB9B0
+      \uAC83\uACFC \uBE44\uC2B7\uD55C \uD754\uC801\uC774 \uB0A8\uC544 \uC788\uC5C8\uACE0\uC694."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_13
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_13
+    nodeType: 2
+    text: "(\uC7A0\uC2DC \uC815\uC801\uC774 \uD758\uB800\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_14
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_14
+    nodeType: 0
+    text: "\uC8FC\uBBFC\uB4E4\uC740 \uD64D\uB828\uADC0\uAC00 \uBC84\uB9AC\uACE0 \uAC04
+      \uAC83\uC774\uB77C\uACE0 \uC0DD\uAC01\uD558\uB294 \uBAA8\uC591\uC785\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_15
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_15
+    nodeType: 0
+    text: "\uC870\uC9C1\uC758 \uACBD\uACE0\uAC70\uB098, \uB204\uAD70\uAC00\uC5D0\uAC8C
+      \uAC81\uC744 \uC8FC\uAE30 \uC704\uD55C \uD589\uB3D9\uC774\uB77C\uACE0\uC694."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_16
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_16
+    nodeType: 0
+    text: "\uBCC4 \uC758\uBBF8 \uC5C6\uB294 \uC7A5\uB09C\uC73C\uB85C \uC5EC\uAE30\uB294
+      \uC0AC\uB78C\uB3C4 \uB9CE\uC2B5\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_17
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_17
+    nodeType: 0
+    text: "\uAD6C\uB8E1\uCC44\uC131\uC5D0\uC11C\uB294 \uAE30\uC774\uD55C \uC77C\uC774
+      \uB4DC\uBB38 \uAC83\uB3C4 \uC544\uB2C8\uB2C8\uAE4C\uC694."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Choice_3
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Choice_3
+    nodeType: 3
+    text: "\uAD6C\uB8E1\uCC44\uC131\uC5D0\uC11C\uB294 \uAE30\uC774\uD55C \uC77C\uC774
+      \uB4DC\uBB38 \uAC83\uB3C4 \uC544\uB2C8\uB2C8\uAE4C\uC694."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: 
+    choices:
+    - choiceText: "\uD64D\uB828\uADC0\uAC00 \uACBD\uACE0\uB85C \uD45C\uC2DC\uD574\uB454
+        \uAC78\uAE4C\uC694?"
+      targetNodeId: A3_001
+      resultKey: 
+      resultValue: 
+      useCondition: 0
+      requiredKey: 
+      requiredValue: True
+      hideWhenLocked: 0
+      lockedText: 
+    - choiceText: "\uB204\uAD70\uAC00 \uC7A5\uB09C\uC744 \uCE5C \uAC83\uC774 \uC544\uB2D0\uAE4C\uC694?"
+      targetNodeId: B3_001
+      resultKey: 
+      resultValue: 
+      useCondition: 0
+      requiredKey: 
+      requiredValue: True
+      hideWhenLocked: 0
+      lockedText: 
+    - choiceText: "\uB2E8\uC21C\uD55C \uC77C\uC740 \uC544\uB2CC \uAC83 \uAC19\uC544\uC694."
+      targetNodeId: C3_001
+      resultKey: 
+      resultValue: 
+      useCondition: 0
+      requiredKey: 
+      requiredValue: True
+      hideWhenLocked: 0
+      lockedText: 
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A3_001
+    nodeType: 1
+    text: "\uD64D\uB828\uADC0\uAC00 \uACBD\uACE0\uB85C \uD45C\uC2DC\uD574\uB454 \uAC78\uAE4C\uC694?"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: A3_002
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A3_002
+    nodeType: 0
+    text: "\uAC00\uC7A5 \uBA3C\uC800 \uB5A0\uC62C\uB9B4 \uC218 \uC788\uB294 \uAC00\uB2A5\uC131\uC774\uAE30\uB294
+      \uD569\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: A3_003
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A3_003
+    nodeType: 0
+    text: "\uD64D\uB828\uADC0\uB294 \uC8FC\uBBFC\uB4E4\uC5D0\uAC8C \uACBD\uACE0\uB97C
+      \uB0A8\uAE38 \uB54C \uC2DC\uCCB4\uB098 \uD53C\uB97C \uC774\uC6A9\uD558\uAE30\uB3C4
+      \uD558\uB2C8\uAE4C\uC694."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: A3_004
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A3_004
+    nodeType: 0
+    text: "\uD558\uC9C0\uB9CC \uADF8\uB4E4\uC774 \uBC8C\uC778 \uC77C\uC774\uB77C\uB294
+      \uC99D\uAC70\uB294 \uC5C6\uC2B5\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: A3_005
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A3_005
+    nodeType: 2
+    text: "(\uC704 \uAC74\uC6B0\uAC00 \uC7A0\uC2DC \uB9D0\uC744 \uBA48\uCDC4\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: A3_006
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A3_006
+    nodeType: 0
+    text: "\uADF8\uB9AC\uACE0 \uD64D\uB828\uADC0\uB77C\uBA74 \uAD73\uC774 \uC774\uB807\uAC8C
+      \uC54C\uC544\uBCF4\uAE30 \uC5B4\uB824\uC6B4 \uBC29\uC2DD\uC744 \uBC18\uBCF5\uD560
+      \uC774\uC720\uAC00 \uC788\uB294\uC9C0\uB3C4 \uC758\uBB38\uC785\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: A3_007
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A3_007
+    nodeType: 0
+    text: "\uC790\uC2E0\uB4E4\uC774 \uD55C \uC77C\uC774\uB77C\uBA74 \uB204\uAC00
+      \uD588\uB294\uC9C0 \uBD84\uBA85\uD788 \uC54C\uB9AC\uB294 \uD3B8\uC774 \uB354
+      \uD6A8\uACFC\uC801\uC77C \uD14C\uB2C8\uAE4C\uC694."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_18
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B3_001
+    nodeType: 1
+    text: "\uB204\uAD70\uAC00 \uC7A5\uB09C\uC744 \uCE5C \uAC83\uC774 \uC544\uB2D0\uAE4C\uC694?"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: B3_002
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B3_002
+    nodeType: 0
+    text: "\uADF8\uB7F4 \uAC00\uB2A5\uC131\uB3C4 \uC788\uC2B5\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: B3_003
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B3_003
+    nodeType: 0
+    text: "\uCC98\uC74C \uBC1C\uACAC\uB41C \uC0AC\uAC74\uC744 \uBCF4\uACE0 \uB204\uAD70\uAC00
+      \uB530\uB77C \uD588\uC744 \uC218\uB3C4 \uC788\uACA0\uC8E0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: B3_004
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B3_004
+    nodeType: 0
+    text: "\uC0AC\uB78C\uC744 \uB180\uB77C\uAC8C \uD558\uB294 \uAC83 \uC790\uCCB4\uAC00
+      \uBAA9\uC801\uC77C \uC218\uB3C4 \uC788\uACE0\uC694."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: B3_005
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B3_005
+    nodeType: 0
+    text: "\uB2E4\uB9CC \uC7A5\uB09C\uC774\uB77C\uACE0 \uBCF4\uAE30\uC5D0\uB294 \uBE44\uC2B7\uD55C
+      \uC77C\uC774 \uB108\uBB34 \uC624\uB798, \uB113\uC740 \uBC94\uC704\uC5D0\uC11C
+      \uBC18\uBCF5\uB418\uACE0 \uC788\uC2B5\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: B3_006
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B3_006
+    nodeType: 0
+    text: "\uC11C\uB85C \uBAA8\uB974\uB294 \uC0AC\uB78C\uB4E4\uC774 \uC6B0\uC5F0\uD788
+      \uAC19\uC740 \uC7A5\uB09C\uC744 \uB5A0\uC62C\uB838\uB2E4\uACE0 \uBCF4\uAE30\uC5D0\uB3C4
+      \uC774\uC0C1\uD558\uACE0\uC694."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_18
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C3_001
+    nodeType: 1
+    text: "\uB2E8\uC21C\uD55C \uC77C\uC740 \uC544\uB2CC \uAC83 \uAC19\uC544\uC694."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: C3_002
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C3_002
+    nodeType: 0
+    text: "\uADF8\uB807\uAC8C \uC0DD\uAC01\uD55C \uC774\uC720\uAC00 \uC788\uC2B5\uB2C8\uAE4C?"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: C3_003
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C3_003
+    nodeType: 1
+    text: "\uC7A5\uB09C\uC73C\uB85C \uCE58\uBD80\uD558\uAE30\uC5D0, \uBB38\uC591\uC774
+      \uC815\uAD50\uD55C \uAC83 \uAC19\uC544\uC694."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: C3_004
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C3_004
+    nodeType: 0
+    text: "\uADF8\uB807\uAD70\uC694."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: C3_005
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C3_005
+    nodeType: 0
+    text: "\uC800\uB3C4 \uC544\uC9C1 \uBB34\uC5C7\uC774\uB77C\uACE0 \uB2E8\uC815\uD560
+      \uC218\uB294 \uC5C6\uC2B5\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: C3_006
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C3_006
+    nodeType: 0
+    text: "\uB2E8\uC21C\uD558\uC9C0 \uC54A\uB2E4\uB294 \uC778\uC0C1\uB9CC\uC73C\uB85C
+      \uC870\uC0AC \uBC29\uD5A5\uC744 \uC815\uD560 \uC218\uB3C4 \uC5C6\uACE0\uC694."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: C3_007
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C3_007
+    nodeType: 0
+    text: "\uD558\uC9C0\uB9CC \uC544\uBB34 \uC758\uBBF8\uB3C4 \uC5C6\uB2E4\uBA70
+      \uC9C0\uB098\uCE58\uAE30\uC5D0\uB294 \uAC19\uC740 \uD754\uC801\uC774 \uB108\uBB34
+      \uC790\uC8FC \uBC1C\uACAC\uB418\uACE0 \uC788\uC2B5\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_18
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_18
+    nodeType: 0
+    text: "\uC774\uACF3\uC5D0\uC11C \uC774\uB7F0 \uC77C\uC744 \uBC8C\uC774\uAE30
+      \uC26C\uC6B4 \uC7A5\uC18C\uAC00 \uB5A0\uC624\uB985\uB2C8\uAE4C?"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Choice_4
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Choice_4
+    nodeType: 3
+    text: "\uC774\uACF3\uC5D0\uC11C \uC774\uB7F0 \uC77C\uC744 \uBC8C\uC774\uAE30
+      \uC26C\uC6B4 \uC7A5\uC18C\uAC00 \uB5A0\uC624\uB985\uB2C8\uAE4C?"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: 
+    choices:
+    - choiceText: "\uC8FC\uBBFC\uB4E4\uB3C4 \uC798 \uAC00\uC9C0 \uC54A\uB294 \uD3D0\uAC74\uBB3C\uC774
+        \uD558\uB098 \uC788\uC2B5\uB2C8\uB2E4."
+      targetNodeId: A4_001
+      resultKey: 
+      resultValue: 
+      useCondition: 0
+      requiredKey: 
+      requiredValue: True
+      hideWhenLocked: 0
+      lockedText: 
+    - choiceText: "\uC9C0\uD558 \uD1B5\uB85C \uAC19\uC740 \uACF3\uC740 \uC5B4\uB5A4\uAC00\uC694?"
+      targetNodeId: B4_001
+      resultKey: 
+      resultValue: 
+      useCondition: 0
+      requiredKey: 
+      requiredValue: True
+      hideWhenLocked: 0
+      lockedText: 
+    - choiceText: "\uD2B9\uBCC4\uD788 \uC0DD\uAC01\uB098\uB294 \uACF3\uC740 \uC5C6\uC5B4\uC694."
+      targetNodeId: C4_001
+      resultKey: 
+      resultValue: 
+      useCondition: 0
+      requiredKey: 
+      requiredValue: True
+      hideWhenLocked: 0
+      lockedText: 
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A4_001
+    nodeType: 1
+    text: "\uC8FC\uBBFC\uB4E4\uB3C4 \uC798 \uAC00\uC9C0 \uC54A\uB294 \uD3D0\uAC74\uBB3C\uC774
+      \uD558\uB098 \uC788\uC2B5\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: A4_002
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A4_002
+    nodeType: 0
+    text: "\uD3D0\uAC74\uBB3C\uC774\uB77C."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: A4_003
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A4_003
+    nodeType: 0
+    text: "\uC0AC\uB78C\uC758 \uB208\uC744 \uD53C\uD558\uAE30\uC5D0\uB294 \uC801\uB2F9\uD558\uACA0\uAD70\uC694."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: A4_004
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A4_004
+    nodeType: 0
+    text: "\uB2E4\uB9CC \uAD6C\uB8E1\uCC44\uC131\uC5D0\uB294 \uBC84\uB824\uC9C4 \uAC83\uCC98\uB7FC
+      \uBCF4\uC5EC\uB3C4 \uB204\uAD70\uAC00 \uC0AC\uC6A9\uD558\uB294 \uAC74\uBB3C\uC774
+      \uB9CE\uC2B5\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: A4_005
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A4_005
+    nodeType: 0
+    text: "\uC704\uCE58\uB9CC \uD45C\uC2DC\uD574\uC8FC\uC2ED\uC2DC\uC624."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: A4_006
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A4_006
+    nodeType: 0
+    text: "\uC9C1\uC811 \uD655\uC778\uD558\uB824\uACE0 \uD558\uC9C0\uB294 \uB9C8\uC2DC\uACE0\uC694."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_19
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B4_001
+    nodeType: 1
+    text: "\uC9C0\uD558 \uD1B5\uB85C \uAC19\uC740 \uACF3\uC740 \uC5B4\uB5A4\uAC00\uC694?"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: B4_002
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B4_002
+    nodeType: 0
+    text: "\uC9C0\uB3C4\uC5D0 \uAE30\uB85D\uB418\uC9C0 \uC54A\uC740 \uD1B5\uB85C\uB3C4
+      \uB9CE\uB2E4\uACE0 \uB4E4\uC5C8\uC2B5\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: B4_003
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B4_003
+    nodeType: 0
+    text: "\uD754\uC801\uC744 \uB0A8\uAE30\uC9C0 \uC54A\uACE0 \uC5EC\uB7EC \uAD6C\uC5ED\uC744
+      \uC624\uAC00\uAE30\uC5D0\uB294 \uC801\uD569\uD558\uACA0\uAD70\uC694."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: B4_004
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B4_004
+    nodeType: 2
+    text: "(\uC704 \uAC74\uC6B0\uAC00 \uAD6C\uB8E1\uCC44\uC131\uC758 \uAD6C\uC870\uB3C4\uB97C
+      \uD3BC\uCCE4\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: B4_005
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B4_005
+    nodeType: 0
+    text: "\uC54C\uACE0 \uC788\uB294 \uC785\uAD6C\uAC00 \uC788\uB2E4\uBA74 \uD45C\uC2DC\uD574\uC8FC\uC2ED\uC2DC\uC624."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: B4_006
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B4_006
+    nodeType: 0
+    text: "\uB0B4\uBD80\uC5D0\uB294 \uB4E4\uC5B4\uAC00\uC9C0 \uB9C8\uC2ED\uC2DC\uC624."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_19
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C4_001
+    nodeType: 1
+    text: "\uD2B9\uBCC4\uD788 \uC0DD\uAC01\uB098\uB294 \uACF3\uC740 \uC5C6\uC5B4\uC694."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: C4_002
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C4_002
+    nodeType: 0
+    text: "\uADF8\uB807\uC2B5\uB2C8\uAE4C."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: C4_003
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C4_003
+    nodeType: 0
+    text: "\uBC1C\uACAC\uB41C \uC7A5\uC18C\uB4E4 \uC0AC\uC774\uC5D0\uB3C4 \uC544\uC9C1
+      \uB69C\uB837\uD55C \uACF5\uD1B5\uC810\uC740 \uC5C6\uC2B5\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: C4_004
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C4_004
+    nodeType: 0
+    text: "\uC0AC\uB78C\uC774 \uB9CE\uC740 \uACF3\uB3C4 \uC788\uC5C8\uACE0, \uC624\uB7AB\uB3D9\uC548
+      \uBC29\uCE58\uB41C \uC7A5\uC18C\uB3C4 \uC788\uC5C8\uC8E0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: C4_005
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C4_005
+    nodeType: 0
+    text: "\uD2B9\uC815\uD55C \uC7A5\uC18C\uBCF4\uB2E4, \uBC1C\uACAC\uB418\uC9C0
+      \uC54A\uC740 \uCC44 \uC774\uB3D9\uD560 \uC218 \uC788\uB294 \uAE38\uC774 \uB530\uB85C
+      \uC788\uC744\uC9C0\uB3C4 \uBAA8\uB974\uACA0\uC2B5\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_19
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_19
+    nodeType: 2
+    text: "(\uC704 \uAC74\uC6B0\uB294 {PlayerName}\uC774/\uAC00 \uC54C\uB824\uC900
+      \uB0B4\uC6A9\uC744 \uAE30\uB85D\uD588\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_20
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_20
+    nodeType: 0
+    text: "\uD604\uC7AC\uB85C\uC11C\uB294 \uD64D\uB828\uADC0\uC758 \uD589\uB3D9\uC778\uC9C0,
+      \uAC1C\uC778\uC774 \uBC8C\uC778 \uC7A5\uB09C\uC778\uC9C0 \uAD6C\uBD84\uD560
+      \uC218 \uC5C6\uC2B5\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_21
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_21
+    nodeType: 0
+    text: "\uAC19\uC740 \uC0AC\uB78C\uC774 \uBC18\uBCF5\uD574\uC11C \uBC8C\uC774\uACE0
+      \uC788\uB294\uC9C0\uB3C4 \uD655\uC778\uB418\uC9C0 \uC54A\uC558\uACE0\uC694."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_22
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_22
+    nodeType: 0
+    text: "\uB2E4\uB9CC \uBA87\uBA87 \uD604\uC7A5\uC5D0\uC11C\uB294 \uB2E8\uC21C\uD55C
+      \uD611\uBC15\uACFC\uB294 \uC870\uAE08 \uB2E4\uB978 \uD754\uC801\uC774 \uBC1C\uACAC\uB410\uC2B5\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_23
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_23
+    nodeType: 1
+    text: "\uC5B4\uB5A4 \uD754\uC801\uC778 \uAC74\uAC00\uC694?"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_24
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_24
+    nodeType: 2
+    text: "(\uC704 \uAC74\uC6B0\uB294 \uACE7\uBC14\uB85C \uB300\uB2F5\uD558\uC9C0
+      \uC54A\uC558\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_25
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_25
+    nodeType: 0
+    text: "\uC77C\uC815\uD558\uAC8C \uBC30\uCE58\uB41C \uBB3C\uAC74\uB4E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_26
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_26
+    nodeType: 0
+    text: "\uADF8\uB9AC\uACE0 \uBC18\uBCF5\uB418\uB294 \uBB38\uC591\uC785\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_27
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_27
+    nodeType: 0
+    text: "\uB204\uAD70\uAC00 \uC544\uBB34\uB807\uAC8C\uB098 \uBC84\uB9AC\uACE0 \uAC04
+      \uAC83\uC73C\uB85C \uBCF4\uAE30\uC5D0\uB294 \uC9C0\uB098\uCE58\uAC8C \uC815\uB3C8\uB418\uC5B4
+      \uC788\uC5C8\uC2B5\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_28
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_28
+    nodeType: 0
+    text: "\uC77C\uC885\uC758 \uC758\uC2DD\uCC98\uB7FC \uBCF4\uC600\uB2E4\uB294 \uBCF4\uACE0\uB3C4
+      \uC788\uC5C8\uACE0\uC694."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_29
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_29
+    nodeType: 1
+    text: "\uC885\uAD50\uC640 \uAD00\uB828\uB41C \uAC78\uAE4C\uC694?"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_30
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_30
+    nodeType: 0
+    text: "\uC544\uC9C1 \uC54C \uC218 \uC5C6\uC2B5\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_31
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_31
+    nodeType: 0
+    text: "\uAC19\uC740 \uD589\uB3D9\uC744 \uD55C\uB2E4\uACE0 \uD574\uC11C \uBAA8\uB450
+      \uAC19\uC740 \uC774\uC720\uB97C \uAC00\uC9C4 \uAC83\uC740 \uC544\uB2C8\uB2C8\uAE4C\uC694."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_32
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_32
+    nodeType: 0
+    text: "\uD558\uB098\uC758 \uC9D1\uB2E8\uC774 \uBC8C\uC778 \uC77C\uC778\uC9C0\uB3C4
+      \uD655\uC778\uB418\uC9C0 \uC54A\uC558\uC2B5\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_33
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_33
+    nodeType: 2
+    text: "(\uC704 \uAC74\uC6B0\uAC00 \uC811\uD78C \uC885\uC774 \uC704\uC5D0 \uC190\uC744
+      \uC62C\uB838\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_34
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_34
+    nodeType: 0
+    text: "\uADF8\uB9AC\uACE0 \uD655\uC778\uB418\uC9C0 \uC54A\uC740 \uAC83\uC5D0
+      \uC131\uAE09\uD558\uAC8C \uC774\uB984\uC744 \uBD99\uC774\uB294 \uAC83\uC740
+      \uC704\uD5D8\uD569\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_35
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_35
+    nodeType: 0
+    text: "\uD55C\uBC88 \uBC29\uD5A5\uC744 \uC815\uD558\uBA74, \uADF8 \uB4A4\uC5D0
+      \uBCF4\uC774\uB294 \uBAA8\uB4E0 \uAC83\uC744 \uADF8 \uB2F5\uC5D0 \uB9DE\uCDB0
+      \uD574\uC11D\uD558\uAC8C \uB418\uB2C8\uAE4C\uC694."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_36
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_36
+    nodeType: 0
+    text: "\uC9C0\uAE08\uC740 \uB204\uAC00 \uBB34\uC5C7\uC744 \uBBFF\uB294\uC9C0\uBCF4\uB2E4,
+      \uAC19\uC740 \uD754\uC801\uC774 \uC5B4\uB514\uC5D0\uC11C \uBC18\uBCF5\uB418\uB294\uC9C0\uB97C
+      \uD655\uC778\uD558\uB294 \uAC83\uC774 \uBA3C\uC800\uC785\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_37
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_37
+    nodeType: 0
+    text: "\uD55C \uAC00\uC9C0 \uBD80\uD0C1\uB4DC\uB9B4 \uC77C\uC774 \uC788\uC2B5\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_38
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_38
+    nodeType: 0
+    text: "\uC774\uD6C4 \uBE44\uC2B7\uD55C \uBB38\uC591\uC774\uB098 \uD754\uC801\uC744
+      \uBC1C\uACAC\uD55C\uB2E4\uBA74 \uC815\uC2DD \uBCF4\uACE0\uC11C\uC5D0\uB294
+      \uBC14\uB85C \uAE30\uB85D\uD558\uC9C0 \uB9C8\uC2ED\uC2DC\uC624."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_39
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_39
+    nodeType: 2
+    text: "({PlayerName}\uC774/\uAC00 \uC704 \uAC74\uC6B0\uB97C \uBC14\uB77C\uBD24\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_40
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_40
+    nodeType: 0
+    text: "\uBA3C\uC800 \uC800\uC5D0\uAC8C \uC54C\uB824\uC8FC\uC2ED\uC2DC\uC624."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Choice_5
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Choice_5
+    nodeType: 3
+    text: "\uBA3C\uC800 \uC800\uC5D0\uAC8C \uC54C\uB824\uC8FC\uC2ED\uC2DC\uC624."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: 
+    choices:
+    - choiceText: "\uC774\uBC88 \uC77C\uC744 \uC228\uAE30\uB824\uB294 \uAC74\uAC00\uC694?"
+      targetNodeId: A5_001
+      resultKey: 
+      resultValue: 
+      useCondition: 0
+      requiredKey: 
+      requiredValue: True
+      hideWhenLocked: 0
+      lockedText: 
+    - choiceText: "\uC815\uC2DD\uC73C\uB85C \uBCF4\uACE0\uD558\uBA74 \uB418\uB294
+        \uAC70 \uC544\uB2CC\uAC00\uC694?"
+      targetNodeId: B5_001
+      resultKey: 
+      resultValue: 
+      useCondition: 0
+      requiredKey: 
+      requiredValue: True
+      hideWhenLocked: 0
+      lockedText: 
+    - choiceText: "\uB124, \uADF8\uB807\uAC8C \uD560\uAC8C\uC694."
+      targetNodeId: C5_001
+      resultKey: 
+      resultValue: 
+      useCondition: 0
+      requiredKey: 
+      requiredValue: True
+      hideWhenLocked: 0
+      lockedText: 
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A5_001
+    nodeType: 1
+    text: "\uC774\uBC88 \uC77C\uC744 \uC228\uAE30\uB824\uB294 \uAC74\uAC00\uC694?"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: A5_002
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A5_002
+    nodeType: 0
+    text: "\uC0AC\uAC74\uC744 \uC228\uAE30\uB824\uB294 \uAC83\uC740 \uC544\uB2D9\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: A5_003
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A5_003
+    nodeType: 0
+    text: "\uD655\uC778\uB418\uC9C0 \uC54A\uC740 \uB0B4\uC6A9\uC774 \uB110\uB9AC
+      \uD37C\uC9C0\uBA74 \uBAA8\uBC29\uD558\uB294 \uC0AC\uB78C\uC774 \uB098\uD0C0\uB0A0
+      \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: A5_004
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A5_004
+    nodeType: 0
+    text: "\uC8FC\uBBFC\uB4E4\uC774 \uD64D\uB828\uADC0\uC758 \uACBD\uACE0\uB77C\uACE0
+      \uB2E8\uC815\uD558\uACE0 \uC6C0\uC9C1\uC774\uAE30 \uC2DC\uC791\uD560 \uC218\uB3C4
+      \uC788\uACE0\uC694."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: A5_005
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A5_005
+    nodeType: 0
+    text: "\uD544\uC694\uD55C \uB0B4\uC6A9\uC774 \uD655\uC778\uB418\uBA74 \uADF8\uB54C
+      \uC815\uC2DD \uC808\uCC28\uB97C \uBC1F\uACA0\uC2B5\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_41
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B5_001
+    nodeType: 1
+    text: "\uC815\uC2DD\uC73C\uB85C \uBCF4\uACE0\uD558\uBA74 \uB418\uB294 \uAC70
+      \uC544\uB2CC\uAC00\uC694?"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: B5_002
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B5_002
+    nodeType: 2
+    text: "(\uC704 \uAC74\uC6B0\uAC00 \uC7A0\uC2DC \uB9D0\uC744 \uACE8\uB790\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: B5_003
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B5_003
+    nodeType: 0
+    text: "\uC544\uC9C1 \uC5B4\uB290 \uC815\uBCF4\uAC00 \uC911\uC694\uD55C\uC9C0
+      \uC54C \uC218 \uC5C6\uAE30 \uB54C\uBB38\uC785\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: B5_004
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B5_004
+    nodeType: 0
+    text: "\uBCF4\uACE0\uAC00 \uC5EC\uB7EC \uBD80\uC11C\uB97C \uAC70\uCE58\uBA74
+      \uD544\uC694 \uC774\uC0C1\uC73C\uB85C \uB9CE\uC740 \uC0AC\uB78C\uC774 \uB0B4\uC6A9\uC744
+      \uC54C\uAC8C \uB429\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: B5_005
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B5_005
+    nodeType: 0
+    text: "\uADF8\uB7EC\uBA74 \uC870\uC0AC \uB300\uC0C1\uC774 \uBA3C\uC800 \uC6C0\uC9C1\uC77C
+      \uC218\uB3C4 \uC788\uACA0\uC8E0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: B5_006
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B5_006
+    nodeType: 0
+    text: "\uC9C0\uAE08\uC740 \uAD00\uB828\uB41C \uC0AC\uB78C\uC758 \uBC94\uC704\uC870\uCC28
+      \uC54C \uC218 \uC5C6\uC2B5\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: B5_007
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B5_007
+    nodeType: 2
+    text: "(\uADF8\uC758 \uB9D0\uD22C\uB294 \uB2F4\uB2F4\uD588\uC9C0\uB9CC, \uB354
+      \uC790\uC138\uD788 \uC124\uBA85\uD560 \uC0DD\uAC01\uC740 \uC5C6\uC5B4 \uBCF4\uC600\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: B5_008
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B5_008
+    nodeType: 0
+    text: "\uBD88\uD3B8\uD558\uC2DC\uB354\uB77C\uB3C4 \uD611\uC870\uD574\uC8FC\uC2ED\uC2DC\uC624."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_41
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C5_001
+    nodeType: 1
+    text: "\uB124, \uADF8\uB807\uAC8C \uD560\uAC8C\uC694."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: C5_002
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C5_002
+    nodeType: 0
+    text: "\uD611\uC870\uC5D0 \uAC10\uC0AC\uB4DC\uB9BD\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: C5_003
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C5_003
+    nodeType: 0
+    text: "\uC0AC\uC18C\uD574 \uBCF4\uC774\uB294 \uD754\uC801\uC774\uB77C\uB3C4 \uAD1C\uCC2E\uC2B5\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: C5_004
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C5_004
+    nodeType: 0
+    text: "\uBC1C\uACAC\uD55C \uC2DC\uAC04\uACFC \uC7A5\uC18C\uB9CC \uC815\uD655\uD788
+      \uAE30\uC5B5\uD574\uC8FC\uC2ED\uC2DC\uC624."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: C5_005
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C5_005
+    nodeType: 0
+    text: "\uB098\uBA38\uC9C0\uB294 \uC81C\uAC00 \uD655\uC778\uD558\uACA0\uC2B5\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_41
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_41
+    nodeType: 2
+    text: "(\uC704 \uAC74\uC6B0\uAC00 \uC811\uD78C \uC885\uC774\uB97C \uB2E4\uC2DC
+      \uD488 \uC548\uC5D0 \uB123\uC5C8\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_42
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_42
+    nodeType: 0
+    text: "\uC0AC\uB78C\uC740 \uBAA9\uC801\uC774 \uC788\uC73C\uBA74 \uD754\uC801\uC744
+      \uB0A8\uAE41\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_43
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_43
+    nodeType: 0
+    text: "\uC5B4\uB514\uC5D0\uC11C \uC2DC\uC791\uD588\uACE0, \uC5B4\uB514\uB85C
+      \uAC00\uB824\uB294\uC9C0 \uC9D0\uC791\uD560 \uC218 \uC788\uB294 \uD754\uC801\uC744\uC694."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_44
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_44
+    nodeType: 0
+    text: "\uD558\uC9C0\uB9CC \uC774\uBC88 \uC77C\uC740 \uC544\uC9C1 \uBC29\uD5A5\uC774
+      \uBCF4\uC774\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_45
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_45
+    nodeType: 0
+    text: "\uB204\uAD70\uAC00\uB97C \uC704\uD611\uD558\uB824\uB294 \uAC83\uC778\uC9C0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_46
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_46
+    nodeType: 0
+    text: "\uBB34\uC5B8\uAC00\uB97C \uBAA8\uBC29\uD558\uACE0 \uC788\uB294 \uAC83\uC778\uC9C0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_47
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_47
+    nodeType: 0
+    text: "\uC544\uB2C8\uBA74 \uBCF8\uC778\uB4E4\uB3C4 \uC774\uC720\uB97C \uBAA8\uB978
+      \uCC44 \uAC19\uC740 \uD589\uB3D9\uC744 \uBC18\uBCF5\uD558\uB294 \uAC83\uC778\uC9C0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_48
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_48
+    nodeType: 2
+    text: "(\uC704 \uAC74\uC6B0\uAC00 \uC7A0\uC2DC \uC0DD\uAC01\uC5D0 \uC7A0\uACBC\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_49
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_49
+    nodeType: 0
+    text: "\uBAA9\uC801\uC744 \uC783\uC740 \uD589\uB3D9\uC740 \uC624\uD788\uB824
+      \uBA48\uCD94\uAE30 \uC5B4\uB824\uC6B8 \uB54C\uAC00 \uC788\uC2B5\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_50
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_50
+    nodeType: 0
+    text: "\uBB34\uC5C7\uC744 \uC774\uB8E8\uAE30 \uC704\uD574\uC11C\uAC00 \uC544\uB2C8\uB77C
+      \uC774\uC804\uC5D0\uB3C4 \uD574\uC654\uB2E4\uB294 \uC774\uC720\uB9CC\uC73C\uB85C
+      \uACC4\uC18D\uB418\uB2C8\uAE4C\uC694."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_51
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_51
+    nodeType: 0
+    text: "\uCC98\uC74C \uC2DC\uC791\uD55C \uC0AC\uB78C\uC774 \uC0AC\uB77C\uC9C0\uACE0,
+      \uC774\uC720\uB97C \uC544\uB294 \uC0AC\uB78C\uC774 \uC5C6\uC5B4\uC838\uB3C4
+      \uD589\uB3D9\uB9CC\uC740 \uB0A8\uC744 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_52
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_52
+    nodeType: 0
+    text: "\uADF8\uB7EC\uB2E4 \uBCF4\uBA74 \uC5B4\uB514\uC5D0\uC11C \uC2DC\uC791\uB410\uB294\uC9C0\uB3C4
+      \uC5B4\uB514\uB85C \uD5A5\uD558\uACE0 \uC788\uB294\uC9C0\uB3C4 \uC54C \uC218
+      \uC5C6\uAC8C \uB418\uACA0\uC8E0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_53
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_53
+    nodeType: 2
+    text: "(\uC704 \uAC74\uC6B0\uAC00 \uC790\uB9AC\uC5D0\uC11C \uC77C\uC5B4\uB0AC\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_54
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_54
+    nodeType: 0
+    text: "\uD754\uC801\uC744 \uBC1C\uACAC\uD558\uB354\uB77C\uB3C4 \uC190\uB300\uC9C0
+      \uB9C8\uC2ED\uC2DC\uC624."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_55
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_55
+    nodeType: 0
+    text: "\uC8FC\uBCC0 \uC0AC\uB78C\uB4E4\uC5D0\uAC8C\uB3C4 \uD568\uBD80\uB85C \uC774\uC57C\uAE30\uD558\uC9C0
+      \uB9C8\uC2DC\uACE0\uC694."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_56
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_56
+    nodeType: 0
+    text: "\uD2B9\uD788 \uC218\uC0C1\uD55C \uC0AC\uB78C\uC744 \uBC1C\uACAC\uD588\uC744
+      \uB54C \uC9C1\uC811 \uB530\uB77C\uAC00\uC11C\uB294 \uC548 \uB429\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_57
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_57
+    nodeType: 2
+    text: "(\uC704 \uAC74\uC6B0\uAC00 \uBB38\uC744 \uC5F4\uB824\uB2E4 \uAC78\uC74C\uC744
+      \uBA48\uCDC4\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_58
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_58
+    nodeType: 0
+    text: "\uC791\uC5C5\uBC18\uC7A5."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_59
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_59
+    nodeType: 2
+    text: "(\uADF8\uAC00 {PlayerName}\uC744/\uB97C \uB3CC\uC544\uBD24\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_60
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_60
+    nodeType: 0
+    text: "\uC8FC\uBBFC\uB4E4\uC774 \uC774 \uC77C\uC744 \uD64D\uB828\uADC0\uC758
+      \uACBD\uACE0\uB098 \uC7A5\uB09C\uC73C\uB85C \uC5EC\uAE34\uB2E4\uACE0 \uD574\uC11C
+      \uD568\uAED8 \uAC00\uBCCD\uAC8C \uC0DD\uAC01\uD558\uC9C0\uB294 \uB9C8\uC2ED\uC2DC\uC624."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_61
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_61
+    nodeType: 0
+    text: "\uADF8\uB807\uB2E4\uACE0 \uD2B9\uBCC4\uD55C \uC758\uBBF8\uAC00 \uC788\uB2E4\uACE0
+      \uBBF8\uB9AC \uB2E8\uC815\uD558\uC9C0\uB3C4 \uB9C8\uC2DC\uACE0\uC694."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_62
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_62
+    nodeType: 0
+    text: "\uC9C0\uAE08 \uD544\uC694\uD55C \uAC83\uC740 \uB2F5\uC744 \uC815\uD558\uB294
+      \uC77C\uC774 \uC544\uB2D9\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_63
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_63
+    nodeType: 0
+    text: "\uD754\uC801\uC774 \uC5B4\uB514\uC5D0\uC11C \uC2DC\uC791\uB418\uC5B4 \uC5B4\uB514\uB85C
+      \uC774\uC5B4\uC9C0\uB294\uC9C0 \uD655\uC778\uD558\uB294 \uC77C\uC785\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_64
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_64
+    nodeType: 2
+    text: "(\uADF8\uAC00 \uC9E7\uAC8C \uACBD\uB840\uD588\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_65
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_65
+    nodeType: 0
+    text: "\uBC1C\uACAC\uD558\uBA74 \uC81C\uAC8C \uC9C1\uC811 \uC54C\uB824\uC8FC\uC2ED\uC2DC\uC624."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_66
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_66
+    nodeType: 0
+    text: "\uB2E4\uB978 \uB204\uAD6C\uBCF4\uB2E4 \uBA3C\uC800\uC694."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_03_00
+    nextNodeId: Log_67
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_67
+    nodeType: 2
+    text: "(\uC704 \uAC74\uC6B0\uB294 \uB354 \uC124\uBA85\uD558\uC9C0 \uC54A\uACE0
+      \uC0AC\uBB34\uC2E4\uC744 \uB5A0\uB0AC\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 0}
+    portraitId: 
+    nextNodeId: Log_68
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 0
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_68
+    nodeType: 2
+    text: "(\uBB38\uC774 \uB2EB\uD788\uACE0 \uC0AC\uBB34\uC2E4\uC5D0\uB294 \uB2E4\uC2DC
+      \uC815\uC801\uC774 \uCC3E\uC544\uC654\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 0}
+    portraitId: 
+    nextNodeId: Log_69
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 0
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_69
+    nodeType: 2
+    text: "(\uCC45\uC0C1 \uC704\uC5D0\uB294 \uC885\uC774\uAC00 \uB193\uC600\uB358
+      \uC790\uAD6D\uB9CC\uC774 \uD76C\uBBF8\uD558\uAC8C \uB0A8\uC544 \uC788\uC5C8\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 0}
+    portraitId: 
+    nextNodeId: Log_70
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 0
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_70
+    nodeType: 2
+    text: "(\uC11C\uB85C \uC5BD\uD78C \uC6D0\uACFC \uC120.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 0}
+    portraitId: 
+    nextNodeId: Log_71
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 0
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_71
+    nodeType: 2
+    text: "(\uC5B4\uB514\uC5D0\uC11C \uC2DC\uC791\uB418\uC5B4 \uC5B4\uB514\uB85C
+      \uC774\uC5B4\uC9C0\uB294\uC9C0\uB294 \uC54C \uC218 \uC5C6\uC5C8\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 0}
+    portraitId: 
+    nextNodeId: Log_72
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 0
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_72
+    nodeType: 2
+    text: "(\uBC29\uD5A5\uC744 \uC783\uC740 \uD589\uB3D9\uC740 \uBA48\uCD94\uC9C0
+      \uC54A\uB294\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 0}
+    portraitId: 
+    nextNodeId: Log_73
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 0
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Log_73
+    nodeType: 2
+    text: "(\uC624\uD788\uB824 \uBAA9\uC801\uC774 \uC0AC\uB77C\uC9C4 \uB4A4\uC5D0\uC57C,
+      \uB204\uAD6C\uB3C4 \uD1B5\uC81C\uD560 \uC218 \uC5C6\uB294 \uBC29\uD5A5\uC73C\uB85C
+      \uD758\uB7EC\uAC00\uAE30 \uC2DC\uC791\uD55C\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 0}
+    portraitId: 
+    nextNodeId: end
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 0
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: end
+    nodeType: 4
+    text: 
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
+    character: {fileID: 0}
+    portraitId: 
+    nextNodeId: 
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 0
     useTypingEffect: 0
     autoAdvance: 0
     autoAdvanceDelay: 0

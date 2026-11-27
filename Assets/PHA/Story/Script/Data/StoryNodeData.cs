@@ -4,68 +4,78 @@ using UnityEngine;
 
 public enum StoryNodeType
 {
-    CharacterDialogue,  // Ä³¸¯ÅÍ ´ë»ç
-    PlayerDialogue,     // ÇÃ·¹ÀÌ¾î ´ë»ç
-    Narration,          // ³ª·¹ÀÌ¼Ç
-    Choice,             // ¼±ÅÃÁö
-    End,                // ³¡
+    CharacterDialogue,  // ìºë¦­í„° ëŒ€ì‚¬
+    PlayerDialogue,     // í”Œë ˆì´ì–´ ëŒ€ì‚¬
+    Narration,          // ë‚˜ë ˆì´ì…˜
+    Choice,             // ì„ íƒì§€
+    End,                // ë
 }
 
 [Serializable]
 public class StoryNodeData
 {
-    [Header("³ëµå ±âº» Á¤º¸")]
+    [Header("ë…¸ë“œ ê¸°ë³¸ ì •ë³´")]
 
-    [Tooltip("½ºÅä¸® ¾È¿¡¼­ Áßº¹µÇÁö ¾Ê´Â ³ëµå ID")]
+    [Tooltip("ìŠ¤í† ë¦¬ ì•ˆì—ì„œ ì¤‘ë³µë˜ì§€ ì•ŠëŠ” ë…¸ë“œ ID")]
     [SerializeField]
     private string nodeId;
 
     [SerializeField]
     private StoryNodeType nodeType;
 
-    [Header("Ãâ·ÂÇÒ ÅØ½ºÆ®")]
+    [Header("ì¶œë ¥í•  í…ìŠ¤íŠ¸")]
 
     [TextArea(3, 10)]
     [SerializeField]
     private string text;
 
-    [Header("Ä³¸¯ÅÍ ´ë»ç ¼³Á¤")]
+    [Header("ë°°ê²½")]
+    [Tooltip("ë¹„ì›Œë‘ë©´ í˜„ì¬ ë°°ê²½ ìœ ì§€. __HIDE__ëŠ” ë°°ê²½ ìˆ¨ê¸°ê¸°.")]
+    [SerializeField] private string backgroundId;
+    [SerializeField] private StoryBackgroundTransition backgroundTransition;
+    [Min(0f)] [SerializeField] private float backgroundTransitionDuration = 0.3f;
 
-    [Tooltip("Ä³¸¯ÅÍ ´ë»çÀÏ ¶§¸¸ ÁöÁ¤")]
+    public string BackgroundId => backgroundId;
+    public StoryBackgroundTransition BackgroundTransition => backgroundTransition;
+    public float BackgroundTransitionDuration => backgroundTransitionDuration;
+
+    [Header("ìºë¦­í„° ëŒ€ì‚¬ ì„¤ì •")]
+
+    [Tooltip("ìºë¦­í„° ëŒ€ì‚¬ì¼ ë•Œë§Œ ì§€ì •")]
     [SerializeField]
     private CharacterData character;
 
-    [Tooltip("CharacterData¿¡ µî·ÏµÈ Ç¥Á¤ ID")]
+    [Tooltip("CharacterDataì— ë“±ë¡ëœ í‘œì • ID")]
     [SerializeField]
     private string portraitId;
 
-    [Header("´ÙÀ½ ³ëµå")]
+    [Header("ë‹¤ìŒ ë…¸ë“œ")]
 
-    [Tooltip("ÇöÀç ³ëµå°¡ ³¡³­ µÚ ÀÌµ¿ÇÒ ³ëµå ID")]
+    [Tooltip("í˜„ì¬ ë…¸ë“œê°€ ëë‚œ ë’¤ ì´ë™í•  ë…¸ë“œ ID")]
     [SerializeField]
     private string nextNodeId;
 
-    [Header("¼±ÅÃÁö")]
+    [Header("ì„ íƒì§€")]
 
-    [Tooltip("Choice Å¸ÀÔÀÏ ¶§ »ç¿ë")]
+    [Tooltip("Choice íƒ€ì…ì¼ ë•Œ ì‚¬ìš©")]
     [SerializeField]
     private List<StoryChoiceData> choices = new();
 
-    [Header("È­¸é Ãâ·Â ¼³Á¤")]
+    [Header("í™”ë©´ ì¶œë ¥ ì„¤ì •")]
 
-    [Tooltip("ÇöÀç Ä³¸¯ÅÍ ÃÊ»óÈ­¸¦ ¾îµÓ°Ô Ç¥½Ã")]
+    [Tooltip("í˜„ì¬ ìºë¦­í„° ì´ˆìƒí™”ë¥¼ ì–´ë‘¡ê²Œ í‘œì‹œ")]
     [SerializeField]
     private bool dimPortrait;
 
-    [Tooltip("ÇöÀç Ä³¸¯ÅÍ ÃÊ»óÈ­¸¦ À¯Áö")]
+    [Tooltip("í˜„ì¬ ìºë¦­í„° ì´ˆìƒí™”ë¥¼ ìœ ì§€")]
     [SerializeField]
     private bool keepPortrait = true;
 
-    [Tooltip("ÅØ½ºÆ® Å¸ÀÌÇÎ È¿°ú »ç¿ë")]
+    [Tooltip("í…ìŠ¤íŠ¸ íƒ€ì´í•‘ íš¨ê³¼ ì‚¬ìš©")]
     [SerializeField]
     private bool useTypingEffect = true;
 
-    [Tooltip("Å¬¸¯ ¾øÀÌ ÀÚµ¿À¸·Î ´ÙÀ½ ³ëµå ÁøÇà")]
+    [Tooltip("í´ë¦­ ì—†ì´ ìë™ìœ¼ë¡œ ë‹¤ìŒ ë…¸ë“œ ì§„í–‰")]
     [SerializeField]
     private bool autoAdvance;
 
@@ -73,7 +83,7 @@ public class StoryNodeData
     [SerializeField]
     private float autoAdvanceDelay = 1f;
 
-    [Header("¿¬Ãâ")]
+    [Header("ì—°ì¶œ")]
 
     [SerializeField]
     private List<StoryEffectData> effects = new();

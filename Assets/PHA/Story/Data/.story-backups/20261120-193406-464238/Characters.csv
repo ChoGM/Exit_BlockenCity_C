@@ -1,0 +1,15 @@
+﻿CharacterId,CharacterName,CharacterNameEng,PortraitId,PortraitLabel,SpriteName
+Char_Danwol_01,리 시화,李詩華,,Default,Chacter_DanWol_Lishiha＿Encyclopedia＿０１
+Char_Danwol_01,리 시화,李詩華,D_01_00,리시화_기본,01_02
+Char_Danwol_01,리 시화,李詩華,D_01_01,리시화_화남,01_04
+Char_Danwol_01,리 시화,李詩華,D_01_02,리시화_웃음,01_03
+Char_Danwol_01,리 시화,李詩華,D_01_03,리시화_아련,01_01
+Char_Danwol_02,리 창유 ,李昌裕,,Default,Chacter_DanWol＿RiChangyu＿Encyclopedia
+Char_Danwol_03,위 건우 ,魏建宇,,Default,Chacter_DanWol_WeiGeonu＿Encyclopedia
+Char_Danwol_03,위 건우 ,魏建宇,D_02_00,위건우_기본,Chacter_DanWol_WeiGeonu
+Char_HongNyeonGwi_01,장 패 ,張霸,,Default,Chacter_Hongryeongwi_ZhangBa_Encyclopedia
+Char_HongNyeonGwi_02,아련,雅蓮,,Default,Chacter_Hongryeongwi_Alian_Encyclopedia
+Char_HongNyeonGwi_03,마 지웅,馬志雄,,Default,Chacter_Hongryeongwi_MaZixiong_Encyclopedia
+Char_YeSeo_01,황 성윤 ,黃成允,,Default,Chacter_YaSeo_HuangChengyun_Encyclopedia
+Char_YeSeo_02,주 청화,周清和,,Default,Chacter_YaSeo_ZhouQīnghe_Encyclopedia
+Char_YeSeo_03,진 상릉,陳霜凌,,Default,Chacter_YaSeo_ChenShuangling_Encyclopedia

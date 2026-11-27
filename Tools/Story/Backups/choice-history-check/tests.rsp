@@ -1,0 +1,12 @@
+-nologo
+-target:exe
+-nostdlib+
+-out:"C:\Users\pha21\Documents\GitHub\Exit_BlockenCity_Hyeona\Tools\Story\Backups\choice-history-check\Tests.exe"
+-r:"C:\Windows\Microsoft.NET\Framework64\v4.0.30319\mscorlib.dll"
+-r:"C:\Windows\Microsoft.NET\Framework64\v4.0.30319\System.dll"
+-r:"C:\Windows\Microsoft.NET\Framework64\v4.0.30319\System.Core.dll"
+-r:"C:\Windows\Microsoft.NET\Framework64\v4.0.30319\System.Web.Extensions.dll"
+"C:\Users\pha21\Documents\GitHub\Exit_BlockenCity_Hyeona\Tools\Story\Backups\choice-history-check\Tests.cs"
+"C:\Users\pha21\Documents\GitHub\Exit_BlockenCity_Hyeona\Assets\PHA\Story\Script\Save\StoryChoiceHistory.cs"
+"C:\Users\pha21\Documents\GitHub\Exit_BlockenCity_Hyeona\Assets\PHA\Story\Script\Runtime\StoryChoiceRules.cs"
+"C:\Users\pha21\Documents\GitHub\Exit_BlockenCity_Hyeona\Assets\CJY\Scripts\SaveSystem\Data\RelationshipType.cs"
