@@ -8,6 +8,7 @@ using System.Collections.Generic;
 [Serializable]
 public class StoryProgressData
 {
+    public bool demoCompleted;
     public List<string> completedStoryIds = new();
 
     public List<string> introducedFactionIds = new();
