@@ -1,0 +1,221 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa573599e69a6074fae017c9bb7c0b7e, type: 3}
+  m_Name: Story_Normal_07
+  m_EditorClassIdentifier: 
+  storyId: Normal_07
+  storyType: 0
+  storyTitle: "\uC78A\uC9C0 \uB9D0\uC544\uC57C \uD560 \uC18C\uC911\uD568"
+  year: 1960
+  month: 7
+  day: 8
+  priority: 100
+  playOnce: 1
+  playTiming: 1
+  availableMonth: 7
+  conditions: []
+  unlockFactionId: 
+  startNodeId: Intro_01
+  nodes:
+  - nodeId: Intro_01
+    nodeType: 2
+    text: "(\uCD5C\uADFC \uAD6C\uB8E1\uCC44\uC131\uC5D0\uC11C \uC544\uC774\uB4E4\uC774
+      \uC5F0\uC774\uC5B4 \uC0AC\uB77C\uC9C0\uACE0 \uC788\uB2E4.)"
+    character: {fileID: 0}
+    portraitId: 
+    nextNodeId: Intro_02
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 0
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Intro_02
+    nodeType: 2
+    text: "(\uCC98\uC74C\uC5D0\uB294 \uB2E8\uC21C\uD55C \uAC00\uCD9C\uACFC \uC2E4\uC885\uC73C\uB85C
+      \uCC98\uB9AC\uB418\uC5C8\uC73C\uB098, \uBE44\uC2B7\uD55C \uC0AC\uAC74\uC774
+      \uBC18\uBCF5\uB418\uBA74\uC11C \uB0A9\uCE58 \uAC00\uB2A5\uC131\uC774 \uC81C\uAE30\uB418\uC5C8\uB2E4.)"
+    character: {fileID: 0}
+    portraitId: 
+    nextNodeId: Intro_03
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 0
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Intro_03
+    nodeType: 2
+    text: "(\uD604\uC7AC\uAE4C\uC9C0 \uC0AC\uB77C\uC9C4 \uC544\uC774\uB4E4\uC758
+      \uD589\uBC29\uC740 \uD655\uC778\uB418\uC9C0 \uC54A\uC558\uB2E4.)"
+    character: {fileID: 0}
+    portraitId: 
+    nextNodeId: Intro_04
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 0
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Intro_04
+    nodeType: 2
+    text: "(\uC0AC\uAC74\uC5D0 \uAD00\uD55C \uC11C\uB958\uB97C \uC815\uB9AC\uD558\uB358
+      \uC911, {PlayerName}\uC758 \uC0AC\uBB34\uC2E4 \uBB38\uC744 \uB204\uAD70\uAC00
+      \uB450\uB4DC\uB838\uB2E4.)"
+    character: {fileID: 0}
+    portraitId: 
+    nextNodeId: Intro_05
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 0
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Intro_05
+    nodeType: 2
+    text: "(\uB300\uB2F5\uC774 \uB3CC\uC544\uC624\uC790 \uBB38\uC774 \uC5F4\uB838\uB2E4.)"
+    character: {fileID: 0}
+    portraitId: 
+    nextNodeId: Intro_06
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 0
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Intro_06
+    nodeType: 2
+    text: "(\uAD70\uBCF5\uC744 \uC785\uC740 \uB0A8\uC131\uC774 \uC0AC\uBB34\uC2E4
+      \uC548\uC73C\uB85C \uB4E4\uC5B4\uC654\uB2E4.)"
+    character: {fileID: 0}
+    portraitId: 
+    nextNodeId: Intro_07
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 0
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Intro_07
+    nodeType: 2
+    text: "(\uADF8\uAC00 \uC9E7\uAC8C \uACBD\uB840\uD588\uB2E4.)"
+    character: {fileID: 0}
+    portraitId: 
+    nextNodeId: Jianyu_01
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 0
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Jianyu_01
+    nodeType: 0
+    text: "\uD2B9\uBCC4\uCE58\uC548\uAD70 \uD2B9\uBB34\uBD80\uB300\uC7A5, \uC704
+      \uAC74\uC6B0\uC785\uB2C8\uB2E4."
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_02_00
+    nextNodeId: Jianyu_02
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 0
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Jianyu_02
+    nodeType: 0
+    text: "\uC774\uBC88 \uC544\uB3D9 \uC2E4\uC885 \uC0AC\uAC74\uACFC \uAD00\uB828\uD558\uC5EC
+      \uBA87 \uAC00\uC9C0 \uD655\uC778\uD558\uACA0\uC2B5\uB2C8\uB2E4."
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_02_00
+    nextNodeId: Narration_01
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Narration_01
+    nodeType: 2
+    text: "(\uC815\uC911\uD55C \uB9D0\uD22C\uC600\uC9C0\uB9CC, \uC0AC\uBB34\uC2E4\uC758
+      \uACF5\uAE30\uAC00 \uC774\uC804\uBCF4\uB2E4 \uBB34\uAC70\uC6CC\uC9C4 \uB4EF\uD588\uB2E4.)"
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_02_00
+    nextNodeId: Narration_02
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Narration_02
+    nodeType: 2
+    text: "(\uC704 \uAC74\uC6B0\uC758 \uC2DC\uC120\uC774 \uCC45\uC0C1 \uC704\uC5D0
+      \uB193\uC778 \uC2E4\uC885\uC790 \uBA85\uB2E8\uC73C\uB85C \uD5A5\uD588\uB2E4.)"
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_02_00
+    nextNodeId: Jianyu_03
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Jianyu_03
+    nodeType: 0
+    text: "\uC544\uC9C1 \uCC3E\uC9C0 \uBABB\uD588\uC2B5\uB2C8\uAE4C?"
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_02_00
+    nextNodeId: Narration_03
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Narration_03
+    nodeType: 2
+    text: "(\uC778\uC0AC\uBCF4\uB2E4 \uBA3C\uC800 \uB098\uC628 \uC9C8\uBB38\uC774\uC5C8\uB2E4.)"
+    character: {fileID: 11400000, guid: f9e75b63c619a9d418a5ca42b242d061, type: 2}
+    portraitId: D_02_00
+    nextNodeId: Narration_04
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Narration_04
+    nodeType: 2
+    text: "(\uC704 \uAC74\uC6B0\uAC00 \uC7A0\uC2DC \uC785\uC744 \uB2E4\uBB3C\uC5C8\uB2E4.)"
+    character: {fileID: 0}
+    portraitId: D_02_00
+    nextNodeId: Jianyu_04
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []

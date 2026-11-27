@@ -1,0 +1,13 @@
+﻿StoryId,StoryType,StoryTitle,Year,Month,Day,Priority,PlayOnce,PlayTiming,UnlockFactionId,StartNodeId,DefaultBackgroundId,Memo
+Normal_01,Normal,발령,1960,1,17,100,TRUE,Monthly,Normal_01,appointment_001,,
+Normal_02,Normal,단순하게 사는 법,1960,2,14,100,TRUE,Monthly,Normal_02,Intro_01,,
+Normal_03,Normal,불확실함 속에서,1960,3,20,100,TRUE,Monthly,Normal_03,Intro_01,,
+Normal_04,Normal,고요의 순간,1960,4,27,100,TRUE,Monthly,,Narration_01,,
+Normal_05,Normal,인간은 파괴될 지언정,1960,5,21,100,TRUE,Monthly,,Intro_01,,
+Normal_06,Normal,조금은 낭만적인 것,1960,6,19,100,TRUE,Monthly,,Intro_01,,
+Normal_07,Normal,잊지 말아야 할 소중함,1960,7,8,100,TRUE,Monthly,,Intro_01,,
+Normal_08,Normal,어디에서 어디로,1960,8,23,100,TRUE,Monthly,,Intro_01,,
+Normal_09,Normal,불가능한 것을 이루려면,1960,9,2,100,TRUE,Monthly,,Intro_01,,
+Normal_10,Normal,잃어버린 가치,1960,10,15,100,TRUE,Monthly,,Intro_01,,
+Normal_11,Normal,나름대로의 헌신,1960,11,18,100,TRUE,Monthly,,Intro_01,,
+Normal_12,Normal,이번일도 언젠가는,1960,12,31,100,TRUE,Monthly,,Intro_01,,

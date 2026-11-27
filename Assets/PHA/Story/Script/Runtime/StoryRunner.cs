@@ -5,20 +5,23 @@ using UnityEngine.UI;
 
 public class StoryRunner : MonoBehaviour
 {
-    [Header("½ºÅä¸® UI")]
+    [Header("ìŠ¤í† ë¦¬ UI")]
     [SerializeField]
     private StoryUI storyUI;
 
-    [Header("½ºÅä¸® ½ÃÄö½º")]
+    [Header("ìŠ¤í† ë¦¬ ë°°ê²½")]
+    [SerializeField] private BackgroundTestController backgroundController;
+
+    [Header("ìŠ¤í† ë¦¬ ì‹œí€€ìŠ¤")]
     [SerializeField]
     private StorySequenceController sequenceController;
 
-    [Header("¿ù ¿Ï·á Ã³¸®")]
+    [Header("ì›” ì™„ë£Œ ì²˜ë¦¬")]
     [SerializeField]
     private StoryMonthCompletionController
     monthCompletionController;
 
-    [Header("Å×½ºÆ®¿ë ½ºÅä¸®")]
+    [Header("í…ŒìŠ¤íŠ¸ìš© ìŠ¤í† ë¦¬")]
     [SerializeField]
     private bool useTestStory;
 
@@ -28,21 +31,21 @@ public class StoryRunner : MonoBehaviour
     [SerializeField]
     private bool playOnStart;
 
-    [Header("ÇÃ·¹ÀÌ¾î Á¤º¸")]
-    [Tooltip("ÀúÀåµÈ ÀÌ¸§À» Ã£Áö ¸øÇßÀ» ¶§ »ç¿ëÇÒ ±âº» ÀÌ¸§")]
+    [Header("í”Œë ˆì´ì–´ ì •ë³´")]
+    [Tooltip("ì €ì¥ëœ ì´ë¦„ì„ ì°¾ì§€ ëª»í–ˆì„ ë•Œ ì‚¬ìš©í•  ê¸°ë³¸ ì´ë¦„")]
     [SerializeField]
-    private string defaultPlayerName = "¼­¾È";
+    private string defaultPlayerName = "ì„œì•ˆ";
 
     [SerializeField]
     private string playerJobTitle =
-        "°øÀÛÃ» ÇöÀå°¨µ¶°ü";
+        "ê³µì‘ì²­ í˜„ì¥ê°ë…ê´€";
 
-    [Header("ÀÚµ¿ ÁøÇà")]
+    [Header("ìë™ ì§„í–‰")]
     [Min(0f)]
     [SerializeField]
     private float autoAdvanceDelay = 1.5f;
 
-    [Header("½ºÅµ")]
+    [Header("ìŠ¤í‚µ")]
     [Min(0f)]
     [SerializeField]
     private float skipAdvanceDelay = 0.05f;
@@ -63,24 +66,24 @@ public class StoryRunner : MonoBehaviour
 
 
     /*
-     * ÇöÀç ½ÇÇà ÁßÀÎ ½ºÅä¸® ¾È¿¡¼­ ¹ß»ıÇÑ
-     * ¼±ÅÃ °á°ú¸¦ ÀÓ½Ã·Î º¸°üÇÕ´Ï´Ù.
+     * í˜„ì¬ ì‹¤í–‰ ì¤‘ì¸ ìŠ¤í† ë¦¬ ì•ˆì—ì„œ ë°œìƒí•œ
+     * ì„ íƒ ê²°ê³¼ë¥¼ ì„ì‹œë¡œ ë³´ê´€í•©ë‹ˆë‹¤.
      */
     private readonly Dictionary<string, string>
         storyResults = new();
 
     /*
-     * ¿ÜºÎ ½Ã½ºÅÛ¿¡¼­ ÀÓ½Ã·Î µî·ÏÇÏ´Â Á¶°ÇÀÔ´Ï´Ù.
+     * ì™¸ë¶€ ì‹œìŠ¤í…œì—ì„œ ì„ì‹œë¡œ ë“±ë¡í•˜ëŠ” ì¡°ê±´ì…ë‹ˆë‹¤.
      *
-     * ¿¹:
+     * ì˜ˆ:
      * SetStoryUnlock("MetHongryeon", true);
      */
     private readonly Dictionary<string, string>
         storyConditions = new();
 
     /*
-     * ¿Ï·á ½ºÅä¸®, ¼¼·Â ¼Ò°³ ¿©ºÎ,
-     * ¼±ÅÃ °á°ú ÀúÀå µîÀ» ´ã´çÇÕ´Ï´Ù.
+     * ì™„ë£Œ ìŠ¤í† ë¦¬, ì„¸ë ¥ ì†Œê°œ ì—¬ë¶€,
+     * ì„ íƒ ê²°ê³¼ ì €ì¥ ë“±ì„ ë‹´ë‹¹í•©ë‹ˆë‹¤.
      */
     private StoryProgressService progressService;
 
@@ -119,6 +122,8 @@ public class StoryRunner : MonoBehaviour
 
     private void Awake()
     {
+        if (backgroundController == null)
+            backgroundController = GetComponent<BackgroundTestController>();
         progressService =
             new StoryProgressService();
 
@@ -141,7 +146,7 @@ public class StoryRunner : MonoBehaviour
         if (storyUI == null)
         {
             Debug.LogError(
-                "StoryUI°¡ ¿¬°áµÇÁö ¾Ê¾Ò½À´Ï´Ù.",
+                "StoryUIê°€ ì—°ê²°ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.",
                 this
             );
 
@@ -156,15 +161,15 @@ public class StoryRunner : MonoBehaviour
         }
 
         /*
-         * Å×½ºÆ® ¸ğµå°¡ ÄÑÁ® ÀÖÀ¸¸é
-         * Æ¯Á¤ StoryData¸¸ ½ÇÇàÇÕ´Ï´Ù.
+         * í…ŒìŠ¤íŠ¸ ëª¨ë“œê°€ ì¼œì ¸ ìˆìœ¼ë©´
+         * íŠ¹ì • StoryDataë§Œ ì‹¤í–‰í•©ë‹ˆë‹¤.
          */
         if (useTestStory)
         {
             if (testStory == null)
             {
                 Debug.LogWarning(
-                    "Å×½ºÆ®¿ë StoryData°¡ ¿¬°áµÇÁö ¾Ê¾Ò½À´Ï´Ù.",
+                    "í…ŒìŠ¤íŠ¸ìš© StoryDataê°€ ì—°ê²°ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.",
                     this
                 );
 
@@ -176,8 +181,8 @@ public class StoryRunner : MonoBehaviour
         }
 
         /*
-         * ½ÇÁ¦ °ÔÀÓ¿¡¼­´Â ÇöÀç ¿ù°ú Á¶°Ç¿¡ ¸Â´Â
-         * ½ºÅä¸® ½ÃÄö½º¸¦ »ı¼ºÇÕ´Ï´Ù.
+         * ì‹¤ì œ ê²Œì„ì—ì„œëŠ” í˜„ì¬ ì›”ê³¼ ì¡°ê±´ì— ë§ëŠ”
+         * ìŠ¤í† ë¦¬ ì‹œí€€ìŠ¤ë¥¼ ìƒì„±í•©ë‹ˆë‹¤.
          */
         StartCurrentStorySequence();
     }
@@ -194,6 +199,8 @@ public class StoryRunner : MonoBehaviour
 
     private void OnDisable()
     {
+        if (backgroundController != null)
+            backgroundController.CompleteTransition();
         if (StorySettingsManager.Instance != null)
         {
             StorySettingsManager.Instance
@@ -215,9 +222,9 @@ public class StoryRunner : MonoBehaviour
         if (sequenceController == null)
         {
             Debug.LogError(
-                "StorySequenceController°¡ ¿¬°áµÇÁö ¾Ê¾Ò½À´Ï´Ù. " +
-                "StoryRunner¿Í °°Àº ¿ÀºêÁ§Æ®¿¡ Ãß°¡ÇÏ°Å³ª " +
-                "Inspector¿¡¼­ Á÷Á¢ ¿¬°áÇØÁÖ¼¼¿ä.",
+                "StorySequenceControllerê°€ ì—°ê²°ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤. " +
+                "StoryRunnerì™€ ê°™ì€ ì˜¤ë¸Œì íŠ¸ì— ì¶”ê°€í•˜ê±°ë‚˜ " +
+                "Inspectorì—ì„œ ì§ì ‘ ì—°ê²°í•´ì£¼ì„¸ìš”.",
                 this
             );
         }
@@ -265,8 +272,8 @@ public class StoryRunner : MonoBehaviour
     }
 
     /*
-     * ÇöÀç ¿ù°ú ÀúÀåµÈ Á¶°ÇÀ» ±âÁØÀ¸·Î
-     * StorySequenceController¿¡ ½ºÅä¸® ¸ñ·Ï »ı¼ºÀ» ¿äÃ»ÇÕ´Ï´Ù.
+     * í˜„ì¬ ì›”ê³¼ ì €ì¥ëœ ì¡°ê±´ì„ ê¸°ì¤€ìœ¼ë¡œ
+     * StorySequenceControllerì— ìŠ¤í† ë¦¬ ëª©ë¡ ìƒì„±ì„ ìš”ì²­í•©ë‹ˆë‹¤.
      */
     public void StartCurrentStorySequence()
     {
@@ -281,8 +288,8 @@ public class StoryRunner : MonoBehaviour
         }
 
         /*
-         * ÀÌÀü Å×½ºÆ® ½ºÅä¸®¿¡¼­ ³²Àº
-         * ÇöÀç ½ÇÇà Áß ¼±ÅÃ °á°ú¸¦ ÃÊ±âÈ­ÇÕ´Ï´Ù.
+         * ì´ì „ í…ŒìŠ¤íŠ¸ ìŠ¤í† ë¦¬ì—ì„œ ë‚¨ì€
+         * í˜„ì¬ ì‹¤í–‰ ì¤‘ ì„ íƒ ê²°ê³¼ë¥¼ ì´ˆê¸°í™”í•©ë‹ˆë‹¤.
          */
         storyResults.Clear();
 
@@ -292,7 +299,7 @@ public class StoryRunner : MonoBehaviour
         if (!sequenceCreated)
         {
             Debug.LogWarning(
-                "ÇöÀç ½ÇÇàÇÒ ¼ö ÀÖ´Â ½ºÅä¸® ½ÃÄö½º°¡ ¾ø½À´Ï´Ù.",
+                "í˜„ì¬ ì‹¤í–‰í•  ìˆ˜ ìˆëŠ” ìŠ¤í† ë¦¬ ì‹œí€€ìŠ¤ê°€ ì—†ìŠµë‹ˆë‹¤.",
                 this
             );
 
@@ -303,8 +310,8 @@ public class StoryRunner : MonoBehaviour
     }
 
     /*
-     * StorySequenceController°¡ °ñ¶ó³õÀº
-     * ´ÙÀ½ StoryData¸¦ ¹Ş¾Æ ½ÇÇàÇÕ´Ï´Ù.
+     * StorySequenceControllerê°€ ê³¨ë¼ë†“ì€
+     * ë‹¤ìŒ StoryDataë¥¼ ë°›ì•„ ì‹¤í–‰í•©ë‹ˆë‹¤.
      */
     private void PlayNextQueuedStory()
     {
@@ -322,7 +329,7 @@ public class StoryRunner : MonoBehaviour
             nextStory == null)
         {
             Debug.Log(
-                "ÇöÀç ½ÃÁ¡ÀÇ ¸ğµç ½ºÅä¸®¸¦ ¿Ï·áÇß½À´Ï´Ù.",
+                "í˜„ì¬ ì‹œì ì˜ ëª¨ë“  ìŠ¤í† ë¦¬ë¥¼ ì™„ë£Œí–ˆìŠµë‹ˆë‹¤.",
                 this
             );
 
@@ -333,7 +340,7 @@ public class StoryRunner : MonoBehaviour
     }
 
     /*
-     * Àü´Ş¹ŞÀº StoryDataÀÇ ½ÇÁ¦ Àç»ıÀ» ½ÃÀÛÇÕ´Ï´Ù.
+     * ì „ë‹¬ë°›ì€ StoryDataì˜ ì‹¤ì œ ì¬ìƒì„ ì‹œì‘í•©ë‹ˆë‹¤.
      */
     public void StartStory(
         StoryData story)
@@ -341,7 +348,7 @@ public class StoryRunner : MonoBehaviour
         if (story == null)
         {
             Debug.LogError(
-                "½ÇÇàÇÒ StoryData°¡ ¾ø½À´Ï´Ù.",
+                "ì‹¤í–‰í•  StoryDataê°€ ì—†ìŠµë‹ˆë‹¤.",
                 this
             );
 
@@ -351,7 +358,7 @@ public class StoryRunner : MonoBehaviour
         if (storyUI == null)
         {
             Debug.LogError(
-                "StoryUI°¡ ¿¬°áµÇÁö ¾Ê¾Ò½À´Ï´Ù.",
+                "StoryUIê°€ ì—°ê²°ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.",
                 this
             );
 
@@ -362,7 +369,7 @@ public class StoryRunner : MonoBehaviour
                 story.StartNodeId))
         {
             Debug.LogError(
-                $"[{story.name}] ½ÃÀÛ ³ëµå ID°¡ ¾ø½À´Ï´Ù.",
+                $"[{story.name}] ì‹œì‘ ë…¸ë“œ IDê°€ ì—†ìŠµë‹ˆë‹¤.",
                 story
             );
 
@@ -388,6 +395,11 @@ public class StoryRunner : MonoBehaviour
 
         storyUI.Open();
 
+        if (backgroundController != null)
+            backgroundController.BeginStory(story);
+        else if (!string.IsNullOrWhiteSpace(story.DefaultBackgroundId))
+            Debug.LogError($"[{story.StoryId}] ì‹œì‘ ë°°ê²½ì„ í‘œì‹œí•  BackgroundTestControllerë¥¼ ì—°ê²°í•˜ì„¸ìš”.", this);
+
         storyUI.SetAutoModeVisual(
             autoMode
         );
@@ -404,7 +416,7 @@ public class StoryRunner : MonoBehaviour
     }
 
     /*
-     * ´ëÈ­Ã¢ÀÇ ´ÙÀ½ ¹öÆ°À» ´­·¶À» ¶§ È£ÃâÇÕ´Ï´Ù.
+     * ëŒ€í™”ì°½ì˜ ë‹¤ìŒ ë²„íŠ¼ì„ ëˆŒë €ì„ ë•Œ í˜¸ì¶œí•©ë‹ˆë‹¤.
      */
     public void OnClickNext()
     {
@@ -446,7 +458,7 @@ public class StoryRunner : MonoBehaviour
         {
             Debug.LogError(
                 $"[{currentStory.StoryId}] " +
-                $"'{nodeId}' ³ëµå¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù.",
+                $"'{nodeId}' ë…¸ë“œë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.",
                 currentStory
             );
 
@@ -480,6 +492,13 @@ public class StoryRunner : MonoBehaviour
         storyUI.HideChoices();
         storyUI.HideNextLineIcon();
 
+        if (!string.IsNullOrWhiteSpace(node.BackgroundId))
+        {
+            if (backgroundController != null)
+                yield return backgroundController.Show(node, currentStory.StoryId, skipMode);
+            else
+                Debug.LogError($"[{currentStory.StoryId}/{node.NodeId}] ë°°ê²½ì„ í‘œì‹œí•  BackgroundTestControllerë¥¼ ì—°ê²°í•˜ì„¸ìš”.", this);
+        }
         yield return ProcessEffects(node);
 
         switch (node.NodeType)
@@ -512,7 +531,7 @@ public class StoryRunner : MonoBehaviour
 
             default:
                 Debug.LogWarning(
-                    $"Áö¿øÇÏÁö ¾Ê´Â ³ëµå Å¸ÀÔ: " +
+                    $"ì§€ì›í•˜ì§€ ì•ŠëŠ” ë…¸ë“œ íƒ€ì…: " +
                     $"{node.NodeType}",
                     currentStory
                 );
@@ -546,7 +565,7 @@ public class StoryRunner : MonoBehaviour
         {
             Debug.LogWarning(
                 $"[{node.NodeId}] " +
-                "Ä³¸¯ÅÍ°¡ ÁöÁ¤µÇÁö ¾Ê¾Ò½À´Ï´Ù.",
+                "ìºë¦­í„°ê°€ ì§€ì •ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.",
                 currentStory
             );
 
@@ -647,9 +666,9 @@ public class StoryRunner : MonoBehaviour
     }
 
     /*
-     * ¿ÜºÎ ½Ã½ºÅÛ¿¡¼­ ÀÓ½Ã ½ºÅä¸® Á¶°ÇÀ» µî·ÏÇÒ ¶§ »ç¿ëÇÕ´Ï´Ù.
+     * ì™¸ë¶€ ì‹œìŠ¤í…œì—ì„œ ì„ì‹œ ìŠ¤í† ë¦¬ ì¡°ê±´ì„ ë“±ë¡í•  ë•Œ ì‚¬ìš©í•©ë‹ˆë‹¤.
      *
-     * ¿¹:
+     * ì˜ˆ:
      * SetStoryCondition("HasSpecialItem", "True");
      */
     public void SetStoryCondition(
@@ -659,7 +678,7 @@ public class StoryRunner : MonoBehaviour
         if (string.IsNullOrWhiteSpace(key))
         {
             Debug.LogWarning(
-                "½ºÅä¸® Á¶°Ç Å°°¡ ºñ¾î ÀÖ½À´Ï´Ù.",
+                "ìŠ¤í† ë¦¬ ì¡°ê±´ í‚¤ê°€ ë¹„ì–´ ìˆìŠµë‹ˆë‹¤.",
                 this
             );
 
@@ -670,7 +689,7 @@ public class StoryRunner : MonoBehaviour
             value ?? string.Empty;
 
         Debug.Log(
-            $"½ºÅä¸® Á¶°Ç µî·Ï: {key} = {value}",
+            $"ìŠ¤í† ë¦¬ ì¡°ê±´ ë“±ë¡: {key} = {value}",
             this
         );
     }
@@ -698,12 +717,15 @@ public class StoryRunner : MonoBehaviour
             return true;
         }
 
+        if (StoryChoiceRules.TryEvaluate(choice.RequiredKey, choice.RequiredValue, out bool available))
+            return available;
+
         if (string.IsNullOrWhiteSpace(
                 choice.RequiredKey))
         {
             Debug.LogWarning(
-                $"¼±ÅÃÁö '{choice.ChoiceText}'ÀÇ " +
-                "Required Key°¡ ºñ¾î ÀÖ½À´Ï´Ù.",
+                $"ì„ íƒì§€ '{choice.ChoiceText}'ì˜ " +
+                "Required Keyê°€ ë¹„ì–´ ìˆìŠµë‹ˆë‹¤.",
                 this
             );
 
@@ -711,7 +733,7 @@ public class StoryRunner : MonoBehaviour
         }
 
         /*
-         * 1. ÇöÀç ½ºÅä¸®¿¡¼­ ¹ß»ıÇÑ ¼±ÅÃ °á°ú¸¦ È®ÀÎÇÕ´Ï´Ù.
+         * 1. í˜„ì¬ ìŠ¤í† ë¦¬ì—ì„œ ë°œìƒí•œ ì„ íƒ ê²°ê³¼ë¥¼ í™•ì¸í•©ë‹ˆë‹¤.
          */
         if (storyResults.TryGetValue(
                 choice.RequiredKey,
@@ -726,7 +748,7 @@ public class StoryRunner : MonoBehaviour
         }
 
         /*
-         * 2. ¿ÜºÎ¿¡¼­ µî·ÏÇÑ ÀÓ½Ã Á¶°ÇÀ» È®ÀÎÇÕ´Ï´Ù.
+         * 2. ì™¸ë¶€ì—ì„œ ë“±ë¡í•œ ì„ì‹œ ì¡°ê±´ì„ í™•ì¸í•©ë‹ˆë‹¤.
          */
         if (storyConditions.TryGetValue(
                 choice.RequiredKey,
@@ -741,8 +763,8 @@ public class StoryRunner : MonoBehaviour
         }
 
         /*
-         * 3. ÀÌÀü ½ºÅä¸®¿¡¼­ ¿µ±¸ ÀúÀåµÈ
-         * ¼±ÅÃ °á°ú¸¦ È®ÀÎÇÕ´Ï´Ù.
+         * 3. ì´ì „ ìŠ¤í† ë¦¬ì—ì„œ ì˜êµ¬ ì €ì¥ëœ
+         * ì„ íƒ ê²°ê³¼ë¥¼ í™•ì¸í•©ë‹ˆë‹¤.
          */
         if (progressService != null)
         {
@@ -784,7 +806,7 @@ public class StoryRunner : MonoBehaviour
         StoryChoiceData choice)
     {
         if (!isWaitingForChoice ||
-            choice == null)
+            choice == null || !IsChoiceAvailable(choice))
         {
             return;
         }
@@ -811,14 +833,16 @@ public class StoryRunner : MonoBehaviour
         }
 
         /*
-         * ÇöÀç ½ºÅä¸® ¾È¿¡¼­ Áï½Ã »ç¿ëÇÏ±â À§ÇÑ °ªÀÔ´Ï´Ù.
+         * í˜„ì¬ ìŠ¤í† ë¦¬ ì•ˆì—ì„œ ì¦‰ì‹œ ì‚¬ìš©í•˜ê¸° ìœ„í•œ ê°’ì…ë‹ˆë‹¤.
          */
         storyResults[choice.ResultKey] =
             choice.ResultValue;
 
+        StoryChoiceRules.RecordResult(choice.ResultKey, choice.ResultValue);
+
         /*
-         * ´ÙÀ½ ½ºÅä¸®³ª °ÔÀÓ Àç½ÇÇà ÈÄ¿¡µµ »ç¿ëÇÏµµ·Ï
-         * SaveData¿¡ ÀúÀåÇÕ´Ï´Ù.
+         * ë‹¤ìŒ ìŠ¤í† ë¦¬ë‚˜ ê²Œì„ ì¬ì‹¤í–‰ í›„ì—ë„ ì‚¬ìš©í•˜ë„ë¡
+         * SaveDataì— ì €ì¥í•©ë‹ˆë‹¤.
          */
         progressService?.SaveChoiceResult(
             choice.ResultKey,
@@ -884,8 +908,8 @@ public class StoryRunner : MonoBehaviour
         }
 
         /*
-         * ÀÚµ¿ ÁøÇà ¹öÆ° ¶Ç´Â ½ºÅµÀÌ ÄÑÁ³À» ¶§¸¸
-         * ´ÙÀ½ ³ëµå¸¦ ÀÚµ¿À¸·Î ¿¹¾àÇÕ´Ï´Ù.
+         * ìë™ ì§„í–‰ ë²„íŠ¼ ë˜ëŠ” ìŠ¤í‚µì´ ì¼œì¡Œì„ ë•Œë§Œ
+         * ë‹¤ìŒ ë…¸ë“œë¥¼ ìë™ìœ¼ë¡œ ì˜ˆì•½í•©ë‹ˆë‹¤.
          */
         bool shouldAdvance =
             skipMode ||
@@ -905,9 +929,9 @@ public class StoryRunner : MonoBehaviour
         else
         {
             /*
-             * ³ëµå¿¡ º°µµ ÀÚµ¿ ÁøÇà ½Ã°£ÀÌ ÁöÁ¤µÇ¾î ÀÖ´Ù¸é
-             * ½Ã°£¸¸ »ç¿ëÇÏ°í, ÀÚµ¿ ÁøÇà ¿©ºÎ ÀÚÃ¼´Â
-             * autoMode°¡ °áÁ¤ÇÕ´Ï´Ù.
+             * ë…¸ë“œì— ë³„ë„ ìë™ ì§„í–‰ ì‹œê°„ì´ ì§€ì •ë˜ì–´ ìˆë‹¤ë©´
+             * ì‹œê°„ë§Œ ì‚¬ìš©í•˜ê³ , ìë™ ì§„í–‰ ì—¬ë¶€ ìì²´ëŠ”
+             * autoModeê°€ ê²°ì •í•©ë‹ˆë‹¤.
              */
             delay =
                 node.AutoAdvance
@@ -937,7 +961,7 @@ public class StoryRunner : MonoBehaviour
             yield break;
         }
 
-        // ´ë±â Áß ÀÚµ¿ ÁøÇàÀ» ²°´Ù¸é ÁøÇà Áß´Ü
+        // ëŒ€ê¸° ì¤‘ ìë™ ì§„í–‰ì„ ê»ë‹¤ë©´ ì§„í–‰ ì¤‘ë‹¨
         if (!autoMode &&
             !skipMode)
         {
@@ -975,29 +999,29 @@ public class StoryRunner : MonoBehaviour
         }
 
         Debug.Log(
-    $"ToggleAutoMode È£Ãâ / ÇöÀç: {autoMode} / º¯°æ: {!autoMode}", this);
+    $"ToggleAutoMode í˜¸ì¶œ / í˜„ì¬: {autoMode} / ë³€ê²½: {!autoMode}", this);
 
         bool nextAutoMode = !autoMode;
 
-        // StoryRunner°¡ ½ÇÁ¦·Î »ç¿ëÇÏ´Â »óÅÂ¸¦ Áï½Ã º¯°æ
+        // StoryRunnerê°€ ì‹¤ì œë¡œ ì‚¬ìš©í•˜ëŠ” ìƒíƒœë¥¼ ì¦‰ì‹œ ë³€ê²½
         autoMode = nextAutoMode;
 
         if (autoMode)
         {
-            // ÀÚµ¿ ¸ğµå¿Í ½ºÅµ ¸ğµå´Â µ¿½Ã¿¡ »ç¿ëÇÏÁö ¾ÊÀ½
+            // ìë™ ëª¨ë“œì™€ ìŠ¤í‚µ ëª¨ë“œëŠ” ë™ì‹œì— ì‚¬ìš©í•˜ì§€ ì•ŠìŒ
             skipMode = false;
         }
 
-        // ±âÁ¸¿¡ ¿¹¾àµÈ ÀÚµ¿ ÁøÇàÀ» Áï½Ã Áß´Ü
+        // ê¸°ì¡´ì— ì˜ˆì•½ëœ ìë™ ì§„í–‰ì„ ì¦‰ì‹œ ì¤‘ë‹¨
         CancelScheduledAdvance();
 
-        // ¹öÆ° UI Áï½Ã º¯°æ
+        // ë²„íŠ¼ UI ì¦‰ì‹œ ë³€ê²½
         if (storyUI != null)
         {
             storyUI.SetAutoModeVisual(autoMode);
         }
 
-        // ¼³Á¤°ªµµ ÇöÀç »óÅÂ¿Í µ¿ÀÏÇÏ°Ô ÀúÀå
+        // ì„¤ì •ê°’ë„ í˜„ì¬ ìƒíƒœì™€ ë™ì¼í•˜ê²Œ ì €ì¥
         if (StorySettingsManager.Instance != null)
         {
             StorySettingsManager.Instance.SetAdvanceMode(
@@ -1007,7 +1031,7 @@ public class StoryRunner : MonoBehaviour
             );
         }
 
-        // ÀÚµ¿ ¸ğµå·Î ÄÒ °æ¿ì¿¡¸¸ ´Ù½Ã ÀÚµ¿ ÁøÇà ¿¹¾à
+        // ìë™ ëª¨ë“œë¡œ ì¼  ê²½ìš°ì—ë§Œ ë‹¤ì‹œ ìë™ ì§„í–‰ ì˜ˆì•½
         if (autoMode &&
             currentNode != null &&
             !isWaitingForChoice &&
@@ -1032,6 +1056,8 @@ public class StoryRunner : MonoBehaviour
 
         if (skipMode)
         {
+            if (backgroundController != null)
+                backgroundController.CompleteTransition();
             autoMode = false;
 
             storyUI.SetAutoModeVisual(false);
@@ -1075,14 +1101,14 @@ public class StoryRunner : MonoBehaviour
             }
 
             Debug.Log(
-                $"½ºÅä¸® È¿°ú ¿äÃ»: " +
+                $"ìŠ¤í† ë¦¬ íš¨ê³¼ ìš”ì²­: " +
                 $"{effect.EffectType}",
                 this
             );
 
             /*
-             * ÃßÈÄ ¿©±â¼­ Àü¿ë StoryEffectController¿¡
-             * È¿°ú ½ÇÇàÀ» À§ÀÓÇÒ ¼ö ÀÖ½À´Ï´Ù.
+             * ì¶”í›„ ì—¬ê¸°ì„œ ì „ìš© StoryEffectControllerì—
+             * íš¨ê³¼ ì‹¤í–‰ì„ ìœ„ì„í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.
              */
             if (effect.WaitForCompletion)
             {
@@ -1097,8 +1123,8 @@ public class StoryRunner : MonoBehaviour
     }
 
     /*
-     * ÇöÀç StoryData¸¦ Á¾·áÇÏ°í,
-     * ½ÃÄö½º¿¡ ´ÙÀ½ StoryData°¡ ÀÖÀ¸¸é ÀÌ¾î¼­ ½ÇÇàÇÕ´Ï´Ù.
+     * í˜„ì¬ StoryDataë¥¼ ì¢…ë£Œí•˜ê³ ,
+     * ì‹œí€€ìŠ¤ì— ë‹¤ìŒ StoryDataê°€ ìˆìœ¼ë©´ ì´ì–´ì„œ ì‹¤í–‰í•©ë‹ˆë‹¤.
      */
     public void EndStory()
     {
@@ -1123,7 +1149,7 @@ public class StoryRunner : MonoBehaviour
             storyUI.Close();
         }
 
-        // ¹æ±İ Á¾·áµÈ °³º° StoryData ¿Ï·á ÀúÀå
+        // ë°©ê¸ˆ ì¢…ë£Œëœ ê°œë³„ StoryData ì™„ë£Œ ì €ì¥
         if (finishedStory != null)
         {
             progressService?.CompleteStory(
@@ -1132,8 +1158,8 @@ public class StoryRunner : MonoBehaviour
         }
 
         /*
-         * ¾ÆÁ÷ Àç»ıÇÒ ÀÌº¥Æ®/¿ù ½ºÅä¸®°¡ ³²¾Æ ÀÖ´Ù¸é
-         * ¿ùÀ» Áõ°¡½ÃÅ°Áö ¾Ê°í ´ÙÀ½ ½ºÅä¸®¸¦ ½ÇÇàÇÕ´Ï´Ù.
+         * ì•„ì§ ì¬ìƒí•  ì´ë²¤íŠ¸/ì›” ìŠ¤í† ë¦¬ê°€ ë‚¨ì•„ ìˆë‹¤ë©´
+         * ì›”ì„ ì¦ê°€ì‹œí‚¤ì§€ ì•Šê³  ë‹¤ìŒ ìŠ¤í† ë¦¬ë¥¼ ì‹¤í–‰í•©ë‹ˆë‹¤.
          */
         if (sequenceController != null &&
             sequenceController.HasNextStory)
@@ -1143,8 +1169,8 @@ public class StoryRunner : MonoBehaviour
         }
 
         /*
-         * QueueÀÇ ¸ğµç ½ºÅä¸®°¡ ³¡³µÀ¸¹Ç·Î
-         * ÀÌ¹ø ´Ş ÀüÃ¼ ½ºÅä¸®°¡ Á¾·áµÈ »óÅÂÀÔ´Ï´Ù.
+         * Queueì˜ ëª¨ë“  ìŠ¤í† ë¦¬ê°€ ëë‚¬ìœ¼ë¯€ë¡œ
+         * ì´ë²ˆ ë‹¬ ì „ì²´ ìŠ¤í† ë¦¬ê°€ ì¢…ë£Œëœ ìƒíƒœì…ë‹ˆë‹¤.
          */
         if (sequenceController != null)
         {
@@ -1152,7 +1178,7 @@ public class StoryRunner : MonoBehaviour
         }
 
         Debug.Log(
-            "ÀÌ¹ø ´ŞÀÇ ¸ğµç ½ºÅä¸®°¡ Á¾·áµÇ¾ú½À´Ï´Ù.",
+            "ì´ë²ˆ ë‹¬ì˜ ëª¨ë“  ìŠ¤í† ë¦¬ê°€ ì¢…ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.",
             this
         );
 
@@ -1164,7 +1190,7 @@ public class StoryRunner : MonoBehaviour
         if (monthCompletionController == null)
         {
             Debug.LogError(
-                "¿ù ¿Ï·á Ã³¸®¸¦ ½ÇÇàÇÒ ¼ö ¾ø½À´Ï´Ù.",
+                "ì›” ì™„ë£Œ ì²˜ë¦¬ë¥¼ ì‹¤í–‰í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.",
                 this
             );
 
@@ -1224,13 +1250,13 @@ public class StoryRunner : MonoBehaviour
         }
 
         /*
-         * ÀÌÀü ÀÚµ¿ ÁøÇà ¿¹¾àÀ» ¸ÕÀú Á¦°ÅÇÕ´Ï´Ù.
+         * ì´ì „ ìë™ ì§„í–‰ ì˜ˆì•½ì„ ë¨¼ì € ì œê±°í•©ë‹ˆë‹¤.
          */
         CancelScheduledAdvance();
 
         /*
-         * ÀÚµ¿ ÁøÇàÀÌ ÄÑÁ³°í ÇöÀç ´ë»ç°¡ ¸ğµÎ Ãâ·ÂµÈ
-         * »óÅÂ¶ó¸é ´Ù½Ã ÀÚµ¿ ÁøÇàÀ» ¿¹¾àÇÕ´Ï´Ù.
+         * ìë™ ì§„í–‰ì´ ì¼œì¡Œê³  í˜„ì¬ ëŒ€ì‚¬ê°€ ëª¨ë‘ ì¶œë ¥ëœ
+         * ìƒíƒœë¼ë©´ ë‹¤ì‹œ ìë™ ì§„í–‰ì„ ì˜ˆì•½í•©ë‹ˆë‹¤.
          */
         if (autoMode &&
             isStoryPlaying &&
@@ -1262,6 +1288,8 @@ public class StoryRunner : MonoBehaviour
 
     private void StopNodeCoroutine()
     {
+        if (backgroundController != null)
+            backgroundController.CompleteTransition();
         if (nodeCoroutine == null)
         {
             return;
@@ -1327,10 +1355,10 @@ public class StoryRunner : MonoBehaviour
         if (monthCompletionController == null)
         {
             Debug.LogError(
-                "StoryMonthCompletionController°¡ " +
-                "¿¬°áµÇÁö ¾Ê¾Ò½À´Ï´Ù. " +
-                "StoryRunner¿Í °°Àº ¿ÀºêÁ§Æ®¿¡ Ãß°¡ÇÏ°Å³ª " +
-                "Inspector¿¡¼­ Á÷Á¢ ¿¬°áÇØÁÖ¼¼¿ä.",
+                "StoryMonthCompletionControllerê°€ " +
+                "ì—°ê²°ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤. " +
+                "StoryRunnerì™€ ê°™ì€ ì˜¤ë¸Œì íŠ¸ì— ì¶”ê°€í•˜ê±°ë‚˜ " +
+                "Inspectorì—ì„œ ì§ì ‘ ì—°ê²°í•´ì£¼ì„¸ìš”.",
                 this
             );
         }

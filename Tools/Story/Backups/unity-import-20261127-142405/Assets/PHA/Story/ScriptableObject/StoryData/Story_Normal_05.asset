@@ -1,0 +1,1694 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa573599e69a6074fae017c9bb7c0b7e, type: 3}
+  m_Name: Story_Normal_05
+  m_EditorClassIdentifier: 
+  storyId: Normal_05
+  storyType: 0
+  storyTitle: "\uC778\uAC04\uC740 \uD30C\uAD34\uB420 \uC9C0\uC5B8\uC815"
+  year: 1960
+  month: 5
+  day: 21
+  priority: 100
+  playOnce: 1
+  playTiming: 1
+  availableMonth: 5
+  conditions: []
+  unlockFactionId: 
+  startNodeId: Intro_01
+  nodes:
+  - nodeId: Intro_01
+    nodeType: 2
+    text: "(\uC774\uBC88 \uB2EC \uAD6C\uB8E1\uCC44\uC131 \uACF3\uACF3\uC5D0\uC11C
+      \uC0AC\uB9DD\uC790\uAC00 \uBC1C\uC0DD\uD588\uB2E4.)"
+    character: {fileID: 0}
+    portraitId: 
+    nextNodeId: Intro_02
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 0
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Intro_02
+    nodeType: 2
+    text: "(\uADF8\uC911 \uC77C\uBD80\uB294 \uCD5C\uADFC \uAE09\uACA9\uD788 \uD655\uC0B0\uB418\uAE30
+      \uC2DC\uC791\uD55C \uB9C8\uC57D\uACFC \uAD00\uB828\uB41C \uC774\uB4E4\uC774\uC5C8\uB2E4.)"
+    character: {fileID: 0}
+    portraitId: 
+    nextNodeId: Intro_03
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 0
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Intro_03
+    nodeType: 2
+    text: "(\uAD00\uB828\uB41C \uBCF4\uACE0\uC11C\uC640 \uCC98\uB9AC\uD558\uC9C0
+      \uBABB\uD55C \uC11C\uB958\uB4E4\uC774 User\uC758 \uCC45\uC0C1 \uC704\uC5D0
+      \uC313\uC5EC \uC788\uC5C8\uB2E4.)"
+    character: {fileID: 0}
+    portraitId: 
+    nextNodeId: Intro_04
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 0
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Intro_04
+    nodeType: 2
+    text: "(\uBB38\uC744 \uB450\uB4DC\uB9AC\uB294 \uC18C\uB9AC\uAC00 \uB4E4\uB838\uB2E4.)"
+    character: {fileID: 0}
+    portraitId: 
+    nextNodeId: Sihwa_01
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 0
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Sihwa_01
+    nodeType: 0
+    text: "\uC624\uB79C\uB9CC\uC774\uB124\uC694."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: Narration_01
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 0
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Narration_01
+    nodeType: 2
+    text: "(\uB9AC \uC2DC\uD654\uC758 \uBAA8\uC2B5\uC740 \uD3C9\uC18C\uC640 \uD06C\uAC8C
+      \uB2E4\uB974\uC9C0 \uC54A\uC558\uB2E4.)"
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: Narration_02
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Narration_02
+    nodeType: 2
+    text: "(\uB2E4\uB9CC \uC774\uC804\uBCF4\uB2E4 \uD53C\uACE4\uD574 \uBCF4\uC778\uB2E4\uB294
+      \uAC83\uB9CC\uC740 \uBD84\uBA85\uD588\uB2E4.)"
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: Sihwa_02
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Sihwa_02
+    nodeType: 0
+    text: "\uC778\uC0AC\uB294 \uC0DD\uB7B5\uD558\uB3C4\uB85D \uD558\uC8E0."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: Sihwa_03
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Sihwa_03
+    nodeType: 0
+    text: "\uC800\uB3C4 \uC9C0\uAE08 \uC5EC\uC720\uAC00 \uC788\uB294 \uC0C1\uD669\uC740
+      \uC544\uB2C8\uB77C\uC11C\uC694."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: Sihwa_04
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Sihwa_04
+    nodeType: 0
+    text: "\uC815\uBD80\uC5D0\uC11C \uC77C\uC5B4\uB09C \uC77C\uC740 \uB4E4\uC73C\uC168\uACA0\uC8E0."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: Narration_03
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Narration_03
+    nodeType: 2
+    text: "(\uBA70\uCE60 \uC804, \uC815\uBD80\uB97C \uB300\uC0C1\uC73C\uB85C \uD55C
+      \uD14C\uB7EC \uC0AC\uAC74\uC774 \uBC1C\uC0DD\uD588\uB2E4.)"
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: Narration_04
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Narration_04
+    nodeType: 2
+    text: "(\uADF8 \uC774\uD6C4\uB85C \uC911\uC559\uC758 \uBD84\uC704\uAE30 \uC5ED\uC2DC
+      \uC5B4\uC218\uC120\uD558\uB2E4\uB294 \uC18C\uC2DD\uC774 \uB4E4\uB824\uC624\uACE0
+      \uC788\uC5C8\uB2E4.)"
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: Sihwa_05
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Sihwa_05
+    nodeType: 0
+    text: "\uB355\uBD84\uC5D0 \uC800\uCABD\uB3C4 \uC774\uCABD\uB3C4 \uC815\uC2E0\uC774
+      \uC5C6\uB124\uC694."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: Sihwa_06
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Sihwa_06
+    nodeType: 0
+    text: "\uADF8\uB7EC\uB2C8 \uC774\uBC88 \uB2EC \uBCF4\uACE0\uB294 \uAC04\uB2E8\uD558\uAC8C
+      \uB4E3\uACA0\uC2B5\uB2C8\uB2E4."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: Sihwa_07
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Sihwa_07
+    nodeType: 0
+    text: "\uC774\uBC88 \uB2EC \uAD6C\uB8E1\uCC44\uC131\uC5D0\uC11C \uC77C\uC5B4\uB09C
+      \uC77C \uC911, \uB2F9\uC2E0\uC774 \uAC00\uC7A5 \uC2EC\uAC01\uD558\uB2E4\uACE0
+      \uC0DD\uAC01\uD558\uB294 \uAC83 \uD558\uB098\uB9CC \uC774\uC57C\uAE30\uD574\uC8FC\uC138\uC694."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: Choice_Report
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Choice_Report
+    nodeType: 3
+    text: "\uC774\uBC88 \uB2EC \uAD6C\uB8E1\uCC44\uC131\uC5D0\uC11C \uC77C\uC5B4\uB09C
+      \uC77C \uC911, \uB2F9\uC2E0\uC774 \uAC00\uC7A5 \uC2EC\uAC01\uD558\uB2E4\uACE0
+      \uC0DD\uAC01\uD558\uB294 \uAC83 \uD558\uB098\uB9CC \uC774\uC57C\uAE30\uD574\uC8FC\uC138\uC694."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: 
+    choices:
+    - choiceText: "\uB9C8\uC57D \uD655\uC0B0 \uBB38\uC81C\uC5D0 \uB300\uD574 \uBCF4\uACE0\uD55C\uB2E4."
+      targetNodeId: A_001
+      resultKey: 
+      resultValue: 
+      useCondition: 0
+      requiredKey: 
+      requiredValue: 
+      hideWhenLocked: 0
+      lockedText: 
+    - choiceText: "\uACF3\uACF3\uC5D0\uC11C \uBC1C\uC0DD\uD55C \uC0AC\uB9DD \uC0AC\uAC74\uC5D0
+        \uB300\uD574 \uBCF4\uACE0\uD55C\uB2E4."
+      targetNodeId: B_001
+      resultKey: 
+      resultValue: 
+      useCondition: 0
+      requiredKey: 
+      requiredValue: 
+      hideWhenLocked: 0
+      lockedText: 
+    - choiceText: "\uC138\uB825 \uAC04\uC758 \uCDA9\uB3CC\uC5D0 \uB300\uD574 \uBCF4\uACE0\uD55C\uB2E4."
+      targetNodeId: C_001
+      resultKey: 
+      resultValue: 
+      useCondition: 1
+      requiredKey: 
+      requiredValue: 
+      hideWhenLocked: 0
+      lockedText: 
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A_001
+    nodeType: 1
+    text: "\uCD5C\uADFC \uAD6C\uB8E1\uCC44\uC131 \uB0B4\uC5D0\uC11C \uB9C8\uC57D\uB4E4\uC774
+      \uD37C\uC9C0\uACE0 \uC788\uC2B5\uB2C8\uB2E4."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: A_Sihwa_01
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A_Sihwa_01
+    nodeType: 0
+    text: "\uB9C8\uC57D \uBB38\uC81C\uC785\uB2C8\uAE4C."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: A_Narration_01
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A_Narration_01
+    nodeType: 2
+    text: "(\uB9AC \uC2DC\uD654\uAC00 \uC7A0\uC2DC \uC0DD\uAC01\uC5D0 \uC7A0\uACBC\uB2E4.)"
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: A_Sihwa_02
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A_Sihwa_02
+    nodeType: 0
+    text: "\uD655\uC2E4\uD788 \uCD5C\uADFC \uB4E4\uC5B4 \uAD00\uB828 \uBCF4\uACE0\uAC00
+      \uAE09\uACA9\uD558\uAC8C \uB298\uAE34 \uD588\uB354\uAD70\uC694."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: A_Sihwa_03
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A_Sihwa_03
+    nodeType: 0
+    text: "\uC815\uBD80\uC5D0\uC11C\uB3C4 \uC720\uD1B5 \uACBD\uB85C\uB97C \uD30C\uC545\uD558\uACE0
+      \uC788\uC9C0\uB9CC, \uC544\uC9C1 \uB69C\uB837\uD558\uAC8C \uB098\uC628 \uAC83\uC740
+      \uC5C6\uC2B5\uB2C8\uB2E4."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_01
+    nextNodeId: A_Sihwa_04
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A_Sihwa_04
+    nodeType: 0
+    text: "\uAD6C\uB8E1\uCC44\uC131\uC740 \uC6D0\uB798\uB3C4 \uBD88\uBC95\uC801\uC778
+      \uBB3C\uAC74\uC774 \uC624\uAC00\uAE30 \uC88B\uC740 \uACF3\uC774\uB2C8\uAE4C\uC694."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: A_Sihwa_05
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A_Sihwa_05
+    nodeType: 0
+    text: "\uC0C8\uC0BC\uC2A4\uB7EC\uC6B4 \uC77C\uC740 \uC544\uB2D9\uB2C8\uB2E4."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: A_Sihwa_06
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A_Sihwa_06
+    nodeType: 0
+    text: "\uD558\uC9C0\uB9CC \uC774\uBC88\uC5D0\uB294 \uC870\uAE08 \uB2E4\uB974\uAE34
+      \uD558\uC8E0."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: A_Narration_02
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A_Narration_02
+    nodeType: 2
+    text: "(\uB9AC \uC2DC\uD654\uAC00 {UserName}\uC758 \uCC45\uC0C1 \uC704\uC5D0
+      \uC313\uC778 \uBCF4\uACE0\uC11C\uB97C \uBC14\uB77C\uBD24\uB2E4.)"
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: A_Sihwa_07
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A_Sihwa_07
+    nodeType: 0
+    text: "\uD37C\uC9C0\uB294 \uC18D\uB3C4\uAC00 \uC9C0\uB098\uCE58\uAC8C \uBE60\uB974\uB2C8\uAE4C\uC694."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_01
+    nextNodeId: A_Sihwa_08
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A_Sihwa_08
+    nodeType: 0
+    text: "\uB204\uAD70\uAC00 \uC758\uB3C4\uC801\uC73C\uB85C \uD37C\uB728\uB9AC\uACE0
+      \uC788\uB294 \uAC83\uC778\uC9C0, \uB2E8\uC21C\uD788 \uC218\uC694\uAC00 \uB298\uC5B4\uB09C
+      \uAC83\uC778\uC9C0\uB294 \uC544\uC9C1 \uBAA8\uB974\uACA0\uC2B5\uB2C8\uB2E4."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: A_Sihwa_09
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A_Sihwa_09
+    nodeType: 0
+    text: "\uC5B4\uB290 \uCABD\uC774\uB4E0 \uC88B\uC740 \uC0C1\uD669\uC740 \uC544\uB2C8\uACA0\uC8E0."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: A_Sihwa_10
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A_Sihwa_10
+    nodeType: 0
+    text: "\uD64D\uB828\uADC0\uAC00 \uAD00\uB828\uB418\uC5B4 \uC788\uB2E4\uBA74 \uBB38\uC81C\uACE0,
+      \uAD00\uB828\uB418\uC5B4 \uC788\uC9C0 \uC54A\uB2E4\uBA74 \uADF8\uAC83\uB300\uB85C
+      \uBB38\uC81C\uACA0\uB124\uC694."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: A_Sihwa_11
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A_Sihwa_11
+    nodeType: 0
+    text: "\uC774\uACF3\uC5D0\uC11C \uADF8\uB4E4\uC758 \uB208\uC744 \uD53C\uD574
+      \uC774 \uC815\uB3C4 \uADDC\uBAA8\uC758 \uBB3C\uAC74\uC744 \uC720\uD1B5\uD560
+      \uC218 \uC788\uB294 \uC790\uB4E4\uC774 \uC788\uB2E4\uB294 \uB73B\uC774 \uB420
+      \uD14C\uB2C8\uAE4C\uC694."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: Narration_05
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B_001
+    nodeType: 1
+    text: "\uC131\uCCB4 \uB0B4\uC5D0\uC11C \uC5EC\uB7EC \uC0AC\uB9DD \uC0AC\uAC74\uB4E4\uC774
+      \uBC1C\uC0DD\uD588\uC2B5\uB2C8\uB2E4."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: B_Sihwa_01
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B_Sihwa_01
+    nodeType: 0
+    text: "\uC0AC\uB9DD \uC0AC\uAC74\uC774\uB77C."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: B_Narration_01
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B_Narration_01
+    nodeType: 2
+    text: "(\uB9AC \uC2DC\uD654\uAC00 \uC7A0\uC2DC \uCE68\uBB35\uD588\uB2E4.)"
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: B_Sihwa_02
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B_Sihwa_02
+    nodeType: 0
+    text: "\uC774\uBC88 \uB2EC\uC5D0\uB294 \uC720\uB3C5 \uB9CE\uC558\uC8E0."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: B_Sihwa_03
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B_Sihwa_03
+    nodeType: 0
+    text: "\uB9C8\uC57D\uC73C\uB85C \uC8FD\uC740 \uC0AC\uB78C\uB3C4 \uC788\uACE0,
+      \uC2F8\uC6C0\uC5D0 \uD718\uB9D0\uB9B0 \uC0AC\uB78C\uB3C4 \uC788\uACE0."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: B_Sihwa_04
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B_Sihwa_04
+    nodeType: 0
+    text: "\uADF8\uC800 \uC6B4\uC774 \uB098\uBE74\uB358 \uC0AC\uB78C\uB3C4 \uC788\uC5C8\uACA0\uC8E0."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: B_Sihwa_05
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B_Sihwa_05
+    nodeType: 0
+    text: "\uD558\uB098\uD558\uB098 \uB530\uC9C0\uC790\uBA74 \uBAA8\uB450 \uB2E4\uB978
+      \uC774\uC720\uB85C \uC8FD\uC740 \uC0AC\uB78C\uB4E4\uC774\uACA0\uC9C0\uB9CC,
+      \uACB0\uACFC\uB9CC \uB193\uACE0 \uBCF4\uBA74 \uBCC4 \uCC28\uC774\uB294 \uC5C6\uB124\uC694."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: B_Narration_02
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B_Narration_02
+    nodeType: 2
+    text: "(\uB9AC \uC2DC\uD654\uAC00 \uB2F4\uB2F4\uD558\uAC8C \uB9D0\uC744 \uC774\uC5C8\uB2E4.)"
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: B_Sihwa_06
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B_Sihwa_06
+    nodeType: 0
+    text: "\uC0AC\uB78C\uC774 \uC8FD\uC5C8\uC2B5\uB2C8\uB2E4."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: B_Sihwa_07
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B_Sihwa_07
+    nodeType: 0
+    text: "\uADF8\uB9AC\uACE0 \uB0A8\uC740 \uC0AC\uB78C\uB4E4\uC740 \uB0B4\uC77C\uB3C4
+      \uC774\uACF3\uC5D0\uC11C \uC0B4\uC544\uAC00\uACA0\uC8E0."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: B_Sihwa_08
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B_Sihwa_08
+    nodeType: 0
+    text: "\uC774\uACF3\uC5D0\uC11C\uB294 \uB4DC\uBB38 \uC77C\uB3C4 \uC544\uB2C8\uB2C8\uAE4C\uC694."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: B_Narration_03
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B_Narration_03
+    nodeType: 0
+    text: "(\uB9AC \uC2DC\uD654\uAC00 {UserName}\uB97C \uBC14\uB77C\uBD24\uB2E4.)"
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: B_Sihwa_09
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B_Sihwa_09
+    nodeType: 0
+    text: "\u2026\uADF8\uB7F0 \uD45C\uC815\uC740 \uC9D3\uC9C0 \uC54A\uC73C\uC154\uB3C4
+      \uB429\uB2C8\uB2E4."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: B_Sihwa_10
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B_Sihwa_10
+    nodeType: 0
+    text: "\uC81C\uAC00 \uC0AC\uB78C\uC758 \uC8FD\uC74C\uC774 \uC544\uBB34\uB807\uC9C0\uB3C4
+      \uC54A\uB2E4\uB294 \uC774\uC57C\uAE30\uB97C \uD558\uB294 \uAC83\uC740 \uC544\uB2C8\uB2C8\uAE4C\uC694."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: B_Sihwa_11
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B_Sihwa_11
+    nodeType: 0
+    text: "\uB2E4\uB9CC \uC8FD\uC74C\uC774 \uBC18\uBCF5\uB41C\uB2E4\uACE0 \uD574\uC11C
+      \uB9E4\uBC88 \uBAA8\uB4E0 \uAC83\uC774 \uBA48\uCD94\uC9C0\uB294 \uC54A\uB294\uB2E4\uB294
+      \uB73B\uC785\uB2C8\uB2E4."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_03
+    nextNodeId: B_Sihwa_12
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B_Sihwa_12
+    nodeType: 0
+    text: "\uBA48\uCD9C \uC218 \uC5C6\uB294 \uC0AC\uB78C\uB3C4 \uC788\uB294 \uBC95\uC774\uB2C8\uAE4C\uC694."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_03
+    nextNodeId: Narration_05
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C_001
+    nodeType: 1
+    text: "\uD64D\uB828\uADC0\uC640 \uC57C\uC11C \uB450 \uC138\uB825 \uAC04\uC5D0
+      \uCDA9\uB3CC\uC774 \uC788\uC5C8\uC2B5\uB2C8\uB2E4."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: C_Sihwa_01
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C_Sihwa_01
+    nodeType: 0
+    text: "\uACB0\uAD6D \uADF8 \uC774\uC57C\uAE30\uB97C \uAEBC\uB0B4\uC2DC\uB294\uAD70\uC694."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: C_Narration_01
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C_Narration_01
+    nodeType: 2
+    text: "(\uB9AC \uC2DC\uD654\uC758 \uD45C\uC815\uC774 \uC870\uAE08 \uAD73\uC5C8\uB2E4.)"
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_01
+    nextNodeId: C_Sihwa_02
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C_Sihwa_02
+    nodeType: 0
+    text: "\uD64D\uB828\uADC0\uC640 \uC57C\uC11C."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_01
+    nextNodeId: C_Sihwa_03
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C_Sihwa_03
+    nodeType: 0
+    text: "\uC9C0\uB09C\uBC88\uC5D0\uB3C4 \uB9D0\uC500\uB4DC\uB838\uC9C0\uB9CC, \uC591\uCE21\uC758
+      \uC6C0\uC9C1\uC784\uC774 \uC2EC\uC0C1\uCE58 \uC54A\uB2E4\uB294 \uAC83\uC740
+      \uC54C\uACE0 \uC788\uC5C8\uC2B5\uB2C8\uB2E4."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: C_Sihwa_04
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C_Sihwa_04
+    nodeType: 0
+    text: "\uB2E4\uB9CC \uC774\uB807\uAC8C \uBE60\uB974\uAC8C \uCDA9\uB3CC\uD560
+      \uC904\uC740 \uBAB0\uB790\uB124\uC694."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: C_Sihwa_05
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C_Sihwa_05
+    nodeType: 0
+    text: "\uC544\uC9C1 \uC804\uBA74\uC801\uC778 \uCDA9\uB3CC\uC774\uB77C\uACE0 \uBD80\uB97C
+      \uC815\uB3C4\uB294 \uC544\uB2D9\uB2C8\uB2E4."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: C_Sihwa_06
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C_Sihwa_06
+    nodeType: 0
+    text: "\uC801\uC5B4\uB3C4 \uC9C0\uAE08\uAE4C\uC9C0\uB294\uC694."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: C_Narration_02
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C_Narration_02
+    nodeType: 2
+    text: "(\uB9AC \uC2DC\uD654\uAC00 \uC7A0\uC2DC \uB9D0\uC744 \uBA48\uCDC4\uB2E4.)"
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: C_Sihwa_07
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C_Sihwa_07
+    nodeType: 0
+    text: "\uC5B4\uB290 \uCABD\uC774 \uBA3C\uC800 \uC2DC\uC791\uD588\uB294\uC9C0,
+      \uBB34\uC5C7\uC744 \uC704\uD574 \uC2F8\uC6B0\uB294\uC9C0\uB294 \uC9C0\uAE08
+      \uC911\uC694\uD55C \uBB38\uC81C\uAC00 \uC544\uB2D9\uB2C8\uB2E4."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: C_Sihwa_08
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C_Sihwa_08
+    nodeType: 0
+    text: "\uC2F8\uC6C0\uC774 \uC2DC\uC791\uB418\uC5C8\uB2E4\uB294 \uC0AC\uC2E4 \uC790\uCCB4\uAC00
+      \uC911\uC694\uD55C \uAC83\uC774\uC8E0."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: C_Sihwa_09
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C_Sihwa_09
+    nodeType: 0
+    text: "\uD55C\uBC88 \uC2DC\uC791\uB41C \uC2F8\uC6C0\uC740 \uC774\uC720\uBCF4\uB2E4
+      \uC624\uB798 \uB0A8\uB294 \uBC95\uC774\uB2C8\uAE4C\uC694."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: C_Sihwa_10
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C_Sihwa_10
+    nodeType: 0
+    text: "\uADF8\uB9AC\uACE0 \uAC00\uC7A5 \uBA3C\uC800 \uD53C\uD574\uB97C \uC785\uB294
+      \uAC83\uC740 \uC5B8\uC81C\uB098 \uADF8 \uC2F8\uC6C0\uACFC \uC544\uBB34 \uC0C1\uAD00
+      \uC5C6\uB294 \uC0AC\uB78C\uB4E4\uC774\uACE0\uC694."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: Narration_05
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Narration_05
+    nodeType: 2
+    text: "(\uB9AC \uC2DC\uD654\uAC00 \uC7A0\uC2DC \uCE68\uBB35\uD588\uB2E4.)"
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: Narration_06
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Narration_06
+    nodeType: 2
+    text: "(\uADF8\uB294 \uBB34\uC5B8\uAC00\uB97C \uC0DD\uAC01\uD558\uB294 \uB4EF\uD588\uC9C0\uB9CC,
+      \uACE7 \uACE0\uAC1C\uB97C \uC800\uC5C8\uB2E4.)"
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: Sihwa_08
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Sihwa_08
+    nodeType: 0
+    text: "\uC774\uC0C1\uD558\uB124\uC694."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: Sihwa_09
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Sihwa_09
+    nodeType: 0
+    text: "\uC911\uC559\uC5D0\uC11C\uB294 \uD14C\uB7EC\uAC00 \uC77C\uC5B4\uB0AC\uACE0,
+      \uC774\uACF3\uC5D0\uC11C\uB294 \uC0AC\uB78C\uB4E4\uC774 \uC8FD\uACE0 \uC788\uC2B5\uB2C8\uB2E4."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: Sihwa_10
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Sihwa_10
+    nodeType: 0
+    text: "\uB9C8\uC57D\uC740 \uACC4\uC18D \uD37C\uC9C0\uACE0 \uC788\uACE0, \uC11C\uB85C\uB97C
+      \uC8FD\uC77C \uB9CC\uD07C \uBBF8\uC6CC\uD558\uB294 \uC0AC\uB78C\uB4E4\uB3C4
+      \uC0DD\uACA8\uB0AC\uC8E0."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: Sihwa_11
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Sihwa_11
+    nodeType: 0
+    text: "\uADF8\uB7F0\uB370\uB3C4 \uBAA8\uB450\uAC00 \uD3EC\uAE30\uD560 \uC0DD\uAC01\uC740
+      \uC5C6\uC5B4 \uBCF4\uC785\uB2C8\uB2E4."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: Narration_07
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Narration_07
+    nodeType: 0
+    text: "(\uB9AC \uC2DC\uD654\uAC00 {UserName}\uB97C \uBC14\uB77C\uBD24\uB2E4.)"
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_03
+    nextNodeId: Sihwa_12
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Sihwa_12
+    nodeType: 0
+    text: "\uB2F9\uC2E0\uC740 \uC5B4\uB5BB\uAC8C \uC0DD\uAC01\uD558\uC2DC\uB098\uC694?"
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_03
+    nextNodeId: Sihwa_13
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Sihwa_13
+    nodeType: 0
+    text: "\uC0AC\uB78C\uB4E4\uC740 \uC65C \uC774\uB807\uAC8C\uAE4C\uC9C0 \uD558\uBA74\uC11C\uB3C4
+      \uD3EC\uAE30\uD558\uC9C0 \uC54A\uB294 \uAC78\uAE4C\uC694?"
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_03
+    nextNodeId: Choice_Think
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Choice_Think
+    nodeType: 3
+    text: "\uC0AC\uB78C\uB4E4\uC740 \uC65C \uC774\uB807\uAC8C\uAE4C\uC9C0 \uD558\uBA74\uC11C\uB3C4
+      \uD3EC\uAE30\uD558\uC9C0 \uC54A\uB294 \uAC78\uAE4C\uC694?"
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_03
+    nextNodeId: 
+    choices:
+    - choiceText: "\uC9C0\uD0A4\uACE0 \uC2F6\uC740 \uAC83\uC774 \uC788\uAE30 \uB54C\uBB38\uC774\uB77C\uACE0
+        \uB300\uB2F5\uD55C\uB2E4."
+      targetNodeId: A2_001
+      resultKey: 
+      resultValue: 
+      useCondition: 0
+      requiredKey: 
+      requiredValue: 
+      hideWhenLocked: 0
+      lockedText: 
+    - choiceText: "\uC5B8\uC820\uAC00\uB294 \uB098\uC544\uC9C8 \uAC83\uC774\uB77C\uACE0
+        \uBBFF\uAE30 \uB54C\uBB38\uC774\uB77C\uACE0 \uB300\uB2F5\uD55C\uB2E4."
+      targetNodeId: B2_001
+      resultKey: 
+      resultValue: 
+      useCondition: 0
+      requiredKey: 
+      requiredValue: 
+      hideWhenLocked: 0
+      lockedText: 
+    - choiceText: "\uD3EC\uAE30\uD560 \uC218 \uC5C6\uAE30 \uB54C\uBB38\uC774\uB77C\uACE0
+        \uB300\uB2F5\uD55C\uB2E4."
+      targetNodeId: C2_001
+      resultKey: 
+      resultValue: 
+      useCondition: 0
+      requiredKey: 
+      requiredValue: 
+      hideWhenLocked: 0
+      lockedText: 
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 1
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A2_001
+    nodeType: 1
+    text: "\uBB34\uC5B8\uAC00\uB97C \uC9C0\uD0A4\uAE30 \uC704\uD574\uC11C\uB77C\uACE0
+      \uC0DD\uAC01\uD569\uB2C8\uB2E4."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: A2_Sihwa_01
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A2_Sihwa_01
+    nodeType: 0
+    text: "\uC9C0\uD0A4\uACE0 \uC2F6\uC740 \uAC83\uC774 \uC788\uAE30 \uB54C\uBB38\uC774\uB2E4."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: A2_Narration_01
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A2_Narration_01
+    nodeType: 2
+    text: "(\uB9AC \uC2DC\uD654\uAC00 \uC7A0\uC2DC \uC0DD\uAC01\uC5D0 \uC7A0\uACBC\uB2E4.)"
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: A2_Sihwa_02
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A2_Sihwa_02
+    nodeType: 0
+    text: "\uADF8\uB807\uB2E4\uBA74 \uC790\uC2E0\uBCF4\uB2E4 \uC911\uC694\uD55C \uBB34\uC5B8\uAC00\uAC00
+      \uC788\uB2E4\uB294 \uB73B\uC774\uACA0\uAD70\uC694."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: A2_Sihwa_03
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A2_Sihwa_03
+    nodeType: 0
+    text: "\uAC00\uC871\uC77C \uC218\uB3C4 \uC788\uACE0, \uC0AC\uB78C\uC774 \uC544\uB2D0
+      \uC218\uB3C4 \uC788\uACE0."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: A2_Sihwa_04
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A2_Sihwa_04
+    nodeType: 0
+    text: "\uC5B4\uCA4C\uBA74 \uC7A5\uC18C\uB098 \uC2E0\uB150 \uAC19\uC740 \uAC83\uC77C
+      \uC218\uB3C4 \uC788\uACA0\uC8E0."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: A2_Sihwa_05
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A2_Sihwa_05
+    nodeType: 0
+    text: "\uADF8\uAC83\uC744 \uC9C0\uD0A4\uAE30 \uC704\uD574\uC11C\uB77C\uBA74 \uC790\uC2E0\uC774
+      \uD30C\uAD34\uB418\uB294 \uAC83\uB3C4 \uAC10\uC218\uD560 \uC218 \uC788\uB2E4."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: A2_Sihwa_06
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: A2_Sihwa_06
+    nodeType: 0
+    text: "\u2026\uD765\uBBF8\uB85C\uC6B4 \uC0DD\uAC01\uC774\uB124\uC694."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: Narration_08
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B2_001
+    nodeType: 1
+    text: "\uC5B8\uC820\uAC00\uB294 \uB354 \uB098\uC544\uC9C8 \uAC83\uC774\uB77C\uACE0
+      \uC0DD\uAC01\uD558\uAE30 \uB54C\uBB38 \uC544\uB2D0\uAE4C\uC694."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: B2_Sihwa_01
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B2_Sihwa_01
+    nodeType: 0
+    text: "\uC5B8\uC820\uAC00\uB294 \uB098\uC544\uC9C8 \uAC70\uB77C\uACE0 \uBBFF\uAE30
+      \uB54C\uBB38\uC5D0."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: B2_Sihwa_02
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B2_Sihwa_02
+    nodeType: 0
+    text: "\uD76C\uB9DD\uC774\uB77C\uB294 \uC774\uC57C\uAE30\uC778\uAC00\uC694?"
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: B2_Narration_01
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B2_Narration_01
+    nodeType: 2
+    text: "(\uB9AC \uC2DC\uD654\uAC00 \uC791\uAC8C \uC6C3\uC5C8\uB2E4.)"
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_02
+    nextNodeId: B2_Sihwa_03
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B2_Sihwa_03
+    nodeType: 0
+    text: "\uC0AC\uB78C\uC740 \uCC38 \uC774\uC0C1\uD558\uB124\uC694."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_02
+    nextNodeId: B2_Sihwa_04
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B2_Sihwa_04
+    nodeType: 0
+    text: "\uC544\uBB34\uB7F0 \uADFC\uAC70\uAC00 \uC5C6\uC5B4\uB3C4 \uB0B4\uC77C\uC740
+      \uC624\uB298\uBCF4\uB2E4 \uB098\uC744 \uAC83\uC774\uB77C\uACE0 \uC0DD\uAC01\uD560
+      \uC218 \uC788\uC73C\uB2C8\uAE4C\uC694."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_02
+    nextNodeId: B2_Sihwa_05
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B2_Sihwa_05
+    nodeType: 0
+    text: "\uD558\uC9C0\uB9CC \uC5B4\uCA4C\uBA74 \uADF8\uB7F0 \uC0DD\uAC01\uC774
+      \uC788\uC5B4\uC57C \uC0B4\uC544\uAC08 \uC218 \uC788\uB294 \uAC83\uC77C\uC9C0\uB3C4
+      \uBAA8\uB974\uACA0\uAD70\uC694."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_02
+    nextNodeId: B2_Sihwa_06
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: B2_Sihwa_06
+    nodeType: 0
+    text: "\uC801\uC5B4\uB3C4 \uC624\uB298\uC744 \uBC84\uD2F8 \uC774\uC720 \uC815\uB3C4\uB294
+      \uB420 \uD14C\uB2C8\uAE4C\uC694."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_02
+    nextNodeId: Narration_08
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C2_001
+    nodeType: 1
+    text: "\uD3EC\uAE30\uD558\uC9C0 \uC54A\uB294 \uC774\uC720\uB77C.. \uADF8\uC800..
+      \uD3EC\uAE30\uD560 \uC218 \uC5C6\uAE30 \uB54C\uBB38 \uC544\uB2D0\uAE4C\uC694."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: C2_Sihwa_01
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C2_Sihwa_01
+    nodeType: 0
+    text: "\uD3EC\uAE30\uD560 \uC218 \uC5C6\uAE30 \uB54C\uBB38\uC774\uB2E4."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: C2_Narration_01
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C2_Narration_01
+    nodeType: 2
+    text: "(\uB9AC \uC2DC\uD654\uAC00 User\uB97C \uAC00\uB9CC\uD788 \uBC14\uB77C\uBD24\uB2E4.)"
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: C2_Sihwa_02
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C2_Sihwa_02
+    nodeType: 0
+    text: "\uD560 \uC218 \uC788\uB294 \uAC83\uACFC \uD560 \uC218 \uC5C6\uB294 \uAC83\uC740
+      \uB2E4\uB978 \uC774\uC57C\uAE30\uC8E0."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: C2_Sihwa_03
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C2_Sihwa_03
+    nodeType: 0
+    text: "\uD3EC\uAE30\uD558\uC9C0 \uC54A\uB294 \uAC83\uC774 \uC544\uB2C8\uB77C,
+      \uC815\uB9D0\uB85C \uD3EC\uAE30\uD560 \uC218 \uC5C6\uB294 \uC0AC\uB78C\uB3C4
+      \uC788\uC744 \uD14C\uB2C8\uAE4C\uC694."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: C2_Sihwa_04
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C2_Sihwa_04
+    nodeType: 0
+    text: "\uC774\uBBF8 \uB108\uBB34 \uB9CE\uC740 \uAC83\uC744 \uAC78\uC5B4\uC11C
+      \uB3CC\uC544\uAC08 \uC218 \uC5C6\uB294 \uC0AC\uB78C\uB3C4 \uC788\uC744 \uAC83\uC774\uACE0."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: C2_Sihwa_05
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C2_Sihwa_05
+    nodeType: 0
+    text: "\uBA48\uCD94\uB294 \uC21C\uAC04 \uBAA8\uB4E0 \uAC83\uC744 \uC783\uB294
+      \uC0AC\uB78C\uB3C4 \uC788\uACA0\uC8E0."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: C2_Narration_02
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C2_Narration_02
+    nodeType: 2
+    text: "(\uB9AC \uC2DC\uD654\uAC00 \uC7A0\uC2DC \uCE68\uBB35\uD588\uB2E4.)"
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_03
+    nextNodeId: C2_Sihwa_06
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C2_Sihwa_06
+    nodeType: 0
+    text: "\uADF8\uB7F0 \uC0AC\uB78C\uC5D0\uAC8C \uACC4\uC18D \uB098\uC544\uAC00\uB294
+      \uAC83\uC740 \uC758\uC9C0\uC77C\uAE4C\uC694."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_03
+    nextNodeId: C2_Sihwa_07
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: C2_Sihwa_07
+    nodeType: 0
+    text: "\uC544\uB2C8\uBA74 \uADF8\uC800 \uB0A8\uC740 \uC720\uC77C\uD55C \uC120\uD0DD\uC77C\uAE4C\uC694."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_03
+    nextNodeId: Narration_08
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Narration_08
+    nodeType: 2
+    text: "(\uB9AC \uC2DC\uD654\uB294 \uC7A0\uC2DC \uC544\uBB34 \uB9D0\uB3C4 \uD558\uC9C0
+      \uC54A\uC558\uB2E4.)"
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: Narration_09
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Narration_09
+    nodeType: 2
+    text: "(\uADF8\uB7EC\uB2E4 {UserName}\uAC00 \uD588\uB358 \uB300\uB2F5\uC744 \uB418\uB1CC\uB4EF
+      \uCC9C\uCC9C\uD788 \uC785\uC744 \uC5F4\uC5C8\uB2E4.)"
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: Sihwa_14
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Sihwa_14
+    nodeType: 0
+    text: "\u2026\uADF8\uB807\uAD70\uC694."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: Sihwa_15
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Sihwa_15
+    nodeType: 0
+    text: "\uB2F9\uC2E0\uC740 \uADF8\uB807\uAC8C \uC0DD\uAC01\uD558\uB294\uAD70\uC694."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: Narration_10
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Narration_10
+    nodeType: 2
+    text: "(\uB9AC \uC2DC\uD654\uAC00 \uC790\uB9AC\uC5D0\uC11C \uC77C\uC5B4\uB0AC\uB2E4.)"
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: Sihwa_16
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Sihwa_16
+    nodeType: 0
+    text: "\uAE30\uC5B5\uD574\uB450\uACA0\uC2B5\uB2C8\uB2E4."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: Sihwa_17
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Sihwa_17
+    nodeType: 0
+    text: "\uC624\uB298 \uB2F9\uC2E0\uC774 \uD55C \uB300\uB2F5\uC744\uC694."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: Narration_11
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Narration_11
+    nodeType: 2
+    text: "(\uB9AC \uC2DC\uD654\uB294 \uB354 \uC774\uC0C1 \uADF8 \uC774\uC720\uB97C
+      \uC124\uBA85\uD558\uC9C0 \uC54A\uC558\uB2E4.)"
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: Sihwa_18
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Sihwa_18
+    nodeType: 0
+    text: "\uC774\uBC88 \uB2EC \uBCF4\uACE0\uB294 \uC774 \uC815\uB3C4\uBA74 \uCDA9\uBD84\uD569\uB2C8\uB2E4."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: Sihwa_19
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Sihwa_19
+    nodeType: 0
+    text: "\uC800\uB3C4 \uB3CC\uC544\uAC00 \uBD10\uC57C\uACA0\uB124\uC694."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: Narration_12
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Narration_12
+    nodeType: 2
+    text: "(\uBB38\uC744 \uC5F4\uB824\uB358 \uB9AC \uC2DC\uD654\uAC00 \uC7A0\uC2DC
+      \uAC78\uC74C\uC744 \uBA48\uCDC4\uB2E4.)"
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: Sihwa_20
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Sihwa_20
+    nodeType: 0
+    text: "\uC544."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: Sihwa_21
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Sihwa_21
+    nodeType: 0
+    text: "\uD55C \uAC00\uC9C0\uB294 \uB9D0\uC500\uB4DC\uB824\uC57C\uACA0\uAD70\uC694."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: Sihwa_22
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Sihwa_22
+    nodeType: 0
+    text: "\uC9C0\uB09C\uBC88\uC5D0 \uC81C\uAC00 \uBB34\uC2A8 \uC77C\uC774 \uC0DD\uAE34\uB2E4\uBA74
+      \uADF8\uB54C \uC54C\uAC8C \uB420 \uAC70\uB77C\uACE0 \uD588\uC5C8\uC8E0."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: Narration_13
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Narration_13
+    nodeType: 2
+    text: "(\uB9AC \uC2DC\uD654\uAC00 {UserName}\uB97C \uB3CC\uC544\uBD24\uB2E4.)"
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: Sihwa_23
+    choices: []
+    dimPortrait: 1
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Sihwa_23
+    nodeType: 0
+    text: "\uC544\uBB34\uB798\uB3C4 \uADF8\uB54C\uAC00 \uC628 \uAC83 \uAC19\uB124\uC694."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: Sihwa_24
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Sihwa_24
+    nodeType: 0
+    text: "\uC55E\uC73C\uB85C\uB294 \uC9C0\uAE08\uBCF4\uB2E4 \uB354 \uC2E0\uC911\uD558\uAC8C
+      \uD589\uB3D9\uD558\uC138\uC694."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: Sihwa_25
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Sihwa_25
+    nodeType: 0
+    text: "\uC774\uC81C \uB2F9\uC2E0\uC774 \uBB34\uC5C7\uC744 \uC120\uD0DD\uD558\uB4E0,
+      \uC774\uC804\uCC98\uB7FC \uC544\uBB34 \uC77C\uB3C4 \uC77C\uC5B4\uB098\uC9C0
+      \uC54A\uACE0 \uB05D\uB098\uC9C0\uB294 \uC54A\uC744 \uD14C\uB2C8\uAE4C\uC694."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: Narration_14
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Narration_14
+    nodeType: 2
+    text: "(\uB9AC \uC2DC\uD654\uB294 \uADF8\uB807\uAC8C \uB9D0\uD558\uACE0 \uC0AC\uBB34\uC2E4\uC744
+      \uB5A0\uB0AC\uB2E4.)"
+    character: {fileID: 0}
+    portraitId: 
+    nextNodeId: Narration_15
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 0
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Narration_15
+    nodeType: 2
+    text: "(\uBB38\uC774 \uB2EB\uD788\uACE0, \uB2E4\uC2DC \uC0AC\uBB34\uC2E4\uC5D0
+      \uC815\uC801\uC774 \uCC3E\uC544\uC654\uB2E4.)"
+    character: {fileID: 0}
+    portraitId: 
+    nextNodeId: Narration_16
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 0
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Narration_16
+    nodeType: 2
+    text: "(\uD558\uC9C0\uB9CC \uC9C0\uB09C\uB2EC\uC758 \uACE0\uC694\uC640\uB294
+      \uC804\uD600 \uB2E4\uB978 \uC885\uB958\uC758 \uC815\uC801\uC774\uC5C8\uB2E4.)"
+    character: {fileID: 0}
+    portraitId: 
+    nextNodeId: end
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 0
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: end
+    nodeType: 4
+    text: 
+    character: {fileID: 0}
+    portraitId: 
+    nextNodeId: 
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 0
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []

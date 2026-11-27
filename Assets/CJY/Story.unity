@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657892, g: 0.4964128, b: 0.5748173, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1130,7 +1130,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b166a08395a9df4bbd87bbb74318aa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  catalog: {fileID: 11400000, guid: c574a8bb0b154fb5bf875b03388175cf, type: 2}
   backgroundImage: {fileID: 242146830}
+  fadeLayer: {fileID: 356055620}
+  enableKeyboardTest: 0
   background1: {fileID: 21300000, guid: 3710dd14c05bc2b44859d7e643a6321f, type: 3}
   background2: {fileID: 21300000, guid: 4cfcf9c64b7deb04ca9501f4dead78d7, type: 3}
   background3: {fileID: 21300000, guid: 3146fd081703af14ca23bfc18aefeb1a, type: 3}
@@ -1729,10 +1732,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   storyUI: {fileID: 1917526642}
+  backgroundController: {fileID: 550949690}
   sequenceController: {fileID: 2119780302}
   monthCompletionController: {fileID: 2119780303}
   useTestStory: 0
-  testStory: {fileID: 11400000, guid: da74fff5082c82641a46cb5390564982, type: 2}
+  testStory: {fileID: 11400000, guid: 14ac70be582a9ed4e94979aa908fe10a, type: 2}
   playOnStart: 1
   defaultPlayerName: "\uC11C\uC548"
   playerJobTitle: "\uACF5\uC791\uCCAD \uD604\uC7A5\uAC10\uB3C5\uAD00"
@@ -1772,6 +1776,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: da74fff5082c82641a46cb5390564982, type: 2}
   - {fileID: 11400000, guid: c85f37f8b6ffde84fbda57fa61f945f6, type: 2}
   - {fileID: 11400000, guid: f72d6b8f3bcff294aad3a60893605d07, type: 2}
+  - {fileID: 11400000, guid: 626b1932513a8b146a4b10006405a34d, type: 2}
+  - {fileID: 11400000, guid: ef03dee316d4d57469714e2ab8b1a6cb, type: 2}
+  - {fileID: 11400000, guid: 18b5d19ccb5266c47b3bb47e3f6f97ea, type: 2}
+  - {fileID: 11400000, guid: 14ac70be582a9ed4e94979aa908fe10a, type: 2}
+  - {fileID: 11400000, guid: 58ac5a8ffc5ae0b4fbe22787a44b873e, type: 2}
+  - {fileID: 11400000, guid: c63e973f2c8dc074ca86d7cc042011ca, type: 2}
 --- !u!114 &2119780303
 MonoBehaviour:
   m_ObjectHideFlags: 0

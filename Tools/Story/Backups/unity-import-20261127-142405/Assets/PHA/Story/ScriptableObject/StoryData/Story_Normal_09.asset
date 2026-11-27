@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa573599e69a6074fae017c9bb7c0b7e, type: 3}
+  m_Name: Story_Normal_09
+  m_EditorClassIdentifier: 
+  storyId: Normal_09
+  storyType: 0
+  storyTitle: "\uBD88\uAC00\uB2A5\uD55C \uAC83\uC744 \uC774\uB8E8\uB824\uBA74"
+  year: 1960
+  month: 9
+  day: 2
+  priority: 100
+  playOnce: 1
+  playTiming: 1
+  availableMonth: 9
+  conditions: []
+  unlockFactionId: 
+  startNodeId: Intro_01
+  nodes:
+  - nodeId: Intro_01
+    nodeType: 2
+    text: "(\uC624\uB79C\uB9CC\uC5D0 \uB9AC \uC2DC\uD654\uAC00 {PlayerName}\uC758
+      \uC0AC\uBB34\uC2E4\uC744 \uCC3E\uC558\uB2E4.)"
+    character: {fileID: 0}
+    portraitId: 
+    nextNodeId: Intro_02
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 0
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Intro_02
+    nodeType: 2
+    text: "(\uD3C9\uC18C\uC640 \uD06C\uAC8C \uB2E4\uB974\uC9C0 \uC54A\uC740 \uBAA8\uC2B5\uC774\uC5C8\uC9C0\uB9CC,
+      \uB4E4\uACE0 \uC628 \uC11C\uB958\uC758 \uC591\uC740 \uC774\uC804\uBCF4\uB2E4
+      \uB9CE\uC544 \uBCF4\uC600\uB2E4.)"
+    character: {fileID: 0}
+    portraitId: 
+    nextNodeId: Sihwa_01
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 0
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Sihwa_01
+    nodeType: 0
+    text: "\uC624\uB79C\uB9CC\uC774\uB124\uC694."
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: Sihwa_02
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 0
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
+  - nodeId: Sihwa_02
+    nodeType: 0
+    text: "\uADF8\uB3D9\uC548 \uBCC4\uC77C\uC740 \uC5C6\uC73C\uC168\uB098\uC694?"
+    character: {fileID: 11400000, guid: a778268b0982c7d4bae2b7d849161739, type: 2}
+    portraitId: D_01_00
+    nextNodeId: Sihwa_03
+    choices: []
+    dimPortrait: 0
+    keepPortrait: 1
+    useTypingEffect: 0
+    autoAdvance: 0
+    autoAdvanceDelay: 0
+    effects: []
