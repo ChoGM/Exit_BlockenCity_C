@@ -3,18 +3,18 @@ using UnityEngine;
 
 public enum StoryType
 {
-    Normal,     // ³ë¸» ½ºÅä¸®
-    Force,      // ¼¼·Â ½ºÅä¸®
-    Unlock,     // ÇØ±İ ½ºÅä¸®
-    Branch,     // ºĞ±â ½ºÅä¸®
-    Event,      // ¼¼·Â ÀÌº¥Æ® ½ºÅä¸®
+    Normal,     // ë…¸ë§ ìŠ¤í† ë¦¬
+    Force,      // ì„¸ë ¥ ìŠ¤í† ë¦¬
+    Unlock,     // í•´ê¸ˆ ìŠ¤í† ë¦¬
+    Branch,     // ë¶„ê¸° ìŠ¤í† ë¦¬
+    Event,      // ì„¸ë ¥ ì´ë²¤íŠ¸ ìŠ¤í† ë¦¬
 }
 
 public enum StoryPlayTiming
 {
-    BeforeMonthly,  // ¿ù ¸ŞÀÎ ½ºÅä¸® Àü¿¡ ½ÇÇà
-    Monthly,        // ÇØ´ç ¿ùÀÇ ¸ŞÀÎ ½ºÅä¸® ÈÄº¸
-    AfterMonthly    // ¿ù ¸ŞÀÎ ½ºÅä¸® ÀÌÈÄ ½ÇÇà
+    BeforeMonthly,  // ì›” ë©”ì¸ ìŠ¤í† ë¦¬ ì „ì— ì‹¤í–‰
+    Monthly,        // í•´ë‹¹ ì›”ì˜ ë©”ì¸ ìŠ¤í† ë¦¬ í›„ë³´
+    AfterMonthly    // ì›” ë©”ì¸ ìŠ¤í† ë¦¬ ì´í›„ ì‹¤í–‰
 }
 
 [CreateAssetMenu(
@@ -23,9 +23,9 @@ public enum StoryPlayTiming
 )]
 public class StoryData : ScriptableObject
 {
-    [Header("½ºÅä¸® ±âº» Á¤º¸")]
+    [Header("ìŠ¤í† ë¦¬ ê¸°ë³¸ ì •ë³´")]
 
-    [Tooltip("ÀüÃ¼ °ÔÀÓ¿¡¼­ Áßº¹µÇÁö ¾Ê´Â ½ºÅä¸® ID")]
+    [Tooltip("ì „ì²´ ê²Œì„ì—ì„œ ì¤‘ë³µë˜ì§€ ì•ŠëŠ” ìŠ¤í† ë¦¬ ID")]
     [SerializeField]
     private string storyId;
 
@@ -35,13 +35,18 @@ public class StoryData : ScriptableObject
     [SerializeField]
     private string storyTitle;
 
-    [Header("½ºÅä¸® ÁøÇà ³¯Â¥")]
+    [Tooltip("ìŠ¤í† ë¦¬ ì‹œì‘ ë°°ê²½ ID. ë¹„ì›Œë‘ë©´ ì”¬ì˜ ê¸°ë³¸ ë°°ê²½ìœ¼ë¡œ ì‹œì‘í•©ë‹ˆë‹¤.")]
+    [SerializeField] private string defaultBackgroundId;
+
+    public string DefaultBackgroundId => defaultBackgroundId;
+
+    [Header("ìŠ¤í† ë¦¬ ì§„í–‰ ë‚ ì§œ")]
 
     [Min(0)]
     [SerializeField]
     private int year;
 
-    [Tooltip("0ÀÌ¸é ¿ù Á¦ÇÑÀÌ ¾ø´Â ÀÌº¥Æ® ½ºÅä¸®")]
+    [Tooltip("0ì´ë©´ ì›” ì œí•œì´ ì—†ëŠ” ì´ë²¤íŠ¸ ìŠ¤í† ë¦¬")]
     [Range(0, 12)]
     [SerializeField]
     private int month;
@@ -50,13 +55,13 @@ public class StoryData : ScriptableObject
     [SerializeField]
     private int day;
 
-    [Header("½ºÅä¸® ½ÇÇà ¼³Á¤")]
+    [Header("ìŠ¤í† ë¦¬ ì‹¤í–‰ ì„¤ì •")]
 
-    [Tooltip("µ¿ÀÏ ½ÃÁ¡ÀÇ ½ºÅä¸® Áß ³·Àº °ªÀÌ ¸ÕÀú ½ÇÇàµË´Ï´Ù.")]
+    [Tooltip("ë™ì¼ ì‹œì ì˜ ìŠ¤í† ë¦¬ ì¤‘ ë‚®ì€ ê°’ì´ ë¨¼ì € ì‹¤í–‰ë©ë‹ˆë‹¤.")]
     [SerializeField]
     private int priority = 100;
 
-    [Tooltip("ÇÑ ¹ø ¿Ï·áÇÏ¸é ´Ù½Ã ½ÇÇàÇÏÁö ¾Ê½À´Ï´Ù.")]
+    [Tooltip("í•œ ë²ˆ ì™„ë£Œí•˜ë©´ ë‹¤ì‹œ ì‹¤í–‰í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.")]
     [SerializeField]
     private bool playOnce = true;
 
@@ -64,27 +69,27 @@ public class StoryData : ScriptableObject
     private StoryPlayTiming playTiming =
         StoryPlayTiming.Monthly;
 
-    [Tooltip("0ÀÌ¸é ¿ù Á¦ÇÑ ¾øÀÌ Á¶°ÇÀ» ¸¸Á·ÇÒ ¶§ ½ÇÇàµË´Ï´Ù.")]
+    [Tooltip("0ì´ë©´ ì›” ì œí•œ ì—†ì´ ì¡°ê±´ì„ ë§Œì¡±í•  ë•Œ ì‹¤í–‰ë©ë‹ˆë‹¤.")]
     [SerializeField]
     [Range(0, 12)]
     private int availableMonth;
 
-    [Header("½ÇÇà Á¶°Ç")]
+    [Header("ì‹¤í–‰ ì¡°ê±´")]
 
     [SerializeField]
     private List<StoryConditionData> conditions =
         new();
 
-    [Header("¿Ï·á ½Ã Ã³¸®")]
+    [Header("ì™„ë£Œ ì‹œ ì²˜ë¦¬")]
 
-    [Tooltip("¿Ï·á ½Ã ¼Ò°³µÈ °ÍÀ¸·Î ÀúÀåÇÒ ¼¼·Â ID")]
+    [Tooltip("ì™„ë£Œ ì‹œ ì†Œê°œëœ ê²ƒìœ¼ë¡œ ì €ì¥í•  ì„¸ë ¥ ID")]
     [SerializeField]
     private string unlockFactionId;
 
 
-    [Header("½ºÅä¸® ³ëµå")]
+    [Header("ìŠ¤í† ë¦¬ ë…¸ë“œ")]
 
-    [Tooltip("½ºÅä¸®¸¦ ½ÃÀÛÇÒ ³ëµå ID")]
+    [Tooltip("ìŠ¤í† ë¦¬ë¥¼ ì‹œì‘í•  ë…¸ë“œ ID")]
     [SerializeField]
     private string startNodeId;
 
@@ -116,11 +121,11 @@ public class StoryData : ScriptableObject
     {
         return storyType switch
         {
-            StoryType.Normal => "³ë¸» ½ºÅä¸®",
-            StoryType.Force => "¼¼·Â ½ºÅä¸®",
-            StoryType.Unlock => "ÇØ±İ ½ºÅä¸®",
-            StoryType.Branch => "ºĞ±â ½ºÅä¸®",
-            StoryType.Event => "ÀÌº¥Æ® ½ºÅä¸®",
+            StoryType.Normal => "ë…¸ë§ ìŠ¤í† ë¦¬",
+            StoryType.Force => "ì„¸ë ¥ ìŠ¤í† ë¦¬",
+            StoryType.Unlock => "í•´ê¸ˆ ìŠ¤í† ë¦¬",
+            StoryType.Branch => "ë¶„ê¸° ìŠ¤í† ë¦¬",
+            StoryType.Event => "ì´ë²¤íŠ¸ ìŠ¤í† ë¦¬",
             _ => storyType.ToString()
         };
     }
@@ -129,20 +134,20 @@ public class StoryData : ScriptableObject
     {
         if (year <= 0 && day <= 0)
         {
-            return $"{month}¿ù";
+            return $"{month}ì›”";
         }
 
         if (year <= 0)
         {
-            return $"{month}¿ù {day}ÀÏ";
+            return $"{month}ì›” {day}ì¼";
         }
 
         if (day <= 0)
         {
-            return $"{year}³â {month}¿ù";
+            return $"{year}ë…„ {month}ì›”";
         }
 
-        return $"{year}³â {month}¿ù {day}ÀÏ";
+        return $"{year}ë…„ {month}ì›” {day}ì¼";
     }
 
     public StoryNodeData GetNode(string nodeId)
@@ -163,7 +168,7 @@ public class StoryData : ScriptableObject
         ValidateStory();
     }
 
-    [ContextMenu("½ºÅä¸® µ¥ÀÌÅÍ °Ë»ç")]
+    [ContextMenu("ìŠ¤í† ë¦¬ ë°ì´í„° ê²€ì‚¬")]
     public void ValidateStory()
     {
         if (nodes == null)
@@ -184,7 +189,7 @@ public class StoryData : ScriptableObject
             if (string.IsNullOrWhiteSpace(node.NodeId))
             {
                 Debug.LogWarning(
-                    $"[{name}] ID°¡ ºñ¾î ÀÖ´Â ³ëµå°¡ ÀÖ½À´Ï´Ù.",
+                    $"[{name}] IDê°€ ë¹„ì–´ ìˆëŠ” ë…¸ë“œê°€ ìˆìŠµë‹ˆë‹¤.",
                     this
                 );
 
@@ -194,7 +199,7 @@ public class StoryData : ScriptableObject
             if (!nodeIds.Add(node.NodeId))
             {
                 Debug.LogError(
-                    $"[{name}] Áßº¹ ³ëµå ID: {node.NodeId}",
+                    $"[{name}] ì¤‘ë³µ ë…¸ë“œ ID: {node.NodeId}",
                     this
                 );
             }
@@ -204,8 +209,8 @@ public class StoryData : ScriptableObject
             !nodeIds.Contains(startNodeId))
         {
             Debug.LogError(
-                $"[{name}] ½ÃÀÛ ³ëµå '{startNodeId}'¸¦ " +
-                "Ã£À» ¼ö ¾ø½À´Ï´Ù.",
+                $"[{name}] ì‹œì‘ ë…¸ë“œ '{startNodeId}'ë¥¼ " +
+                "ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.",
                 this
             );
         }
@@ -235,8 +240,8 @@ public class StoryData : ScriptableObject
         if (string.IsNullOrWhiteSpace(node.NextNodeId))
         {
             Debug.LogWarning(
-                $"[{name}] '{node.NodeId}' ³ëµåÀÇ " +
-                "´ÙÀ½ ³ëµå°¡ ºñ¾î ÀÖ½À´Ï´Ù.",
+                $"[{name}] '{node.NodeId}' ë…¸ë“œì˜ " +
+                "ë‹¤ìŒ ë…¸ë“œê°€ ë¹„ì–´ ìˆìŠµë‹ˆë‹¤.",
                 this
             );
 
@@ -246,8 +251,8 @@ public class StoryData : ScriptableObject
         if (!nodeIds.Contains(node.NextNodeId))
         {
             Debug.LogError(
-                $"[{name}] Á¸ÀçÇÏÁö ¾Ê´Â ´ÙÀ½ ³ëµå: " +
-                $"{node.NodeId} ¡æ {node.NextNodeId}",
+                $"[{name}] ì¡´ì¬í•˜ì§€ ì•ŠëŠ” ë‹¤ìŒ ë…¸ë“œ: " +
+                $"{node.NodeId} â†’ {node.NextNodeId}",
                 this
             );
         }
@@ -266,8 +271,8 @@ public class StoryData : ScriptableObject
             node.Choices.Count == 0)
         {
             Debug.LogWarning(
-                $"[{name}] ¼±ÅÃÁö ³ëµå '{node.NodeId}'¿¡ " +
-                "¼±ÅÃÁö°¡ ¾ø½À´Ï´Ù.",
+                $"[{name}] ì„ íƒì§€ ë…¸ë“œ '{node.NodeId}'ì— " +
+                "ì„ íƒì§€ê°€ ì—†ìŠµë‹ˆë‹¤.",
                 this
             );
 
@@ -284,8 +289,8 @@ public class StoryData : ScriptableObject
             if (!nodeIds.Contains(choice.TargetNodeId))
             {
                 Debug.LogError(
-                    $"[{name}] Á¸ÀçÇÏÁö ¾Ê´Â ¼±ÅÃÁö ¸ñÀûÁö: " +
-                    $"{node.NodeId} ¡æ {choice.TargetNodeId}",
+                    $"[{name}] ì¡´ì¬í•˜ì§€ ì•ŠëŠ” ì„ íƒì§€ ëª©ì ì§€: " +
+                    $"{node.NodeId} â†’ {choice.TargetNodeId}",
                     this
                 );
             }

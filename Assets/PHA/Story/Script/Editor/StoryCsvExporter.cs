@@ -31,13 +31,13 @@ public static class StoryCsvExporter
 
 
     // =========================================================
-    // ¿¸√º StoryData Export
+    // Ï†ÑÏ≤¥ StoryData Export
     // =========================================================
 
     [MenuItem("Story/CSV/Export All StoryData")]
     public static void ExportAllStoryData()
     {
-        EnsureExportFolder();
+        var batch = new StoryCsvExportBatch(ExportFolder);
 
         string[] guids =
             AssetDatabase.FindAssets(
@@ -49,7 +49,7 @@ public static class StoryCsvExporter
         {
             Debug.LogWarning(
                 "[StoryCsvExporter] " +
-                "StoryData ScriptableObject∏¶ √£¡ˆ ∏¯«ﬂΩ¿¥œ¥Ÿ."
+                "StoryData ScriptableObjectÎ•º Ï∞æÏßÄ Î™ªÌñàÏäµÎãàÎã§."
             );
 
             return;
@@ -80,13 +80,13 @@ public static class StoryCsvExporter
         {
             Debug.LogWarning(
                 "[StoryCsvExporter] " +
-                "Export ∞°¥…«— StoryData∞° æ¯Ω¿¥œ¥Ÿ."
+                "Export Í∞ÄÎä•Ìïú StoryDataÍ∞Ä ÏóÜÏäµÎãàÎã§."
             );
 
             return;
         }
 
-        // StoryId ±‚¡ÿ ¡§∑ƒ
+        // StoryId Í∏∞Ï§Ä Ï†ïÎ†¨
         stories.Sort(
             (a, b) =>
                 string.Compare(
@@ -96,26 +96,28 @@ public static class StoryCsvExporter
                 )
         );
 
-        ExportStories(stories);
-        ExportNodes(stories);
-        ExportChoices(stories);
-        ExportConditions(stories);
-        ExportEffects(stories);
+        ExportStories(batch, stories);
+        ExportNodes(batch, stories);
+        ExportChoices(batch, stories);
+        ExportConditions(batch, stories);
+        ExportEffects(batch, stories);
 
-        ExportCharacters();
+        ExportCharacters(batch);
+        ExportBackgrounds(batch);
 
+        batch.Commit();
         AssetDatabase.Refresh();
 
         Debug.Log(
-            $"[StoryCsvExporter] Export øœ∑·\n" +
-            $"StoryData ºˆ: {stories.Count}\n" +
-            $"∞Ê∑Œ: {ExportFolder}"
+            $"[StoryCsvExporter] Export ÏôÑÎ£å\n" +
+            $"StoryData Ïàò: {stories.Count}\n" +
+            $"Í≤ΩÎ°ú: {ExportFolder}"
         );
     }
 
 
     // =========================================================
-    // º±≈√«— StoryData «œ≥™∏∏ Export
+    // ÏÑ†ÌÉùÌïú StoryData ÌïòÎÇòÎßå Export
     // =========================================================
 
     [MenuItem(
@@ -141,13 +143,13 @@ public static class StoryCsvExporter
         if (story == null)
         {
             Debug.LogWarning(
-                "StoryData∏¶ º±≈√«ÿ¡÷ººø‰."
+                "StoryDataÎ•º ÏÑ†ÌÉùÌï¥Ï£ºÏÑ∏Ïöî."
             );
 
             return;
         }
 
-        EnsureExportFolder();
+        var batch = new StoryCsvExportBatch(ExportFolder);
 
         List<StoryData> stories =
             new List<StoryData>
@@ -156,8 +158,8 @@ public static class StoryCsvExporter
             };
 
         /*
-         * º±≈√ Export¥¬ ∫∞µµ ∆ƒ¿œ∑Œ ¿˙¿Â«’¥œ¥Ÿ.
-         * ¿¸√º CSV∏¶ µ§æÓæ≤¡ˆ æ ±‚ ¿ß«‘¿‘¥œ¥Ÿ.
+         * ÏÑ†ÌÉù ExportÎäî Î≥ÑÎèÑ ÌååÏùºÎ°ú Ï†ÄÏû•Ìï©ÎãàÎã§.
+         * Ï†ÑÏ≤¥ CSVÎ•º ÎçÆÏñ¥Ïì∞ÏßÄ ÏïäÍ∏∞ ÏúÑÌï®ÏûÖÎãàÎã§.
          */
 
         string safeId =
@@ -166,35 +168,36 @@ public static class StoryCsvExporter
             );
 
         ExportStories(
-            stories,
+            batch, stories,
             $"Stories_{safeId}.csv"
         );
 
         ExportNodes(
-            stories,
+            batch, stories,
             $"StoryNodes_{safeId}.csv"
         );
 
         ExportChoices(
-            stories,
+            batch, stories,
             $"StoryChoices_{safeId}.csv"
         );
 
         ExportConditions(
-            stories,
+            batch, stories,
             $"StoryConditions_{safeId}.csv"
         );
 
         ExportEffects(
-            stories,
+            batch, stories,
             $"StoryEffects_{safeId}.csv"
         );
 
+        batch.Commit();
         AssetDatabase.Refresh();
 
         Debug.Log(
             $"[StoryCsvExporter] " +
-            $"º±≈√ Ω∫≈‰∏Æ Export øœ∑·: " +
+            $"ÏÑ†ÌÉù Ïä§ÌÜ†Î¶¨ Export ÏôÑÎ£å: " +
             $"{story.StoryId}"
         );
     }
@@ -205,6 +208,7 @@ public static class StoryCsvExporter
     // =========================================================
 
     private static void ExportStories(
+        StoryCsvExportBatch batch,
         IReadOnlyList<StoryData> stories,
         string fileName = StoriesFile)
     {
@@ -225,6 +229,7 @@ public static class StoryCsvExporter
                 "PlayTiming",
                 "UnlockFactionId",
                 "StartNodeId",
+                "DefaultBackgroundId",
                 "Memo"
             }
         );
@@ -253,12 +258,13 @@ public static class StoryCsvExporter
                     story.PlayTiming.ToString(),
                     story.UnlockFactionId,
                     story.StartNodeId,
+                    story.DefaultBackgroundId,
                     string.Empty
                 }
             );
         }
 
-        WriteCsv(
+        batch.Stage(
             fileName,
             rows
         );
@@ -270,6 +276,7 @@ public static class StoryCsvExporter
     // =========================================================
 
     private static void ExportNodes(
+        StoryCsvExportBatch batch,
         IReadOnlyList<StoryData> stories,
         string fileName = NodesFile)
     {
@@ -292,6 +299,10 @@ public static class StoryCsvExporter
                 "UseTypingEffect",
                 "AutoAdvance",
                 "AutoAdvanceDelay",
+                "BackgroundId",
+                "BackgroundTransition",
+                "BackgroundTransitionDuration",
+                "Branch/Scene",
                 "Memo"
             }
         );
@@ -332,8 +343,8 @@ public static class StoryCsvExporter
                         story.StoryId,
 
                         /*
-                         * Excelø°º≠ ¡§∑ƒ/∞Àºˆ«œ±‚ Ω±∞‘
-                         * ScriptableObject List º¯º≠∏¶ ±‚∑œ«’¥œ¥Ÿ.
+                         * ExcelÏóêÏÑú Ï†ïÎ†¨/Í≤ÄÏàòÌïòÍ∏∞ ÏâΩÍ≤å
+                         * ScriptableObject List ÏàúÏÑúÎ•º Í∏∞Î°ùÌï©ÎãàÎã§.
                          */
                         (nodeIndex + 1).ToString(),
 
@@ -364,6 +375,10 @@ public static class StoryCsvExporter
                             .ToString(
                                 CultureInfo.InvariantCulture
                             ),
+                        node.BackgroundId,
+                        node.BackgroundTransition.ToString(),
+                        node.BackgroundTransitionDuration.ToString(CultureInfo.InvariantCulture),
+                        string.Empty,
 
                         string.Empty
                     }
@@ -371,7 +386,7 @@ public static class StoryCsvExporter
             }
         }
 
-        WriteCsv(
+        batch.Stage(
             fileName,
             rows
         );
@@ -383,6 +398,7 @@ public static class StoryCsvExporter
     // =========================================================
 
     private static void ExportChoices(
+        StoryCsvExportBatch batch,
         IReadOnlyList<StoryData> stories,
         string fileName = ChoicesFile)
     {
@@ -476,7 +492,7 @@ public static class StoryCsvExporter
             }
         }
 
-        WriteCsv(
+        batch.Stage(
             fileName,
             rows
         );
@@ -488,6 +504,7 @@ public static class StoryCsvExporter
     // =========================================================
 
     private static void ExportConditions(
+        StoryCsvExportBatch batch,
         IReadOnlyList<StoryData> stories,
         string fileName = ConditionsFile)
     {
@@ -550,7 +567,7 @@ public static class StoryCsvExporter
             }
         }
 
-        WriteCsv(
+        batch.Stage(
             fileName,
             rows
         );
@@ -562,6 +579,7 @@ public static class StoryCsvExporter
     // =========================================================
 
     private static void ExportEffects(
+        StoryCsvExportBatch batch,
         IReadOnlyList<StoryData> stories,
         string fileName = EffectsFile)
     {
@@ -653,7 +671,7 @@ public static class StoryCsvExporter
             }
         }
 
-        WriteCsv(
+        batch.Stage(
             fileName,
             rows
         );
@@ -665,6 +683,7 @@ public static class StoryCsvExporter
     // =========================================================
 
     private static void ExportCharacters(
+        StoryCsvExportBatch batch,
         string fileName = CharactersFile)
     {
         string[] guids =
@@ -693,7 +712,7 @@ public static class StoryCsvExporter
             }
         }
 
-        // CharacterId ±‚¡ÿ ¡§∑ƒ
+        // CharacterId Í∏∞Ï§Ä Ï†ïÎ†¨
         characters.Sort(
             (a, b) =>
                 string.Compare(
@@ -727,7 +746,7 @@ public static class StoryCsvExporter
             }
 
             // -------------------------------------------------
-            // ±‚∫ª √ ªÛ»≠
+            // Í∏∞Î≥∏ Ï¥àÏÉÅÌôî
             // -------------------------------------------------
 
             rows.Add(
@@ -748,7 +767,7 @@ public static class StoryCsvExporter
             );
 
             // -------------------------------------------------
-            // Ω∫≈‰∏ÆøÎ «•¡§ √ ªÛ»≠
+            // Ïä§ÌÜ†Î¶¨Ïö© ÌëúÏ†ï Ï¥àÏÉÅÌôî
             // -------------------------------------------------
 
             if (character.StoryPortraits == null)
@@ -782,120 +801,49 @@ public static class StoryCsvExporter
             }
         }
 
-        WriteCsv(
+        batch.Stage(
             fileName,
             rows
         );
 
         Debug.Log(
-            $"[StoryCsvExporter] Character Export øœ∑·: " +
-            $"{characters.Count}∏Ì"
+            $"[StoryCsvExporter] Character Export ÏôÑÎ£å: " +
+            $"{characters.Count}Î™Ö"
         );
     }
 
 
     // =========================================================
-    // CSV ¿˙¿Â
+    // CSV Ï†ÄÏû•
     // =========================================================
 
-    private static void WriteCsv(
-        string fileName,
-        IReadOnlyList<string[]> rows)
+    private static void ExportBackgrounds(StoryCsvExportBatch batch)
     {
-        string path =
-            Path.Combine(
-                ExportFolder,
-                fileName
-            );
-
-        StringBuilder builder =
-            new StringBuilder();
-
-        foreach (string[] row in rows)
+        var names = new SortedDictionary<string, string>(StringComparer.Ordinal)
         {
-            for (int columnIndex = 0;
-                 columnIndex < row.Length;
-                 columnIndex++)
+            { StoryBackgroundCatalog.HideId, "Î∞∞Í≤Ω Ïà®Í∏∞Í∏∞" }
+        };
+        var sprites = new Dictionary<string, Sprite>(StringComparer.Ordinal);
+        foreach (string guid in AssetDatabase.FindAssets("t:StoryBackgroundCatalog"))
+        {
+            string path = AssetDatabase.GUIDToAssetPath(guid);
+            var catalog = AssetDatabase.LoadAssetAtPath<StoryBackgroundCatalog>(path);
+            if (catalog == null || catalog.Entries == null) continue;
+            foreach (var entry in catalog.Entries)
             {
-                if (columnIndex > 0)
-                {
-                    builder.Append(',');
-                }
-
-                builder.Append(
-                    EscapeCsv(
-                        row[columnIndex]
-                    )
-                );
+                if (entry == null || string.IsNullOrEmpty(entry.Id) || entry.Sprite == null) continue;
+                if (!catalog.TryGetSprite(entry.Id, out _) || entry.Id == StoryBackgroundCatalog.HideId)
+                    throw new InvalidDataException($"{path}: Ï§ëÎ≥µ ÎòêÎäî ÏòàÏïΩÎêú Î∞∞Í≤Ω ID '{entry.Id}'");
+                if (sprites.TryGetValue(entry.Id, out var previous) && previous != entry.Sprite)
+                    throw new InvalidDataException($"{path}: '{entry.Id}'Í∞Ä Îã§Î•∏ Ïπ¥ÌÉàÎ°úÍ∑∏ÏóêÏÑú Îã§Î•∏ SpriteÎ•º Í∞ÄÎ¶¨ÌÇµÎãàÎã§.");
+                sprites[entry.Id] = entry.Sprite;
+                names[entry.Id] = entry.DisplayName;
             }
-
-            builder.AppendLine();
         }
-
-        /*
-         * BOM¿Ã ¿÷¥¬ UTF-8.
-         *
-         * Windows Excelø°º≠ CSV∏¶ ø≠æ˙¿ª ∂ß
-         * «—±€¿Ã ±˙¡˙ ∞°¥…º∫¿ª ¡Ÿ¿‘¥œ¥Ÿ.
-         */
-        UTF8Encoding encoding =
-            new UTF8Encoding(true);
-
-        File.WriteAllText(
-            path,
-            builder.ToString(),
-            encoding
-        );
-
-        Debug.Log(
-            $"[StoryCsvExporter] ª˝º∫: {path}"
-        );
+        var rows = new List<string[]> { new[] { "BackgroundId", "DisplayName" } };
+        foreach (var pair in names) rows.Add(new[] { pair.Key, pair.Value });
+        batch.Stage("Backgrounds.csv", rows);
     }
-
-
-    // =========================================================
-    // CSV πÆ¿⁄ø≠ √≥∏Æ
-    // =========================================================
-
-    private static string EscapeCsv(
-        string value)
-    {
-        if (value == null)
-        {
-            return string.Empty;
-        }
-
-        /*
-         * ¡ŸπŸ≤ﬁµµ ±◊¥Î∑Œ ∫∏¡∏«’¥œ¥Ÿ.
-         *
-         * CSV ±‘ƒ¢ªÛ
-         *
-         * "æ»≥Á«œººø‰.
-         * π›∞©Ω¿¥œ¥Ÿ."
-         *
-         * «¸≈¬∑Œ ¿˙¿ÂµÀ¥œ¥Ÿ.
-         */
-
-        bool requiresQuotes =
-            value.Contains(",") ||
-            value.Contains("\"") ||
-            value.Contains("\n") ||
-            value.Contains("\r");
-
-        string escaped =
-            value.Replace(
-                "\"",
-                "\"\""
-            );
-
-        if (requiresQuotes)
-        {
-            return $"\"{escaped}\"";
-        }
-
-        return escaped;
-    }
-
 
     private static string ToCsvBool(
         bool value)
@@ -907,20 +855,8 @@ public static class StoryCsvExporter
 
 
     // =========================================================
-    // ∆˙¥ı
+    // Ìè¥Îçî
     // =========================================================
-
-    private static void EnsureExportFolder()
-    {
-        if (!Directory.Exists(
-                ExportFolder))
-        {
-            Directory.CreateDirectory(
-                ExportFolder
-            );
-        }
-    }
-
 
     private static string MakeSafeFileName(
         string value)

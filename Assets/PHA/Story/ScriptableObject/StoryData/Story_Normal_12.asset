@@ -15,6 +15,7 @@ MonoBehaviour:
   storyId: Normal_12
   storyType: 0
   storyTitle: "\uC774\uBC88\uC77C\uB3C4 \uC5B8\uC820\uAC00\uB294"
+  defaultBackgroundId: 
   year: 1960
   month: 12
   day: 31
@@ -30,6 +31,9 @@ MonoBehaviour:
     nodeType: 2
     text: "(\uAD6C\uB8E1\uCC44\uC131\uC758 \uCCA0\uAC70\uAC00 \uC2DC\uC791\uB41C
       \uC9C0\uB3C4 \uC2DC\uAC04\uC774 \uC870\uAE08 \uD758\uB800\uB2E4.)"
+    backgroundId: BG_Office_01
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Intro_02
@@ -45,6 +49,9 @@ MonoBehaviour:
     text: "(\uD55C\uB54C \uAC74\uBB3C\uB4E4\uC774 \uBE7D\uBE7D\uD558\uAC8C \uB4E4\uC5B4\uC11C
       \uC788\uB358 \uC790\uB9AC\uB294 \uC774\uC81C \uAD70\uB370\uAD70\uB370 \uD145
       \uBE44\uC5B4 \uC788\uC5C8\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Intro_03
@@ -60,6 +67,9 @@ MonoBehaviour:
     text: "(\uBB34\uB108\uB728\uB9B0 \uAC74\uBB3C\uC758 \uC794\uD574\uAC00 \uAE38\uAC00\uC5D0
       \uC313\uC5EC \uC788\uC5C8\uACE0, \uBA3C\uC9C0\uAC00 \uB0B4\uB824\uC549\uC740
       \uACE8\uBAA9\uC5D0\uB294 \uC0AC\uB78C\uC758 \uD754\uC801\uB3C4 \uB4DC\uBB3C\uC5C8\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Intro_04
@@ -73,6 +83,9 @@ MonoBehaviour:
   - nodeId: Intro_04
     nodeType: 2
     text: "(\uC775\uC219\uD588\uB358 \uAC00\uAC8C\uC758 \uAC04\uD310\uB3C4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Intro_05
@@ -86,6 +99,9 @@ MonoBehaviour:
   - nodeId: Intro_05
     nodeType: 2
     text: "(\uB9E4\uC77C \uC9C0\uB098\uB358 \uC881\uC740 \uACE8\uBAA9\uB3C4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Intro_06
@@ -99,6 +115,9 @@ MonoBehaviour:
   - nodeId: Intro_06
     nodeType: 2
     text: "(\uC5B4\uB290\uC0C8 \uC0AC\uB77C\uC838 \uC788\uC5C8\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Intro_07
@@ -113,6 +132,9 @@ MonoBehaviour:
     nodeType: 2
     text: "(\uCCA0\uAC70\uB418\uC9C0 \uC54A\uC740 \uAC74\uBB3C \uC0AC\uC774\uB85C
       \uACA8\uC6B8\uBC14\uB78C\uC774 \uBD88\uC5C8\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Intro_08
@@ -127,6 +149,9 @@ MonoBehaviour:
     nodeType: 2
     text: "({PlayerName}\uB294 \uD55C\uB3D9\uC548 \uC790\uC2E0\uC774 \uB2F4\uB2F9\uD588\uB358
       \uAD6C\uC5ED\uC744 \uBC14\uB77C\uBD24\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Narration_01
@@ -140,6 +165,9 @@ MonoBehaviour:
   - nodeId: Narration_01
     nodeType: 2
     text: "(\uADF8\uB9AC\uACE0 \uC0AC\uBB34\uC2E4\uB85C \uB3CC\uC544\uC654\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Narration_02
@@ -154,6 +182,9 @@ MonoBehaviour:
     nodeType: 2
     text: "(\uBB38\uC744 \uC5F4\uC790 \uB0AF\uC120 \uC0AC\uB78C\uC774 {PlayerName}\uC758
       \uC790\uB9AC\uC5D0 \uC549\uC544 \uC788\uC5C8\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Narration_03
@@ -168,6 +199,9 @@ MonoBehaviour:
     nodeType: 2
     text: "(\uC544\uB2C8, \uC815\uD655\uD788\uB294 \uB0AF\uC120 \uC5BC\uAD74\uC740
       \uC544\uB2C8\uC5C8\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Narration_04
@@ -182,6 +216,9 @@ MonoBehaviour:
     nodeType: 2
     text: "(\uACF5\uC791\uCCAD\uC758 \uACF5\uBB38\uACFC \uC778\uC0AC \uC790\uB8CC\uC5D0\uC11C
       \uBA87 \uBC88\uC774\uACE0 \uBCF4\uC558\uB358 \uC5BC\uAD74\uC774\uC5C8\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Narration_05
@@ -195,6 +232,9 @@ MonoBehaviour:
   - nodeId: Narration_05
     nodeType: 2
     text: "(\uACF5\uC791\uCCAD \uC7A5\uAD00, \uB9AC \uCC3D\uC720.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Narration_06
@@ -210,6 +250,9 @@ MonoBehaviour:
     text: "(\uADF8\uB294 \uC790\uC2E0\uC758 \uBC29\uC774\uB77C\uB3C4 \uB418\uB294
       \uAC83\uCC98\uB7FC \uC758\uC790 \uAE4A\uC219\uC774 \uBAB8\uC744 \uAE30\uB300\uACE0
       \uC788\uC5C8\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Narration_07
@@ -225,6 +268,9 @@ MonoBehaviour:
     text: "(\uCC45\uC0C1 \uC704\uC5D0\uB294 {PlayerName}\uAC00 \uC9C0\uB09C \uC77C
       \uB144 \uB3D9\uC548 \uC791\uC131\uD588\uB358 \uC11C\uB958 \uBA87 \uC7A5\uC774
       \uD3BC\uCCD0\uC838 \uC788\uC5C8\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Changyu_01
@@ -238,6 +284,9 @@ MonoBehaviour:
   - nodeId: Changyu_01
     nodeType: 0
     text: "\uB2A6\uC5C8\uAD70."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Narration_08
@@ -252,6 +301,9 @@ MonoBehaviour:
     nodeType: 2
     text: "(\uB9AC \uCC3D\uC720\uAC00 {PlayerName}\uB97C \uC704\uC544\uB798\uB85C
       \uD6D1\uC5B4\uBD24\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_02
@@ -266,6 +318,9 @@ MonoBehaviour:
     nodeType: 0
     text: "\uBB50, \uC57D\uC18D\uC744 \uC7A1\uACE0 \uC628 \uAC83\uB3C4 \uC544\uB2C8\uB2C8
       \uC790\uB124 \uC798\uBABB\uC740 \uC544\uB2C8\uC9C0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_03
@@ -279,6 +334,9 @@ MonoBehaviour:
   - nodeId: Changyu_03
     nodeType: 0
     text: "\uB0B4\uAC00 \uAE30\uB2E4\uB9B0 \uAC70\uB2C8\uAE4C."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Narration_09
@@ -293,6 +351,9 @@ MonoBehaviour:
     nodeType: 2
     text: "(\uADF8\uAC00 \uC190\uC5D0 \uB4E4\uACE0 \uC788\uB358 \uBCF4\uACE0\uC11C\uB97C
       \uCC45\uC0C1 \uC704\uC5D0 \uB0B4\uB824\uB193\uC558\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_04
@@ -306,6 +367,9 @@ MonoBehaviour:
   - nodeId: Changyu_04
     nodeType: 0
     text: '{PlayerName}.'
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_05
@@ -319,6 +383,9 @@ MonoBehaviour:
   - nodeId: Changyu_05
     nodeType: 0
     text: "\uB9DE\uC9C0?"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Narration_10
@@ -332,6 +399,9 @@ MonoBehaviour:
   - nodeId: Narration_10
     nodeType: 2
     text: "({PlayerName}\uAC00 \uACE0\uAC1C\uB97C \uB044\uB355\uC778\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_06
@@ -345,6 +415,9 @@ MonoBehaviour:
   - nodeId: Changyu_06
     nodeType: 0
     text: "\uADF8\uB798. \uC5BC\uAD74\uC740 \uCC98\uC74C \uBCF4\uB294\uAD70."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_07
@@ -358,6 +431,9 @@ MonoBehaviour:
   - nodeId: Changyu_07
     nodeType: 0
     text: "\uC774\uB984\uC740 \uAF64 \uC5EC\uB7EC \uBC88 \uBD24\uB294\uB370 \uB9D0\uC774\uC57C."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Narration_11
@@ -371,6 +447,9 @@ MonoBehaviour:
   - nodeId: Narration_11
     nodeType: 2
     text: "({PlayerName}\uAC00 \uC790\uC2E0\uC744 \uC544\uB290\uB0D0\uACE0 \uBB3B\uB294\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_08
@@ -385,6 +464,9 @@ MonoBehaviour:
     nodeType: 0
     text: "\uC790\uB124 \uC0C1\uAD00\uC758 \uC0C1\uAD00\uC758 \uC0C1\uAD00\uCBE4
       \uB418\uB294 \uC0AC\uB78C\uC778\uB370."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_09
@@ -398,6 +480,9 @@ MonoBehaviour:
   - nodeId: Changyu_09
     nodeType: 0
     text: "\uC774\uB984 \uC815\uB3C4\uB294 \uC54C\uC544\uC57C \uD558\uC9C0 \uC54A\uACA0\uB098?"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Narration_12
@@ -411,6 +496,9 @@ MonoBehaviour:
   - nodeId: Narration_12
     nodeType: 2
     text: "(\uB9AC \uCC3D\uC720\uAC00 \uC6C3\uC5C8\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_01
     nextNodeId: Changyu_10
@@ -424,6 +512,9 @@ MonoBehaviour:
   - nodeId: Changyu_10
     nodeType: 0
     text: "\uBB3C\uB860 \uC774\uB984\uB9CC \uC54C\uC558\uC9C0\uB9CC."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_01
     nextNodeId: Changyu_11
@@ -439,6 +530,9 @@ MonoBehaviour:
     text: "\uC774 \uB9CE\uC740 \uC0AC\uB78C \uC5BC\uAD74\uAE4C\uC9C0 \uC804\uBD80
       \uAE30\uC5B5\uD558\uB77C\uACE0 \uD558\uBA74 \uC7A5\uAD00\uC9C1\uBD80\uD130
       \uADF8\uB9CC\uB46C\uC57C\uC9C0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_01
     nextNodeId: Narration_13
@@ -453,6 +547,9 @@ MonoBehaviour:
     nodeType: 2
     text: "(\uB18D\uB2F4\uC778\uC9C0 \uC9C4\uC2EC\uC778\uC9C0 \uC54C \uC218 \uC5C6\uB294
       \uB9D0\uC774\uC5C8\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_01
     nextNodeId: Narration_14
@@ -467,6 +564,9 @@ MonoBehaviour:
     nodeType: 2
     text: "(\uB9AC \uCC3D\uC720\uAC00 \uCC45\uC0C1 \uC704\uC758 \uC11C\uB958 \uD55C
       \uC7A5\uC744 \uC190\uAC00\uB77D\uC73C\uB85C \uBC00\uC5C8\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_12
@@ -481,6 +581,9 @@ MonoBehaviour:
     nodeType: 0
     text: "\uB9AC \uBCF4\uC88C\uAD00\uC774 \uC654\uC73C\uBA74 \uC774\uC57C\uAE30\uAC00
       \uC870\uAE08 \uD3B8\uD588\uC744 \uD150\uB370."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_13
@@ -495,6 +598,9 @@ MonoBehaviour:
     nodeType: 0
     text: "\uC694\uC998 \uADF8 \uC544\uC774\uB3C4 \uC815\uC2E0\uC774 \uC5C6\uB294
       \uBAA8\uC591\uC774\uB354\uAD70."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_14
@@ -508,6 +614,9 @@ MonoBehaviour:
   - nodeId: Changyu_14
     nodeType: 0
     text: "\uADF8\uB798\uC11C \uB0B4\uAC00 \uC654\uB124."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Narration_15
@@ -521,6 +630,9 @@ MonoBehaviour:
   - nodeId: Narration_15
     nodeType: 2
     text: "({PlayerName}\uAC00 \uC11C\uB958\uB97C \uBC14\uB77C\uBCF8\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_15
@@ -534,6 +646,9 @@ MonoBehaviour:
   - nodeId: Changyu_15
     nodeType: 0
     text: "\uC5B4\uB824\uC6B4 \uC774\uC57C\uAE30\uB294 \uC544\uB2C8\uC57C."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_16
@@ -548,6 +663,9 @@ MonoBehaviour:
     nodeType: 0
     text: "\uC790\uB124\uAC00 \uB2F4\uB2F9\uD558\uB358 \uAD6C\uC5ED\uC774 \uC5C6\uC5B4\uC9C0\uACE0
       \uC788\uC9C0 \uC54A\uB098."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_17
@@ -561,6 +679,9 @@ MonoBehaviour:
   - nodeId: Changyu_17
     nodeType: 0
     text: "\uC0AC\uB78C\uC774 \uC5C6\uACE0, \uAC74\uBB3C\uB3C4 \uC5C6\uACE0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_18
@@ -575,6 +696,9 @@ MonoBehaviour:
     nodeType: 0
     text: "\uC870\uAE08 \uC9C0\uB098\uBA74 \uAD00\uB9AC\uD560 \uAD6C\uC5ED \uC790\uCCB4\uAC00
       \uC5C6\uC5B4\uC9C0\uACA0\uC9C0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Narration_16
@@ -588,6 +712,9 @@ MonoBehaviour:
   - nodeId: Narration_16
     nodeType: 2
     text: "(\uB9AC \uCC3D\uC720\uAC00 \uCC3D\uBC16\uC744 \uD790\uB057 \uBC14\uB77C\uBD24\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_03
     nextNodeId: Changyu_19
@@ -602,6 +729,9 @@ MonoBehaviour:
     nodeType: 0
     text: "\uADF8\uB7EC\uB2C8 \uC791\uC5C5\uBC18\uC7A5\uB3C4 \uD544\uC694 \uC5C6\uC5B4\uC9C0\uB294
       \uAC70\uACE0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_03
     nextNodeId: Narration_17
@@ -615,6 +745,9 @@ MonoBehaviour:
   - nodeId: Narration_17
     nodeType: 2
     text: "(\uC7A0\uC2DC \uC815\uC801\uC774 \uD758\uB800\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_03
     nextNodeId: Changyu_20
@@ -630,6 +763,9 @@ MonoBehaviour:
     text: "\uC704\uC5D0\uC11C\uB294 \uC790\uB124\uB97C \uB2E4\uB978 \uACF3\uC73C\uB85C
       \uB3CC\uB9B4\uC9C0, \uC774\uCC38\uC5D0 \uC815\uB9AC\uD560\uC9C0\uB97C \uB450\uACE0
       \uC774\uC57C\uAE30\uAC00 \uC880 \uC788\uC5C8\uB124."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_21
@@ -643,6 +779,9 @@ MonoBehaviour:
   - nodeId: Changyu_21
     nodeType: 0
     text: "\uACB0\uACFC\uB294 \uC5EC\uAE30 \uC788\uACE0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Narration_18
@@ -656,6 +795,9 @@ MonoBehaviour:
   - nodeId: Narration_18
     nodeType: 2
     text: "(\uADF8\uAC00 \uC11C\uB958\uB97C \uAC00\uBCCD\uAC8C \uB450\uB4DC\uB838\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Narration_19
@@ -669,6 +811,9 @@ MonoBehaviour:
   - nodeId: Narration_19
     nodeType: 2
     text: "(\uC778\uC0AC\uC5D0 \uAD00\uD55C \uACB0\uC815\uC774 \uC801\uD600 \uC788\uC5C8\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Choice_01
@@ -682,6 +827,9 @@ MonoBehaviour:
   - nodeId: Choice_01
     nodeType: 3
     text: "(\uC778\uC0AC\uC5D0 \uAD00\uD55C \uACB0\uC815\uC774 \uC801\uD600 \uC788\uC5C8\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: 
@@ -692,7 +840,7 @@ MonoBehaviour:
       resultValue: 
       useCondition: 0
       requiredKey: 
-      requiredValue: 
+      requiredValue: True
       hideWhenLocked: 0
       lockedText: 
     - choiceText: "\uB2E4\uB978 \uACF3\uC73C\uB85C \uBC1C\uB839\uB418\uB294 \uAC83\uC774\uB0D0\uACE0
@@ -702,7 +850,7 @@ MonoBehaviour:
       resultValue: 
       useCondition: 0
       requiredKey: 
-      requiredValue: 
+      requiredValue: True
       hideWhenLocked: 0
       lockedText: 
     - choiceText: "\uB9D0\uC5C6\uC774 \uC11C\uB958\uB97C \uC77D\uB294\uB2E4."
@@ -711,7 +859,7 @@ MonoBehaviour:
       resultValue: 
       useCondition: 0
       requiredKey: 
-      requiredValue: 
+      requiredValue: True
       hideWhenLocked: 0
       lockedText: 
     dimPortrait: 1
@@ -723,6 +871,9 @@ MonoBehaviour:
   - nodeId: A_001
     nodeType: 1
     text: "\uC800\uB294 \uC774\uC81C \uD574\uACE0\uB418\uB294 \uAC74\uAC00\uC694?"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: A_Changyu_01
@@ -737,6 +888,9 @@ MonoBehaviour:
     nodeType: 0
     text: "\uD45C\uD604\uC774 \uB108\uBB34 \uC0B4\uBC8C\uD558\uAD70. \uD2C0\uB9B0
       \uB9D0\uC740 \uC544\uB2C8\uC9C0\uB9CC \uB9D0\uC774\uC57C."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: A_Narration_01
@@ -751,6 +905,9 @@ MonoBehaviour:
     nodeType: 2
     text: "(\uB9AC \uCC3D\uC720\uAC00 \uBCC4\uC77C \uC544\uB2C8\uB77C\uB294 \uB4EF
       \uC5B4\uAE68\uB97C \uC73C\uC4F1\uC600\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: A_Changyu_02
@@ -765,6 +922,9 @@ MonoBehaviour:
     nodeType: 0
     text: "\uC790\uB124\uAC00 \uC0AC\uACE0\uB97C \uCCD0\uC11C \uCAD3\uACA8\uB098\uB294
       \uAC74 \uC544\uB2C8\uB124."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: A_Changyu_03
@@ -779,6 +939,9 @@ MonoBehaviour:
     nodeType: 0
     text: "\uD544\uC694\uD574\uC11C \uB9CC\uB4E0 \uC790\uB9AC\uAC00 \uD544\uC694
       \uC5C6\uC5B4\uC84C\uC73C\uB2C8 \uC815\uB9AC\uD558\uB294 \uAC70\uC9C0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: A_Changyu_04
@@ -792,6 +955,9 @@ MonoBehaviour:
   - nodeId: A_Changyu_04
     nodeType: 0
     text: "\uD589\uC815\uC774\uB77C\uB294 \uAC8C \uC6D0\uB798 \uADF8\uB798."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: A_Changyu_05
@@ -807,6 +973,9 @@ MonoBehaviour:
     text: "\uC790\uB9AC\uB97C \uB9CC\uB4E4 \uB54C\uB294 \uAF2D \uD544\uC694\uD55C
       \uC0AC\uB78C\uCC98\uB7FC \uBD88\uB7EC\uB193\uACE0, \uC77C\uC774 \uB05D\uB098\uBA74
       \uC5B8\uC81C \uADF8\uB7AC\uB0D0\uB294 \uB4EF \uC5C6\uC560\uBC84\uB9AC\uC9C0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: A_Narration_02
@@ -820,6 +989,9 @@ MonoBehaviour:
   - nodeId: A_Narration_02
     nodeType: 2
     text: "(\uB9AC \uCC3D\uC720\uAC00 {PlayerName}\uC758 \uD45C\uC815\uC744 \uC0B4\uD3C8\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: A_Changyu_06
@@ -833,6 +1005,9 @@ MonoBehaviour:
   - nodeId: A_Changyu_06
     nodeType: 0
     text: "\uC5B5\uC6B8\uD55C\uAC00?"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: A_Changyu_07
@@ -846,6 +1021,9 @@ MonoBehaviour:
   - nodeId: A_Changyu_07
     nodeType: 0
     text: "\uADF8\uB7F4 \uC218\uB3C4 \uC788\uACA0\uAD70."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: A_Changyu_08
@@ -860,6 +1038,9 @@ MonoBehaviour:
     nodeType: 0
     text: "\uADF8\uB798\uB3C4 \uB108\uBB34 \uB098\uC058\uAC8C\uB9CC \uC0DD\uAC01\uD558\uC9C0\uB294
       \uB9D0\uAC8C."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_01
     nextNodeId: A_Changyu_09
@@ -874,6 +1055,9 @@ MonoBehaviour:
     nodeType: 0
     text: "\uC5EC\uAE30\uC11C \uC0AC\uACE0 \uC5C6\uC774 \uC77C \uB144\uC744 \uBC84\uD17C\uB2E4\uB294
       \uAE30\uB85D \uC815\uB3C4\uB294 \uB0A8\uC544 \uC788\uC73C\uB2C8\uAE4C."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_01
     nextNodeId: Narration_20
@@ -888,6 +1072,9 @@ MonoBehaviour:
     nodeType: 1
     text: "\uC800\uB294 \uC774\uC81C \uB2E4\uB978 \uACF3\uC73C\uB85C \uAC00\uAC8C
       \uB418\uB294 \uAC74\uAC00\uC694?"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: B_Changyu_01
@@ -901,6 +1088,9 @@ MonoBehaviour:
   - nodeId: B_Changyu_01
     nodeType: 0
     text: "\uADF8\uB7F4 \uC218\uB3C4 \uC788\uACE0. \uC544\uB2D0 \uC218\uB3C4 \uC788\uC9C0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: B_Narration_01
@@ -914,6 +1104,9 @@ MonoBehaviour:
   - nodeId: B_Narration_01
     nodeType: 2
     text: "({PlayerName}\uAC00 \uC758\uC544\uD55C \uD45C\uC815\uC744 \uC9D3\uB294\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: B_Changyu_02
@@ -928,6 +1121,9 @@ MonoBehaviour:
     nodeType: 0
     text: "\uC544\uC9C1 \uC790\uB9AC\uAC00 \uC644\uC804\uD788 \uC815\uD574\uC9C0\uC9C0
       \uC54A\uC558\uB2E4\uB294 \uB73B\uC774\uC57C."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: B_Changyu_03
@@ -943,6 +1139,9 @@ MonoBehaviour:
     text: "\uACF5\uC791\uCCAD\uC5D0\uC11C \uACC4\uC18D \uC790\uB124\uB97C \uC4F8
       \uC218\uB3C4 \uC788\uACE0, \uB2E4\uB978 \uBD80\uCC98\uC5D0\uC11C \uC790\uB9AC\uAC00
       \uB0A0 \uC218\uB3C4 \uC788\uACE0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: B_Changyu_04
@@ -957,6 +1156,9 @@ MonoBehaviour:
     nodeType: 0
     text: "\uC544\uBB34\uAC83\uB3C4 \uC5C6\uC73C\uBA74 \uADF8\uAC78\uB85C \uB05D\uC77C
       \uC218\uB3C4 \uC788\uACE0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: B_Narration_02
@@ -970,6 +1172,9 @@ MonoBehaviour:
   - nodeId: B_Narration_02
     nodeType: 2
     text: "(\uB9AC \uCC3D\uC720\uAC00 \uD0DC\uC5F0\uD558\uAC8C \uB9D0\uD588\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: B_Changyu_05
@@ -984,6 +1189,9 @@ MonoBehaviour:
     nodeType: 0
     text: "\uC0AC\uB78C \uD558\uB098 \uC62E\uAE30\uB294 \uB370\uB3C4 \uB3C4\uC7A5\uC774
       \uC5BC\uB9C8\uB098 \uD544\uC694\uD55C\uC9C0 \uC544\uB098?"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_03
     nextNodeId: B_Changyu_06
@@ -997,6 +1205,9 @@ MonoBehaviour:
   - nodeId: B_Changyu_06
     nodeType: 0
     text: "\uBAA8\uB974\uB294 \uD3B8\uC774 \uD589\uBCF5\uD560 \uAC78\uC138."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_03
     nextNodeId: B_Changyu_07
@@ -1010,6 +1221,9 @@ MonoBehaviour:
   - nodeId: B_Changyu_07
     nodeType: 0
     text: "\uD655\uC2E4\uD55C \uAC83\uC740 \uD558\uB098\uC57C."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: B_Changyu_08
@@ -1024,6 +1238,9 @@ MonoBehaviour:
     nodeType: 0
     text: "\uC790\uB124\uAC00 \uAD6C\uB8E1\uCC44\uC131\uC758 \uC791\uC5C5\uBC18\uC7A5\uC73C\uB85C
       \uC77C\uD558\uB294 \uAC83\uC740 \uC5EC\uAE30\uAE4C\uC9C0\uB77C\uB294 \uAC83."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Narration_20
@@ -1037,6 +1254,9 @@ MonoBehaviour:
   - nodeId: C_001
     nodeType: 1
     text: "(\uB9D0\uC5C6\uC774 \uC11C\uB958\uB97C \uC77D\uB294\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: C_Narration_01
@@ -1051,6 +1271,9 @@ MonoBehaviour:
     nodeType: 2
     text: "(\uB9AC \uCC3D\uC720\uB294 \uC11C\uB958\uB97C \uC77D\uB294 {PlayerName}\uB97C
       \uAC00\uB9CC\uD788 \uBC14\uB77C\uBD24\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: C_Changyu_01
@@ -1064,6 +1287,9 @@ MonoBehaviour:
   - nodeId: C_Changyu_01
     nodeType: 0
     text: "\uC0DD\uAC01\uBCF4\uB2E4 \uCE68\uCC29\uD558\uAD70."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_01
     nextNodeId: C_Narration_02
@@ -1079,6 +1305,9 @@ MonoBehaviour:
     text: "(\uC11C\uB958\uC5D0\uB294 \uC9C0\uAE08\uAE4C\uC9C0\uC758 \uADFC\uBB34
       \uAE30\uB85D\uACFC \uD568\uAED8 \uC774\uD6C4 \uC778\uC0AC\uC5D0 \uAD00\uD55C
       \uB0B4\uC6A9\uC774 \uC801\uD600 \uC788\uC5C8\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_01
     nextNodeId: C_Changyu_02
@@ -1093,6 +1322,9 @@ MonoBehaviour:
     nodeType: 0
     text: "\uD558\uAE34 \uC5EC\uAE30\uC11C \uC77C \uB144\uC774\uB098 \uC788\uC5C8\uC73C\uBA74
       \uC6EC\uB9CC\uD55C \uC77C\uC5D0\uB294 \uB180\uB77C\uC9C0\uB3C4 \uC54A\uACA0\uC9C0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_01
     nextNodeId: C_Narration_03
@@ -1106,6 +1338,9 @@ MonoBehaviour:
   - nodeId: C_Narration_03
     nodeType: 2
     text: "(\uB9AC \uCC3D\uC720\uAC00 \uC758\uC790\uC5D0 \uB4F1\uC744 \uAE30\uB314\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: C_Changyu_03
@@ -1120,6 +1355,9 @@ MonoBehaviour:
     nodeType: 0
     text: "\uCC9C\uCC9C\uD788 \uC77D\uAC8C. \uB3C4\uB9DD\uAC00\uB294 \uAC83\uB3C4
       \uC544\uB2C8\uB2C8."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Narration_20
@@ -1135,6 +1373,9 @@ MonoBehaviour:
     text: "(\uC11C\uB958\uB97C \uB0B4\uB824\uB193\uC790 \uB9AC \uCC3D\uC720\uAC00
       \uCC45\uC0C1 \uC704\uC5D0 \uC313\uC5EC \uC788\uB294 \uB2E4\uB978 \uBB38\uC11C\uB4E4\uC744
       \uBC14\uB77C\uBD24\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Narration_21
@@ -1148,6 +1389,9 @@ MonoBehaviour:
   - nodeId: Narration_21
     nodeType: 2
     text: "(\uC6D4\uBCC4 \uC791\uC5C5 \uBCF4\uACE0\uC11C.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Narration_22
@@ -1161,6 +1405,9 @@ MonoBehaviour:
   - nodeId: Narration_22
     nodeType: 2
     text: "(\uAD6C\uC870\uBB3C \uC548\uC804 \uC810\uAC80 \uAE30\uB85D.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Narration_23
@@ -1174,6 +1421,9 @@ MonoBehaviour:
   - nodeId: Narration_23
     nodeType: 2
     text: "(\uC8FC\uBBFC \uC774\uB3D9 \uD604\uD669.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Narration_24
@@ -1187,6 +1437,9 @@ MonoBehaviour:
   - nodeId: Narration_24
     nodeType: 2
     text: "(\uC0AC\uAC74 \uBCF4\uACE0\uC11C.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Narration_25
@@ -1201,6 +1454,9 @@ MonoBehaviour:
     nodeType: 2
     text: "(\uC218\uC815\uB41C \uAE30\uB85D\uACFC \uD3D0\uAE30\uB418\uC9C0 \uC54A\uC740
       \uAE30\uB85D\uB4E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Narration_26
@@ -1215,6 +1471,9 @@ MonoBehaviour:
     nodeType: 2
     text: "(\uC9C0\uB09C \uC77C \uB144 \uB3D9\uC548 {PlayerName}\uAC00 \uC791\uC131\uD558\uACE0
       \uB118\uACA8\uC628 \uAC83\uB4E4\uC774\uC5C8\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_22
@@ -1228,6 +1487,9 @@ MonoBehaviour:
   - nodeId: Changyu_22
     nodeType: 0
     text: "\uB9CE\uC774\uB3C4 \uC37C\uAD70."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_23
@@ -1242,6 +1504,9 @@ MonoBehaviour:
     nodeType: 0
     text: "\uB9AC \uBCF4\uC88C\uAD00\uC774 \uC790\uB124\uC5D0\uAC8C \uBCF4\uACE0\uC11C\uB97C
       \uAF64 \uAF3C\uAF3C\uD558\uAC8C \uC694\uAD6C\uD588\uB358 \uBAA8\uC591\uC774\uC57C."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Narration_27
@@ -1256,6 +1521,9 @@ MonoBehaviour:
     nodeType: 2
     text: "(\uB9AC \uCC3D\uC720\uAC00 \uAC00\uC7A5 \uC704\uC758 \uC11C\uB958\uB97C
       \uD55C \uC7A5 \uC9D1\uC5B4 \uB4E4\uC5C8\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_24
@@ -1270,6 +1538,9 @@ MonoBehaviour:
     nodeType: 0
     text: "\uC0AC\uB78C\uB4E4\uC740 \uC77C\uC774 \uB05D\uB098\uBA74 \uACB0\uACFC\uB9CC
       \uBCF4\uB294 \uBC84\uB987\uC774 \uC788\uC9C0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_03
     nextNodeId: Changyu_25
@@ -1283,6 +1554,9 @@ MonoBehaviour:
   - nodeId: Changyu_25
     nodeType: 0
     text: "\uAC74\uBB3C\uC744 \uC9C0\uC5C8\uC73C\uBA74 \uAC74\uBB3C\uC744 \uBCF4\uACE0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_03
     nextNodeId: Changyu_26
@@ -1296,6 +1570,9 @@ MonoBehaviour:
   - nodeId: Changyu_26
     nodeType: 0
     text: "\uCCA0\uAC70\uD588\uC73C\uBA74 \uBE48 \uB545\uC744 \uBCF4\uACE0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_03
     nextNodeId: Changyu_27
@@ -1310,6 +1587,9 @@ MonoBehaviour:
     nodeType: 0
     text: "\uC0AC\uB78C\uC744 \uC62E\uACBC\uC73C\uBA74 \uBA87 \uBA85\uC744 \uC62E\uACBC\uB294\uC9C0\uB9CC
       \uBCF4\uACE0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_03
     nextNodeId: Narration_28
@@ -1323,6 +1603,9 @@ MonoBehaviour:
   - nodeId: Narration_28
     nodeType: 2
     text: "(\uADF8\uAC00 \uC885\uC774\uB97C \uAC00\uBCCD\uAC8C \uD754\uB4E4\uC5C8\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_28
@@ -1338,6 +1621,9 @@ MonoBehaviour:
     text: "\uADF8\uB7F0\uB370 \uC6B0\uB9AC \uAC19\uC740 \uC0AC\uB78C\uB4E4\uC740
       \uC774\uC0C1\uD558\uAC8C \uC774\uB7F0 \uC885\uC774\uB97C \uB354 \uC624\uB798
       \uBCF4\uAC8C \uB3FC."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_29
@@ -1351,6 +1637,9 @@ MonoBehaviour:
   - nodeId: Changyu_29
     nodeType: 0
     text: "\uB204\uAC00 \uC5B8\uC81C \uBB34\uC5C7\uC744 \uD588\uACE0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_30
@@ -1364,6 +1653,9 @@ MonoBehaviour:
   - nodeId: Changyu_30
     nodeType: 0
     text: "\uBB34\uC2A8 \uC77C\uC774 \uC788\uC5C8\uACE0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_31
@@ -1377,6 +1669,9 @@ MonoBehaviour:
   - nodeId: Changyu_31
     nodeType: 0
     text: "\uADF8\uB54C \uC5B4\uB5A4 \uD310\uB2E8\uC744 \uB0B4\uB838\uB294\uC9C0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_32
@@ -1391,6 +1686,9 @@ MonoBehaviour:
     nodeType: 0
     text: "\uC77C\uC774 \uB05D\uB09C \uB4A4\uC5D0\uB294 \uACB0\uAD6D \uC774\uB7F0
       \uAC83\uB9CC \uB0A8\uAC70\uB4E0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_01
     nextNodeId: Narration_29
@@ -1403,8 +1701,11 @@ MonoBehaviour:
     effects: []
   - nodeId: Narration_29
     nodeType: 2
-    text: "({PlayerName}\uAC00 \uC790\uC2E0\uC774 \uC4F4 \uBCF4\uACE0\uC11C\uB97C
+    text: "({PlayerName}\uC774/\uAC00 \uC790\uC2E0\uC774 \uC4F4 \uBCF4\uACE0\uC11C\uB97C
       \uBC14\uB77C\uBCF8\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_01
     nextNodeId: Changyu_33
@@ -1419,6 +1720,9 @@ MonoBehaviour:
     nodeType: 0
     text: "\uBB3C\uB860 \uB108\uBB34 \uB300\uB2E8\uD558\uAC8C \uC0DD\uAC01\uD560
       \uD544\uC694\uB294 \uC5C6\uC5B4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_34
@@ -1433,6 +1737,9 @@ MonoBehaviour:
     nodeType: 0
     text: "\uB300\uBD80\uBD84\uC740 \uCC3D\uACE0\uC5D0 \uCC98\uBC15\uD600\uC11C \uB2E4\uC2DC\uB294
       \uC544\uBB34\uB3C4 \uC548 \uBCFC \uD14C\uB2C8\uAE4C."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Narration_30
@@ -1446,6 +1753,9 @@ MonoBehaviour:
   - nodeId: Narration_30
     nodeType: 2
     text: "(\uB9AC \uCC3D\uC720\uAC00 \uC6C3\uC5C8\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_01
     nextNodeId: Changyu_35
@@ -1460,6 +1770,9 @@ MonoBehaviour:
     nodeType: 0
     text: "\uADF8\uB798\uB3C4 \uC5C6\uC5C8\uB358 \uC77C\uC774 \uB418\uB294 \uAC74
       \uC544\uB2C8\uC9C0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_01
     nextNodeId: Changyu_36
@@ -1473,6 +1786,9 @@ MonoBehaviour:
   - nodeId: Changyu_36
     nodeType: 0
     text: "\uAD6C\uB8E1\uCC44\uC131\uB3C4 \uBE44\uC2B7\uD560 \uAC78\uC138."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_01
     nextNodeId: Narration_31
@@ -1486,6 +1802,9 @@ MonoBehaviour:
   - nodeId: Narration_31
     nodeType: 2
     text: "(\uB9AC \uCC3D\uC720\uAC00 \uCC3D\uBC16\uC744 \uBC14\uB77C\uBD24\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_37
@@ -1499,6 +1818,9 @@ MonoBehaviour:
   - nodeId: Changyu_37
     nodeType: 0
     text: "\uC870\uAE08 \uC9C0\uB098\uBA74 \uC800\uAE30\uB3C4 \uAF64 \uB2EC\uB77C\uC9C0\uACA0\uC9C0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_38
@@ -1512,6 +1834,9 @@ MonoBehaviour:
   - nodeId: Changyu_38
     nodeType: 0
     text: "\uAE38\uC744 \uC0C8\uB85C \uB0B4\uACE0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_39
@@ -1525,6 +1850,9 @@ MonoBehaviour:
   - nodeId: Changyu_39
     nodeType: 0
     text: "\uAC74\uBB3C\uC744 \uC62C\uB9AC\uACE0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_40
@@ -1538,6 +1866,9 @@ MonoBehaviour:
   - nodeId: Changyu_40
     nodeType: 0
     text: "\uC774\uB984\uB3C4 \uADF8\uB7F4\uB4EF\uD55C \uAC78 \uBD99\uC77C \uD14C\uACE0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_41
@@ -1553,6 +1884,9 @@ MonoBehaviour:
     text: "\uBA87 \uB144 \uB354 \uC9C0\uB098\uBA74 \uC5EC\uAE30 \uBB50\uAC00 \uC788\uC5C8\uB294\uC9C0\uB3C4
       \uBAA8\uB974\uB294 \uC544\uC774\uB4E4\uC774 \uADF8 \uAE38\uC744 \uAC78\uC5B4
       \uB2E4\uB2D0 \uAC70\uC57C."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_01
     nextNodeId: Narration_32
@@ -1565,7 +1899,10 @@ MonoBehaviour:
     effects: []
   - nodeId: Narration_32
     nodeType: 2
-    text: "({PlayerName}\uAC00 \uC544\uBB34 \uB9D0 \uC5C6\uC774 \uB4E3\uB294\uB2E4.)"
+    text: "({PlayerName}\uC774/\uAC00 \uC544\uBB34 \uB9D0 \uC5C6\uC774 \uB4E3\uB294\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_42
@@ -1579,6 +1916,9 @@ MonoBehaviour:
   - nodeId: Changyu_42
     nodeType: 0
     text: "\uBB50, \uADF8\uB7F0 \uAC8C \uC774\uC0C1\uD55C \uC77C\uC740 \uC544\uB2C8\uC9C0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_43
@@ -1592,6 +1932,9 @@ MonoBehaviour:
   - nodeId: Changyu_43
     nodeType: 0
     text: "\uC218\uB3C4\uB3C4 \uADF8\uB7AC\uACE0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_44
@@ -1605,6 +1948,9 @@ MonoBehaviour:
   - nodeId: Changyu_44
     nodeType: 0
     text: "\uB2E4\uB978 \uB3C4\uC2DC\uB4E4\uB3C4 \uADF8\uB7AC\uC5B4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_45
@@ -1619,6 +1965,9 @@ MonoBehaviour:
     nodeType: 0
     text: "\uC0AC\uB78C\uC740 \uC0AC\uB77C\uC9C4 \uC790\uB9AC\uC5D0 \uB610 \uBB54\uAC00\uB97C
       \uC9D3\uB294 \uAC78 \uC88B\uC544\uD558\uAC70\uB4E0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Narration_33
@@ -1631,7 +1980,10 @@ MonoBehaviour:
     effects: []
   - nodeId: Narration_33
     nodeType: 2
-    text: "(\uADF8\uAC00 \uB2E4\uC2DC {PlayerName}\uB97C \uBC14\uB77C\uBD24\uB2E4.)"
+    text: "(\uADF8\uAC00 \uB2E4\uC2DC {PlayerName}\uC744/\uB97C \uBC14\uB77C\uBD24\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_46
@@ -1645,6 +1997,9 @@ MonoBehaviour:
   - nodeId: Changyu_46
     nodeType: 0
     text: "\uC790\uB124\uB3C4 \uACE7 \uC775\uC219\uD574\uC9C8 \uAC78\uC138."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_01
     nextNodeId: Changyu_47
@@ -1659,6 +2014,9 @@ MonoBehaviour:
     nodeType: 0
     text: "\uC9C0\uAE08\uC740 \uC800 \uBE48\uC790\uB9AC\uAC00 \uC774\uC0C1\uD574
       \uBCF4\uC5EC\uB3C4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_01
     nextNodeId: Changyu_48
@@ -1673,6 +2031,9 @@ MonoBehaviour:
     nodeType: 0
     text: "\uD55C \uD574 \uC9C0\uB098\uACE0, \uBA87 \uB144 \uC9C0\uB098\uACE0, \uB2E4\uB978
       \uACF3\uC5D0\uC11C \uB2E4\uB978 \uC77C\uC744 \uD558\uB2E4 \uBCF4\uBA74."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_01
     nextNodeId: Changyu_49
@@ -1687,6 +2048,9 @@ MonoBehaviour:
     nodeType: 0
     text: "\uC774\uBC88 \uC77C\uB3C4 \uC5B8\uC820\uAC00\uB294 \uC61B\uB0A0 \uC77C\uC774
       \uB420 \uD14C\uB2C8\uAE4C."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_01
     nextNodeId: Narration_34
@@ -1701,6 +2065,9 @@ MonoBehaviour:
     nodeType: 1
     text: "\uAD6C\uB8E1\uCC44\uC131\uC5D0\uC11C \uC788\uC5C8\uB358 \uC77C\uB3C4 \uBAA8\uB450
       \uADF8\uB807\uAC8C \uC78A\uD788\uAC8C \uB420\uAE4C\uC694?"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Narration_35
@@ -1714,6 +2081,9 @@ MonoBehaviour:
   - nodeId: Narration_35
     nodeType: 2
     text: "(\uB9AC \uCC3D\uC720\uAC00 \uC7A0\uC2DC \uC0DD\uAC01\uD588\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_02
     nextNodeId: Changyu_50
@@ -1727,6 +2097,9 @@ MonoBehaviour:
   - nodeId: Changyu_50
     nodeType: 0
     text: "\uAE00\uC384."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_51
@@ -1741,6 +2114,9 @@ MonoBehaviour:
     nodeType: 0
     text: "\uC0AC\uB78C\uC740 \uC78A\uACA0\uC9C0. \uAE30\uB85D\uC740 \uB0A8\uC744
       \uD14C\uACE0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_52
@@ -1755,6 +2131,9 @@ MonoBehaviour:
     nodeType: 0
     text: "\uC5B4\uB290 \uCABD\uC774 \uB354 \uC815\uD655\uD55C\uC9C0\uB294 \uB098\uB3C4
       \uBAA8\uB974\uACA0\uAD70."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Narration_36
@@ -1768,6 +2147,9 @@ MonoBehaviour:
   - nodeId: Narration_36
     nodeType: 2
     text: "(\uADF8\uAC00 \uD53C\uC2DD \uC6C3\uC5C8\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_01
     nextNodeId: Changyu_53
@@ -1781,6 +2163,9 @@ MonoBehaviour:
   - nodeId: Changyu_53
     nodeType: 0
     text: "\uC0AC\uB78C \uAE30\uC5B5\uC740 \uC81C\uBA4B\uB300\uB85C\uACE0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_01
     nextNodeId: Changyu_54
@@ -1794,6 +2179,9 @@ MonoBehaviour:
   - nodeId: Changyu_54
     nodeType: 0
     text: "\uAE30\uB85D\uC740 \uAE30\uB85D\uD55C \uC0AC\uB78C\uC774 \uC81C\uBA4B\uB300\uB85C\uB2C8\uAE4C."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_01
     nextNodeId: Narration_37
@@ -1808,6 +2196,9 @@ MonoBehaviour:
     nodeType: 2
     text: "(\uB9AC \uCC3D\uC720\uAC00 \uBCF4\uACE0\uC11C\uB97C \uB2E4\uC2DC \uCC45\uC0C1
       \uC704\uC5D0 \uB0B4\uB824\uB193\uC558\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_01
     nextNodeId: Changyu_55
@@ -1822,6 +2213,9 @@ MonoBehaviour:
     nodeType: 0
     text: "\uADF8\uB798\uB3C4 \uB458 \uC911 \uD558\uB098\uB77C\uB3C4 \uB0A8\uC544
       \uC788\uC73C\uBA74 \uC5C6\uB294 \uAC83\uBCF4\uB2E4\uB294 \uB0AB\uACA0\uC9C0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_01
     nextNodeId: Changyu_56
@@ -1836,6 +2230,9 @@ MonoBehaviour:
     nodeType: 0
     text: "\uC801\uC5B4\uB3C4 \uB204\uAD70\uAC00\uB294 \uC5EC\uAE30\uC5D0 \uBB34\uC5B8\uAC00\uAC00
       \uC788\uC5C8\uB2E4\uB294 \uAC78 \uC54C \uD14C\uB2C8\uAE4C."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_01
     nextNodeId: Narration_38
@@ -1849,6 +2246,9 @@ MonoBehaviour:
   - nodeId: Narration_38
     nodeType: 2
     text: "(\uB9AC \uCC3D\uC720\uAC00 \uC790\uB9AC\uC5D0\uC11C \uC77C\uC5B4\uB0AC\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_57
@@ -1862,6 +2262,9 @@ MonoBehaviour:
   - nodeId: Changyu_57
     nodeType: 0
     text: "\uC544\uBB34\uD2BC \uC804\uB2EC\uD560 \uC774\uC57C\uAE30\uB294 \uB05D\uB0AC\uB124."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_58
@@ -1876,6 +2279,9 @@ MonoBehaviour:
     nodeType: 0
     text: "\uB0A8\uC740 \uC11C\uB958 \uC815\uB9AC\uB294 \uB2E4\uB978 \uC0AC\uB78C\uC5D0\uAC8C
       \uB118\uACA8\uB3C4 \uB418\uACE0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_59
@@ -1889,6 +2295,9 @@ MonoBehaviour:
   - nodeId: Changyu_59
     nodeType: 0
     text: "\uAC1C\uC778 \uBB3C\uAC74\uC774 \uC788\uC73C\uBA74 \uCC59\uACA8\uAC00\uAC8C."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_60
@@ -1904,6 +2313,9 @@ MonoBehaviour:
     text: "\uAD1C\uD788 \uB450\uACE0 \uAC14\uB2E4\uAC00 \uCCA0\uAC70\uBC18\uC774
       \uAC19\uC774 \uBC00\uC5B4\uBC84\uB9AC\uBA74 \uB098\uD55C\uD14C \uBB3C\uC5B4\uB0B4\uB77C\uACE0
       \uD558\uC9C0 \uB9D0\uACE0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Narration_39
@@ -1917,6 +2329,9 @@ MonoBehaviour:
   - nodeId: Narration_39
     nodeType: 2
     text: "(\uB9AC \uCC3D\uC720\uAC00 \uC637\uB9E4\uBB34\uC0C8\uB97C \uC815\uB9AC\uD588\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_61
@@ -1930,6 +2345,9 @@ MonoBehaviour:
   - nodeId: Changyu_61
     nodeType: 0
     text: "\uC544."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Narration_40
@@ -1944,6 +2362,9 @@ MonoBehaviour:
     nodeType: 2
     text: "(\uBB38\uC73C\uB85C \uD5A5\uD558\uB358 \uADF8\uAC00 \uBB34\uC5B8\uAC00
       \uC0DD\uAC01\uB09C \uB4EF \uBA48\uCDC4\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_62
@@ -1958,6 +2379,9 @@ MonoBehaviour:
     nodeType: 0
     text: "\uADF8\uB7EC\uACE0 \uBCF4\uB2C8 \uD558\uB098 \uAD81\uAE08\uD55C \uAC8C
       \uC788\uAD70."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Narration_41
@@ -1971,6 +2395,9 @@ MonoBehaviour:
   - nodeId: Narration_41
     nodeType: 2
     text: "(\uB9AC \uCC3D\uC720\uAC00 \uB4A4\uB97C \uB3CC\uC544\uBD24\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_63
@@ -1984,6 +2411,9 @@ MonoBehaviour:
   - nodeId: Changyu_63
     nodeType: 0
     text: "\uC790\uB124\uB294 \uC774\uACF3 \uCD9C\uC2E0\uC774\uB77C\uACE0 \uD588\uC9C0?"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Narration_42
@@ -1997,6 +2427,9 @@ MonoBehaviour:
   - nodeId: Narration_42
     nodeType: 1
     text: "(\uACE0\uAC1C\uB97C \uB044\uB355\uC778\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_64
@@ -2011,6 +2444,9 @@ MonoBehaviour:
     nodeType: 0
     text: "\uACE0\uD5A5\uC73C\uB85C \uB3CC\uC544\uC640\uC11C \uB098\uB77C\uC5D0\uC11C
       \uC2DC\uD0A4\uB294 \uB300\uB85C \uAC74\uBB3C\uC744 \uAD00\uB9AC\uD558\uACE0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_65
@@ -2025,6 +2461,9 @@ MonoBehaviour:
     nodeType: 0
     text: "\uC0AC\uB78C\uB4E4 \uC774\uC57C\uAE30\uB97C \uB4E3\uACE0. \uBCC4\uBCC4
       \uC77C\uC744 \uB2E4 \uBCF4\uACE0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_66
@@ -2039,6 +2478,9 @@ MonoBehaviour:
     nodeType: 0
     text: "\uB9C8\uC9C0\uB9C9\uC5D0\uB294 \uADF8\uACF3\uC774 \uC0AC\uB77C\uC9C0\uB294
       \uAC83\uAE4C\uC9C0 \uBCF4\uAC8C \uB410\uAD70."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Narration_43
@@ -2051,7 +2493,10 @@ MonoBehaviour:
     effects: []
   - nodeId: Narration_43
     nodeType: 2
-    text: "(\uB9AC \uCC3D\uC720\uAC00 \uC7A0\uC2DC {PlayerName}\uB97C \uBC14\uB77C\uBD24\uB2E4.)"
+    text: "(\uB9AC \uCC3D\uC720\uAC00 \uC7A0\uC2DC {PlayerName}\uC744/\uB97C \uBC14\uB77C\uBD24\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_67
@@ -2066,6 +2511,9 @@ MonoBehaviour:
     nodeType: 0
     text: "\uADF8\uB7FC \uC790\uB124\uD55C\uD14C \uAD6C\uB8E1\uCC44\uC131\uC740 \uC5B4\uB5A4
       \uACF3\uC774\uC5C8\uB098?"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Choice_02
@@ -2080,6 +2528,9 @@ MonoBehaviour:
     nodeType: 3
     text: "\uADF8\uB7FC \uC790\uB124\uD55C\uD14C \uAD6C\uB8E1\uCC44\uC131\uC740 \uC5B4\uB5A4
       \uACF3\uC774\uC5C8\uB098?"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: 
@@ -2091,7 +2542,7 @@ MonoBehaviour:
       resultValue: 
       useCondition: 0
       requiredKey: 
-      requiredValue: 
+      requiredValue: True
       hideWhenLocked: 0
       lockedText: 
     - choiceText: "\uB9CE\uC740 \uAC83\uC744 \uBCF4\uACE0 \uAE30\uC5B5\uD558\uAC8C
@@ -2101,7 +2552,7 @@ MonoBehaviour:
       resultValue: 
       useCondition: 0
       requiredKey: 
-      requiredValue: 
+      requiredValue: True
       hideWhenLocked: 0
       lockedText: 
     - choiceText: "\uC544\uC9C1 \uBB34\uC5C7\uC774\uC5C8\uB294\uC9C0 \uC798 \uBAA8\uB974\uACA0\uB2E4\uACE0
@@ -2111,7 +2562,7 @@ MonoBehaviour:
       resultValue: 
       useCondition: 0
       requiredKey: 
-      requiredValue: 
+      requiredValue: True
       hideWhenLocked: 0
       lockedText: 
     dimPortrait: 1
@@ -2123,6 +2574,9 @@ MonoBehaviour:
   - nodeId: Answer
     nodeType: 1
     text: "(\uB300\uB2F5\uD558\uB824 \uC785\uC744 \uC5F4\uC5C8\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_68
@@ -2136,6 +2590,9 @@ MonoBehaviour:
   - nodeId: Changyu_68
     nodeType: 0
     text: "\uB410\uB124."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_03
     nextNodeId: Narration_44
@@ -2149,6 +2606,9 @@ MonoBehaviour:
   - nodeId: Narration_44
     nodeType: 2
     text: "(\uB9AC \uCC3D\uC720\uAC00 \uBA3C\uC800 \uB9D0\uC744 \uB04A\uC5C8\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_03
     nextNodeId: Changyu_69
@@ -2163,6 +2623,9 @@ MonoBehaviour:
     nodeType: 0
     text: "\uAD73\uC774 \uC9C0\uAE08 \uB300\uB2F5\uD558\uC9C0 \uC54A\uC544\uB3C4
       \uB3FC."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_70
@@ -2177,6 +2640,9 @@ MonoBehaviour:
     nodeType: 0
     text: "\uB0B4\uAC00 \uC54C\uC544\uC11C \uC5B4\uB514\uB2E4 \uC4F8 \uAC83\uB3C4
       \uC544\uB2C8\uACE0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Narration_45
@@ -2190,6 +2656,9 @@ MonoBehaviour:
   - nodeId: Narration_45
     nodeType: 2
     text: "(\uADF8\uAC00 \uC544\uBB34\uB807\uC9C0 \uC54A\uAC8C \uC6C3\uC5C8\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_01
     nextNodeId: Changyu_71
@@ -2203,6 +2672,9 @@ MonoBehaviour:
   - nodeId: Changyu_71
     nodeType: 0
     text: "\uADF8\uB0E5 \uAD81\uAE08\uD588\uC744 \uBFD0\uC774\uC57C."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_01
     nextNodeId: Narration_46
@@ -2216,6 +2688,9 @@ MonoBehaviour:
   - nodeId: Narration_46
     nodeType: 2
     text: "(\uB9AC \uCC3D\uC720\uAC00 \uBB38\uC744 \uC5F4\uC5C8\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_72
@@ -2229,6 +2704,9 @@ MonoBehaviour:
   - nodeId: Changyu_72
     nodeType: 0
     text: "\uB098\uC911\uC5D0 \uC0DD\uAC01\uB098\uBA74 \uD63C\uC790 \uB300\uB2F5\uD574\uBCF4\uAC8C."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Changyu_73
@@ -2243,6 +2721,9 @@ MonoBehaviour:
     nodeType: 0
     text: "\uC9C0\uAE08\uD558\uACE0\uB294 \uB2F5\uC774 \uB2EC\uB77C\uC9C8 \uC218\uB3C4
       \uC788\uC73C\uB2C8\uAE4C."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 11400000, guid: 28c49b0d7acc406409bf904082253a32, type: 2}
     portraitId: D_02_00
     nextNodeId: Narration_47
@@ -2256,6 +2737,9 @@ MonoBehaviour:
   - nodeId: Narration_47
     nodeType: 2
     text: "(\uB9AC \uCC3D\uC720\uAC00 \uC0AC\uBB34\uC2E4\uC744 \uB098\uAC14\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Narration_48
@@ -2269,6 +2753,9 @@ MonoBehaviour:
   - nodeId: Narration_48
     nodeType: 2
     text: "(\uBB38\uC774 \uB2EB\uD614\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Narration_49
@@ -2282,6 +2769,9 @@ MonoBehaviour:
   - nodeId: Narration_49
     nodeType: 2
     text: "(\uC0AC\uBB34\uC2E4\uC5D0\uB294 {PlayerName} \uD63C\uC790 \uB0A8\uC558\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Narration_50
@@ -2296,6 +2786,9 @@ MonoBehaviour:
     nodeType: 2
     text: "(\uCC45\uC0C1 \uC704\uC5D0\uB294 \uC9C0\uB09C \uC77C \uB144 \uB3D9\uC548
       \uC791\uC131\uD55C \uAE30\uB85D\uB4E4\uC774 \uB193\uC5EC \uC788\uC5C8\uB2E4.)"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Outro_01
@@ -2309,6 +2802,9 @@ MonoBehaviour:
   - nodeId: Outro_01
     nodeType: 2
     text: "1\uC6D4\uC758 \uBC1C\uB839."
+    backgroundId: __HIDE__
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Outro_02
@@ -2322,6 +2818,9 @@ MonoBehaviour:
   - nodeId: Outro_02
     nodeType: 2
     text: "\uBB34\uB108\uC9C4 \uAC74\uBB3C\uACFC \uC9D1\uC744 \uC783\uC740 \uC0AC\uB78C\uB4E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Outro_03
@@ -2336,6 +2835,9 @@ MonoBehaviour:
     nodeType: 2
     text: "\uCC45\uC0C1 \uC704\uC5D0 \uB193\uC600\uB358 \uC11C\uB85C \uB2E4\uB978
       \uBCF4\uACE0\uC11C\uB4E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Outro_04
@@ -2350,6 +2852,9 @@ MonoBehaviour:
     nodeType: 2
     text: "\uC544\uBB34 \uC77C\uB3C4 \uC77C\uC5B4\uB098\uC9C0 \uC54A\uC558\uB358
       \uC870\uC6A9\uD55C \uB2EC."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Outro_05
@@ -2364,6 +2869,9 @@ MonoBehaviour:
     nodeType: 2
     text: "\uC8FD\uC740 \uC0AC\uB78C\uB4E4\uACFC \uACC4\uC18D \uC0B4\uC544\uAC00\uB358
       \uC0AC\uB78C\uB4E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Outro_06
@@ -2378,6 +2886,9 @@ MonoBehaviour:
     nodeType: 2
     text: "\uB204\uAD70\uAC00\uB97C \uAE30\uC5B5\uD558\uAE30 \uC704\uD574 \uC2DC\uC791\uB41C
       \uC2F8\uC6C0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Outro_07
@@ -2392,6 +2903,9 @@ MonoBehaviour:
     nodeType: 2
     text: "\uC78A\uC9C0 \uB9D0\uC544\uC57C \uD588\uB358 \uC624\uB798\uC804\uC758
       \uC774\uC57C\uAE30."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Outro_08
@@ -2405,6 +2919,9 @@ MonoBehaviour:
   - nodeId: Outro_08
     nodeType: 2
     text: "\uC124\uBA85\uB418\uC9C0 \uC54A\uC740 \uD754\uC801\uACFC \uC18C\uBB38."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Outro_09
@@ -2419,6 +2936,9 @@ MonoBehaviour:
     nodeType: 2
     text: "\uBB34\uC5B8\uAC00\uB97C \uC5BB\uC73C\uB824\uBA74 \uBB34\uC5C7\uC744 \uC783\uC744
       \uC218 \uC788\uB290\uB0D0\uB358 \uC9C8\uBB38."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Outro_10
@@ -2433,6 +2953,9 @@ MonoBehaviour:
     nodeType: 2
     text: "\uB5A0\uB098\uB294 \uC0AC\uB78C\uB4E4 \uADF8\uB9AC\uACE0 \uACB0\uAD6D
       \uBE44\uC5B4\uBC84\uB9B0 \uC790\uB9AC."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Outro_11
@@ -2446,6 +2969,9 @@ MonoBehaviour:
   - nodeId: Outro_11
     nodeType: 2
     text: "\uADF8 \uBAA8\uB4E0 \uC77C\uC774 \uAE30\uB85D\uB418\uC5B4 \uC788\uC5C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Outro_12
@@ -2460,6 +2986,9 @@ MonoBehaviour:
     nodeType: 2
     text: "\uC5B4\uB5A4 \uAE30\uB85D\uC5D0\uB294 \uB2F9\uC2E0\uC758 \uD310\uB2E8\uC774
       \uB0A8\uC558\uACE0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Outro_13
@@ -2474,6 +3003,9 @@ MonoBehaviour:
     nodeType: 2
     text: "\uC5B4\uB5A4 \uAE30\uB85D\uC5D0\uB294 \uADF8\uC800 \uC77C\uC5B4\uB09C
       \uC77C\uB9CC \uC801\uD600 \uC788\uC5C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Outro_14
@@ -2487,6 +3019,9 @@ MonoBehaviour:
   - nodeId: Outro_14
     nodeType: 2
     text: "\uBB34\uC5B8\uAC00\uB97C \uBC14\uAFBC \uAC83\uB3C4 \uC788\uC5C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Outro_15
@@ -2501,6 +3036,9 @@ MonoBehaviour:
     nodeType: 2
     text: "\uC544\uBB34\uAC83\uB3C4 \uBC14\uAFB8\uC9C0 \uBABB\uD55C \uAC83\uB3C4
       \uC788\uC5C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Outro_16
@@ -2515,6 +3053,9 @@ MonoBehaviour:
     nodeType: 2
     text: "\uB2F9\uC2E0\uC740 \uB9C8\uC9C0\uB9C9\uC73C\uB85C \uC0AC\uBB34\uC2E4\uC744
       \uB458\uB7EC\uBD24\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Outro_17
@@ -2529,6 +3070,9 @@ MonoBehaviour:
     nodeType: 2
     text: "\uB354 \uC774\uC0C1 \uC774\uACF3\uC5D0\uC11C \uD574\uC57C \uD560 \uC77C\uC740
       \uC5C6\uC5C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Outro_18
@@ -2543,6 +3087,9 @@ MonoBehaviour:
     nodeType: 2
     text: "\uCC3D\uBC16\uC5D0\uB294 \uCCA0\uAC70\uB97C \uAE30\uB2E4\uB9AC\uB294 \uAD6C\uB8E1\uCC44\uC131\uC774
       \uB0A8\uC544 \uC788\uC5C8\uB2E4."
+    backgroundId: BG_Alley_01
+    backgroundTransition: 1
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Outro_19
@@ -2557,6 +3104,9 @@ MonoBehaviour:
     nodeType: 2
     text: "\uC774\uACF3\uC5D0 \uC788\uB358 \uC0AC\uB78C\uB4E4\uC774 \uC5B4\uB514\uB85C
       \uAC14\uB294\uC9C0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Outro_20
@@ -2570,6 +3120,9 @@ MonoBehaviour:
   - nodeId: Outro_20
     nodeType: 2
     text: "\uD64D\uB828\uADC0\uAC00 \uBB34\uC5C7\uC744 \uC120\uD0DD\uD588\uB294\uC9C0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Outro_21
@@ -2584,6 +3137,9 @@ MonoBehaviour:
     nodeType: 2
     text: "\uC57C\uC11C\uAC00 \uB05D\uB0B4 \uBB34\uC5C7\uC744 \uC9C0\uD0A4\uB824
       \uD588\uB294\uC9C0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Outro_22
@@ -2598,6 +3154,9 @@ MonoBehaviour:
     nodeType: 2
     text: "\uB9AC \uC2DC\uD654\uC640 \uC704 \uAC74\uC6B0\uAC00 \uC5B4\uB514\uC5D0\uC11C
       \uBB34\uC5C7\uC744 \uD558\uACE0 \uC788\uB294\uC9C0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Outro_23
@@ -2611,6 +3170,9 @@ MonoBehaviour:
   - nodeId: Outro_23
     nodeType: 2
     text: "\uB2F9\uC2E0\uC740 \uC54C\uC9C0 \uBABB\uD588\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Outro_24
@@ -2625,6 +3187,9 @@ MonoBehaviour:
     nodeType: 2
     text: "\uC5B4\uCA4C\uBA74 \uC55E\uC73C\uB85C\uB3C4 \uC54C\uC9C0 \uBABB\uD560
       \uAC83\uC774\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Outro_25
@@ -2639,6 +3204,9 @@ MonoBehaviour:
     nodeType: 2
     text: "\uADF8\uB7FC\uC5D0\uB3C4 \uADF8\uB4E4\uC774 \uC774\uACF3\uC5D0 \uC788\uC5C8\uB2E4\uB294
       \uC0AC\uC2E4\uB9CC\uD07C\uC740 \uC54C\uACE0 \uC788\uC5C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Outro_26
@@ -2652,6 +3220,9 @@ MonoBehaviour:
   - nodeId: Outro_26
     nodeType: 2
     text: "\uBCF4\uC558\uACE0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Outro_27
@@ -2665,6 +3236,9 @@ MonoBehaviour:
   - nodeId: Outro_27
     nodeType: 2
     text: "\uB4E4\uC5C8\uACE0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Outro_28
@@ -2678,6 +3252,9 @@ MonoBehaviour:
   - nodeId: Outro_28
     nodeType: 2
     text: "\uAE30\uB85D\uD588\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Outro_29
@@ -2692,6 +3269,9 @@ MonoBehaviour:
     nodeType: 2
     text: "\uADF8\uB9AC\uACE0 \uB54C\uB85C\uB294 \uC544\uBB34\uAC83\uB3C4 \uD558\uC9C0
       \uC54A\uC558\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Outro_30
@@ -2706,6 +3286,9 @@ MonoBehaviour:
     nodeType: 2
     text: "\uC2DC\uAC04\uC774 \uC9C0\uB098\uBA74 \uC774\uACF3\uC5D0\uB294 \uB2E4\uB978
       \uAC74\uBB3C\uC774 \uB4E4\uC5B4\uC124 \uAC83\uC774\uB2E4."
+    backgroundId: BG_EmptyLot_01
+    backgroundTransition: 1
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Outro_31
@@ -2719,6 +3302,9 @@ MonoBehaviour:
   - nodeId: Outro_31
     nodeType: 2
     text: "\uC0C8\uB85C\uC6B4 \uC0AC\uB78C\uB4E4\uC774 \uC624\uACE0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Outro_32
@@ -2732,6 +3318,9 @@ MonoBehaviour:
   - nodeId: Outro_32
     nodeType: 2
     text: "\uC0C8\uB85C\uC6B4 \uC774\uB984\uC774 \uBD99\uACE0."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Outro_33
@@ -2746,6 +3335,9 @@ MonoBehaviour:
     nodeType: 2
     text: "\uC9C0\uAE08\uC758 \uC77C\uB4E4\uB3C4 \uC5B8\uC820\uAC00\uB294 \uC624\uB798\uB41C
       \uC774\uC57C\uAE30\uAC00 \uB420 \uAC83\uC774\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Outro_34
@@ -2759,6 +3351,9 @@ MonoBehaviour:
   - nodeId: Outro_34
     nodeType: 2
     text: "\uC138\uC0C1\uC740 \uADF8\uB807\uAC8C \uACC4\uC18D \uC6C0\uC9C1\uC778\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Outro_35
@@ -2772,6 +3367,9 @@ MonoBehaviour:
   - nodeId: Outro_35
     nodeType: 2
     text: "\uB204\uAD70\uAC00 \uC6C0\uC9C1\uC774\uC9C0 \uC54A\uC544\uB3C4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Outro_36
@@ -2785,6 +3383,9 @@ MonoBehaviour:
   - nodeId: Outro_36
     nodeType: 2
     text: "\uB204\uAD70\uAC00 \uC120\uD0DD\uD558\uC9C0 \uC54A\uC544\uB3C4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Outro_37
@@ -2798,6 +3399,9 @@ MonoBehaviour:
   - nodeId: Outro_37
     nodeType: 2
     text: "\uC544\uBB34\uAC83\uB3C4 \uAE30\uB2E4\uB824\uC8FC\uC9C0 \uC54A\uC740 \uCC44."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Outro_38
@@ -2811,6 +3415,9 @@ MonoBehaviour:
   - nodeId: Outro_38
     nodeType: 2
     text: "\uAD6C\uB8E1\uCC44\uC131\uB3C4 \uACB0\uAD6D \uC0AC\uB77C\uC9C8 \uAC83\uC774\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Outro_39
@@ -2826,6 +3433,9 @@ MonoBehaviour:
     text: "\uADF8\uACF3\uC744 \uBC14\uAFB8\uC9C0 \uBABB\uD588\uB2E4\uACE0 \uD574\uC11C,
       \uC774\uACF3\uC5D0\uC11C \uBCF4\uB0B8 \uC2DC\uAC04\uC774 \uC0AC\uB77C\uC9C0\uB294
       \uAC83\uC740 \uC544\uB2C8\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Outro_40
@@ -2841,6 +3451,9 @@ MonoBehaviour:
     text: "\uB2E4\uB9CC, \uADF8 \uC2DC\uAC04 \uB3D9\uC548 \uBB34\uC5C7\uC744 \uD560
       \uC218 \uC788\uC5C8\uB294\uC9C0\uB294 \uC774\uC81C \uAE30\uB85D \uC18D\uC5D0\uB9CC
       \uB0A8\uC544 \uC788\uC5C8\uB2E4."
+    backgroundId: BG_Office_01
+    backgroundTransition: 1
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Outro_41
@@ -2854,6 +3467,9 @@ MonoBehaviour:
   - nodeId: Outro_41
     nodeType: 2
     text: "\uD558\uC9C0\uB9CC \uB2F9\uC2E0\uC5D0\uAC8C\uB294 \uAE30\uC5B5\uC774 \uB41C\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Outro_42
@@ -2867,6 +3483,9 @@ MonoBehaviour:
   - nodeId: Outro_42
     nodeType: 2
     text: "\uADF8\uB9AC\uACE0 \uAE30\uC5B5\uC740 \uB54C\uB54C\uB85C."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Outro_43
@@ -2882,6 +3501,9 @@ MonoBehaviour:
     text: "\uC9C0\uB098\uAC04 \uC77C\uC744 \uB418\uB3CC\uB9AC\uC9C0\uB294 \uBABB\uD574\uB3C4
       \uB2E4\uC74C\uC5D0 \uBB34\uC5C7\uC744 \uC120\uD0DD\uD560\uC9C0\uB294 \uBC14\uAFC0
       \uC218 \uC788\uB2E4."
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: Outro_44
@@ -2895,6 +3517,9 @@ MonoBehaviour:
   - nodeId: Outro_44
     nodeType: 2
     text: "\uC774\uBC88 \uC77C\uB3C4 \uC5B8\uC820\uAC00\uB294\u2014"
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: End
@@ -2908,6 +3533,9 @@ MonoBehaviour:
   - nodeId: End
     nodeType: 4
     text: 
+    backgroundId: 
+    backgroundTransition: 0
+    backgroundTransitionDuration: 0.3
     character: {fileID: 0}
     portraitId: 
     nextNodeId: 

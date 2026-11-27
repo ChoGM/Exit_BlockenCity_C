@@ -22,9 +22,9 @@ MonoBehaviour:
   silhouette: {fileID: 21300000, guid: a6c6e443899c6c94b9c3d902c3d638d3, type: 3}
   fullBodysilhouette: {fileID: 21300000, guid: 944fb80ab2ecc244fb49df3ccdde48ea, type: 3}
   storyPortraits:
-  - portraitId: D_02_00
+  - portraitId: D_03_00
     displayName: "\uC704\uAC74\uC6B0_\uAE30\uBCF8"
-    portraitSprite: {fileID: 21300000, guid: b1da7582814775e4a821ec15edd337f7, type: 3}
+    portraitSprite: {fileID: 21300000, guid: 66de0243d66dc0b4c87d3cc528160cae, type: 3}
   age: 34
   job: "\uD2B9\uBCC4\uCE58\uC548\uAD70 \uD2B9\uBB34\uBD80\uB300\uC7A5"
   height: 178
