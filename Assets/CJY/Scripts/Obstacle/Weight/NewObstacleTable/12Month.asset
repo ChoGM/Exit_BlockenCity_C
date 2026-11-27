@@ -15,10 +15,6 @@ MonoBehaviour:
   month: 12
   obstacles:
   - type: 1
-    weight: 3
+    weight: 1
   - type: 2
     weight: 3
-  - type: 4
-    weight: 2
-  - type: 5
-    weight: 2
