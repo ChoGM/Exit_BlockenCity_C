@@ -16,8 +16,6 @@ MonoBehaviour:
   obstacles:
   - type: 0
     weight: 2
-  - type: 6
-    weight: 3
   - type: 7
     weight: 3
   - type: 4
