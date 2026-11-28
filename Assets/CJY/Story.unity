@@ -1735,8 +1735,8 @@ MonoBehaviour:
   backgroundController: {fileID: 550949690}
   sequenceController: {fileID: 2119780302}
   monthCompletionController: {fileID: 2119780303}
-  useTestStory: 0
-  testStory: {fileID: 11400000, guid: 14ac70be582a9ed4e94979aa908fe10a, type: 2}
+  useTestStory: 1
+  testStory: {fileID: 11400000, guid: c63e973f2c8dc074ca86d7cc042011ca, type: 2}
   playOnStart: 1
   defaultPlayerName: "\uC11C\uC548"
   playerJobTitle: "\uACF5\uC791\uCCAD \uD604\uC7A5\uAC10\uB3C5\uAD00"

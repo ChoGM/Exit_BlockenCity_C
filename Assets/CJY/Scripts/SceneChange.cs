@@ -35,6 +35,12 @@ public class SceneChange : MonoBehaviour
 
         Datamanager.Instance.LoadGameData();
 
+        if (DemoCompletionState.IsCompleted(Datamanager.Instance.saveData))
+        {
+            DemoCompletionScreen.Show();
+            return;
+        }
+
         SceneManager.LoadScene(lobbySceneName);
     }
 

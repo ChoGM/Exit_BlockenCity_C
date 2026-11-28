@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5af939c6f7241745ad6b5c9168d9c6e, type: 3}
+  m_Name: HNG_1109000
+  m_EditorClassIdentifier: 
+  background: {fileID: 863504440, guid: a0a4a4d624feb004ca24742a802f1415, type: 3}
+  Summarybackground: {fileID: -1547232057, guid: 33b8ddb6b03fd0148baac9f5e1ff037e, type: 3}
+  SummaryColor: {r: 0.28627452, g: 0.12941177, b: 0.12941177, a: 1}
+  sliderColor: {r: 0.18039216, g: 0.050980393, b: 0.050980393, a: 1}
+  branchID: 1109001
+  questName: "\uD64D\uB828\uADC0 \uBD84\uC5F4"
+  description: "\uC624\uD53C\uC2A4 5\uAC1C \uCCA0\uAC70"
+  questType: 0
+  blockType: 9
+  targetCount: 5
+  targetHeight: 0
+  restrictedInput: 
+  darknessLevel: 0
+  timeType: 1
+  timeRole: 2
+  timeValue: 25
+  friendlinessType: 1
+  friendlinessReward: 10
+  rewardColor: {r: 1, g: 0.4392157, b: 0.4392157, a: 1}
+  IsCompleted: 1

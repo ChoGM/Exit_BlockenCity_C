@@ -1130,6 +1130,9 @@ public class StoryRunner : MonoBehaviour
     {
         StoryData finishedStory =
             currentStory;
+        bool completedDemo = finishedStory != null &&
+            finishedStory.StoryId == DemoCompletionState.FinalStoryId &&
+            currentNode != null && currentNode.NodeType == StoryNodeType.End;
 
         StopAllStoryCoroutines();
 
@@ -1161,6 +1164,14 @@ public class StoryRunner : MonoBehaviour
          * 아직 재생할 이벤트/월 스토리가 남아 있다면
          * 월을 증가시키지 않고 다음 스토리를 실행합니다.
          */
+        if (completedDemo)
+        {
+            sequenceController?.StopSequence();
+            DemoCompletionState.Complete();
+            DemoCompletionScreen.Show();
+            return;
+        }
+
         if (sequenceController != null &&
             sequenceController.HasNextStory)
         {
