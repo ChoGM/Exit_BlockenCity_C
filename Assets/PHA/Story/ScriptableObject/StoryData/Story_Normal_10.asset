@@ -420,8 +420,8 @@ MonoBehaviour:
     portraitId: D_03_00
     nextNodeId: 
     choices:
-    - choiceText: "\uAD6C\uB8E1\uCC44\uC131\uC5D0 \uBC30\uCE58\uB41C \uBAA8\uB4E0
-        \uCE58\uC548\uAD70\uC774 \uCCA0\uC218\uD558\uB294 \uAC74\uAC00\uC694?"
+    - choiceText: "\uCE58\uC548\uAD70\uC774 \uBAA8\uB450 \uCCA0\uC218\uD558\uB294\uC9C0
+        \uBB3B\uB294\uB2E4."
       targetNodeId: A_001
       resultKey: 
       resultValue: 
@@ -430,8 +430,8 @@ MonoBehaviour:
       requiredValue: True
       hideWhenLocked: 0
       lockedText: 
-    - choiceText: "\uC774\uB807\uAC8C \uAC11\uC790\uAE30 \uCCA0\uC218\uD558\uB294
-        \uC774\uC720\uAC00 \uBB50\uC8E0?"
+    - choiceText: "\uAC11\uC790\uAE30 \uCCA0\uC218\uD558\uB294 \uC774\uC720\uB97C
+        \uBB3B\uB294\uB2E4."
       targetNodeId: B_001
       resultKey: 
       resultValue: 
@@ -440,7 +440,7 @@ MonoBehaviour:
       requiredValue: True
       hideWhenLocked: 0
       lockedText: 
-    - choiceText: "\u2026."
+    - choiceText: "\uBCC4\uB2E4\uB978 \uB9D0\uC744 \uD558\uC9C0 \uC54A\uB294\uB2E4."
       targetNodeId: C_001
       resultKey: 
       resultValue: 
@@ -1000,8 +1000,8 @@ MonoBehaviour:
     portraitId: D_03_00
     nextNodeId: 
     choices:
-    - choiceText: "\uC633\uC740 \uACB0\uC815\uC774\uB77C\uACE0 \uC0DD\uAC01\uD574\uC694.
-        \uC5B8\uC81C\uAE4C\uC9C0 \uC774\uB807\uAC8C \uB458 \uC21C \uC5C6\uC73C\uB2C8\uAE4C\uC694."
+    - choiceText: "\uCCA0\uAC70\uAC00 \uC633\uC740 \uACB0\uC815\uC774\uB77C\uACE0
+        \uB9D0\uD55C\uB2E4."
       targetNodeId: A2_001
       resultKey: 
       resultValue: 
@@ -1010,9 +1010,8 @@ MonoBehaviour:
       requiredValue: True
       hideWhenLocked: 0
       lockedText: 
-    - choiceText: "\uAD6C\uB8E1\uCC44\uC131\uC774 \uCCA0\uAC70\uB418\uB294 \uAC70\uBA74..
-        \uC774\uACF3\uC758 \uC8FC\uBBFC\uB4E4\uC740 \uC5B4\uB5BB\uAC8C \uB418\uB294
-        \uAC74\uAC00\uC694?"
+    - choiceText: "\uC774\uACF3 \uC0AC\uB78C\uB4E4\uC740 \uC5B4\uB5BB\uAC8C \uB418\uB294\uC9C0
+        \uBB3B\uB294\uB2E4."
       targetNodeId: B2_001
       resultKey: 
       resultValue: 
@@ -1021,7 +1020,7 @@ MonoBehaviour:
       requiredValue: True
       hideWhenLocked: 0
       lockedText: 
-    - choiceText: "\uB108\uBB34 \uAC11\uC791\uC2A4\uB7EC\uC6B4 \uC77C \uC544\uB2CC\uAC00\uC694?"
+    - choiceText: "\uB108\uBB34 \uAC11\uC791\uC2A4\uB7FD\uB2E4\uACE0 \uB9D0\uD55C\uB2E4."
       targetNodeId: C2_001
       resultKey: 
       resultValue: 

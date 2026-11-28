@@ -1,0 +1,19 @@
+﻿CharacterId,CharacterName,CharacterNameEng,PortraitId,PortraitLabel,SpriteName
+Char_Danwol_01,리 시화,李詩華,,Default,Wiki_Chara_01_crop
+Char_Danwol_01,리 시화,李詩華,D_01_00,리시화_기본,01_01
+Char_Danwol_01,리 시화,李詩華,D_01_01,리시화_화남,01_04
+Char_Danwol_01,리 시화,李詩華,D_01_02,리시화_웃음,01_02
+Char_Danwol_01,리 시화,李詩華,D_01_03,리시화_아련,01_03
+Char_Danwol_02,리 창유,李昌裕,,Default,Wiki_Chara_02_crop
+Char_Danwol_02,리 창유,李昌裕,D_02_00,리창유_기본,02_01
+Char_Danwol_02,리 창유,李昌裕,D_02_03,리창유_불쾌,02_02
+Char_Danwol_02,리 창유,李昌裕,D_02_01,리창유_만족,02_03
+Char_Danwol_02,리 창유,李昌裕,D_02_02,리창유_놀람,02_04
+Char_Danwol_03,위 건우,魏建宇,,Default,Wiki_Chara_03_crop
+Char_Danwol_03,위 건우,魏建宇,D_03_00,위건우_기본,
+Char_HongNyeonGwi_01,장 패,張霸,,Default,Wiki_Chara_06_crop
+Char_HongNyeonGwi_02,아련,雅蓮,,Default,Wiki_Chara_04_crop
+Char_HongNyeonGwi_03,마 지웅,馬志雄,,Default,Wiki_Chara_05_crop
+Char_YeSeo_01,황 성윤,黃成允,,Default,Wiki_Chara_08_crop
+Char_YeSeo_02,주 청화,周清和,,Default,Wiki_Chara_09_crop
+Char_YeSeo_03,진 상릉,陳霜凌,,Default,Wiki_Chara_07_crop

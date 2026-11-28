@@ -454,15 +454,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   freezeChance: 0.2
   snowInputMode: 1
-  inputDelayTime: 0.8
-  windDuration: 5
-  windInterval: 0.3
-  windWaitIntervalRange: {x: 2, y: 5}
-  dustSpawnIntervalRange: {x: 2, y: 5}
-  lightningIntervalRange: {x: 2, y: 5}
+  inputDelayTime: 0.4
+  windDuration: 2
+  windInterval: 0.4
+  windWaitIntervalRange: {x: 12, y: 20}
+  dustSpawnIntervalRange: {x: 12, y: 20}
+  lightningIntervalRange: {x: 12, y: 20}
   lightningStopTime: 1
   rainDropSpeedMultiplier: 2
-  BreakBlockChance: 0.1
+  BreakBlockChance: 0.2
 --- !u!114 &78634944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -642,7 +642,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundData: {fileID: 11400000, guid: 32f0e68c52613c142846b983b9823745, type: 2}
-  sfxMixerGroup: {fileID: 24300002, guid: 027c873ff74c72841988a3fed3436e34, type: 2}
+  sfxMixerGroup: {fileID: -4253095368035106385, guid: 027c873ff74c72841988a3fed3436e34, type: 2}
   masterVolume: 1
 --- !u!114 &85554584 stripped
 MonoBehaviour:
@@ -666,6 +666,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &153325461 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3213428049087824700, guid: 7686fef5e0e3edd42a247ad6d8d8493b, type: 3}
+  m_PrefabInstance: {fileID: 451067887}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &166372206
 GameObject:
   m_ObjectHideFlags: 0
@@ -1601,6 +1606,138 @@ MonoBehaviour:
       weight: 7
     - shape: 9
       weight: 7
+  - stage: 7
+    availableShapes:
+    - shape: 0
+      weight: 12
+    - shape: 1
+      weight: 12
+    - shape: 2
+      weight: 6
+    - shape: 3
+      weight: 6
+    - shape: 4
+      weight: 6
+    - shape: 5
+      weight: 6
+    - shape: 6
+      weight: 0
+    - shape: 7
+      weight: 0
+    - shape: 8
+      weight: 6
+    - shape: 9
+      weight: 6
+  - stage: 8
+    availableShapes:
+    - shape: 0
+      weight: 12
+    - shape: 1
+      weight: 12
+    - shape: 2
+      weight: 6
+    - shape: 3
+      weight: 6
+    - shape: 4
+      weight: 6
+    - shape: 5
+      weight: 6
+    - shape: 6
+      weight: 0
+    - shape: 7
+      weight: 0
+    - shape: 8
+      weight: 5
+    - shape: 9
+      weight: 5
+  - stage: 9
+    availableShapes:
+    - shape: 0
+      weight: 12
+    - shape: 1
+      weight: 12
+    - shape: 2
+      weight: 6
+    - shape: 3
+      weight: 6
+    - shape: 4
+      weight: 6
+    - shape: 5
+      weight: 6
+    - shape: 6
+      weight: 0
+    - shape: 7
+      weight: 0
+    - shape: 8
+      weight: 4
+    - shape: 9
+      weight: 4
+  - stage: 10
+    availableShapes:
+    - shape: 0
+      weight: 12
+    - shape: 1
+      weight: 12
+    - shape: 2
+      weight: 6
+    - shape: 3
+      weight: 6
+    - shape: 4
+      weight: 6
+    - shape: 5
+      weight: 6
+    - shape: 6
+      weight: 0
+    - shape: 7
+      weight: 0
+    - shape: 8
+      weight: 3
+    - shape: 9
+      weight: 3
+  - stage: 11
+    availableShapes:
+    - shape: 0
+      weight: 12
+    - shape: 1
+      weight: 12
+    - shape: 2
+      weight: 6
+    - shape: 3
+      weight: 6
+    - shape: 4
+      weight: 6
+    - shape: 5
+      weight: 6
+    - shape: 6
+      weight: 0
+    - shape: 7
+      weight: 0
+    - shape: 8
+      weight: 2
+    - shape: 9
+      weight: 2
+  - stage: 12
+    availableShapes:
+    - shape: 0
+      weight: 12
+    - shape: 1
+      weight: 12
+    - shape: 2
+      weight: 6
+    - shape: 3
+      weight: 6
+    - shape: 4
+      weight: 6
+    - shape: 5
+      weight: 6
+    - shape: 6
+      weight: 0
+    - shape: 7
+      weight: 0
+    - shape: 8
+      weight: 1
+    - shape: 9
+      weight: 1
   settingPresets:
   - presetID: 1
     towerSize: {x: 4, y: 8, z: 4}
@@ -1632,6 +1769,18 @@ MonoBehaviour:
   - stage: 5
     presetID: 1
   - stage: 6
+    presetID: 1
+  - stage: 7
+    presetID: 1
+  - stage: 8
+    presetID: 1
+  - stage: 9
+    presetID: 1
+  - stage: 10
+    presetID: 1
+  - stage: 11
+    presetID: 1
+  - stage: 12
     presetID: 1
   tetrisTowerSize: {x: 4, y: 8, z: 4}
   fallInterval: 1.5
@@ -3714,17 +3863,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1154363489 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 163060321531823582, guid: 7686fef5e0e3edd42a247ad6d8d8493b, type: 3}
-  m_PrefabInstance: {fileID: 451067887}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &1207108815 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 992315145831210219, guid: 7686fef5e0e3edd42a247ad6d8d8493b, type: 3}
@@ -4747,8 +4885,8 @@ MonoBehaviour:
   nameText: {fileID: 113441656}
   dialogText: {fileID: 859535751}
   dialogPanel: {fileID: 1450923542}
-  acceptButton: {fileID: 1823288368}
-  declineButton: {fileID: 1154363489}
+  acceptClickArea: {fileID: 153325461}
+  declineClickArea: {fileID: 2142773065}
   typingSpeed: 0.05
   allQuestData:
   - {fileID: 11400000, guid: e2669a4a924dd3d4f9c32d85e331bbd2, type: 2}
@@ -4770,6 +4908,27 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 01e3117329f810f428e5f18f7a8dd8c8, type: 2}
   - {fileID: 11400000, guid: 29648426ff7d07d409e65c02690ecf2b, type: 2}
   - {fileID: 11400000, guid: 4c414da70f63e47468a80967d8c067a9, type: 2}
+  - {fileID: 11400000, guid: 60e15567643da0e48ae0130603f355b7, type: 2}
+  - {fileID: 11400000, guid: 9b80915226c0977409d953646cf638c1, type: 2}
+  - {fileID: 11400000, guid: 105e6642b648ec04391e7cd31140307b, type: 2}
+  - {fileID: 11400000, guid: bb9298cada35cd84db98aea283bdb653, type: 2}
+  - {fileID: 11400000, guid: 82529ba7bf4fc08448b80c96ffb74747, type: 2}
+  - {fileID: 11400000, guid: b0a2c0907db387241afce5fff9b127e8, type: 2}
+  - {fileID: 11400000, guid: 302e7e79dc3828d4aad53263ab7ff14e, type: 2}
+  - {fileID: 11400000, guid: 3016370d0b96d3844ac108fe63347813, type: 2}
+  - {fileID: 11400000, guid: 7b6f6772e47ae764da5ce7101ba1c667, type: 2}
+  - {fileID: 11400000, guid: 3094c5070830ac845bd5b544bf67f850, type: 2}
+  - {fileID: 11400000, guid: 087b81855ca66fb4ab059ea41341798b, type: 2}
+  - {fileID: 11400000, guid: eebfedce502615b42a71396a23bffe41, type: 2}
+  - {fileID: 11400000, guid: 6b3a9f2c77237614a9053a6a29ae4acf, type: 2}
+  - {fileID: 11400000, guid: 5ab81847e5483294e849a8cf40f87c7d, type: 2}
+  - {fileID: 11400000, guid: b6dd4a92c579251488e096838525fa48, type: 2}
+  - {fileID: 11400000, guid: a83311ce3098d1247b401399c1d2e5f8, type: 2}
+  - {fileID: 11400000, guid: 0f2e73e4a9ceddf43a6deb51c42f70d4, type: 2}
+  - {fileID: 11400000, guid: 2dcafb16749f9be4298546add28d1a3d, type: 2}
+  - {fileID: 11400000, guid: cad99567977bd2a4aa16cee4b1cc4223, type: 2}
+  - {fileID: 11400000, guid: d3b1a2d3a6103984d8c4e82e546e2b72, type: 2}
+  - {fileID: 11400000, guid: 859ab6de83c9e4642b101b827b6ad518, type: 2}
   dialogClickArea: {fileID: 1450923542}
   targetCanvases:
   - {fileID: 1965335704}
@@ -5348,17 +5507,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1051127755}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1823288368 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2421918599914848375, guid: 7686fef5e0e3edd42a247ad6d8d8493b, type: 3}
-  m_PrefabInstance: {fileID: 451067887}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1828610198
 GameObject:
   m_ObjectHideFlags: 0
@@ -6445,6 +6593,11 @@ Transform:
   - {fileID: 650603550}
   m_Father: {fileID: 547833543}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2142773065 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2487154299051380122, guid: 7686fef5e0e3edd42a247ad6d8d8493b, type: 3}
+  m_PrefabInstance: {fileID: 451067887}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

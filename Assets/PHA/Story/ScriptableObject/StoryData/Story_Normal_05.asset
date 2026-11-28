@@ -64,7 +64,7 @@ MonoBehaviour:
   - nodeId: Intro_03
     nodeType: 2
     text: "(\uAD00\uB828\uB41C \uBCF4\uACE0\uC11C\uC640 \uCC98\uB9AC\uD558\uC9C0
-      \uBABB\uD55C \uC11C\uB958\uB4E4\uC774 User\uC758 \uCC45\uC0C1 \uC704\uC5D0
+      \uBABB\uD55C \uC11C\uB958\uB4E4\uC774 {PlayerName}\uC758 \uCC45\uC0C1 \uC704\uC5D0
       \uC313\uC5EC \uC788\uC5C8\uB2E4.)"
     backgroundId: 
     backgroundTransition: 0
@@ -1549,7 +1549,8 @@ MonoBehaviour:
     effects: []
   - nodeId: C2_Narration_01
     nodeType: 2
-    text: "(\uB9AC \uC2DC\uD654\uAC00 User\uB97C \uAC00\uB9CC\uD788 \uBC14\uB77C\uBD24\uB2E4.)"
+    text: "(\uB9AC \uC2DC\uD654\uAC00 {PlayerName}\uC744/\uB97C \uAC00\uB9CC\uD788
+      \uBC14\uB77C\uBD24\uB2E4.)"
     backgroundId: 
     backgroundTransition: 0
     backgroundTransitionDuration: 0.3
