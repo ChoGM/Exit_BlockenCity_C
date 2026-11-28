@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 //스페셜퀘스트로 활용중
 public class DialogUI : MonoBehaviour
@@ -61,12 +63,37 @@ public class DialogUI : MonoBehaviour
 
     private List<Camera> originalRenderCameras = new List<Camera>();
 
+
+    [Header("Depth Of Field Settings")]
+    public Volume blurVolume;
+
+    private DepthOfField depthOfField;
+
+
     private void Awake()
     {
         Instance = this;
 
         acceptButtonImage = acceptClickArea.GetComponent<Image>();
         declineButtonImage = declineClickArea.GetComponent<Image>();
+
+        // Volume의 Depth Of Field 가져오기
+        if (blurVolume != null && blurVolume.profile != null)
+        {
+            if (blurVolume.profile.TryGet<DepthOfField>(out depthOfField))
+            {
+                // 게임 시작 시 비활성화
+                depthOfField.active = false;
+            }
+            else
+            {
+                Debug.LogWarning("[DialogUI] Volume에 Depth Of Field가 없습니다.");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("[DialogUI] Blur Volume이 설정되지 않았습니다.");
+        }
     }
 
     void Start()
@@ -444,6 +471,19 @@ public class DialogUI : MonoBehaviour
 
     private void StartDialogBlur()
     {
+        // Depth Of Field 활성화
+        if (depthOfField != null)
+        {
+            depthOfField.active = true;
+        }
+
+        // 블러 중에만 사용할 오브젝트 활성화
+        foreach (GameObject obj in blurActiveObjects)
+        {
+            if (obj != null)
+                obj.SetActive(true);
+        }
+
         // 블러 중에만 사용할 오브젝트 활성화
         foreach (GameObject obj in blurActiveObjects)
         {
@@ -482,6 +522,12 @@ public class DialogUI : MonoBehaviour
 
     private void EndDialogBlur()
     {
+        // Depth Of Field 비활성화
+        if (depthOfField != null)
+        {
+            depthOfField.active = false;
+        }
+
         // 기존 Canvas 카메라 복구
         if (targetCanvases != null)
         {
