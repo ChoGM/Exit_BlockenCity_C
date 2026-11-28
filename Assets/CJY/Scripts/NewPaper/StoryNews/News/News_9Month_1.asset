@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: NEWS_09_01
   targetMonth: 9
-  title: "\uAE30\uC5B4\uC774 \uC0AC\uC774\uBE44 \uBC1C \uB4E4\uC774\uB294 \uBB34\uC9C0\uD568"
+  title: "\uB9D0 \uC544\uB07C\uB294 \uB2F9\uAD6D, \uC2DC\uBBFC\uB4E4\uC740 \uAC10\uD788
+    \uD5E4\uC544\uB9B4 \uC218 \uC5C6\uB2E4"
   content: "\uCD5C\uADFC \uB4E4\uC5B4 \uC815\uBD80\uC758 \uB300\uC678 \uBA54\uC2DC\uC9C0\uC640
     \uACF5\uAC1C \uC77C\uC815\uC774 \uB208\uC5D0 \uB744\uAC8C \uC904\uC5B4\uB4E4\uACE0
     \uC788\uB2E4. \uC8FC\uC694 \uD604\uC548\uC5D0 \uB300\uD55C \uC9C8\uC758\uC5D0\uB3C4
@@ -36,4 +37,4 @@ MonoBehaviour:
     \uBC1C\uD45C\uAC00 \uC904\uC5B4\uB4E0 \uAC00\uC6B4\uB370, \uB2F9\uBD84\uAC04
     \uC774 \uAC19\uC740 \uC2E0\uC911 \uAE30\uC870\uAC00 \uC774\uC5B4\uC9C8 \uAC83\uC73C\uB85C
     \uBCF4\uC778\uB2E4.\r"
-  icon: {fileID: 260355830, guid: cd2d5cb1b2e04764881783f8fc40d2ca, type: 3}
+  icon: {fileID: 21300000, guid: f811d8361be37f74c984efe63296bf2a, type: 3}
