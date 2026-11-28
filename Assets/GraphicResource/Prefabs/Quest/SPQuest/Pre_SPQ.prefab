@@ -1400,7 +1400,6 @@ GameObject:
   - component: {fileID: 4250451303079167189}
   - component: {fileID: 3391146747224411714}
   - component: {fileID: 4484630444805351263}
-  - component: {fileID: 5978382192738227375}
   m_Layer: 5
   m_Name: Pre_SPQ
   m_TagString: Untagged
@@ -1514,15 +1513,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5978382192738227375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8912175782615108751}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e33475833a21ca4289d55b6a47c9af2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
