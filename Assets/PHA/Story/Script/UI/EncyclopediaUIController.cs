@@ -68,6 +68,10 @@ public class EncyclopediaUIController : MonoBehaviour
     private int currentCharacterIndex = 0;
     private bool isInitialized = false;
 
+    [Header("세력 우호도 UI")]
+    [SerializeField] private TMP_Text factionRelationshipText;
+    [SerializeField] private RelationshipType[] factionRelationshipTypes;
+
     private void Awake()
     {
         InitCategoryButtons();
@@ -343,6 +347,16 @@ public class EncyclopediaUIController : MonoBehaviour
         if (pageLeftImage != null && currentFactionIndex < factionPageLeftSprites.Length)
         {
             pageLeftImage.sprite = factionPageLeftSprites[currentFactionIndex];
+        }
+
+        // 세력 우호 관계 표시 (추가)
+        if (factionRelationshipText != null &&
+            currentFactionIndex >= 0 &&
+            currentFactionIndex < factionRelationshipTypes.Length)
+        {
+            factionRelationshipText.text =
+                GameDataManager.Instance.GetRelationshipState(
+                    factionRelationshipTypes[currentFactionIndex]);
         }
     }
 
