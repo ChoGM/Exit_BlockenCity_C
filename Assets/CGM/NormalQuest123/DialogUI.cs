@@ -25,8 +25,9 @@ public class DialogUI : MonoBehaviour
     public TMP_Text dialogText;
     public GameObject dialogPanel;
 
-    public Button acceptButton;
-    public Button declineButton;
+    [Header("Choice Click Areas")]
+    public GameObject acceptClickArea;
+    public GameObject declineClickArea;
 
     private Image acceptButtonImage;
     private Image declineButtonImage;
@@ -64,15 +65,12 @@ public class DialogUI : MonoBehaviour
     {
         Instance = this;
 
-        acceptButtonImage = acceptButton.GetComponent<Image>();
-        declineButtonImage = declineButton.GetComponent<Image>();
+        acceptButtonImage = acceptClickArea.GetComponent<Image>();
+        declineButtonImage = declineClickArea.GetComponent<Image>();
     }
 
     void Start()
     {
-        acceptButton.onClick.AddListener(OnAcceptClicked);
-        declineButton.onClick.AddListener(OnDeclineClicked);
-
         HideAllButtons();
         dialogPanel.SetActive(false);
 
@@ -305,14 +303,14 @@ public class DialogUI : MonoBehaviour
 
     private void ShowChoiceButtons()
     {
-        acceptButton.gameObject.SetActive(true);
-        declineButton.gameObject.SetActive(true);
+        acceptClickArea.SetActive(true);
+        declineClickArea.SetActive(true);
     }
 
     private void HideAllButtons()
     {
-        acceptButton.gameObject.SetActive(false);
-        declineButton.gameObject.SetActive(false);
+        acceptClickArea.SetActive(false);
+        declineClickArea.SetActive(false);
     }
 
     public void OnAcceptClicked()
@@ -373,40 +371,59 @@ public class DialogUI : MonoBehaviour
         if (!Input.GetMouseButtonDown(0))
             return;
 
+        if (EventSystem.current == null)
+            return;
+
         PointerEventData pointerData =
             new PointerEventData(EventSystem.current);
 
         pointerData.position = Input.mousePosition;
 
         List<RaycastResult> results = new List<RaycastResult>();
+
         EventSystem.current.RaycastAll(pointerData, results);
 
         foreach (RaycastResult result in results)
         {
             GameObject clickedObject = result.gameObject;
 
-            // 수락 버튼을 클릭한 경우
-            if (clickedObject == acceptButton.gameObject ||
-                clickedObject.transform.IsChildOf(acceptButton.transform))
+            // 수락 영역 클릭
+            if (IsClickedArea(clickedObject, acceptClickArea))
             {
+                if (isWaitingForChoice && !isTyping)
+                {
+                    OnAcceptClicked();
+                }
+
                 return;
             }
 
-            // 거절 버튼을 클릭한 경우
-            if (clickedObject == declineButton.gameObject ||
-                clickedObject.transform.IsChildOf(declineButton.transform))
+            // 거절 영역 클릭
+            if (IsClickedArea(clickedObject, declineClickArea))
             {
+                if (isWaitingForChoice && !isTyping)
+                {
+                    OnDeclineClicked();
+                }
+
                 return;
             }
 
-            // 지정한 대화 영역을 클릭한 경우
-            if (clickedObject == dialogClickArea ||
-                clickedObject.transform.IsChildOf(dialogClickArea.transform))
+            // 대화 영역 클릭
+            if (IsClickedArea(clickedObject, dialogClickArea))
             {
                 HandleMouseDialogClick();
                 return;
             }
         }
+    }
+    private bool IsClickedArea(GameObject clickedObject, GameObject targetArea)
+    {
+        if (clickedObject == null || targetArea == null)
+            return false;
+
+        return clickedObject == targetArea ||
+               clickedObject.transform.IsChildOf(targetArea.transform);
     }
 
     private void HandleMouseDialogClick()
