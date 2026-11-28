@@ -168,6 +168,30 @@ public class GameDataManager : MonoBehaviour
     // =====================================================
     // Relationship
     // =====================================================
+    public string GetRelationshipState(float value)
+    {
+        if (value < 0)
+            return "적대";
+
+        if (value <= 30)
+            return "무관심";
+
+        if (value <= 60)
+            return "중립";
+
+        if (value <= 80)
+            return "호의";
+
+        if (value <= 99)
+            return "친밀";
+
+        return "동맹";
+    }
+
+    public string GetRelationshipState(RelationshipType type)
+    {
+        return GetRelationshipState(GetRelationship(type));
+    }
 
     public float GetRelationship(
         RelationshipType type)
